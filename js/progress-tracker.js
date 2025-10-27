@@ -303,18 +303,16 @@ const ProgressTracker = {
             progressWidget = document.createElement('div');
             progressWidget.className = 'overall-progress-widget';
             
-            const header = document.querySelector('header');
-            if (header) {
-                header.appendChild(progressWidget);
-            }
+            // Append directly to body instead of header
+            document.body.appendChild(progressWidget);
         }
         
         progressWidget.innerHTML = `
-            <h4>Mission Progress</h4>
+            <h4>🚀 Mission Progress</h4>
             <div class="circular-progress">
-                <svg width="120" height="120">
-                    <circle cx="60" cy="60" r="50" class="progress-bg"></circle>
-                    <circle cx="60" cy="60" r="50" class="progress-bar" 
+                <svg width="130" height="130">
+                    <circle cx="65" cy="65" r="50" class="progress-bg"></circle>
+                    <circle cx="65" cy="65" r="50" class="progress-bar" 
                             style="stroke-dashoffset: ${314 - (314 * overall.percentage / 100)}"></circle>
                 </svg>
                 <div class="progress-percentage">${overall.percentage}%</div>

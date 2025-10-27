@@ -1064,56 +1064,111 @@ em {
 /* Overall Progress Widget */
 .overall-progress-widget {
     position: fixed;
-    bottom: 20px;
+    top: 20px;
     right: 20px;
-    background: rgba(26, 31, 58, 0.95);
+    background: linear-gradient(135deg, rgba(26, 31, 58, 0.98) 0%, rgba(42, 47, 74, 0.95) 100%);
     padding: 1.5rem;
     border-radius: 20px;
-    border: 2px solid var(--secondary-blue);
-    z-index: 1000;
-    backdrop-filter: blur(10px);
+    border: 2px solid var(--primary-gold);
+    z-index: 10000;
+    backdrop-filter: blur(20px);
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(79, 195, 247, 0.2);
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(255, 215, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     text-align: center;
-    min-width: 200px;
+    min-width: 220px;
+    animation: floatWidget 6s ease-in-out infinite, fadeInWidget 0.8s ease-out;
+    transition: all 0.3s ease;
+}
+
+.overall-progress-widget:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.7),
+        0 0 80px rgba(255, 215, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-cyan);
+}
+
+@keyframes floatWidget {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fadeInWidget {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .overall-progress-widget h4 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    color: var(--secondary-blue);
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--primary-gold);
+    margin-bottom: 1.2rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 15px var(--glow-gold);
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        text-shadow: 0 0 15px var(--glow-gold);
+    }
+    50% {
+        text-shadow: 0 0 25px var(--glow-gold), 0 0 35px rgba(255, 215, 0, 0.4);
+    }
 }
 
 .circular-progress {
     position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1rem;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 1.2rem;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
 }
 
 .circular-progress svg {
     transform: rotate(-90deg);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.2));
 }
 
 .circular-progress .progress-bg {
     fill: none;
-    stroke: rgba(255, 255, 255, 0.1);
-    stroke-width: 8;
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 10;
 }
 
 .circular-progress .progress-bar {
     fill: none;
     stroke: var(--primary-gold);
-    stroke-width: 8;
+    stroke-width: 10;
     stroke-linecap: round;
     stroke-dasharray: 314;
     stroke-dashoffset: 314;
-    transition: stroke-dashoffset 0.5s ease;
-    filter: drop-shadow(0 0 10px var(--glow-gold));
+    transition: stroke-dashoffset 1s ease;
+    filter: drop-shadow(0 0 15px var(--glow-gold));
+    animation: progressGlow 3s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px var(--glow-gold));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px var(--glow-gold)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+    }
 }
 
 .progress-percentage {
@@ -1121,16 +1176,28 @@ em {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     font-family: 'Orbitron', sans-serif;
     color: var(--primary-gold);
-    text-shadow: 0 0 15px var(--glow-gold);
+    text-shadow: 0 0 20px var(--glow-gold), 0 0 30px rgba(255, 215, 0, 0.4);
+    animation: percentagePulse 2s ease-in-out infinite;
+}
+
+@keyframes percentagePulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
 }
 
 .progress-detail {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-light);
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 /* Section Progress Bars */
@@ -1273,17 +1340,6 @@ em {
     }
     
     .overall-progress-widget {
-        bottom: 10px;
-        right: 10px;
-        padding: 1rem;
-    }
-    
-    .circular-progress {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .progress-percentage {
-        font-size: 1.5rem;
+        display: none;
     }
 }
