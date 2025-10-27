@@ -458,14 +458,45 @@ pre code {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+.toc-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
 .toc-section-title {
     color: var(--primary-gold);
     font-size: 1.6rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     font-family: 'Orbitron', monospace;
     text-shadow: 0 0 15px var(--glow-gold);
     border-left: 4px solid var(--primary-gold);
     padding-left: 1rem;
+}
+
+.phase-duration {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(0, 229, 255, 0.1) 100%);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    color: var(--primary-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    animation: pulseDuration 3s infinite;
+}
+
+@keyframes pulseDuration {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    }
 }
 
 .toc-section-desc {
@@ -534,6 +565,22 @@ pre code {
     font-style: italic;
     margin-top: 0.3rem;
     font-weight: 300;
+}
+
+.chapter-time {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(79, 195, 247, 0.1) 100%);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    color: var(--accent-cyan);
+    padding: 0.3rem 0.7rem;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    letter-spacing: 0.5px;
+    float: right;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
 }
 
 .toc-section a:hover {
@@ -715,5 +762,80 @@ em {
 
     .container {
         padding: 1.5rem 1rem;
+    }
+}
+
+/* Mission Stats Cards */
+.mission-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(79, 195, 247, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+    border: 2px solid rgba(79, 195, 247, 0.3);
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(79, 195, 247, 0.1) 0%, transparent 70%);
+    animation: statRotate 8s linear infinite;
+}
+
+@keyframes statRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-gold);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3), 0 0 60px rgba(79, 195, 247, 0.2);
+}
+
+.stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--primary-gold);
+    text-shadow: 0 0 20px var(--glow-gold);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .mission-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
     }
 }
