@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Command Interface - Mission Control</title><link rel="stylesheet" href="../css/styles.css"></head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header><h1>⌨️ Command Interface</h1><p class="subtitle">GitHub CLI</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 26</strong> • Estimated Time: 15 minutes • Difficulty: Intermediate</p></div>
+        <article>
+            <h2>GitHub from Your Terminal</h2>
+            <p>GitHub CLI (<code>gh</code>) brings GitHub functionality to your terminal—create PRs, manage issues, and more without leaving the command line.</p>
+            <h2>Installation</h2>
+            <p><strong>macOS:</strong></p>
+            <div class="command-example"><pre><code>brew install gh</code></pre></div>
+            <p><strong>Windows:</strong></p>
+            <div class="command-example"><pre><code>winget install GitHub.cli</code></pre></div>
+            <p><strong>Linux:</strong> See <a href="https://github.com/cli/cli#installation">github.com/cli/cli#installation</a></p>
+            <h2>Authentication</h2>
+            <div class="command-example"><pre><code>gh auth login</code></pre></div>
+            <p>Follow prompts to authenticate with GitHub.</p>
+            <h2>Common Commands</h2>
+            <h3>Create Repository</h3>
+            <div class="command-example"><pre><code>gh repo create my-project --public</code></pre></div>
+            <h3>Clone Repository</h3>
+            <div class="command-example"><pre><code>gh repo clone username/repository</code></pre></div>
+            <h3>Create Pull Request</h3>
+            <div class="command-example"><pre><code>gh pr create --title "Add feature" --body "Description"</code></pre></div>
+            <h3>List Pull Requests</h3>
+            <div class="command-example"><pre><code>gh pr list</code></pre></div>
+            <h3>View PR</h3>
+            <div class="command-example"><pre><code>gh pr view 123</code></pre></div>
+            <h3>Create Issue</h3>
+            <div class="command-example"><pre><code>gh issue create --title "Bug report"</code></pre></div>
+            <h3>List Issues</h3>
+            <div class="command-example"><pre><code>gh issue list</code></pre></div>
+            <h2>Workflows</h2>
+            <p>View and manage GitHub Actions:</p>
+            <div class="command-example"><pre><code>gh workflow list
+gh run list
+gh run view</code></pre></div>
+            <h2>Why Use GitHub CLI?</h2>
+            <ul>
+                <li>Faster than web interface</li>
+                <li>Scriptable workflows</li>
+                <li>Never leave terminal</li>
+                <li>Consistent across platforms</li>
+            </ul>
+            <h2>Next: Cargo Hold</h2>
+            <p>GitHub CLI supercharges your workflow. Next, learn <code>git stash</code> for temporarily saving work.</p>
+        </article>
+        <div class="navigation">
+            <a href="cockpit-integration.html" class="nav-link">← Previous: Cockpit Integration</a>
+            <a href="cargo-hold.html" class="nav-link">Next: Cargo Hold →</a>
+        </div>
+        <footer><p>Mission Control Training Program • Phase 26 of 34</p></footer>
+    </div>
+    <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
+</body>
+</html>

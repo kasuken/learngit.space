@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recording in the Mission Log - Mission Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1>📝 Recording in the Mission Log</h1>
+            <p class="subtitle">Git Commit</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 11</strong> • Estimated Time: 20 minutes • Difficulty: Beginner</p>
+        </div>
+        <article>
+            <h2>Creating a Permanent Record</h2>
+            <p>A commit is a snapshot of your project at a specific moment—like a photograph of all your spacecraft systems. Once created, commits are permanent records in your mission history.</p>
+            <h2>Making Your First Commit</h2>
+            <p>After staging files with <code>git add</code>, commit them:</p>
+            <div class="command-example">
+                <pre><code>git commit -m "Initial commit: Add README"</code></pre>
+            </div>
+            <p>The <code>-m</code> flag lets you include a message inline. Without it, Git opens your default editor.</p>
+            <h2>Commit Messages: Why They Matter</h2>
+            <p>Your commit message explains <em>why</em> you made changes. Future you (and teammates) will read these messages to understand project history.</p>
+            <h3>Good Commit Messages</h3>
+            <pre><code>Add user authentication system
+Fix navigation bug in mobile view
+Update dependencies to patch security vulnerability
+Refactor database connection logic for clarity</code></pre>
+            <h3>Bad Commit Messages</h3>
+            <pre><code>fixed stuff
+asdf
+updates
+changes
+WIP</code></pre>
+            <p>Be descriptive! Your future self will thank you.</p>
+            <h2>Commit Message Best Practices</h2>
+            <ul>
+                <li><strong>Use present tense:</strong> "Add feature" not "Added feature"</li>
+                <li><strong>Be specific:</strong> "Fix login timeout error" not "Fix bug"</li>
+                <li><strong>Keep first line under 50 characters:</strong> It's the commit title</li>
+                <li><strong>Add details if needed:</strong> After first line, add empty line then explanation</li>
+                <li><strong>Explain why, not just what:</strong> The diff shows what changed; explain why</li>
+            </ul>
+            <h2>Multi-line Commit Messages</h2>
+            <p>For complex changes, use detailed messages:</p>
+            <div class="command-example">
+                <pre><code>git commit</code></pre>
+            </div>
+            <p>This opens your editor. Write:  </p>
+            <pre><code>Add real-time telemetry monitoring
+
+Implements WebSocket connection to mission control for live data.
+Includes automatic reconnection on disconnect and buffering
+during connection loss. Resolves issue #47.</code></pre>
+            <p>First line is the summary. After blank line, add details.</p>
+            <h2>Commit Frequently</h2>
+            <p>Small, frequent commits are better than large, infrequent ones:</p>
+            <ul>
+                <li>Easier to understand changes</li>
+                <li>Easier to find when bugs were introduced</li>
+                <li>Easier to revert specific changes</li>
+                <li>Better collaboration with teammates</li>
+            </ul>
+            <p>Commit whenever you complete a logical unit of work.</p>
+            <h2>The Commit Workflow</h2>
+            <ol>
+                <li>Make changes to files</li>
+                <li>Review changes: <code>git status</code> and <code>git diff</code></li>
+                <li>Stage changes: <code>git add</code></li>
+                <li>Review staged changes: <code>git diff --staged</code></li>
+                <li>Commit: <code>git commit -m "message"</code></li>
+                <li>Verify: <code>git log</code></li>
+            </ol>
+            <h2>Shortcut: Stage and Commit</h2>
+            <p>To stage all modified (but not new) files and commit:</p>
+            <div class="command-example">
+                <pre><code>git commit -am "Update navigation algorithms"</code></pre>
+            </div>
+            <p>The <code>-a</code> flag auto-stages modified files. Careful: won't add new files!</p>
+            <h2>Amending the Last Commit</h2>
+            <p>Forgot something? Fix the most recent commit:</p>
+            <div class="command-example">
+                <pre><code>git add forgotten-file.txt
+git commit --amend</code></pre>
+            </div>
+            <p>This adds the file to the previous commit. You can also change the commit message.</p>
+            <p><strong>Warning:</strong> Only amend commits that haven't been pushed!</p>
+            <h2>What's in a Commit?</h2>
+            <p>Each commit contains:</p>
+            <ul>
+                <li><strong>Snapshot:</strong> Complete state of all tracked files</li>
+                <li><strong>Author info:</strong> Name and email from your config</li>
+                <li><strong>Timestamp:</strong> When the commit was created</li>
+                <li><strong>Commit message:</strong> Your description</li>
+                <li><strong>Parent commit(s):</strong> Link to previous commit(s)</li>
+                <li><strong>SHA-1 hash:</strong> Unique identifier for this commit</li>
+            </ul>
+            <h2>Commit Hash</h2>
+            <p>Every commit gets a unique hash like:</p>
+            <pre><code>a3f5e2b8c1d9f7e6a4b2c8d3e5f7a9b1c3d5e7f9</code></pre>
+            <p>This identifies the commit forever. You can reference commits by their hash (or the first 7 characters).</p>
+            <div class="mission-brief">
+                <h3>Practice: Your First Real Commit</h3>
+                <ol>
+                    <li>Edit your README.md file (add some content)</li>
+                    <li>Check status: <code>git status</code></li>
+                    <li>Stage it: <code>git add README.md</code></li>
+                    <li>Commit: <code>git commit -m "Add mission objectives to README"</code></li>
+                    <li>View your commit: <code>git log</code></li>
+                </ol>
+                <p>Congratulations! You've made your first commit!</p>
+            </div>
+            <h2>Atomic Commits</h2>
+            <p>Make commits "atomic"—each commit should represent one logical change:</p>
+            <ul>
+                <li><strong>Good:</strong> One commit fixes navigation bug, another updates documentation</li>
+                <li><strong>Bad:</strong> One commit with bug fix, documentation, refactoring, and new feature</li>
+            </ul>
+            <h2>When to Commit</h2>
+            <p>Commit when you:</p>
+            <ul>
+                <li>Complete a feature (even if small)</li>
+                <li>Fix a bug</li>
+                <li>Refactor code</li>
+                <li>Update documentation</li>
+                <li>Reach a stable state</li>
+            </ul>
+            <p>Some developers commit hourly. Others commit after each small task. Find your rhythm.</p>
+            <h2>Commits are Permanent</h2>
+            <p>Commits are (nearly) permanent. Even if you "delete" them, they often remain in Git's database. This is good—it means you can't accidentally lose work.</p>
+            <h2>Next: Examining Changes</h2>
+            <p>You can now create snapshots of your work. Next, we'll learn to examine differences between commits, helping you understand exactly what changed and when.</p>
+        </article>
+        <div class="navigation">
+            <a href="staging-bay.html" class="nav-link">← Previous: The Staging Bay</a>
+            <a href="scanning-changes.html" class="nav-link">Next: Scanning Changes →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 11 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

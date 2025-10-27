@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Recorder Basics - Mission Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        
+        <header>
+            <h1>📼 Flight Recorder Basics</h1>
+            <p class="subtitle">Understanding Version Control</p>
+        </header>
+
+        <div class="mission-brief">
+            <p><strong>Mission Phase 3</strong> • Estimated Time: 15 minutes • Difficulty: Beginner</p>
+        </div>
+
+        <article>
+            <h2>The Mission Log Concept</h2>
+            
+            <p>Every spacecraft has a flight recorder—a black box that meticulously logs every system status, every decision, every event. If something goes wrong, investigators can replay the entire mission to understand what happened. Version control is your code's flight recorder.</p>
+
+            <h2>What Is Version Control?</h2>
+            
+            <p>Version control is a system that records changes to files over time. It allows you to:</p>
+            
+            <ul>
+                <li>Recall specific versions of files from the past</li>
+                <li>See who modified something and when</li>
+                <li>Compare changes between different time points</li>
+                <li>Revert entire projects or individual files to previous states</li>
+                <li>Work on different features simultaneously</li>
+            </ul>
+
+            <h2>Life Without Version Control</h2>
+            
+            <p>Imagine building a spacecraft without any way to track changes. You might:</p>
+            
+            <ul>
+                <li>Save files like <code>navigation_v1.py</code>, <code>navigation_v2.py</code>, <code>navigation_final.py</code>, <code>navigation_final_ACTUAL.py</code></li>
+                <li>Have no idea what changed between versions</li>
+                <li>Accidentally overwrite someone else's work</li>
+                <li>Lose track of which version is stable</li>
+                <li>Be unable to work on multiple features without creating chaos</li>
+            </ul>
+            
+            <p>This approach might work for solo missions with simple systems, but it falls apart quickly as complexity grows.</p>
+
+            <h2>The Evolution of Version Control</h2>
+            
+            <h3>First Generation: Local Systems</h3>
+            
+            <p>Early version control systems kept all versions in a local database on your computer. Think of it as a personal mission log. Simple, but you couldn't collaborate with other astronauts.</p>
+
+            <h3>Second Generation: Centralized Systems</h3>
+            
+            <p>Systems like CVS and Subversion introduced a central server—like a main mission control database. All astronauts connected to this central hub to check out files and commit changes.</p>
+            
+            <p><strong>Advantages:</strong></p>
+            <ul>
+                <li>Everyone could collaborate</li>
+                <li>Administrators could control who accessed what</li>
+                <li>One central source of truth</li>
+            </ul>
+            
+            <p><strong>Disadvantages:</strong></p>
+            <ul>
+                <li>If mission control went down, nobody could work</li>
+                <li>Without network access, you couldn't commit changes</li>
+                <li>If the central server's hard drive failed without backups, you lost everything</li>
+            </ul>
+
+            <h3>Third Generation: Distributed Systems</h3>
+            
+            <p>Git and similar systems are distributed. Every astronaut has a complete copy of the entire mission history—not just the current state, but every commit, every branch, every version ever created.</p>
+            
+            <p>Think of it this way: Instead of only mission control having the master logs, every spacecraft has a complete, identical copy. If Earth's mission control is destroyed, any spacecraft can become the new central hub.</p>
+
+            <h2>Key Version Control Concepts</h2>
+
+            <h3>Repositories</h3>
+            
+            <p>A <strong>repository</strong> (or "repo") is your mission database—the directory where Git stores all versions of your project. It contains:</p>
+            <ul>
+                <li>All your files</li>
+                <li>Complete history of all changes</li>
+                <li>Information about branches</li>
+                <li>Metadata about commits</li>
+            </ul>
+
+            <h3>Commits</h3>
+            
+            <p>A <strong>commit</strong> is a snapshot of your project at a specific point in time. It's like a photograph of your spacecraft's systems at a particular moment. Each commit includes:</p>
+            <ul>
+                <li>A unique identifier (like a mission timestamp)</li>
+                <li>The author's name and email</li>
+                <li>A timestamp</li>
+                <li>A message describing what changed</li>
+                <li>A reference to the parent commit(s)</li>
+            </ul>
+
+            <h3>Branches</h3>
+            
+            <p>A <strong>branch</strong> is a parallel timeline. Imagine you want to test a radical new propulsion system without affecting your main spacecraft. You create a branch—an alternate reality where you can experiment freely. If it works, you merge it back. If not, you abandon that timeline.</p>
+
+            <h3>Merging</h3>
+            
+            <p><strong>Merging</strong> is combining changes from different branches. When two crews work on different systems simultaneously, merging brings their work together into a single unified timeline.</p>
+
+            <h2>Why Version Control Matters for Teams</h2>
+            
+            <p>Consider a mission with five astronauts working on different spacecraft systems:</p>
+            
+            <ul>
+                <li>Alice is upgrading the navigation system</li>
+                <li>Bob is fixing the communication array</li>
+                <li>Carol is optimizing the life support</li>
+                <li>David is improving the propulsion</li>
+                <li>Eve is updating the sensor array</li>
+            </ul>
+            
+            <p>Without version control, they'd constantly overwrite each other's work. With Git, each works on their own branch, and changes are merged systematically.</p>
+
+            <h2>The Accountability Factor</h2>
+            
+            <p>Version control creates accountability. Every change is attributed to a specific person at a specific time with a specific reason (the commit message). If a bug appears, you can:</p>
+            
+            <ul>
+                <li>See exactly when it was introduced</li>
+                <li>See who introduced it</li>
+                <li>See what the change was meant to accomplish</li>
+                <li>Contact the author for clarification</li>
+            </ul>
+            
+            <p>This isn't about blame—it's about understanding. Like reviewing mission logs after an incident, it helps teams learn and improve.</p>
+
+            <h2>Time Travel Capabilities</h2>
+            
+            <p>One of version control's superpowers is time travel. You can:</p>
+            
+            <ul>
+                <li>Jump back to any previous version</li>
+                <li>Compare code from different time periods</li>
+                <li>Create new branches from old commits</li>
+                <li>Cherry-pick specific changes from one timeline to another</li>
+            </ul>
+
+            <div class="mission-brief">
+                <h3>Real-World Scenario</h3>
+                <p>Imagine you deployed a new version of your software last week. Today, users report a critical bug. With version control, you can:</p>
+                <ol>
+                    <li>Identify exactly what changed between the working version and the broken one</li>
+                    <li>Revert to the previous stable version immediately</li>
+                    <li>Fix the bug in a separate branch while users work with the stable version</li>
+                    <li>Deploy the fix once it's tested</li>
+                </ol>
+                <p>Without version control, you'd be scrambling to remember what changed, potentially making things worse.</p>
+            </div>
+
+            <h2>Backup and Disaster Recovery</h2>
+            
+            <p>Because Git is distributed, every clone is a full backup. If your computer explodes (hopefully not while you're using it), you can clone the repository from GitHub or from any teammate's computer. Nothing is lost.</p>
+
+            <h2>The Collaboration Multiplier</h2>
+            
+            <p>Modern software development is collaborative. Open-source projects have thousands of contributors. Version control makes this possible by:</p>
+            
+            <ul>
+                <li>Allowing multiple people to work simultaneously</li>
+                <li>Providing mechanisms to review changes before accepting them</li>
+                <li>Maintaining a clear history of who did what</li>
+                <li>Enabling code review and discussion</li>
+            </ul>
+
+            <h2>Preparing for Your First Commands</h2>
+            
+            <p>Now that you understand <em>why</em> version control exists and what problems it solves, you're ready to start using it. In the next phases, we'll install Git, configure it, and start making commits.</p>
+            
+            <div class="mission-brief">
+                <p><strong>Key Takeaway:</strong> Version control is essential for modern development. It provides time travel, collaboration, accountability, and disaster recovery. Git is the distributed version control system that has become the industry standard, and you're about to master it.</p>
+            </div>
+        </article>
+
+        <div class="navigation">
+            <a href="the-navigation-system.html" class="nav-link">← Previous: The Navigation System</a>
+            <a href="system-installation.html" class="nav-link">Next: System Installation →</a>
+        </div>
+
+        <footer>
+            <p>Mission Control Training Program • Phase 3 of 34</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

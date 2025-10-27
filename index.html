@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control: Your Journey Through Version Control Space</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <h1>🚀 Mission Control</h1>
+            <p class="subtitle">Your Journey Through Version Control Space</p>
+        </header>
+
+        <div class="mission-brief">
+            <h2>Welcome Aboard, Astronaut!</h2>
+            <p>Congratulations on being selected for this critical mission. You're about to embark on an extraordinary journey through the vast universe of version control. Just as astronauts need sophisticated systems to navigate space, track their position, and coordinate with mission control, developers need powerful tools to manage their code across time and team members.</p>
+            
+            <p>Your spacecraft? <strong>Git</strong>. Your mission control center? <strong>GitHub</strong>. Together, these tools will help you navigate the cosmos of collaborative software development.</p>
+            
+            <p>This training program will transform you from a rookie cadet into a seasoned space commander, capable of managing complex codebases, collaborating with international teams, and ensuring that every line of code is tracked, versioned, and recoverable—just like every critical system on a spacecraft.</p>
+        </div>
+
+        <section class="toc">
+            <h2>📡 Mission Phases</h2>
+            <p>Your training is divided into carefully structured mission phases. Each phase builds upon the previous one, taking you from basic orientation to advanced maneuvers.</p>
+            
+            <ol>
+                <li><a href="chapters/launch-preparation.html">Launch Preparation: Understanding Your Mission</a></li>
+                <li><a href="chapters/the-navigation-system.html">The Navigation System: What is Git?</a></li>
+                <li><a href="chapters/flight-recorder-basics.html">Flight Recorder Basics: Understanding Version Control</a></li>
+                <li><a href="chapters/system-installation.html">System Installation: Setting Up Git</a></li>
+                <li><a href="chapters/terminal-commands.html">Terminal Commands: Communicating with Your Ship</a></li>
+                <li><a href="chapters/configuring-systems.html">Configuring Your Ship's Systems</a></li>
+                <li><a href="chapters/mission-control-center.html">Mission Control Center: Introduction to GitHub</a></li>
+                <li><a href="chapters/initiating-launch.html">Initiating Your Launch Sequence</a></li>
+                <li><a href="chapters/systems-check.html">Systems Check: Git Status</a></li>
+                <li><a href="chapters/staging-bay.html">The Staging Bay: Git Add</a></li>
+                <li><a href="chapters/mission-log.html">Recording in the Mission Log: Git Commit</a></li>
+                <li><a href="chapters/scanning-changes.html">Scanning for Changes: Git Diff</a></li>
+                <li><a href="chapters/reviewing-logs.html">Reviewing Mission Logs: Git Log</a></li>
+                <li><a href="chapters/cargo-manifest.html">Cargo Manifest: The .gitignore File</a></li>
+                <li><a href="chapters/secure-communications.html">Secure Communications: SSH Keys</a></li>
+                <li><a href="chapters/transmission-uplink.html">Transmission Uplink: Git Push</a></li>
+                <li><a href="chapters/receiving-updates.html">Receiving Updates: Git Pull</a></li>
+                <li><a href="chapters/parallel-timelines.html">Parallel Timelines: Git Branching</a></li>
+                <li><a href="chapters/timeline-convergence.html">Timeline Convergence: Git Merge</a></li>
+                <li><a href="chapters/mission-corrections.html">Mission Corrections: Undoing in Git</a></li>
+                <li><a href="chapters/boarding-vessels.html">Boarding Other Vessels: Git Clone</a></li>
+                <li><a href="chapters/ship-replication.html">Ship Replication: Forking</a></li>
+                <li><a href="chapters/crew-coordination.html">Crew Coordination: Git Workflow</a></li>
+                <li><a href="chapters/docking-requests.html">Docking Requests: Pull Requests</a></li>
+                <li><a href="chapters/cockpit-integration.html">Cockpit Integration: Git and VS Code</a></li>
+                <li><a href="chapters/command-interface.html">Command Interface: GitHub CLI</a></li>
+                <li><a href="chapters/cargo-hold.html">Cargo Hold: Git Stash</a></li>
+                <li><a href="chapters/quick-commands.html">Quick Commands: Git Alias</a></li>
+                <li><a href="chapters/timeline-adjustment.html">Timeline Adjustment: Git Rebase</a></li>
+                <li><a href="chapters/vessel-switching.html">Vessel Switching: Git Switch</a></li>
+                <li><a href="chapters/communication-protocols.html">Communication Protocols: Markdown</a></li>
+                <li><a href="chapters/astronaut-profile.html">Your Astronaut Profile</a></li>
+                <li><a href="chapters/command-reference.html">Quick Command Reference</a></li>
+                <li><a href="chapters/mission-complete.html">Mission Complete: Your Journey Continues</a></li>
+            </ol>
+        </section>
+
+        <div class="mission-brief">
+            <h2>🌟 Why This Mission Matters</h2>
+            <p>In the vastness of space, every action must be recorded, every decision tracked, and every team member coordinated. The same is true for software development. Git and GitHub aren't just tools—they're your lifeline in the complex universe of modern development.</p>
+            
+            <p>By the end of this training:</p>
+            <ul>
+                <li>You'll be able to track every change in your code, just like flight recorders track every spacecraft system</li>
+                <li>You'll collaborate seamlessly with developers across the globe, like astronauts working with mission control</li>
+                <li>You'll never lose work, with the ability to travel through time in your codebase</li>
+                <li>You'll contribute to open-source projects, joining a global community of developers</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>🌌 <strong>Mission Control Training Program</strong> • Prepare for Launch • Version 1.0</p>
+            <p>Remember, Astronaut: In space, as in code, preparation and precision make all the difference.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create animated stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

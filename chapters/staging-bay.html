@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Staging Bay - Mission Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1>🎯 The Staging Bay</h1>
+            <p class="subtitle">Git Add</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 10</strong> • Estimated Time: 15 minutes • Difficulty: Beginner</p>
+        </div>
+        <article>
+            <h2>Preparing for Launch</h2>
+            <p>Before a spacecraft launches, cargo must be carefully loaded into the staging bay. In Git, the staging area (also called the "index") is where you prepare files for commit. You decide what launches together.</p>
+            <h2>The Git Add Command</h2>
+            <p>To stage a file:</p>
+            <div class="command-example">
+                <pre><code>git add filename.txt</code></pre>
+            </div>
+            <p>This tells Git: "Include this file's changes in my next commit."</p>
+            <h2>Why Have a Staging Area?</h2>
+            <p>The staging area is Git's secret weapon. It lets you:</p>
+            <ul>
+                <li>Commit only some changes, not all</li>
+                <li>Review what you're about to commit</li>
+                <li>Build logical, focused commits</li>
+                <li>Stage parts of files separately</li>
+            </ul>
+            <p>Imagine fixing three bugs in different files. You can stage and commit each fix separately, creating clear history instead of one messy "fixed stuff" commit.</p>
+            <h2>Common Add Patterns</h2>
+            <h3>Add Specific File</h3>
+            <div class="command-example">
+                <pre><code>git add README.md</code></pre>
+            </div>
+            <h3>Add Multiple Files</h3>
+            <div class="command-example">
+                <pre><code>git add file1.txt file2.txt file3.txt</code></pre>
+            </div>
+            <h3>Add All Changes</h3>
+            <div class="command-example">
+                <pre><code>git add .</code></pre>
+            </div>
+            <p>The <code>.</code> means "current directory and all subdirectories." Use cautiously—make sure you want to stage everything!</p>
+            <h3>Add All Files of a Type</h3>
+            <div class="command-example">
+                <pre><code>git add *.js        # All JavaScript files
+git add src/*.py   # All Python files in src/</code></pre>
+            </div>
+            <h2>Interactive Staging</h2>
+            <p>For fine-grained control:</p>
+            <div class="command-example">
+                <pre><code>git add -p</code></pre>
+            </div>
+            <p>This shows each change and asks if you want to stage it. Perfect for staging parts of files.</p>
+            <h2>Unstaging Files</h2>
+            <p>Made a mistake? Unstage with:</p>
+            <div class="command-example">
+                <pre><code>git reset HEAD filename.txt</code></pre>
+            </div>
+            <p>Or in newer Git versions:</p>
+            <div class="command-example">
+                <pre><code>git restore --staged filename.txt</code></pre>
+            </div>
+            <h2>Viewing Staged Changes</h2>
+            <p>See what's staged:</p>
+            <div class="command-example">
+                <pre><code>git diff --staged</code></pre>
+            </div>
+            <p>This shows exactly what will be in your next commit.</p>
+            <h2>The Three States Revisited</h2>
+            <p>Files flow through states:</p>
+            <ol>
+                <li><strong>Working Directory:</strong> You edit files here</li>
+                <li><strong>Staging Area:</strong> You prepare files for commit with <code>git add</code></li>
+                <li><strong>Repository:</strong> You save snapshots with <code>git commit</code></li>
+            </ol>
+            <p>This three-stage process gives you control over what gets committed and when.</p>
+            <h2>Best Practices</h2>
+            <ul>
+                <li><strong>Stage related changes together:</strong> If you fixed the navigation bug, stage only navigation files</li>
+                <li><strong>Review before staging:</strong> Use <code>git status</code> and <code>git diff</code> first</li>
+                <li><strong>Stage frequently:</strong> Prepare commits as you work, not all at once</li>
+                <li><strong>Be intentional:</strong> Don't blindly <code>git add .</code> without checking</li>
+            </ul>
+            <div class="mission-brief">
+                <h3>Practice Exercise</h3>
+                <ol>
+                    <li>Create three files: <code>touch nav.js fuel.js comm.js</code></li>
+                    <li>Check status: <code>git status</code></li>
+                    <li>Stage one file: <code>git add nav.js</code></li>
+                    <li>Check status again—see the difference?</li>
+                    <li>Stage the rest: <code>git add fuel.js comm.js</code></li>
+                    <li>Final status check: <code>git status</code></li>
+                </ol>
+            </div>
+            <h2>Common Mistakes</h2>
+            <h3>Forgetting to Add</h3>
+            <p>You change files but forget <code>git add</code>. Your commit will be empty or incomplete!</p>
+            <h3>Adding Too Much</h3>
+            <p>Using <code>git add .</code> without checking can stage unwanted files (logs, build files, secrets).</p>
+            <h3>Not Reviewing</h3>
+            <p>Always check what you're staging. Use <code>git status</code> and <code>git diff --staged</code>.</p>
+            <h2>Next: Making Your First Commit</h2>
+            <p>Your staging bay is loaded. Files are ready for launch. Time to make your first commit and create a permanent snapshot in the mission logs.</p>
+        </article>
+        <div class="navigation">
+            <a href="systems-check.html" class="nav-link">← Previous: Systems Check</a>
+            <a href="mission-log.html" class="nav-link">Next: Mission Log →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 10 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

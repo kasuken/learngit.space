@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems Check - Mission Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1>📊 Systems Check</h1>
+            <p class="subtitle">Git Status</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 9</strong> • Estimated Time: 10 minutes • Difficulty: Beginner</p>
+        </div>
+        <article>
+            <h2>Checking Your Spacecraft Systems</h2>
+            <p>Before any launch, astronauts run systems checks. In Git, <code>git status</code> is your diagnostic command—it tells you exactly what's happening in your repository.</p>
+            <h2>The Status Command</h2>
+            <div class="command-example">
+                <pre><code>git status</code></pre>
+            </div>
+            <p>This command shows:</p>
+            <ul>
+                <li>Which branch you're on</li>
+                <li>Which files have changed</li>
+                <li>Which files are staged for commit</li>
+                <li>Which files are untracked</li>
+                <li>How your local branch compares to remote</li>
+            </ul>
+            <h2>Understanding the Output</h2>
+            <p>When you run <code>git status</code> in a new repository with one file, you might see:</p>
+            <pre><code>On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)</code></pre>
+            <p>Let's decode this:</p>
+            <ul>
+                <li><strong>"On branch main":</strong> You're on the main timeline</li>
+                <li><strong>"No commits yet":</strong> No snapshots recorded</li>
+                <li><strong>"Untracked files":</strong> Git sees README.md but isn't tracking changes yet</li>
+            </ul>
+            <h2>File States in Git</h2>
+            <p>Files can be in several states:</p>
+            <h3>Untracked</h3>
+            <p>New files Git doesn't know about yet. They exist but aren't in version control.</p>
+            <h3>Unmodified</h3>
+            <p>Files tracked by Git that haven't changed since the last commit.</p>
+            <h3>Modified</h3>
+            <p>Tracked files that have changed but aren't staged for commit.</p>
+            <h3>Staged</h3>
+            <p>Files marked for inclusion in the next commit.</p>
+            <h2>Status After Adding Files</h2>
+            <p>After running <code>git add README.md</code>:</p>
+            <pre><code>On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   README.md</code></pre>
+            <p>Now README.md is in the staging area, ready for your first commit.</p>
+            <h2>Short Status</h2>
+            <p>For a condensed view:</p>
+            <div class="command-example">
+                <pre><code>git status -s</code></pre>
+            </div>
+            <p>Output looks like:</p>
+            <pre><code>A  README.md
+M  script.js
+?? new-file.txt</code></pre>
+            <p>Codes:</p>
+            <ul>
+                <li><code>??</code>: Untracked</li>
+                <li><code>A</code>: Added (staged)</li>
+                <li><code>M</code>: Modified</li>
+                <li><code>D</code>: Deleted</li>
+                <li><code>R</code>: Renamed</li>
+            </ul>
+            <h2>Why Status is Essential</h2>
+            <p>Run <code>git status</code> often. It's your mission control readout, showing exactly what's happening. Before committing, pushing, or pulling, check status first.</p>
+            <div class="mission-brief">
+                <p><strong>Pro Tip:</strong> Many developers run <code>git status</code> dozens of times per day. It's muscle memory. There's no such thing as checking status too often.</p>
+            </div>
+            <h2>Status in Different Scenarios</h2>
+            <h3>Clean Working Directory</h3>
+            <pre><code>On branch main
+nothing to commit, working tree clean</code></pre>
+            <p>All changes are committed. Systems are green.</p>
+            <h3>Modified Files</h3>
+            <pre><code>Changes not staged for commit:
+  modified:   navigation.js</code></pre>
+            <p>You've changed files but haven't staged them.</p>
+            <h3>Files Ready to Commit</h3>
+            <pre><code>Changes to be committed:
+  new file:   thrusters.py
+  modified:   fuel-system.js</code></pre>
+            <p>Files are staged and ready for commit.</p>
+            <h2>Practice Exercise</h2>
+            <div class="mission-brief">
+                <ol>
+                    <li>Run <code>git status</code> in your repository</li>
+                    <li>Create a new file: <code>touch flight-log.txt</code></li>
+                    <li>Run <code>git status</code> again—see the difference?</li>
+                    <li>Edit README.md</li>
+                    <li>Run <code>git status</code> once more</li>
+                </ol>
+                <p>Watch how status changes as you modify your project.</p>
+            </div>
+            <h2>Next: The Staging Area</h2>
+            <p>Now you can check your system status. Next, we'll learn about the staging area—the launch pad where you prepare files for commit.</p>
+        </article>
+        <div class="navigation">
+            <a href="initiating-launch.html" class="nav-link">← Previous: Initiating Launch</a>
+            <a href="staging-bay.html" class="nav-link">Next: The Staging Bay →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 9 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

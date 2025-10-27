@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviewing Mission Logs - Mission Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1>📚 Reviewing Mission Logs</h1>
+            <p class="subtitle">Git Log</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 13</strong> • Estimated Time: 15 minutes • Difficulty: Beginner</p>
+        </div>
+        <article>
+            <h2>Accessing Flight Records</h2>
+            <p>The <code>git log</code> command displays your project's history—every commit, every change, every decision point.</p>
+            <h2>Basic Log</h2>
+            <div class="command-example">
+                <pre><code>git log</code></pre>
+            </div>
+            <p>Shows commits in reverse chronological order (newest first).</p>
+            <h2>One-line Format</h2>
+            <div class="command-example">
+                <pre><code>git log --oneline</code></pre>
+            </div>
+            <p>Compact view showing hash and message.</p>
+            <h2>Graphical View</h2>
+            <div class="command-example">
+                <pre><code>git log --graph --oneline --all</code></pre>
+            </div>
+            <p>Visualizes branches and merges.</p>
+            <h2>Filtering Logs</h2>
+            <div class="command-example">
+                <pre><code>git log -n 5                    # Last 5 commits
+git log --since="2 weeks ago"   # Recent commits
+git log --author="Astronaut"    # By author
+git log -- navigation.js        # For specific file</code></pre>
+            </div>
+            <h2>Detailed View</h2>
+            <div class="command-example">
+                <pre><code>git log -p</code></pre>
+            </div>
+            <p>Shows the diff of each commit.</p>
+            <h2>Custom Formatting</h2>
+            <div class="command-example">
+                <pre><code>git log --pretty=format:"%h - %an, %ar : %s"</code></pre>
+            </div>
+            <p>Formats: <code>%h</code> (hash), <code>%an</code> (author), <code>%ar</code> (relative date), <code>%s</code> (subject).</p>
+            <h2>Why Review Logs?</h2>
+            <ul>
+                <li>Understand project evolution</li>
+                <li>Find when bugs were introduced</li>
+                <li>See who changed what</li>
+                <li>Prepare release notes</li>
+            </ul>
+            <h2>Next: Cargo Management</h2>
+            <p>You've mastered viewing history. Next, we'll learn about <code>.gitignore</code>—telling Git which files to never track.</p>
+        </article>
+        <div class="navigation">
+            <a href="scanning-changes.html" class="nav-link">← Previous: Scanning Changes</a>
+            <a href="cargo-manifest.html" class="nav-link">Next: Cargo Manifest →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 13 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transmission Uplink - Mission Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1>📡 Transmission Uplink</h1>
+            <p class="subtitle">Git Push</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 16</strong> • Estimated Time: 20 minutes • Difficulty: Beginner</p>
+        </div>
+        <article>
+            <h2>Uploading to Mission Control</h2>
+            <p>You've made commits locally. Now it's time to send them to GitHub with <code>git push</code>—uploading your work to the cloud.</p>
+            <h2>Creating a GitHub Repository</h2>
+            <ol>
+                <li>Go to GitHub and click "+" → "New repository"</li>
+                <li>Name it (e.g., "my-first-mission")</li>
+                <li>Choose public or private</li>
+                <li>Don't initialize with README (you already have one locally)</li>
+                <li>Click "Create repository"</li>
+            </ol>
+            <h2>Connecting Local to Remote</h2>
+            <p>Add the remote repository:</p>
+            <div class="command-example">
+                <pre><code>git remote add origin git@github.com:username/my-first-mission.git</code></pre>
+            </div>
+            <p>Replace <code>username</code> with your GitHub username.</p>
+            <p><code>origin</code> is the conventional name for your main remote repository.</p>
+            <h2>Verifying Remote</h2>
+            <div class="command-example">
+                <pre><code>git remote -v</code></pre>
+            </div>
+            <p>Should show your GitHub URL for both fetch and push.</p>
+            <h2>Your First Push</h2>
+            <div class="command-example">
+                <pre><code>git push -u origin main</code></pre>
+            </div>
+            <p>The <code>-u</code> flag sets upstream tracking, so future pushes can just be <code>git push</code>.</p>
+            <h2>Understanding Push</h2>
+            <p>Push uploads:</p>
+            <ul>
+                <li>All new commits</li>
+                <li>Referenced objects</li>
+                <li>Updates remote branch pointers</li>
+            </ul>
+            <p>It doesn't upload: <li>Ignored files</li>
+                <li>Uncommitted changes</li>
+                <li>Untracked files</li>
+            </ul>
+            <h2>Subsequent Pushes</h2>
+            <p>After the initial push with <code>-u</code>:</p>
+            <div class="command-example">
+                <pre><code>git push</code></pre>
+            </div>
+            <p>That's it! Git remembers where to push.</p>
+            <h2>Pushing Other Branches</h2>
+            <div class="command-example">
+                <pre><code>git push origin feature-branch</code></pre>
+            </div>
+            <h2>Force Push (Dangerous!)</h2>
+            <div class="command-example">
+                <pre><code>git push --force</code></pre>
+            </div>
+            <p><strong>Warning:</strong> Overwrites remote history. Only use when absolutely necessary and you're sure no one else is using the branch!</p>
+            <h2>Common Push Errors</h2>
+            <h3>"Updates were rejected"</h3>
+            <p>Someone pushed changes before you. Pull first, then push:</p>
+            <div class="command-example">
+                <pre><code>git pull
+git push</code></pre>
+            </div>
+            <h3>Permission Denied</h3>
+            <p>Check your SSH keys or repository permissions.</p>
+            <h2>Pushing Tags</h2>
+            <div class="command-example">
+                <pre><code>git push --tags</code></pre>
+            </div>
+            <h2>Viewing on GitHub</h2>
+            <p>After pushing, visit your repository on GitHub. You'll see your code, commits, and history—all backed up in the cloud!</p>
+            <div class="mission-brief">
+                <h3>Best Practices</h3>
+                <ul>
+                    <li>Push frequently (at least daily)</li>
+                    <li>Push after completing features</li>
+                    <li>Never push secrets or credentials</li>
+                    <li>Review changes before pushing</li>
+                    <li>Don't force push to shared branches</li>
+                </ul>
+            </div>
+            <h2>Next: Receiving Transmissions</h2>
+            <p>You can now send your work to GitHub. Next, we'll learn to pull changes from GitHub—receiving updates from teammates and other devices.</p>
+        </article>
+        <div class="navigation">
+            <a href="secure-communications.html" class="nav-link">← Previous: Secure Communications</a>
+            <a href="receiving-updates.html" class="nav-link">Next: Receiving Updates →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 16 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

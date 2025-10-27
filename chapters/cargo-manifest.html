@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargo Manifest - Mission Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1>📋 Cargo Manifest</h1>
+            <p class="subtitle">The .gitignore File</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 14</strong> • Estimated Time: 15 minutes • Difficulty: Beginner</p>
+        </div>
+        <article>
+            <h2>Excluding Non-Essential Cargo</h2>
+            <p>Not everything belongs in version control. Build artifacts, logs, secrets, and temporary files should stay out. The <code>.gitignore</code> file tells Git what to ignore.</p>
+            <h2>Creating .gitignore</h2>
+            <p>Create a file named <code>.gitignore</code> in your repository root:</p>
+            <div class="command-example">
+                <pre><code>touch .gitignore</code></pre>
+            </div>
+            <h2>Common Patterns</h2>
+            <pre><code># Dependencies
+node_modules/
+venv/
+__pycache__/
+
+# Build outputs
+dist/
+build/
+*.exe
+*.dll
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+temp/</code></pre>
+            <h2>Pattern Rules</h2>
+            <ul>
+                <li><code>#</code>: Comments</li>
+                <li><code>*</code>: Wildcard (matches any characters)</li>
+                <li><code>**</code>: Matches directories recursively</li>
+                <li><code>!</code>: Negation (don't ignore this)</li>
+                <li><code>/</code>: Directory separator</li>
+            </ul>
+            <h3>Examples</h3>
+            <pre><code>*.log              # Ignore all .log files
+build/             # Ignore build directory
+!important.log     # But track this one
+**/temp            # Ignore temp in any subdirectory
+/*.txt             # Ignore .txt files in root only</code></pre>
+            <h2>Language-Specific Templates</h2>
+            <p>GitHub provides .gitignore templates for many languages at <a href="https://github.com/github/gitignore">github.com/github/gitignore</a>.</p>
+            <h2>Global Ignore</h2>
+            <p>Ignore files across all repositories:</p>
+            <div class="command-example">
+                <pre><code>git config --global core.excludesfile ~/.gitignore_global</code></pre>
+            </div>
+            <h2>When to Use</h2>
+            <p>Ignore:</p>
+            <ul>
+                <li>Generated files (build outputs)</li>
+                <li>Dependencies (installed packages)</li>
+                <li>Secrets (API keys, passwords)</li>
+                <li>Personal IDE settings</li>
+                <li>Log files</li>
+                <li>Temporary files</li>
+            </ul>
+            <p>Don't ignore:</p>
+            <ul>
+                <li>Source code</li>
+                <li>Configuration templates</li>
+                <li>Documentation</li>
+                <li>Test files</li>
+            </ul>
+            <h2>Already Tracked Files</h2>
+            <p>If you add a file to .gitignore after tracking it:</p>
+            <div class="command-example">
+                <pre><code>git rm --cached filename</code></pre>
+            </div>
+            <p>This removes it from Git but keeps the local file.</p>
+            <h2>Checking Ignore Status</h2>
+            <div class="command-example">
+                <pre><code>git status --ignored    # Show ignored files
+git check-ignore -v filename  # Why is this ignored?</code></pre>
+            </div>
+            <div class="mission-brief">
+                <h3>Common Mistake: Committing Secrets</h3>
+                <p>Never commit API keys, passwords, or secrets. Add them to .gitignore before committing! If you accidentally commit secrets, they're in Git history forever—you must rotate the credentials.</p>
+            </div>
+            <h2>Next: Secure Communications</h2>
+            <p>Your manifest is configured. Next, we'll set up SSH keys for secure, password-free communication with GitHub.</p>
+        </article>
+        <div class="navigation">
+            <a href="reviewing-logs.html" class="nav-link">← Previous: Reviewing Logs</a>
+            <a href="secure-communications.html" class="nav-link">Next: Secure Communications →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 14 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

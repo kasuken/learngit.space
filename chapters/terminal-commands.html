@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Commands - Mission Control</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        
+        <header>
+            <h1>💻 Terminal Commands</h1>
+            <p class="subtitle">Communicating with Your Ship</p>
+        </header>
+
+        <div class="mission-brief">
+            <p><strong>Mission Phase 5</strong> • Estimated Time: 20 minutes • Difficulty: Beginner</p>
+        </div>
+
+        <article>
+            <h2>Learning Your Ship's Language</h2>
+            
+            <p>Before you can navigate through space, you need to communicate with your spacecraft's computer. The command line is your direct interface to the ship's systems—no graphical buttons, just pure, efficient commands.</p>
+
+            <h2>Essential Navigation Commands</h2>
+
+            <h3>Where Am I? (<code>pwd</code>)</h3>
+            
+            <p>The <code>pwd</code> command (print working directory) tells you your current location in the file system:</p>
+            
+            <div class="command-example">
+                <pre><code>pwd</code></pre>
+            </div>
+            
+            <p>Output might look like:</p>
+            <pre><code>/home/astronaut/projects</code></pre>
+
+            <h3>What's Here? (<code>ls</code>)</h3>
+            
+            <p>The <code>ls</code> command lists files and directories in your current location:</p>
+            
+            <div class="command-example">
+                <pre><code>ls</code></pre>
+            </div>
+            
+            <p>For more details, add flags:</p>
+            <div class="command-example">
+                <pre><code>ls -la</code></pre>
+            </div>
+            <p>This shows hidden files (<code>-a</code>) with detailed information (<code>-l</code>).</p>
+            
+            <p><strong>Windows users:</strong> Use <code>dir</code> in Command Prompt, or <code>ls</code> in Git Bash/PowerShell.</p>
+
+            <h3>Change Location (<code>cd</code>)</h3>
+            
+            <p>The <code>cd</code> command (change directory) moves you through the file system:</p>
+            
+            <div class="command-example">
+                <pre><code>cd projects          # Move into 'projects' directory
+cd ..                # Move up one level
+cd ~                 # Go to home directory
+cd /path/to/dir      # Go to specific path</code></pre>
+            </div>
+
+            <h2>File System Manipulation</h2>
+
+            <h3>Create Directory (<code>mkdir</code>)</h3>
+            
+            <p>Create a new directory (folder):</p>
+            
+            <div class="command-example">
+                <pre><code>mkdir my-mission
+mkdir -p deep/nested/directories  # Create parent directories too</code></pre>
+            </div>
+
+            <h3>Create File (<code>touch</code>)</h3>
+            
+            <p>Create an empty file:</p>
+            
+            <div class="command-example">
+                <pre><code>touch mission-log.txt</code></pre>
+            </div>
+            
+            <p><strong>Windows Command Prompt users:</strong> Use <code>echo. &gt; filename.txt</code> or <code>type nul &gt; filename.txt</code></p>
+
+            <h3>Remove Files (<code>rm</code>)</h3>
+            
+            <p>Delete files (be careful—this is permanent!):</p>
+            
+            <div class="command-example">
+                <pre><code>rm old-file.txt
+rm -r directory/     # Remove directory and contents
+rm -rf directory/    # Force remove (very dangerous!)</code></pre>
+            </div>
+            
+            <p><strong>Windows Command Prompt:</strong> Use <code>del</code> for files, <code>rmdir</code> for directories.</p>
+
+            <h3>Copy Files (<code>cp</code>)</h3>
+            
+            <div class="command-example">
+                <pre><code>cp source.txt destination.txt
+cp -r source-dir/ destination-dir/  # Copy directories</code></pre>
+            </div>
+            
+            <p><strong>Windows Command Prompt:</strong> Use <code>copy</code> for files, <code>xcopy</code> for directories.</p>
+
+            <h3>Move/Rename (<code>mv</code>)</h3>
+            
+            <div class="command-example">
+                <pre><code>mv old-name.txt new-name.txt  # Rename
+mv file.txt other-dir/        # Move file</code></pre>
+            </div>
+            
+            <p><strong>Windows Command Prompt:</strong> Use <code>move</code> or <code>ren</code> (rename).</p>
+
+            <h2>Viewing File Contents</h2>
+
+            <h3>Display File (<code>cat</code>)</h3>
+            
+            <p>Show entire file contents:</p>
+            
+            <div class="command-example">
+                <pre><code>cat file.txt</code></pre>
+            </div>
+            
+            <p><strong>Windows Command Prompt:</strong> Use <code>type file.txt</code></p>
+
+            <h3>View Large Files (<code>less</code>)</h3>
+            
+            <p>For large files, use <code>less</code> for scrollable viewing:</p>
+            
+            <div class="command-example">
+                <pre><code>less large-log.txt</code></pre>
+            </div>
+            
+            <p>Press <code>q</code> to quit, <code>Space</code> to scroll, <code>/</code> to search.</p>
+
+            <h2>Useful Shortcuts and Tricks</h2>
+
+            <h3>Tab Completion</h3>
+            <p>Press <code>Tab</code> to auto-complete file and directory names. This saves time and prevents typos.</p>
+
+            <h3>Command History</h3>
+            <ul>
+                <li>Press <code>↑</code> (up arrow) to cycle through previous commands</li>
+                <li>Type <code>history</code> to see all recent commands</li>
+                <li>Press <code>Ctrl+R</code> to search command history</li>
+            </ul>
+
+            <h3>Clear Screen</h3>
+            <div class="command-example">
+                <pre><code>clear        # macOS/Linux
+cls          # Windows Command Prompt</code></pre>
+            </div>
+
+            <h2>Paths: Absolute vs Relative</h2>
+
+            <h3>Absolute Path</h3>
+            <p>Starts from the root directory:</p>
+            <div class="command-example">
+                <pre><code>/home/astronaut/projects/mission</code></pre>
+            </div>
+
+            <h3>Relative Path</h3>
+            <p>Starts from your current location:</p>
+            <div class="command-example">
+                <pre><code>./current-directory
+../parent-directory
+../../grandparent-directory</code></pre>
+            </div>
+
+            <h2>Combining Commands</h2>
+            
+            <p>Use pipes (<code>|</code>) to chain commands:</p>
+            
+            <div class="command-example">
+                <pre><code>ls -la | grep ".txt"     # List all .txt files
+cat file.txt | wc -l     # Count lines in file</code></pre>
+            </div>
+
+            <h2>Output Redirection</h2>
+            
+            <p>Redirect command output to files:</p>
+            
+            <div class="command-example">
+                <pre><code>ls -la &gt; file-list.txt          # Write to file (overwrite)
+echo "New log entry" &gt;&gt; log.txt  # Append to file</code></pre>
+            </div>
+
+            <div class="mission-brief">
+                <h3>Practice Exercise</h3>
+                <p>Try this sequence to practice:</p>
+                <ol>
+                    <li>Check your current location: <code>pwd</code></li>
+                    <li>Create a directory: <code>mkdir test-mission</code></li>
+                    <li>Move into it: <code>cd test-mission</code></li>
+                    <li>Create a file: <code>touch launch-log.txt</code></li>
+                    <li>List contents: <code>ls -la</code></li>
+                    <li>Go back: <code>cd ..</code></li>
+                    <li>Remove it: <code>rm -r test-mission</code></li>
+                </ol>
+            </div>
+
+            <h2>Getting Unstuck</h2>
+            
+            <ul>
+                <li><strong>Stuck in a command?</strong> Press <code>Ctrl+C</code> to cancel</li>
+                <li><strong>Terminal frozen?</strong> Press <code>Ctrl+Z</code> to suspend, or close and reopen</li>
+                <li><strong>Made a mistake?</strong> Most terminal commands can't be undone—be careful with <code>rm</code>!</li>
+            </ul>
+
+            <h2>Windows-Specific Notes</h2>
+            
+            <p>Windows has different commands in traditional Command Prompt:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unix/Mac/Linux</th>
+                        <th>Windows CMD</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ls</td>
+                        <td>dir</td>
+                        <td>List files</td>
+                    </tr>
+                    <tr>
+                        <td>cd</td>
+                        <td>cd</td>
+                        <td>Change directory</td>
+                    </tr>
+                    <tr>
+                        <td>pwd</td>
+                        <td>cd</td>
+                        <td>Show current path</td>
+                    </tr>
+                    <tr>
+                        <td>clear</td>
+                        <td>cls</td>
+                        <td>Clear screen</td>
+                    </tr>
+                    <tr>
+                        <td>rm</td>
+                        <td>del</td>
+                        <td>Delete file</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>Recommendation:</strong> Windows users should use Git Bash or PowerShell for Unix-like commands.</p>
+
+            <h2>Ready for Configuration</h2>
+            
+            <p>You now know the basic commands to navigate your file system. These work alongside Git—you'll use them to move between projects, create directories, and manage files.</p>
+            
+            <p>Next, we'll configure Git with your identity so your commits are properly attributed to you.</p>
+            
+            <div class="mission-brief">
+                <p><strong>Command Mastery:</strong> You don't need to memorize all these commands now. Keep this page bookmarked as a reference. With practice, the essential ones will become second nature.</p>
+            </div>
+        </article>
+
+        <div class="navigation">
+            <a href="system-installation.html" class="nav-link">← Previous: System Installation</a>
+            <a href="configuring-systems.html" class="nav-link">Next: Configuring Systems →</a>
+        </div>
+
+        <footer>
+            <p>Mission Control Training Program • Phase 5 of 34</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
