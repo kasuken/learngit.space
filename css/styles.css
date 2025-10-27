@@ -669,6 +669,24 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.author-info {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+}
+
+.author-info a {
+    color: var(--secondary-blue);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.author-info a:hover {
+    color: var(--primary-gold);
+    text-shadow: 0 0 10px var(--glow-gold);
+}
+
 .command-example::before {
     content: '🚀 MISSION COMMAND';
     display: block;
