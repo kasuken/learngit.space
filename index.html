@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LearnGit.space - Your Journey Through Version Control Space</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/progress-tracker.js"></script>
 </head>
 <body>
     <div class="stars" id="stars"></div>
@@ -30,101 +31,115 @@
             <p>This training program will transform you from a rookie cadet into a seasoned space commander, capable of managing complex codebases, collaborating with international teams, and ensuring that every line of code is tracked, versioned, and recoverable—just like every critical system on a spacecraft.</p>
         </div>
 
-        <section class="toc">
+        <section class="toc mission-control">
             <h2>📡 Mission Phases</h2>
             <p>Your training is divided into carefully structured mission phases. Each phase builds upon the previous one, taking you from basic orientation to advanced maneuvers.</p>
             
-            <div class="toc-section">
+            <div class="toc-section mission-section" data-mission="mission-briefing">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">🚀 Part 1: Pre-Flight Training</h3>
-                    <span class="phase-duration">~60 min</span>
+                    <h3 class="toc-section-title">🌟 Pre-Launch: Mission Briefing</h3>
+                    <span class="phase-duration">~4 min</span>
+                </div>
+                <p class="toc-section-desc">Your first orientation as an astronaut</p>
+                <ol>
+                    <li><a href="chapters/launch-preparation.html" class="mission-link" data-mission="mission-briefing" data-phase="1"><span class="chapter-title-text">Launch Preparation</span><span class="chapter-subtitle">Understanding Your Mission</span><span class="chapter-time">4 min</span></a></li>
+                </ol>
+            </div>
+            
+            <div class="toc-section mission-section" data-mission="git-basics">
+                <div class="toc-section-header">
+                    <h3 class="toc-section-title">🚀 Phase 1: Launch Sequence</h3>
+                    <span class="phase-duration">~80 min</span>
                 </div>
                 <p class="toc-section-desc">Understanding the fundamentals and preparing your systems for launch</p>
-                <ol>
-                    <li><a href="chapters/launch-preparation.html"><span class="chapter-title-text">Launch Preparation</span><span class="chapter-subtitle">Understanding Your Mission</span><span class="chapter-time">4 min</span></a></li>
-                    <li><a href="chapters/the-navigation-system.html"><span class="chapter-title-text">The Navigation System</span><span class="chapter-subtitle">What is Git?</span><span class="chapter-time">5 min</span></a></li>
-                    <li><a href="chapters/flight-recorder-basics.html"><span class="chapter-title-text">Flight Recorder Basics</span><span class="chapter-subtitle">Understanding Version Control</span><span class="chapter-time">5 min</span></a></li>
-                    <li><a href="chapters/system-installation.html"><span class="chapter-title-text">System Installation</span><span class="chapter-subtitle">Setting Up Git</span><span class="chapter-time">13 min</span></a></li>
-                    <li><a href="chapters/terminal-commands.html"><span class="chapter-title-text">Terminal Commands</span><span class="chapter-subtitle">Communicating with Your Ship</span><span class="chapter-time">13 min</span></a></li>
-                    <li><a href="chapters/configuring-systems.html"><span class="chapter-title-text">Configuring Your Ship's Systems</span><span class="chapter-time">20 min</span></a></li>
-                    <li><a href="chapters/mission-control-center.html"><span class="chapter-title-text">Mission Control Center</span><span class="chapter-subtitle">Introduction to GitHub</span><span class="chapter-time">5 min</span></a></li>
+                <ol start="2">
+                    <li><a href="chapters/the-navigation-system.html" class="mission-link" data-mission="git-basics" data-phase="1"><span class="chapter-title-text">The Navigation System</span><span class="chapter-subtitle">What is Git?</span><span class="chapter-time">5 min</span></a></li>
+                    <li><a href="chapters/flight-recorder-basics.html" class="mission-link" data-mission="git-basics" data-phase="2"><span class="chapter-title-text">Flight Recorder Basics</span><span class="chapter-subtitle">Understanding Version Control</span><span class="chapter-time">5 min</span></a></li>
+                    <li><a href="chapters/system-installation.html" class="mission-link" data-mission="git-basics" data-phase="3"><span class="chapter-title-text">System Installation</span><span class="chapter-subtitle">Setting Up Git</span><span class="chapter-time">13 min</span></a></li>
+                    <li><a href="chapters/terminal-commands.html" class="mission-link" data-mission="git-basics" data-phase="4"><span class="chapter-title-text">Terminal Commands</span><span class="chapter-subtitle">Communicating with Your Ship</span><span class="chapter-time">13 min</span></a></li>
+                    <li><a href="chapters/configuring-systems.html" class="mission-link" data-mission="git-basics" data-phase="5"><span class="chapter-title-text">Configuring Your Ship's Systems</span><span class="chapter-time">20 min</span></a></li>
+                    <li><a href="chapters/mission-control-center.html" class="mission-link" data-mission="git-basics" data-phase="6"><span class="chapter-title-text">Mission Control Center</span><span class="chapter-subtitle">Introduction to GitHub</span><span class="chapter-time">5 min</span></a></li>
+                    <li><a href="chapters/initiating-launch.html" class="mission-link" data-mission="git-basics" data-phase="7"><span class="chapter-title-text">Initiating Your Launch Sequence</span><span class="chapter-time">10 min</span></a></li>
+                    <li><a href="chapters/systems-check.html" class="mission-link" data-mission="git-basics" data-phase="8"><span class="chapter-title-text">Systems Check</span><span class="chapter-subtitle">Git Status</span><span class="chapter-time">7 min</span></a></li>
+                    <li><a href="chapters/cargo-manifest.html" class="mission-link" data-mission="git-basics" data-phase="9"><span class="chapter-title-text">Cargo Manifest</span><span class="chapter-subtitle">The .gitignore File</span><span class="chapter-time">7 min</span></a></li>
+                    <li><a href="chapters/secure-communications.html" class="mission-link" data-mission="git-basics" data-phase="10"><span class="chapter-title-text">Secure Communications</span><span class="chapter-subtitle">SSH Keys</span><span class="chapter-time">6 min</span></a></li>
                 </ol>
             </div>
 
-            <div class="toc-section">
+            <div class="toc-section mission-section" data-mission="branches">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">⭐ Part 2: Core Operations</h3>
-                    <span class="phase-duration">~64 min</span>
+                    <h3 class="toc-section-title">🌌 Phase 2: Orbital Maneuvers</h3>
+                    <span class="phase-duration">~71 min</span>
                 </div>
-                <p class="toc-section-desc">Master the essential commands and workflows</p>
-                <ol start="8">
-                    <li><a href="chapters/initiating-launch.html"><span class="chapter-title-text">Initiating Your Launch Sequence</span><span class="chapter-time">10 min</span></a></li>
-                    <li><a href="chapters/systems-check.html"><span class="chapter-title-text">Systems Check</span><span class="chapter-subtitle">Git Status</span><span class="chapter-time">7 min</span></a></li>
-                    <li><a href="chapters/staging-bay.html"><span class="chapter-title-text">The Staging Bay</span><span class="chapter-subtitle">Git Add</span><span class="chapter-time">12 min</span></a></li>
-                    <li><a href="chapters/mission-log.html"><span class="chapter-title-text">Recording in the Mission Log</span><span class="chapter-subtitle">Git Commit</span><span class="chapter-time">10 min</span></a></li>
-                    <li><a href="chapters/scanning-changes.html"><span class="chapter-title-text">Scanning for Changes</span><span class="chapter-subtitle">Git Diff</span><span class="chapter-time">8 min</span></a></li>
-                    <li><a href="chapters/reviewing-logs.html"><span class="chapter-title-text">Reviewing Mission Logs</span><span class="chapter-subtitle">Git Log</span><span class="chapter-time">8 min</span></a></li>
-                    <li><a href="chapters/cargo-manifest.html"><span class="chapter-title-text">Cargo Manifest</span><span class="chapter-subtitle">The .gitignore File</span><span class="chapter-time">7 min</span></a></li>
+                <p class="toc-section-desc">Master essential commands and version control workflows</p>
+                <ol start="12">
+                    <li><a href="chapters/staging-bay.html" class="mission-link" data-mission="branches" data-phase="1"><span class="chapter-title-text">The Staging Bay</span><span class="chapter-subtitle">Git Add</span><span class="chapter-time">12 min</span></a></li>
+                    <li><a href="chapters/mission-log.html" class="mission-link" data-mission="branches" data-phase="2"><span class="chapter-title-text">Recording in the Mission Log</span><span class="chapter-subtitle">Git Commit</span><span class="chapter-time">10 min</span></a></li>
+                    <li><a href="chapters/transmission-uplink.html" class="mission-link" data-mission="branches" data-phase="3"><span class="chapter-title-text">Transmission Uplink</span><span class="chapter-subtitle">Git Push</span><span class="chapter-time">11 min</span></a></li>
+                    <li><a href="chapters/receiving-updates.html" class="mission-link" data-mission="branches" data-phase="4"><span class="chapter-title-text">Receiving Updates</span><span class="chapter-subtitle">Git Pull</span><span class="chapter-time">9 min</span></a></li>
+                    <li><a href="chapters/scanning-changes.html" class="mission-link" data-mission="branches" data-phase="5"><span class="chapter-title-text">Scanning for Changes</span><span class="chapter-subtitle">Git Diff</span><span class="chapter-time">8 min</span></a></li>
+                    <li><a href="chapters/reviewing-logs.html" class="mission-link" data-mission="branches" data-phase="6"><span class="chapter-title-text">Reviewing Mission Logs</span><span class="chapter-subtitle">Git Log</span><span class="chapter-time">8 min</span></a></li>
+                    <li><a href="chapters/boarding-vessels.html" class="mission-link" data-mission="branches" data-phase="7"><span class="chapter-title-text">Boarding Other Vessels</span><span class="chapter-subtitle">Git Clone</span><span class="chapter-time">8 min</span></a></li>
+                    <li><a href="chapters/parallel-timelines.html" class="mission-link" data-mission="branches" data-phase="8"><span class="chapter-title-text">Parallel Timelines</span><span class="chapter-subtitle">Git Branching</span><span class="chapter-time">12 min</span></a></li>
                 </ol>
             </div>
 
-            <div class="toc-section">
+            <div class="toc-section mission-section" data-mission="advanced">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">🌐 Part 3: Remote Communications</h3>
-                    <span class="phase-duration">~61 min</span>
+                    <h3 class="toc-section-title">🛸 Phase 3: Deep Space Operations</h3>
+                    <span class="phase-duration">~68 min</span>
                 </div>
-                <p class="toc-section-desc">Connect with Mission Control and sync across the galaxy</p>
-                <ol start="15">
-                    <li><a href="chapters/secure-communications.html"><span class="chapter-title-text">Secure Communications</span><span class="chapter-subtitle">SSH Keys</span><span class="chapter-time">6 min</span></a></li>
-                    <li><a href="chapters/transmission-uplink.html"><span class="chapter-title-text">Transmission Uplink</span><span class="chapter-subtitle">Git Push</span><span class="chapter-time">11 min</span></a></li>
-                    <li><a href="chapters/receiving-updates.html"><span class="chapter-title-text">Receiving Updates</span><span class="chapter-subtitle">Git Pull</span><span class="chapter-time">9 min</span></a></li>
-                    <li><a href="chapters/parallel-timelines.html"><span class="chapter-title-text">Parallel Timelines</span><span class="chapter-subtitle">Git Branching</span><span class="chapter-time">12 min</span></a></li>
-                    <li><a href="chapters/timeline-convergence.html"><span class="chapter-title-text">Timeline Convergence</span><span class="chapter-subtitle">Git Merge</span><span class="chapter-time">8 min</span></a></li>
-                    <li><a href="chapters/mission-corrections.html"><span class="chapter-title-text">Mission Corrections</span><span class="chapter-subtitle">Undoing in Git</span><span class="chapter-time">9 min</span></a></li>
-                    <li><a href="chapters/boarding-vessels.html"><span class="chapter-title-text">Boarding Other Vessels</span><span class="chapter-subtitle">Git Clone</span><span class="chapter-time">8 min</span></a></li>
+                <p class="toc-section-desc">Advanced techniques for managing complex missions</p>
+                <ol start="20">
+                    <li><a href="chapters/timeline-convergence.html" class="mission-link" data-mission="advanced" data-phase="1"><span class="chapter-title-text">Timeline Convergence</span><span class="chapter-subtitle">Git Merge</span><span class="chapter-time">8 min</span></a></li>
+                    <li><a href="chapters/conflict-resolution.html" class="mission-link" data-mission="advanced" data-phase="2"><span class="chapter-title-text">Conflict Resolution</span><span class="chapter-subtitle">Merge Conflicts</span><span class="chapter-time">15 min</span></a></li>
+                    <li><a href="chapters/mission-corrections.html" class="mission-link" data-mission="advanced" data-phase="3"><span class="chapter-title-text">Mission Corrections</span><span class="chapter-subtitle">Undoing in Git</span><span class="chapter-time">9 min</span></a></li>
+                    <li><a href="chapters/timeline-rewriting.html" class="mission-link" data-mission="advanced" data-phase="4"><span class="chapter-title-text">Timeline Rewriting</span><span class="chapter-subtitle">Git Rebase</span><span class="chapter-time">14 min</span></a></li>
+                    <li><a href="chapters/selective-updates.html" class="mission-link" data-mission="advanced" data-phase="5"><span class="chapter-title-text">Selective Updates</span><span class="chapter-subtitle">Cherry Picking</span><span class="chapter-time">6 min</span></a></li>
+                    <li><a href="chapters/temporal-storage.html" class="mission-link" data-mission="advanced" data-phase="6"><span class="chapter-title-text">Temporal Storage</span><span class="chapter-subtitle">Git Stash</span><span class="chapter-time">10 min</span></a></li>
+                    <li><a href="chapters/marker-beacons.html" class="mission-link" data-mission="advanced" data-phase="7"><span class="chapter-title-text">Marker Beacons</span><span class="chapter-subtitle">Git Tags</span><span class="chapter-time">8 min</span></a></li>
                 </ol>
             </div>
 
-            <div class="toc-section">
+            <div class="toc-section mission-section" data-mission="collaboration">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">👥 Part 4: Team Coordination</h3>
-                    <span class="phase-duration">~31 min</span>
+                    <h3 class="toc-section-title">👥 Phase 4: Multi-Crew Missions</h3>
+                    <span class="phase-duration">~48 min</span>
                 </div>
                 <p class="toc-section-desc">Collaborate with other astronauts across missions</p>
-                <ol start="22">
-                    <li><a href="chapters/ship-replication.html"><span class="chapter-title-text">Ship Replication</span><span class="chapter-subtitle">Forking</span><span class="chapter-time">2 min</span></a></li>
-                    <li><a href="chapters/crew-coordination.html"><span class="chapter-title-text">Crew Coordination</span><span class="chapter-subtitle">Git Workflow</span><span class="chapter-time">2 min</span></a></li>
-                    <li><a href="chapters/docking-requests.html"><span class="chapter-title-text">Docking Requests</span><span class="chapter-subtitle">Pull Requests</span><span class="chapter-time">2 min</span></a></li>
+                <ol start="27">
+                    <li><a href="chapters/ship-replication.html" class="mission-link" data-mission="collaboration" data-phase="1"><span class="chapter-title-text">Ship Replication</span><span class="chapter-subtitle">Forking</span><span class="chapter-time">2 min</span></a></li>
+                    <li><a href="chapters/crew-coordination.html" class="mission-link" data-mission="collaboration" data-phase="2"><span class="chapter-title-text">Crew Coordination</span><span class="chapter-subtitle">Git Workflow</span><span class="chapter-time">2 min</span></a></li>
+                    <li><a href="chapters/docking-requests.html" class="mission-link" data-mission="collaboration" data-phase="3"><span class="chapter-title-text">Docking Requests</span><span class="chapter-subtitle">Pull Requests</span><span class="chapter-time">2 min</span></a></li>
                 </ol>
             </div>
 
-            <div class="toc-section">
+            <div class="toc-section mission-section" data-mission="collaboration">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">⚡ Part 5: Advanced Maneuvers</h3>
-                    <span class="phase-duration">~38 min</span>
+                    <h3 class="toc-section-title">👥 Phase 4: Multi-Crew Missions</h3>
+                    <span class="phase-duration">~48 min</span>
                 </div>
-                <p class="toc-section-desc">Expert techniques and power tools</p>
-                <ol start="25">
-                    <li><a href="chapters/cockpit-integration.html"><span class="chapter-title-text">Cockpit Integration</span><span class="chapter-subtitle">Git and VS Code</span><span class="chapter-time">2 min</span></a></li>
-                    <li><a href="chapters/command-interface.html"><span class="chapter-title-text">Command Interface</span><span class="chapter-subtitle">GitHub CLI</span><span class="chapter-time">10 min</span></a></li>
-                    <li><a href="chapters/cargo-hold.html"><span class="chapter-title-text">Cargo Hold</span><span class="chapter-subtitle">Git Stash</span><span class="chapter-time">11 min</span></a></li>
-                    <li><a href="chapters/quick-commands.html"><span class="chapter-title-text">Quick Commands</span><span class="chapter-subtitle">Git Alias</span><span class="chapter-time">10 min</span></a></li>
-                    <li><a href="chapters/timeline-adjustment.html"><span class="chapter-title-text">Timeline Adjustment</span><span class="chapter-subtitle">Git Rebase</span><span class="chapter-time">7 min</span></a></li>
-                    <li><a href="chapters/vessel-switching.html"><span class="chapter-title-text">Vessel Switching</span><span class="chapter-subtitle">Git Switch</span><span class="chapter-time">7 min</span></a></li>
+                <p class="toc-section-desc">Collaborate with other astronauts across missions</p>
+                <ol start="27">
+                    <li><a href="chapters/ship-replication.html" class="mission-link" data-mission="collaboration" data-phase="1"><span class="chapter-title-text">Ship Replication</span><span class="chapter-subtitle">Forking</span><span class="chapter-time">2 min</span></a></li>
+                    <li><a href="chapters/crew-coordination.html" class="mission-link" data-mission="collaboration" data-phase="2"><span class="chapter-title-text">Crew Coordination</span><span class="chapter-subtitle">Git Workflow</span><span class="chapter-time">2 min</span></a></li>
+                    <li><a href="chapters/docking-requests.html" class="mission-link" data-mission="collaboration" data-phase="3"><span class="chapter-title-text">Docking Requests</span><span class="chapter-subtitle">Pull Requests</span><span class="chapter-time">2 min</span></a></li>
+                    <li><a href="chapters/cockpit-integration.html" class="mission-link" data-mission="collaboration" data-phase="4"><span class="chapter-title-text">Cockpit Integration</span><span class="chapter-subtitle">Git and VS Code</span><span class="chapter-time">2 min</span></a></li>
+                    <li><a href="chapters/command-interface.html" class="mission-link" data-mission="collaboration" data-phase="5"><span class="chapter-title-text">Command Interface</span><span class="chapter-subtitle">GitHub CLI</span><span class="chapter-time">10 min</span></a></li>
+                    <li><a href="chapters/quick-commands.html" class="mission-link" data-mission="collaboration" data-phase="6"><span class="chapter-title-text">Quick Commands</span><span class="chapter-subtitle">Git Alias</span><span class="chapter-time">10 min</span></a></li>
                 </ol>
             </div>
 
-            <div class="toc-section">
+            <div class="toc-section mission-section" data-mission="beyond">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">📚 Part 6: Mission Documentation</h3>
-                    <span class="phase-duration">~10 min</span>
+                    <h3 class="toc-section-title">🌠 Phase 5: Beyond the Solar System</h3>
+                    <span class="phase-duration">~13 min</span>
                 </div>
                 <p class="toc-section-desc">Professional communication and reference materials</p>
-                <ol start="31">
-                    <li><a href="chapters/communication-protocols.html"><span class="chapter-title-text">Communication Protocols</span><span class="chapter-subtitle">Markdown</span><span class="chapter-time">5 min</span></a></li>
-                    <li><a href="chapters/astronaut-profile.html"><span class="chapter-title-text">Your Astronaut Profile</span><span class="chapter-time">2 min</span></a></li>
-                    <li><a href="chapters/command-reference.html"><span class="chapter-title-text">Quick Command Reference</span><span class="chapter-time">3 min</span></a></li>
-                    <li><a href="chapters/mission-complete.html"><span class="chapter-title-text">Mission Complete</span><span class="chapter-subtitle">Your Journey Continues</span><span class="chapter-time">3 min</span></a></li>
+                <ol start="33">
+                    <li><a href="chapters/communication-protocols.html" class="mission-link" data-mission="beyond" data-phase="1"><span class="chapter-title-text">Communication Protocols</span><span class="chapter-subtitle">Markdown</span><span class="chapter-time">5 min</span></a></li>
+                    <li><a href="chapters/astronaut-profile.html" class="mission-link" data-mission="beyond" data-phase="2"><span class="chapter-title-text">Your Astronaut Profile</span><span class="chapter-time">2 min</span></a></li>
+                    <li><a href="chapters/command-reference.html" class="mission-link" data-mission="beyond" data-phase="3"><span class="chapter-title-text">Quick Command Reference</span><span class="chapter-time">3 min</span></a></li>
                 </ol>
             </div>
 
