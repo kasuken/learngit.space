@@ -109,6 +109,32 @@ header {
     position: relative;
 }
 
+.reading-time-badge {
+    display: inline-block;
+    color: var(--secondary-blue);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(135deg, rgba(79, 195, 247, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(79, 195, 247, 0.3);
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px rgba(79, 195, 247, 0.2);
+    animation: badgeFadeIn 0.6s ease-out;
+}
+
+@keyframes badgeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .title-wrapper {
     position: relative;
     padding: 2rem 0;
