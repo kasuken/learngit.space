@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Launch Preparation - Mission Control</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../js/progress-tracker.js"></script>
 </head>
 <body data-mission="mission-briefing" data-phase="1">
     <div class="stars" id="stars"></div>
     
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch theme">
+            <span class="theme-icon"><i class="fas fa-crown"></i></span>
+            <span class="theme-label">Princess Pink</span>
+        </button>
+    </div>
+    
     <div class="container">
         <a href="../index.html" class="home-link">← Back to Mission Control</a>
         
         <header>
-            <h1>🚀 Launch Preparation</h1>
-            <div class="reading-time-badge">📖 4 min read</div>
+            <h1><i class="fas fa-rocket"></i> Launch Preparation</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 4 min read</div>
             <p class="subtitle">Understanding Your Mission</p>
         </header>
 
