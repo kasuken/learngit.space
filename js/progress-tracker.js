@@ -124,7 +124,7 @@ const ProgressTracker = {
         overlay.className = 'completion-overlay';
         overlay.innerHTML = `
             <div class="completion-card">
-                <div class="completion-icon">🎯</div>
+                <div class="completion-icon"><i class="fas fa-bullseye"></i></div>
                 <h2>Mission Phase Complete!</h2>
                 <p>You've successfully completed this phase.</p>
                 <div class="completion-stats">
@@ -308,7 +308,7 @@ const ProgressTracker = {
         }
         
         progressWidget.innerHTML = `
-            <h4>🚀 Mission Progress</h4>
+            <h4><i class="fas fa-rocket"></i> Mission Progress</h4>
             <div class="circular-progress">
                 <svg width="130" height="130">
                     <circle cx="65" cy="65" r="50" class="progress-bg"></circle>
@@ -333,9 +333,142 @@ const ProgressTracker = {
     }
 };
 
+// Theme Manager for Princess Pink Theme
+const ThemeManager = {
+    STORAGE_KEY: 'learngit_theme',
+    
+    // Initialize theme manager
+    init() {
+        this.loadTheme();
+        this.updateThemeButton();
+    },
+    
+    // Get current theme
+    getCurrentTheme() {
+        return document.documentElement.getAttribute('data-theme') || 'default';
+    },
+    
+    // Set theme
+    setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem(this.STORAGE_KEY, theme);
+        this.updateThemeButton();
+        
+        // Add subtle transition effect when switching themes
+        document.body.style.transition = 'background 0.5s ease';
+        setTimeout(() => {
+            document.body.style.transition = '';
+        }, 500);
+    },
+    
+    // Toggle between themes
+    toggleTheme() {
+        const currentTheme = this.getCurrentTheme();
+        const newTheme = currentTheme === 'princess-pink' ? 'default' : 'princess-pink';
+        this.setTheme(newTheme);
+        
+        // Show feedback to user with bottom snackbar
+        this.showThemeChangeNotification(newTheme);
+    },
+    
+    // Load saved theme from localStorage
+    loadTheme() {
+        const savedTheme = localStorage.getItem(this.STORAGE_KEY);
+        if (savedTheme && savedTheme !== 'default') {
+            this.setTheme(savedTheme);
+        }
+    },
+    
+    // Update theme button appearance
+    updateThemeButton() {
+        const button = document.querySelector('.theme-toggle');
+        if (!button) return;
+        
+        const icon = button.querySelector('.theme-icon');
+        const label = button.querySelector('.theme-label');
+        const currentTheme = this.getCurrentTheme();
+        
+        if (currentTheme === 'princess-pink') {
+            icon.innerHTML = '<i class="fas fa-rocket"></i>';
+            label.textContent = 'Default';
+            button.setAttribute('aria-label', 'Switch to Default theme');
+        } else {
+            icon.innerHTML = '<i class="fas fa-crown"></i>';
+            label.textContent = 'Princess Pink';
+            button.setAttribute('aria-label', 'Switch to Princess Pink theme');
+        }
+    },
+    
+    // Show theme change notification as bottom snackbar
+    showThemeChangeNotification(newTheme) {
+        const notification = document.createElement('div');
+        notification.className = 'theme-snackbar';
+        notification.innerHTML = `
+            <div class="snackbar-content">
+                <span class="snackbar-icon">${newTheme === 'princess-pink' ? '<i class="fas fa-crown"></i>' : '<i class="fas fa-rocket"></i>'}</span>
+                <span class="snackbar-text">
+                    Switched to ${newTheme === 'princess-pink' ? 'Princess Pink' : 'Default'} theme
+                </span>
+            </div>
+        `;
+        
+        // Add snackbar styles
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            z-index: 1001;
+            background: linear-gradient(135deg, rgba(26, 31, 58, 0.95) 0%, rgba(42, 47, 74, 0.95) 100%);
+            color: var(--text-light);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            min-width: 200px;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        `;
+        
+        // Add icon styling
+        const icon = notification.querySelector('.snackbar-icon');
+        if (icon) {
+            icon.style.cssText = `
+                color: var(--primary-gold);
+                margin-right: 0.5rem;
+                filter: drop-shadow(0 0 5px var(--glow-gold));
+            `;
+        }
+        
+        document.body.appendChild(notification);
+        
+        // Animate in (slide up from bottom)
+        setTimeout(() => {
+            notification.style.transform = 'translateX(-50%) translateY(0)';
+        }, 100);
+        
+        // Remove after 2.5 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(-50%) translateY(100px)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 2500);
+    }
+};
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => ProgressTracker.init());
+    document.addEventListener('DOMContentLoaded', () => {
+        ProgressTracker.init();
+        ThemeManager.init();
+    });
 } else {
     ProgressTracker.init();
+    ThemeManager.init();
 }
