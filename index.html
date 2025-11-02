@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LearnGit.space - Your Journey Through Version Control Space</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="js/progress-tracker.js"></script>
 </head>
 <body>
     <div class="stars" id="stars"></div>
     
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch theme">
+            <span class="theme-icon"><i class="fas fa-crown"></i></span>
+            <span class="theme-label">Princess Pink</span>
+        </button>
+    </div>
+    
     <div class="container">
         <header>
             <div class="title-wrapper">
-                <div class="title-badge">🚀 MISSION READY</div>
+                <div class="title-badge"><i class="fas fa-rocket"></i> MISSION READY</div>
                 <h1 class="main-title">
                     <span class="title-learn">Learn</span><span class="title-git">Git</span><span class="title-dot">.</span><span class="title-space">space</span>
                 </h1>
@@ -32,12 +41,12 @@
         </div>
 
         <section class="toc mission-control">
-            <h2>📡 Mission Phases</h2>
+            <h2><i class="fas fa-satellite-dish"></i> Mission Phases</h2>
             <p>Your training is divided into carefully structured mission phases. Each phase builds upon the previous one, taking you from basic orientation to advanced maneuvers.</p>
             
             <div class="toc-section mission-section" data-mission="mission-briefing">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">🌟 Pre-Launch: Mission Briefing</h3>
+                    <h3 class="toc-section-title"><i class="fas fa-star"></i> Pre-Launch: Mission Briefing</h3>
                     <span class="phase-duration">~4 min</span>
                 </div>
                 <p class="toc-section-desc">Your first orientation as an astronaut</p>
@@ -48,7 +57,7 @@
             
             <div class="toc-section mission-section" data-mission="git-basics">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">🚀 Phase 1: Launch Sequence</h3>
+                    <h3 class="toc-section-title"><i class="fas fa-rocket"></i> Phase 1: Launch Sequence</h3>
                     <span class="phase-duration">~80 min</span>
                 </div>
                 <p class="toc-section-desc">Understanding the fundamentals and preparing your systems for launch</p>
@@ -68,7 +77,7 @@
 
             <div class="toc-section mission-section" data-mission="branches">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">🌌 Phase 2: Orbital Maneuvers</h3>
+                    <h3 class="toc-section-title"><i class="fas fa-globe"></i> Phase 2: Orbital Maneuvers</h3>
                     <span class="phase-duration">~71 min</span>
                 </div>
                 <p class="toc-section-desc">Master essential commands and version control workflows</p>
@@ -86,7 +95,7 @@
 
             <div class="toc-section mission-section" data-mission="advanced">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">🛸 Phase 3: Deep Space Operations</h3>
+                    <h3 class="toc-section-title"><i class="fas fa-space-shuttle"></i> Phase 3: Deep Space Operations</h3>
                     <span class="phase-duration">~68 min</span>
                 </div>
                 <p class="toc-section-desc">Advanced techniques for managing complex missions</p>
@@ -103,7 +112,7 @@
 
             <div class="toc-section mission-section" data-mission="collaboration">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">👥 Phase 4: Multi-Crew Missions</h3>
+                    <h3 class="toc-section-title"><i class="fas fa-users"></i> Phase 4: Multi-Crew Missions</h3>
                     <span class="phase-duration">~48 min</span>
                 </div>
                 <p class="toc-section-desc">Collaborate with other astronauts across missions</p>
@@ -116,7 +125,7 @@
 
             <div class="toc-section mission-section" data-mission="collaboration">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">👥 Phase 4: Multi-Crew Missions</h3>
+                    <h3 class="toc-section-title"><i class="fas fa-users"></i> Phase 4: Multi-Crew Missions</h3>
                     <span class="phase-duration">~48 min</span>
                 </div>
                 <p class="toc-section-desc">Collaborate with other astronauts across missions</p>
@@ -132,7 +141,7 @@
 
             <div class="toc-section mission-section" data-mission="beyond">
                 <div class="toc-section-header">
-                    <h3 class="toc-section-title">🌠 Phase 5: Beyond the Solar System</h3>
+                    <h3 class="toc-section-title"><i class="fas fa-meteor"></i> Phase 5: Beyond the Solar System</h3>
                     <span class="phase-duration">~13 min</span>
                 </div>
                 <p class="toc-section-desc">Professional communication and reference materials</p>
@@ -160,7 +169,7 @@
         </section>
 
         <div class="mission-brief">
-            <h2>🌟 Why This Mission Matters</h2>
+            <h2><i class="fas fa-star"></i> Why This Mission Matters</h2>
             <p>In the vastness of space, every action must be recorded, every decision tracked, and every team member coordinated. The same is true for software development. Git and GitHub aren't just tools—they're your lifeline in the complex universe of modern development.</p>
             
             <p>By the end of this training:</p>
@@ -173,7 +182,7 @@
         </div>
 
         <footer>
-            <p>🌌 <strong>Mission Control Training Program</strong> • Prepare for Launch • Version 1.0</p>
+            <p><i class="fas fa-globe"></i> <strong>Mission Control Training Program</strong> • Prepare for Launch • Version 1.0</p>
             <p>Remember, Astronaut: In space, as in code, preparation and precision make all the difference.</p>
             <p class="author-info">Created by <strong>Emanuele Bartolesi</strong> • <a href="https://github.com/kasuken" target="_blank" rel="noopener noreferrer">github.com/kasuken</a></p>
         </footer>
