@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Code Review - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 4.1</div>
+                <h1><i class="fas fa-search"></i> Advanced Code Review</h1>
+                <div class="chapter-subtitle">Quality Gates & Enterprise Review Processes</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="../enterprise/performance-optimization.html" class="nav-link">Previous: Phase 3 Complete</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Advanced Code Review</span>
+                <span class="nav-separator">•</span>
+                <a href="team-collaboration-patterns.html" class="nav-link">Next: Team Collaboration</a>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Mission Critical: Quality Assurance Protocol</strong>
+                    <p>You are now responsible for ensuring code quality across multiple teams and projects. The decisions you make in review processes will impact entire mission success and team productivity.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-shield-alt"></i> Mission Briefing</h2>
+            <p>Commander, in large-scale space missions, no critical system component goes into production without rigorous inspection and approval from multiple expert engineers. In software development, <strong>code review</strong> serves this same vital function - ensuring quality, knowledge sharing, and maintaining mission standards across your development fleet.</p>
+            
+            <p>As a commander, you're not just reviewing code - you're designing review processes that scale across teams, implementing quality gates that prevent defects from reaching production, and fostering a culture of continuous improvement. This requires mastering both technical review techniques and leadership strategies for effective team collaboration.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Mission Objectives</h3>
+                <ul>
+                    <li>Design and implement enterprise-grade code review processes</li>
+                    <li>Establish quality gates and automated review workflows</li>
+                    <li>Master GitHub's advanced review features and integrations</li>
+                    <li>Lead effective review discussions and provide constructive feedback</li>
+                    <li>Implement metrics and continuous improvement strategies</li>
+                    <li>Scale review processes across multiple teams and repositories</li>
+                </ul>
+            </div>
+
+            <div class="mission-stats">
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Estimated Time: 12 minutes</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Complexity: Leadership</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-flask"></i>
+                    <span>Hands-on Labs: 4</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Enterprise Review Strategy -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-sitemap"></i> Section 1: Enterprise Review Strategy</h2>
+                <div class="section-duration">3 minutes</div>
+            </div>
+
+            <div class="content-block">
+                <h3>Strategic Review Framework</h3>
+                <p>Enterprise code review goes beyond finding bugs - it's a systematic approach to maintaining code quality, sharing knowledge, and ensuring consistency across large development teams. A well-designed review strategy balances thoroughness with velocity.</p>
+
+                <div class="framework-diagram">
+                    <h4>Enterprise Review Pyramid</h4>
+                    <div class="pyramid-level level-1">
+                        <strong>Automated Checks</strong>
+                        <span>Linting, Testing, Security Scans, Coverage</span>
+                    </div>
+                    <div class="pyramid-level level-2">
+                        <strong>Peer Review</strong>
+                        <span>Logic, Design, Best Practices</span>
+                    </div>
+                    <div class="pyramid-level level-3">
+                        <strong>Architecture Review</strong>
+                        <span>Senior/Lead Review for Complex Changes</span>
+                    </div>
+                    <div class="pyramid-level level-4">
+                        <strong>Security Review</strong>
+                        <span>Security Team for High-Risk Changes</span>
+                    </div>
+                </div>
+
+                <div class="best-practices">
+                    <h4><i class="fas fa-star"></i> Strategic Principles</h4>
+                    <ul>
+                        <li><strong>Automate First:</strong> Catch mechanical issues before human review</li>
+                        <li><strong>Right-Size Reviews:</strong> Match review depth to change complexity</li>
+                        <li><strong>Knowledge Distribution:</strong> Rotate reviewers to spread expertise</li>
+                        <li><strong>Continuous Improvement:</strong> Measure and optimize review metrics</li>
+                        <li><strong>Cultural Focus:</strong> Emphasize learning over fault-finding</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 1: Review Strategy Design</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Design a review strategy for a 50-person development team</p>
+                    <ol>
+                        <li>Create a repository to practice with:
+                            <pre><code>mkdir review-strategy-demo
+cd review-strategy-demo
+git init
+git remote add origin [your-repo-url]</code></pre>
+                        </li>
+                        <li>Design review criteria based on change size:
+                            <pre><code># Small changes (< 50 lines): 1 reviewer
+# Medium changes (50-200 lines): 2 reviewers  
+# Large changes (> 200 lines): Architecture review required
+# Security-sensitive: Additional security review</code></pre>
+                        </li>
+                        <li>Document your strategy:
+                            <pre><code>echo "# Code Review Strategy
+
+## Review Requirements by Change Size
+- **Small** (< 50 lines): 1 peer reviewer
+- **Medium** (50-200 lines): 2 peer reviewers
+- **Large** (> 200 lines): Architecture review + peer review
+- **Security-sensitive**: Security team review required
+
+## Automated Gates
+- All tests must pass
+- Code coverage > 80%
+- Linting checks pass
+- Security vulnerability scan clear
+
+## Review Timeline
+- Reviews should be completed within 24 hours
+- Urgent fixes can bypass some checks with post-review
+- Architecture reviews scheduled weekly
+" > REVIEW_STRATEGY.md
+
+git add REVIEW_STRATEGY.md
+git commit -m "Add enterprise code review strategy"</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> A documented review strategy that scales with your team size and change complexity.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Quality Gates and Automation -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-robot"></i> Section 2: Quality Gates and Automation</h2>
+                <div class="section-duration">3 minutes</div>
+            </div>
+
+            <div class="content-block">
+                <h3>Automated Quality Gates</h3>
+                <p>Quality gates are automated checkpoints that prevent low-quality code from progressing through your development pipeline. They act as the first line of defense, catching issues before they reach human reviewers.</p>
+
+                <div class="quality-gates-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Gate Type</th>
+                                <th>Purpose</th>
+                                <th>Tools</th>
+                                <th>Blocking Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Syntax & Style</td>
+                                <td>Consistent formatting</td>
+                                <td>ESLint, Prettier, Black</td>
+                                <td>Hard Block</td>
+                            </tr>
+                            <tr>
+                                <td>Unit Tests</td>
+                                <td>Functionality validation</td>
+                                <td>Jest, PyTest, JUnit</td>
+                                <td>Hard Block</td>
+                            </tr>
+                            <tr>
+                                <td>Code Coverage</td>
+                                <td>Test completeness</td>
+                                <td>Codecov, SonarQube</td>
+                                <td>Soft Block</td>
+                            </tr>
+                            <tr>
+                                <td>Security Scan</td>
+                                <td>Vulnerability detection</td>
+                                <td>Snyk, CodeQL, SAST</td>
+                                <td>Hard Block</td>
+                            </tr>
+                            <tr>
+                                <td>Performance</td>
+                                <td>Performance regression</td>
+                                <td>Lighthouse, Custom metrics</td>
+                                <td>Soft Block</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>GitHub Actions Quality Gates</span>
+                    </div>
+                    <pre><code># .github/workflows/quality-gates.yml
+name: Quality Gates
+on: [pull_request]
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      # Syntax and style checks
+      - name: Lint Code
+        run: |
+          npm install
+          npm run lint
+          
+      # Test execution
+      - name: Run Tests
+        run: npm test
+        
+      # Coverage check
+      - name: Check Coverage
+        run: |
+          npm run coverage
+          npx codecov
+          
+      # Security scanning
+      - name: Security Scan
+        uses: securecodewarrior/github-action-add-sarif@v1
+        with:
+          sarif-file: security-scan.sarif</code></pre>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 2: Implementing Quality Gates</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Set up automated quality gates for your repository</p>
+                    <ol>
+                        <li>Create a GitHub Actions workflow:
+                            <pre><code>mkdir -p .github/workflows
+cat > .github/workflows/pr-checks.yml << 'EOF'
+name: PR Quality Checks
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Check file size
+        run: |
+          # Prevent large files
+          find . -type f -size +1M -not -path "./.git/*" | tee large_files.txt
+          if [ -s large_files.txt ]; then
+            echo "Large files detected - review required"
+            exit 1
+          fi
+          
+      - name: Check commit messages
+        run: |
+          # Validate commit message format
+          git log --pretty=format:"%s" ${{ github.event.pull_request.base.sha }}..${{ github.sha }} | \
+          grep -E "^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .+" || \
+          (echo "Invalid commit message format" && exit 1)
+          
+      - name: Detect secrets
+        run: |
+          # Simple secret detection
+          if grep -r "password\|secret\|key\|token" --include="*.js" --include="*.py" --exclude-dir=.git .; then
+            echo "Potential secrets detected - security review required"
+            exit 1
+          fi
+EOF</code></pre>
+                        </li>
+                        <li>Add branch protection rules via GitHub CLI:
+                            <pre><code># Install GitHub CLI if not available
+# gh auth login
+
+# Set up branch protection
+gh api repos/:owner/:repo/branches/main/protection \
+  --method PUT \
+  --field required_status_checks='{"strict":true,"contexts":["quality-gates"]}' \
+  --field enforce_admins=true \
+  --field required_pull_request_reviews='{"required_approving_review_count":2}' \
+  --field restrictions=null</code></pre>
+                        </li>
+                        <li>Test the quality gates:
+                            <pre><code>git add .github/workflows/pr-checks.yml
+git commit -m "feat: add quality gates workflow"
+git push origin main
+
+# Create test branch with intentional issues
+git checkout -b test-quality-gates
+echo "password=secret123" > config.js
+git add config.js
+git commit -m "bad commit message"
+git push origin test-quality-gates</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> Automated quality gates that prevent common issues from reaching human reviewers.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Advanced GitHub Review Features -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-github"></i> Section 3: Advanced GitHub Review Features</h2>
+                <div class="section-duration">3 minutes</div>
+            </div>
+
+            <div class="content-block">
+                <h3>GitHub Review Capabilities</h3>
+                <p>GitHub provides sophisticated review tools that go far beyond simple comments. Mastering these features enables more effective review processes and better collaboration outcomes.</p>
+
+                <div class="github-features">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-comments"></i> Review Types</h4>
+                        <ul>
+                            <li><strong>Comment:</strong> General feedback without approval</li>
+                            <li><strong>Approve:</strong> Explicit approval to merge</li>
+                            <li><strong>Request Changes:</strong> Block merge until issues addressed</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-code"></i> Review Modes</h4>
+                        <ul>
+                            <li><strong>Line Comments:</strong> Specific code feedback</li>
+                            <li><strong>Suggestions:</strong> Proposed code changes</li>
+                            <li><strong>Batch Reviews:</strong> Multiple comments in one review</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-users"></i> Team Features</h4>
+                        <ul>
+                            <li><strong>CODEOWNERS:</strong> Automatic reviewer assignment</li>
+                            <li><strong>Review Assignment:</strong> Load balancing reviews</li>
+                            <li><strong>Draft PRs:</strong> Work-in-progress sharing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <i class="fas fa-file-code"></i>
+                        <span>CODEOWNERS Configuration</span>
+                    </div>
+                    <pre><code># .github/CODEOWNERS
+# Global ownership
+* @team-leads
+
+# Frontend code
+/src/frontend/ @frontend-team @ui-team
+/src/components/ @frontend-team
+
+# Backend API
+/src/api/ @backend-team @api-team
+/src/database/ @backend-team @dba-team
+
+# Infrastructure
+/terraform/ @devops-team @platform-team
+/docker/ @devops-team
+/.github/workflows/ @devops-team @platform-team
+
+# Security-sensitive files
+/src/auth/ @security-team @backend-team
+/src/payments/ @security-team @backend-team
+**/secrets.* @security-team
+
+# Documentation
+/docs/ @tech-writers @product-team
+README.md @tech-writers</code></pre>
+                </div>
+
+                <div class="advanced-techniques">
+                    <h4>Advanced Review Techniques</h4>
+                    <ul>
+                        <li><strong>Suggested Changes:</strong> Provide exact code fixes reviewees can apply with one click</li>
+                        <li><strong>Review Templates:</strong> Standardize review checklists and feedback structure</li>
+                        <li><strong>Cross-Repository Reviews:</strong> Reference related changes across multiple repos</li>
+                        <li><strong>Review Analytics:</strong> Track review velocity and quality metrics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 3: Advanced GitHub Reviews</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Set up advanced review features for your team</p>
+                    <ol>
+                        <li>Create a CODEOWNERS file:
+                            <pre><code>mkdir -p .github
+cat > .github/CODEOWNERS << 'EOF'
+# Default owners for everything
+* @your-username
+
+# Specific file patterns
+*.js @frontend-team
+*.py @backend-team
+/docs/ @documentation-team
+/security/ @security-team
+
+# Critical files require multiple approvals
+package.json @your-username @senior-dev
+Dockerfile @your-username @devops-lead
+EOF</code></pre>
+                        </li>
+                        <li>Create a pull request template:
+                            <pre><code>cat > .github/pull_request_template.md << 'EOF'
+## Description
+Brief description of changes and motivation
+
+## Type of Change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
+
+## Review Checklist
+- [ ] Code follows style guidelines
+- [ ] Self-review completed
+- [ ] Tests added/updated for changes
+- [ ] Documentation updated if needed
+- [ ] No new security vulnerabilities introduced
+
+## Testing
+- [ ] Unit tests pass
+- [ ] Integration tests pass
+- [ ] Manual testing completed
+
+## Related Issues
+Fixes #(issue number)
+EOF</code></pre>
+                        </li>
+                        <li>Practice advanced review features:
+                            <pre><code># Create a test PR to practice on
+git checkout -b advanced-review-demo
+echo "// TODO: Optimize this function
+function calculateTotal(items) {
+  var total = 0;
+  for(var i = 0; i < items.length; i++) {
+    total += items[i].price;
+  }
+  return total;
+}" > calculation.js
+
+git add .
+git commit -m "feat: add basic calculation function"
+git push origin advanced-review-demo
+
+# Create PR and practice:
+# - Adding line comments
+# - Suggesting specific changes
+# - Using review templates
+# - Testing CODEOWNERS automatic assignment</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> A repository configured with advanced GitHub review features that streamline the review process.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Leadership & Review Culture -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> Section 4: Leadership & Review Culture</h2>
+                <div class="section-duration">3 minutes</div>
+            </div>
+
+            <div class="content-block">
+                <h3>Building a Positive Review Culture</h3>
+                <p>Technical review excellence requires strong leadership to create a culture where reviews are seen as learning opportunities rather than obstacles. Successful review cultures balance quality standards with psychological safety and continuous improvement.</p>
+
+                <div class="culture-principles">
+                    <div class="principle-card">
+                        <h4><i class="fas fa-heart"></i> Empathy & Respect</h4>
+                        <ul>
+                            <li>Assume good intentions from all contributors</li>
+                            <li>Focus on code, not the person who wrote it</li>
+                            <li>Provide constructive, actionable feedback</li>
+                            <li>Acknowledge good work and improvements</li>
+                        </ul>
+                    </div>
+                    <div class="principle-card">
+                        <h4><i class="fas fa-graduation-cap"></i> Learning Focus</h4>
+                        <ul>
+                            <li>Explain the "why" behind feedback</li>
+                            <li>Share resources and examples</li>
+                            <li>Encourage questions and discussions</li>
+                            <li>View reviews as teaching moments</li>
+                        </ul>
+                    </div>
+                    <div class="principle-card">
+                        <h4><i class="fas fa-balance-scale"></i> Balance & Pragmatism</h4>
+                        <ul>
+                            <li>Right-size reviews to change significance</li>
+                            <li>Distinguish between must-fix and nice-to-have</li>
+                            <li>Consider time constraints and priorities</li>
+                            <li>Allow different but valid approaches</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="review-feedback-framework">
+                    <h4>Effective Feedback Framework</h4>
+                    <div class="feedback-examples">
+                        <div class="feedback-do">
+                            <h5><i class="fas fa-check"></i> Effective Feedback</h5>
+                            <ul>
+                                <li>"Consider using Array.reduce() here for better readability and performance"</li>
+                                <li>"This approach works, but we could prevent the security issue by validating input first"</li>
+                                <li>"Great error handling! One suggestion: consider adding a specific error message for debugging"</li>
+                                <li>"This logic is correct. For maintainability, could we extract this into a helper function?"</li>
+                            </ul>
+                        </div>
+                        <div class="feedback-dont">
+                            <h5><i class="fas fa-times"></i> Avoid</h5>
+                            <ul>
+                                <li>"This is wrong" (no explanation)</li>
+                                <li>"Why didn't you use reduce?" (accusatory tone)</li>
+                                <li>"This will never work" (absolute statements)</li>
+                                <li>"I would do it differently" (personal preference without justification)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 4: Review Culture Implementation</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Establish review culture guidelines and metrics</p>
+                    <ol>
+                        <li>Create review guidelines document:
+                            <pre><code>cat > .github/REVIEW_GUIDELINES.md << 'EOF'
+# Code Review Guidelines
+
+## Our Review Philosophy
+We believe code reviews are collaborative learning experiences that improve both code quality and team knowledge.
+
+## Review Principles
+### For Reviewers
+- **Be Kind**: Focus on code, not the person
+- **Be Specific**: Explain why, not just what
+- **Be Timely**: Reviews should happen within 24 hours
+- **Be Thorough**: Check logic, style, tests, and documentation
+
+### For Authors
+- **Be Open**: Welcome feedback as learning opportunities
+- **Be Responsive**: Address feedback promptly
+- **Be Descriptive**: Write clear PR descriptions and commit messages
+- **Be Proactive**: Self-review before requesting review
+
+## Review Checklist
+- [ ] Code is readable and well-structured
+- [ ] Tests cover new functionality
+- [ ] Documentation is updated
+- [ ] Security considerations addressed
+- [ ] Performance implications considered
+- [ ] Error handling is appropriate
+
+## Escalation Process
+1. Discussion in PR comments
+2. Video call if complex discussion needed
+3. Architecture review for design decisions
+4. Team lead involvement for blocking issues
+EOF</code></pre>
+                        </li>
+                        <li>Set up review metrics tracking:
+                            <pre><code># Create a simple metrics script
+cat > review-metrics.sh << 'EOF'
+#!/bin/bash
+# Basic review metrics collection
+
+echo "=== Review Metrics Report ==="
+echo "Period: Last 30 days"
+echo ""
+
+# Average time to first review
+echo "Average time to first review:"
+gh pr list --state merged --limit 50 --json createdAt,reviews | \
+  jq -r '.[] | select(.reviews | length > 0) | 
+    (.reviews[0].submittedAt | fromdateiso8601) - (.createdAt | fromdateiso8601)'
+
+# Review participation
+echo "Review participation:"
+gh pr list --state merged --limit 50 --json reviews | \
+  jq -r '.[] | .reviews[] | .author.login' | \
+  sort | uniq -c | sort -nr
+
+# Average PR size
+echo "Average PR size (lines changed):"
+gh pr list --state merged --limit 50 --json additions,deletions | \
+  jq '.[] | .additions + .deletions' | \
+  awk '{sum+=$1; count++} END {print sum/count}'
+EOF
+
+chmod +x review-metrics.sh</code></pre>
+                        </li>
+                        <li>Practice giving constructive feedback:
+                            <pre><code># Create a sample PR for practice
+git checkout -b practice-feedback
+echo "function processUser(user) {
+  if (user.name) {
+    if (user.email) {
+      if (user.age > 18) {
+        return processAdult(user);
+      } else {
+        return processMinor(user);
+      }
+    } else {
+      throw 'No email';
+    }
+  } else {
+    throw 'No name';
+  }
+}" > user-processor.js
+
+git add user-processor.js
+git commit -m "add user processor"
+git push origin practice-feedback
+
+# Practice reviewing this code:
+# - Identify nested if statements
+# - Suggest early returns
+# - Recommend specific error handling
+# - Propose input validation improvements</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> A documented review culture with guidelines, metrics, and practical examples for your team.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Summary -->
+        <div class="mission-summary">
+            <h2><i class="fas fa-medal"></i> Mission Complete: Advanced Code Review Leadership</h2>
+            <div class="achievement-grid">
+                <div class="achievement-item">
+                    <i class="fas fa-sitemap"></i>
+                    <h4>Review Strategy Architect</h4>
+                    <p>Designed comprehensive review processes that scale across enterprise teams</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-robot"></i>
+                    <h4>Automation Expert</h4>
+                    <p>Implemented quality gates and automated checks to improve review efficiency</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-github"></i>
+                    <h4>GitHub Review Master</h4>
+                    <p>Mastered advanced GitHub review features including CODEOWNERS and review templates</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Culture Leader</h4>
+                    <p>Established positive review culture focused on learning and continuous improvement</p>
+                </div>
+            </div>
+
+            <div class="next-steps">
+                <h3><i class="fas fa-forward"></i> Next Mission</h3>
+                <p>Excellent work, Commander! You've mastered advanced code review processes and leadership. Next, advance to <strong>Team Collaboration Patterns</strong> to learn how to coordinate multiple teams and manage complex collaborative workflows.</p>
+                
+                <div class="nav-buttons">
+                    <a href="../enterprise/performance-optimization.html" class="btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Previous: Phase 3 Complete
+                    </a>
+                    <a href="team-collaboration-patterns.html" class="btn-primary">
+                        <i class="fas fa-arrow-right"></i> Next: Team Collaboration Patterns
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="course-info">
+                    <h3>LearnGit.space - Leadership & Team Coordination</h3>
+                    <p>Phase 4: Advanced leadership skills for enterprise development teams</p>
+                </div>
+                <div class="progress-indicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                    <span>Phase 4.1 Complete: Advanced Code Review</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Track completion
+        if (typeof ProgressTracker !== 'undefined') {
+            ProgressTracker.markPhaseComplete('leadership', 1);
+        }
+    </script>
+</body>
+</html>

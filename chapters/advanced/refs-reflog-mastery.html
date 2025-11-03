@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refs and Reflog Mastery - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 1.5</div>
+                <h1><i class="fas fa-link"></i> Refs and Reflog Mastery</h1>
+                <div class="chapter-subtitle">Git Internals, References & History Recovery</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="advanced-history-analysis.html" class="nav-link">Previous: History Analysis</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Refs & Reflog Mastery</span>
+                <span class="nav-separator">•</span>
+                <a href="../automation/git-hooks-automation.html" class="nav-link">Next: Phase 2</a>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Deep Space Navigation Protocol</strong>
+                    <p>You are entering the core navigation systems of Git. Understanding references and reflog is essential for advanced repository management and emergency recovery operations.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-satellite-dish"></i> Mission Briefing</h2>
+            <p>Commander, every spacecraft needs a sophisticated navigation system to track its position, trajectory, and maintain logs of all movements for emergency recovery. In Git, this navigation system consists of <strong>references (refs)</strong> and the <strong>reference log (reflog)</strong> - the internal mechanisms that track every commit, branch, and state change in your repository.</p>
+            
+            <p>While cadets use Git through simple commands, commanders understand the underlying reference system. This knowledge enables advanced operations like recovering "lost" commits, understanding Git's internal structure, and performing sophisticated repository maintenance that would be impossible without deep systems knowledge.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Mission Objectives</h3>
+                <ul>
+                    <li>Master Git's reference system: branches, tags, HEAD, and symbolic refs</li>
+                    <li>Understand the .git directory structure and object database</li>
+                    <li>Utilize reflog for commit recovery and history tracking</li>
+                    <li>Perform advanced ref management and repository maintenance</li>
+                    <li>Recover from catastrophic repository states using ref knowledge</li>
+                    <li>Implement custom reference workflows for enterprise scenarios</li>
+                </ul>
+            </div>
+
+            <div class="mission-stats">
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Estimated Time: 15 minutes</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Complexity: Advanced</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-flask"></i>
+                    <span>Hands-on Labs: 5</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Git References Foundation -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-map"></i> Section 1: Git References Foundation</h2>
+                <div class="section-duration">4 minutes</div>
+            </div>
+
+            <div class="content-block">
+                <h3>Understanding Git References</h3>
+                <p>In the spacecraft analogy, references are like navigation beacons that point to specific coordinates (commits) in your mission history. Every branch name, tag, and HEAD pointer is a reference stored as a simple file containing a SHA-1 hash.</p>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>Reference Types in Git</span>
+                    </div>
+                    <pre><code># View all references
+git show-ref
+
+# Branch references (refs/heads/)
+git show-ref --heads
+
+# Tag references (refs/tags/)  
+git show-ref --tags
+
+# Remote references (refs/remotes/)
+git show-ref | grep remotes</code></pre>
+                </div>
+
+                <div class="info-box commander">
+                    <h4><i class="fas fa-info-circle"></i> Commander Insight</h4>
+                    <p>References are stored in <code>.git/refs/</code> as plain text files. Each file contains a single SHA-1 hash pointing to a commit object. This simple system enables Git's powerful branching and history management.</p>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 1: Exploring the Reference System</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Investigate your repository's reference structure</p>
+                    <ol>
+                        <li>Navigate to your Git repository</li>
+                        <li>Examine reference files directly:
+                            <pre><code># Look at branch reference
+cat .git/refs/heads/main
+
+# Check HEAD reference  
+cat .git/HEAD
+
+# List all reference directories
+ls -la .git/refs/</code></pre>
+                        </li>
+                        <li>Compare direct file content with Git commands:
+                            <pre><code># Should match the file content
+git rev-parse HEAD
+git rev-parse main
+
+# Show what HEAD points to
+git symbolic-ref HEAD</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> You'll see how Git stores references as simple files and understand the relationship between branches, HEAD, and commit objects.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: HEAD and Symbolic References -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-crosshairs"></i> Section 2: HEAD and Symbolic References</h2>
+                <div class="section-duration">3 minutes</div>
+            </div>
+
+            <div class="content-block">
+                <h3>The HEAD Reference</h3>
+                <p>HEAD is Git's most important reference - it's your current position in the repository timeline. Think of it as your spacecraft's current coordinates that determine what you see in your working directory.</p>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>HEAD State</th>
+                                <th>Points To</th>
+                                <th>Meaning</th>
+                                <th>Working Directory</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Normal</td>
+                                <td>refs/heads/branch-name</td>
+                                <td>On a branch</td>
+                                <td>Latest commit of branch</td>
+                            </tr>
+                            <tr>
+                                <td>Detached</td>
+                                <td>commit SHA-1</td>
+                                <td>Not on any branch</td>
+                                <td>Specific commit content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>HEAD Manipulation Commands</span>
+                    </div>
+                    <pre><code># Check current HEAD status
+git status
+git log --oneline -1
+
+# Create detached HEAD state
+git checkout [commit-hash]
+
+# Return to branch
+git checkout main
+
+# Move HEAD without changing working directory
+git reset --soft HEAD~1
+
+# Move HEAD and update working directory
+git reset --hard HEAD~1</code></pre>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 2: HEAD State Management</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Practice navigating different HEAD states</p>
+                    <ol>
+                        <li>Check your current HEAD state:
+                            <pre><code>git status
+cat .git/HEAD</code></pre>
+                        </li>
+                        <li>Create a detached HEAD state:
+                            <pre><code>git log --oneline -5
+git checkout HEAD~2
+git status</code></pre>
+                        </li>
+                        <li>Examine what changed:
+                            <pre><code>cat .git/HEAD  # Should be a SHA-1 now
+git branch     # Shows detached state</code></pre>
+                        </li>
+                        <li>Return to your branch:
+                            <pre><code>git checkout main
+cat .git/HEAD  # Should be ref: refs/heads/main</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> You understand how HEAD changes between symbolic reference (branch) and direct reference (commit hash) states.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Reflog System -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-history"></i> Section 3: The Reflog System</h2>
+                <div class="section-duration">4 minutes</div>
+            </div>
+
+            <div class="content-block">
+                <h3>Understanding Reflog</h3>
+                <p>The reflog (reference log) is Git's flight recorder - it tracks every movement of references, especially HEAD. Unlike the commit history which can be rewritten, reflog maintains a complete log of where your references have pointed, making it invaluable for recovery operations.</p>
+
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Critical Knowledge</h4>
+                    <p>Reflog is local only - it doesn't get pushed or pulled. It's your personal navigation history, typically kept for 90 days by default.</p>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>Reflog Commands</span>
+                    </div>
+                    <pre><code># View HEAD reflog
+git reflog
+
+# View reflog for specific branch
+git reflog show branch-name
+
+# View reflog with timestamps
+git reflog --date=iso
+
+# Find commits from specific time
+git reflog --since="2 days ago"
+
+# Show reflog entries as patches
+git log -g -p</code></pre>
+                </div>
+
+                <div class="reflog-example">
+                    <h4>Example Reflog Output</h4>
+                    <pre><code>abc123f HEAD@{0}: commit: Add new feature
+def456a HEAD@{1}: checkout: moving from feature-branch to main  
+ghi789b HEAD@{2}: commit: Fix bug in authentication
+def456a HEAD@{3}: checkout: moving from main to feature-branch
+jkl012c HEAD@{4}: reset: moving to HEAD~1</code></pre>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 3: Reflog Recovery Operations</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Recover a "lost" commit using reflog</p>
+                    <ol>
+                        <li>Create a commit and then "lose" it:
+                            <pre><code># Make a test commit
+echo "test file" > recovery-test.txt
+git add recovery-test.txt
+git commit -m "Test commit for recovery"
+
+# Note the commit hash
+git log --oneline -1
+
+# "Lose" the commit with hard reset
+git reset --hard HEAD~1</code></pre>
+                        </li>
+                        <li>The commit appears lost from normal history:
+                            <pre><code>git log --oneline  # Commit not visible
+ls                # File is gone</code></pre>
+                        </li>
+                        <li>Use reflog to find and recover:
+                            <pre><code>git reflog           # Find the lost commit
+git show HEAD@{1}    # Should show your test commit
+git reset --hard HEAD@{1}  # Recover it</code></pre>
+                        </li>
+                        <li>Verify recovery:
+                            <pre><code>ls                # File should be back
+git log --oneline # Commit visible again</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> You've successfully recovered a commit that was "lost" due to a hard reset, demonstrating reflog's power for disaster recovery.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Git Internals Deep Dive -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-cogs"></i> Section 4: Git Internals Deep Dive</h2>
+                <div class="section-duration">3 minutes</div>
+            </div>
+
+            <div class="content-block">
+                <h3>The .git Directory Structure</h3>
+                <p>Understanding Git's internal structure is like knowing your spacecraft's engineering systems. The .git directory contains all the repository data, and refs are just one part of this sophisticated system.</p>
+
+                <div class="directory-structure">
+                    <h4>.git Directory Layout</h4>
+                    <pre><code>.git/
+├── HEAD                 # Current branch reference
+├── config              # Repository configuration
+├── description         # Repository description
+├── hooks/              # Git hook scripts
+├── info/               # Additional repository info
+├── objects/            # Git object database
+│   ├── [0-9a-f][0-9a-f]/  # Object storage (by hash)
+│   ├── info/           # Object database info
+│   └── pack/           # Packed objects
+└── refs/               # Reference storage
+    ├── heads/          # Branch references
+    ├── tags/           # Tag references
+    └── remotes/        # Remote references</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>Exploring Git Objects</span>
+                    </div>
+                    <pre><code># See all objects
+find .git/objects -type f
+
+# Examine object type and content
+git cat-file -t [hash]   # Show object type
+git cat-file -p [hash]   # Show object content
+
+# Show object size
+git cat-file -s [hash]
+
+# List all references with their objects
+git for-each-ref</code></pre>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 4: Git Objects and References</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Explore the relationship between refs and objects</p>
+                    <ol>
+                        <li>Find the current commit object:
+                            <pre><code>git rev-parse HEAD
+git cat-file -t HEAD     # Should be "commit"
+git cat-file -p HEAD     # Show commit details</code></pre>
+                        </li>
+                        <li>Explore the commit's tree object:
+                            <pre><code># Get tree hash from commit
+git cat-file -p HEAD | grep tree
+git cat-file -p [tree-hash]  # Show directory contents</code></pre>
+                        </li>
+                        <li>Create and examine a new reference:
+                            <pre><code># Create a tag pointing to HEAD
+git tag test-tag HEAD
+cat .git/refs/tags/test-tag
+
+# Create a branch reference manually
+echo $(git rev-parse HEAD) > .git/refs/heads/manual-branch
+git branch  # Should show manual-branch</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> You understand how Git stores objects and how references point to these objects, enabling manual reference manipulation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Advanced Reference Operations -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-tools"></i> Section 5: Advanced Reference Operations</h2>
+                <div class="section-duration">1 minute</div>
+            </div>
+
+            <div class="content-block">
+                <h3>Enterprise Reference Management</h3>
+                <p>Advanced Git operations often require direct reference manipulation for repository maintenance, migration, and custom workflows.</p>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <i class="fas fa-terminal"></i>
+                        <span>Advanced Reference Commands</span>
+                    </div>
+                    <pre><code># Update reference safely
+git update-ref refs/heads/branch-name [commit-hash]
+
+# Delete a reference  
+git update-ref -d refs/heads/old-branch
+
+# Create symbolic reference
+git symbolic-ref HEAD refs/heads/main
+
+# Expire reflog entries
+git reflog expire --expire=30.days --all
+
+# Prune unreachable reflog entries
+git reflog expire --expire-unreachable=7.days --all
+
+# Force reflog expiration
+git gc --prune=now</code></pre>
+                </div>
+
+                <div class="best-practices">
+                    <h4><i class="fas fa-star"></i> Enterprise Best Practices</h4>
+                    <ul>
+                        <li>Always use <code>git update-ref</code> instead of direct file manipulation</li>
+                        <li>Configure reflog retention based on your recovery requirements</li>
+                        <li>Regular <code>git gc</code> maintains optimal repository performance</li>
+                        <li>Monitor reflog size in large repositories with frequent operations</li>
+                        <li>Document custom reference workflows for team consistency</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 5: Reference Maintenance</h4>
+                <div class="lab-content">
+                    <p><strong>Scenario:</strong> Perform repository maintenance using reference tools</p>
+                    <ol>
+                        <li>Check current reflog size and entries:
+                            <pre><code>git reflog | wc -l
+git reflog --date=iso | head -5</code></pre>
+                        </li>
+                        <li>Clean up old reflog entries (be careful in real repos):
+                            <pre><code>git reflog expire --expire=1.day --all
+git reflog | wc -l  # Should be fewer entries</code></pre>
+                        </li>
+                        <li>Verify repository integrity:
+                            <pre><code>git fsck --full
+git gc --aggressive</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result">
+                        <strong>Expected Result:</strong> You've performed repository maintenance operations and understand how to manage Git's internal reference system.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Summary -->
+        <div class="mission-summary">
+            <h2><i class="fas fa-medal"></i> Mission Complete: Refs and Reflog Mastery</h2>
+            <div class="achievement-grid">
+                <div class="achievement-item">
+                    <i class="fas fa-link"></i>
+                    <h4>Reference System Master</h4>
+                    <p>Mastered Git's reference system including branches, tags, and HEAD management</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-history"></i>
+                    <h4>Reflog Recovery Expert</h4>
+                    <p>Can recover lost commits and navigate repository history using reflog</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Git Internals Specialist</h4>
+                    <p>Understands .git directory structure and object database relationships</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-tools"></i>
+                    <h4>Repository Maintenance Pro</h4>
+                    <p>Can perform advanced repository maintenance and reference operations</p>
+                </div>
+            </div>
+
+            <div class="next-steps">
+                <h3><i class="fas fa-forward"></i> Next Mission</h3>
+                <p>You've completed the Advanced Git Workflows phase. Next, advance to <strong>Phase 2: Automation & CI/CD Integration</strong> to learn how to automate Git operations and integrate with continuous integration pipelines.</p>
+                
+                <div class="nav-buttons">
+                    <a href="advanced-history-analysis.html" class="btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Previous: History Analysis
+                    </a>
+                    <a href="../automation/git-hooks-automation.html" class="btn-primary">
+                        <i class="fas fa-arrow-right"></i> Next: Git Hooks & Automation
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="course-info">
+                    <h3>LearnGit.space - Advanced Commander Training</h3>
+                    <p>Mastering enterprise Git workflows and repository management</p>
+                </div>
+                <div class="progress-indicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <span>Phase 1 Complete: Advanced Git Workflows & Strategies</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Track completion
+        if (typeof ProgressTracker !== 'undefined') {
+            ProgressTracker.markPhaseComplete('advanced-workflows', 5);
+        }
+    </script>
+</body>
+</html>

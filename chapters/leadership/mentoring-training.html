@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentoring & Training - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div id="stars" class="stars"></div>
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 4.4</div>
+                <h1><i class="fas fa-user-astronaut"></i> Mentoring & Training</h1>
+                <div class="chapter-subtitle">Knowledge Transfer • Onboarding • Capability Building</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="conflict-resolution-leadership.html" class="nav-link">Previous: Conflict Resolution</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Mentoring & Training</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                    <strong>Mission Critical: Capability Expansion Protocol</strong>
+            <!-- Section 1: Knowledge Transfer Systems -->
+            <section class="lesson-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-database"></i> Section 1: Knowledge Transfer Systems</h2>
+                    <div class="section-duration">2 minutes</div>
+                </div>
+
+                <div class="content-block">
+                    <h3>Turning Tribal Knowledge Into Institutional Capability</h3>
+                    <p>Uncaptured expertise is <strong>single-point risk</strong>. High performing engineering organizations deliberately convert individual experience into <em>repeatable, discoverable, improvable</em> assets. Effective knowledge transfer systems minimize onboarding time, reduce defect recurrence, and accelerate decision velocity.</p>
+
+                    <div class="knowledge-risks">
+                        <h4><i class="fas fa-triangle-exclamation"></i> Knowledge Continuity Risks</h4>
+                        <ul>
+                            <li><strong>Key-person dependency:</strong> Features or deployments blocked when one engineer is unavailable</li>
+                            <li><strong>Historical context loss:</strong> Architectural decisions repeated or reversed incorrectly</li>
+                            <li><strong>Silent divergence:</strong> Teams evolve patterns differently without visibility</li>
+                            <li><strong>Slow recovery:</strong> Incident remediation lengthened by undocumented operational knowledge</li>
+                        </ul>
+                    </div>
+
+                    <div class="framework-diagram">
+                        <h4>Knowledge Capture Pyramid</h4>
+                        <div class="pyramid-level level-1"><strong>Runbooks</strong><span>Immediate operational actions</span></div>
+                        <div class="pyramid-level level-2"><strong>Playbooks</strong><span>Repeatable multi-step procedures & decision branches</span></div>
+                        <div class="pyramid-level level-3"><strong>Patterns & Guidelines</strong><span>Reusable solution archetypes & constraints</span></div>
+                        <div class="pyramid-level level-4"><strong>Decision Records (ADRs)</strong><span>Strategic context & trade-off rationale</span></div>
+                        <div class="pyramid-level level-5"><strong>Capability Programs</strong><span>Curricula, labs, mentoring pathways</span></div>
+                    </div>
+
+                    <div class="asset-types">
+                        <h4><i class="fas fa-folder-tree"></i> Core Knowledge Asset Types</h4>
+                        <ul class="two-column">
+                            <li><strong>Playbooks:</strong> Stepwise response to recurring scenarios (e.g., revert strategy, release cut)</li>
+                            <li><strong>Runbooks:</strong> Time-critical operational checklists (incident, recovery)</li>
+                            <li><strong>Patterns:</strong> Approved implementation archetypes (branching, API versioning)</li>
+                            <li><strong>Guides:</strong> Deep-dives with rationale (monorepo vs multi, refactor approach)</li>
+                            <li><strong>ADRs:</strong> Immutable decision context & trade-offs</li>
+                            <li><strong>Labs:</strong> Hands-on capability accelerators with verification steps</li>
+                        </ul>
+                    </div>
+
+                    <div class="system-elements">
+                        <h4><i class="fas fa-gears"></i> System Design Elements</h4>
+                        <div class="element-grid">
+                            <div class="element">
+                                <h5><i class="fas fa-compass"></i> Taxonomy</h5>
+                                <p>Consistent hierarchical structure (area → asset type → version) enabling predictable discovery.</p>
+                            </div>
+                            <div class="element">
+                                <h5><i class="fas fa-rotate"></i> Refresh Cadence</h5>
+                                <p>Automated stale detection (file age, dependency changes, open TODO markers).</p>
+                            </div>
+                            <div class="element">
+                                <h5><i class="fas fa-people-carry"></i> Ownership</h5>
+                                <p>Accountable steward per asset + rotating reviewer to avoid tunnel vision.</p>
+                            </div>
+                            <div class="element">
+                                <h5><i class="fas fa-chart-line"></i> Metrics</h5>
+                                <p><code>Time-to-learn</code>, <code>reuse ratio</code>, <code>update latency</code>, <code>orphaned asset count</code>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="best-practices">
+                        <h4><i class="fas fa-star"></i> Capture & Curation Principles</h4>
+                        <ul>
+                            <li><strong>Trigger-based capture:</strong> After incidents, major refactors, complex merges</li>
+                            <li><strong>Lightweight first:</strong> Rough outline now & refine during usage</li>
+                            <li><strong>Automate indexing:</strong> CI job rebuilds searchable catalog on merge</li>
+                            <li><strong>Sunset aggressively:</strong> Archive / warn on outdated patterns instead of letting them rot silently</li>
+                            <li><strong>Feedback loops:</strong> Every asset includes "improvement request" path</li>
+                        </ul>
+                    </div>
+
+                    <div class="metrics-table">
+                        <h4>Sample Leading Indicators</h4>
+                        <table>
+                            <thead>
+                                <tr><th>Metric</th><th>Purpose</th><th>Collection</th><th>Healthy Signal</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Onboarding ramp days</td><td>Speed to productivity</td><td>Automation + survey</td><td>&lt; 14 days to 1st substantive PR</td></tr>
+                                <tr><td>Playbook reuse count</td><td>Operational leverage</td><td>Scripted log scanning</td><td>Month-over-month upward trend</td></tr>
+                                <tr><td>Stale asset ratio</td><td>Knowledge freshness</td><td>Modified date scan</td><td>&lt; 10% > 120 days old (critical)</td></tr>
+                                <tr><td>Shadow questions</td><td>Gaps in docs</td><td>Slack/issue tagging</td><td>Declining repetitive queries</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="lab-exercise">
+                    <h4><i class="fas fa-flask"></i> Lab 1: Knowledge Capture Framework</h4>
+                    <div class="lab-content">
+                        <p><strong>Scenario:</strong> Establish a sustainable, automated knowledge system that reduces onboarding friction and eliminates hidden tribal knowledge.</p>
+                        <ol>
+                            <li>Create structured directories:
+    <pre><code># Create knowledge system scaffold
+    mkdir -p docs/knowledge/{playbooks,runbooks,patterns,guides,labs,adr,index}
+
+    # Add a README for navigation
+    cat > docs/knowledge/README.md << 'EOF'
+    # Knowledge System Index
+
+    | Type | Location | Steward | SLA (days) |
+    |------|----------|---------|------------|
+    | Playbooks | playbooks/ | Ops Guild | 30 |
+    | Runbooks | runbooks/ | SRE | 14 |
+    | Patterns | patterns/ | Architecture | 60 |
+    | Guides | guides/ | Chapter Leads | 90 |
+    | ADRs | adr/ | Architecture | Permanent |
+    | Labs | labs/ | Enablement | 45 |
+
+    ## Update Policy
+    - Auto-stale warning if last commit > SLA window
+    - Must link owning issue / context
+    - PR template enforces metadata block
+    EOF</code></pre>
+                            </li>
+                            <li>Create metadata-aware templates:
+    <pre><code># Playbook template
+    cat > docs/knowledge/playbooks/_TEMPLATE_PLAYBOOK.md << 'EOF'
+    ---
+    kind: playbook
+    title: <Concise action-driven title>
+    owner: team-handle
+    last_review: YYYY-MM-DD
+    slo: response-critical | high | standard
+    related_systems: [service-a, workflow-b]
+    trigger: [deployment-failure, rollback-needed]
+    ---
+
+    ## Purpose
+    One sentence describing objective & expected outcome.
+
+    ## Preconditions
+    - [ ] Access level / permissions
+    - [ ] Required tooling installed
+
+    ## Procedure
+    1. Step with rationale
+    2. Branch / conditional path (A/B)
+    3. Validation checkpoint
+
+    ## Verification
+    ```
+    Commands / queries that prove success
+    ```
+
+    ## Rollback / Abort
+    If step X fails → perform Y.
+
+    ## Improvement Log
+    - YYYY-MM-DD: Initial version
+    EOF
+
+    # ADR template (lightweight)
+    cat > docs/knowledge/adr/_TEMPLATE_ADR.md << 'EOF'
+    # ADR-NNN: <Title>
+    Status: Proposed | Accepted | Deprecated | Superseded  
+    Date: YYYY-MM-DD  
+    Context: 1–3 paragraphs describing problem & constraints  
+    Decision: Short imperative statement  
+    Consequences:
+    - Positive: ...
+    - Negative: ...
+    Follow-up: Issues / tasks created
+    EOF</code></pre>
+                            </li>
+                            <li>Add an auto-index generation script:
+    <pre><code>cat > scripts/generate-knowledge-index.sh << 'EOF'
+    #!/usr/bin/env bash
+    set -euo pipefail
+    ROOT="docs/knowledge"
+    OUT="$ROOT/index/AUTO_INDEX.md"
+
+    printf "# Knowledge Auto-Index (Generated)\n\nGenerated: $(date -u) UTC\n\n" > "$OUT"
+    for dir in playbooks runbooks patterns guides labs adr; do
+      printf "## %s\n\n" "${dir^}" >> "$OUT"
+      find "$ROOT/$dir" -maxdepth 1 -type f -name '*.md' ! -name '_TEMPLATE*' \
+        -exec awk 'NR==1 {gsub("# "," "); title=$0} NR==2 {print "- [" title "](" FILENAME ")"; exit}' FILENAME={} {} \; 2>/dev/null >> "$OUT"
+      printf "\n" >> "$OUT"
+     done
+    EOF
+    chmod +x scripts/generate-knowledge-index.sh
+    ./scripts/generate-knowledge-index.sh || echo "Index generation run (empty set)"</code></pre>
+                            </li>
+                            <li>Introduce stale detection helper:
+    <pre><code>cat > scripts/check-stale-assets.sh << 'EOF'
+    #!/usr/bin/env bash
+    set -e
+    BASE=docs/knowledge
+    THRESHOLD_DAYS=90
+    NOW=$(date +%s)
+
+    printf "Checking for stale knowledge assets (> %d days)\n" "$THRESHOLD_DAYS"
+    find "$BASE" -type f -name '*.md' ! -path '*/_TEMPLATE*' | while read -r file; do
+      MOD=$(git log -1 --format=%ct -- "$file" 2>/dev/null || stat -c %Y "$file")
+      AGE_DAYS=$(( (NOW - MOD) / 86400 ))
+      if [ $AGE_DAYS -gt $THRESHOLD_DAYS ]; then
+        echo "STALE: $file ($AGE_DAYS days)"  
+      fi
+                <ul>
+    EOF
+    chmod +x scripts/check-stale-assets.sh
+    ./scripts/check-stale-assets.sh || true</code></pre>
+                            </li>
+                            <li>Seed first playbook & ADR:
+    <pre><code>cat > docs/knowledge/playbooks/rollback-hotfix.md << 'EOF'
+    ---
+    kind: playbook
+    title: Production Hotfix Rollback
+    owner: release-eng
+    last_review: 2025-11-03
+    slo: response-critical
+    related_systems: [gateway, api-cluster]
+    trigger: [failed-health-check, latency-spike]
+    ---
+    ## Purpose
+    Safely revert a just-deployed hotfix causing instability.
+
+    ## Preconditions
+    - Access to production deploy pipeline
+    - Latest commit hash of pre-hotfix state
+
+    ## Procedure
+    1. Identify hotfix commit hash:
+       ```
+       git log -1 --oneline main
+       ```
+    2. Verify previous stable tag:
+       ```
+       git describe --tags --abbrev=0
+       ```
+    3. Revert:
+       ```
+       git revert <hotfix-commit> --no-edit
+       git push origin main
+       ```
+    4. Trigger pipeline & watch metrics (link to dashboard).
+
+    ## Verification
+    - Error rate returns to baseline
+    - Latency p95 within SLO window
+
+    ## Rollback / Abort
+    If revert deploy fails → escalate to SRE on-call & freeze further deploys.
+
+    ## Improvement Log
+    - 2025-11-03: Initial creation
+    EOF
+
+    cat > docs/knowledge/adr/ADR-010-hotfix-rollback-standard.md << 'EOF'
+    # ADR-010: Standardize Hotfix Rollback Procedure
+    Status: Accepted  
+    Date: 2025-11-03  
+    Context: Inconsistent rollback steps introduced variance & risk. Need unified, low-friction path.  
+    Decision: Adopt single documented playbook + enforce link in incident template.  
+    Consequences:
+    - Positive: Faster recovery, fewer mistakes, measurable adherence
+    - Negative: Requires maintenance when pipeline tooling changes
+    Follow-up: Add CI check ensuring playbook referenced in incident reports.
+    EOF</code></pre>
+                            </li>
+                        </ol>
+                        <div class="lab-result">
+                            <strong>Expected Result:</strong> A structured, script-supported knowledge system with templates, indexing, stale detection, and first operational assets committed.</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                    <li>Design organizational knowledge capture & transfer systems</li>
+                    <li>Build a repeatable onboarding and acceleration framework</li>
+                    <li>Create tiered Git capability development paths</li>
+                    <li>Establish mentorship models and measurable success criteria</li>
+                    <li>Deploy internal enablement assets (playbooks, labs, curricula)</li>
+                    <li>Implement sustainable peer growth and guild structures</li>
+                </ul>
+            </div>
+            <div class="mission-stats">
+                <div class="stat-item"><i class="fas fa-clock"></i><span>Estimated Time: 8 minutes</span></div>
+                <div class="stat-item"><i class="fas fa-layer-group"></i><span>Complexity: Strategic</span></div>
+                <div class="stat-item"><i class="fas fa-flask"></i><span>Hands-on Labs: 4 (to be added)</span></div>
+            </div>
+        </div>
+
+        <!-- Section 2: Onboarding Framework -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-user-plus"></i> Section 2: Onboarding Framework</h2>
+                <div class="section-duration">2 minutes</div>
+            </div>
+            <div class="content-block">
+                <h3>Building a High-Velocity Onboarding Engine</h3>
+                <p>World-class teams treat onboarding as a <strong>designed system</strong>, not an organic guessing game. Done well, new engineers produce meaningful, review-quality contributions in days—not months—while internalizing standards instead of improvising them.</p>
+
+                <div class="onboarding-risks">
+                    <h4><i class="fas fa-triangle-exclamation"></i> Onboarding Friction Risks</h4>
+                    <ul>
+                        <li><strong>Environment drift:</strong> Unrepeatable local setup causing inconsistent build/test outcomes</li>
+                        <li><strong>Context fragmentation:</strong> Architecture & workflow rationale scattered across tickets and chat history</li>
+                        <li><strong>Cognitive overload:</strong> Firehose of unprioritized information with no sequencing or gating</li>
+                        <li><strong>Delayed confidence:</strong> First PR rejected for cultural, style, or process misunderstandings</li>
+                        <li><strong>Invisible progress:</strong> Leads lack objective signals of readiness or blockers</li>
+                    </ul>
+                </div>
+
+                <div class="framework-diagram">
+                    <h4>Multi-Phase Onboarding Model</h4>
+                    <table>
+                        <thead>
+                            <tr><th>Phase</th><th>Window</th><th>Primary Objectives</th><th>Key Artifacts</th><th>Readiness Gate</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Preboarding</td><td>Day -5 → 0</td><td>Access, tooling pre-flight, context seeding</td><td>Access checklist, tooling script</td><td>All accounts verified; local build dry run</td></tr>
+                            <tr><td>Lift-Off</td><td>Days 1–5</td><td>Repository navigation, first guided change</td><td>Orientation map, pairing schedule</td><td>First PR merged (non-trivial, reviewed)</td></tr>
+                            <tr><td>Systems Integration</td><td>Days 6–30</td><td>Workflow mastery, branching & review standards</td><td>Playbooks, pattern catalog</td><td>Independent PR passes with ≤1 review cycle</td></tr>
+                            <tr><td>Collaborative Confidence</td><td>Days 31–90</td><td>Cross-team coordination & incident awareness</td><td>Runbooks, ADR history digest</td><td>Contributes to multi-repo change safely</td></tr>
+                            <tr><td>Autonomy Expansion</td><td>Days 91–180</td><td>Leadership signals, systemic improvement contributions</td><td>Improvement proposal template</td><td>Delivers an accepted improvement ADR / playbook change</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="core-assets">
+                    <h4><i class="fas fa-folder-open"></i> Core Onboarding Assets</h4>
+                    <ul class="two-column">
+                        <li><strong>Access Checklist:</strong> Accounts, secrets, permissions gating</li>
+                        <li><strong>Environment Bootstrap Script:</strong> Deterministic setup & validation</li>
+                        <li><strong>Orientation Map:</strong> Repos, domains, ownership graph</li>
+                        <li><strong>First Issue Feed:</strong> Curated starter work with ascending complexity</li>
+                        <li><strong>Competency Matrix:</strong> Skill dimensions with observable behaviors</li>
+                        <li><strong>Pairing Schedule:</strong> Structured exposure to roles and domains</li>
+                        <li><strong>Retro Templates:</strong> 30/60/90 day reflection & gap discovery</li>
+                        <li><strong>Progress Signals Dashboard:</strong> Objective readiness indicators</li>
+                    </ul>
+                </div>
+
+                <div class="metrics">
+                    <h4><i class="fas fa-chart-bar"></i> Acceleration Metrics</h4>
+                    <table>
+                        <thead><tr><th>Metric</th><th>Definition</th><th>Collection</th><th>Healthy Target</th></tr></thead>
+                        <tbody>
+                            <tr><td>TTFC</td><td>Time to First Commit</td><td>Git log + hire date</td><td>< 2 days</td></tr>
+                            <tr><td>TFRPR</td><td>Time to First Reviewed PR</td><td>PR events</td><td>< 5 days</td></tr>
+                            <tr><td>MQD</td><td>Merge Quality Delta (review cycles)</td><td>PR review count trend</td><td>Converges ≤ 1.3 average by Day 30</td></tr>
+                            <tr><td>KCS</td><td>Knowledge Coverage Score</td><td>Checklist completion %</td><td>≥ 90% by Day 14</td></tr>
+                            <tr><td>OFL</td><td>Onboarding Friction Log Items</td><td>Tagged issues / retro notes</td><td>Downward trend by Day 30</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="acceleration-levers">
+                    <h4><i class="fas fa-rocket"></i> Acceleration Levers</h4>
+                    <ul>
+                        <li><strong>Sequenced information:</strong> Unlock context only when immediately actionable</li>
+                        <li><strong>Progressive difficulty:</strong> Issue ladder: orientation → guided → independent → cross-team</li>
+                        <li><strong>Automated validation:</strong> Scripts assert environment readiness & commit hygiene</li>
+                        <li><strong>Just-in-time pairing:</strong> Pair strategically at cognitive load spikes</li>
+                        <li><strong>Feedback instrumentation:</strong> Anonymous friction capturing (short form)</li>
+                    </ul>
+                </div>
+
+                <div class="quality-gates">
+                    <h4><i class="fas fa-shield-alt"></i> Onboarding Quality Gates</h4>
+                    <ol>
+                        <li><strong>Environment Verified:</strong> All bootstrap script checks green</li>
+                        <li><strong>Git Hygiene Pass:</strong> Commit includes signed-off metadata & conforms to style</li>
+                        <li><strong>Review Competency:</strong> Provides actionable feedback on a peer PR</li>
+                        <li><strong>Workflow Autonomy:</strong> Executes branch → commit → PR → merge unassisted</li>
+                        <li><strong>Systems Awareness:</strong> Can locate and interpret ADR impact on a change</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 2: Onboarding Playbook System</h4>
+                <div class="lab-content">
+                    <p><strong>Objective:</strong> Implement a structured, measurable onboarding framework with assets, automation, and validation signals.</p>
+                    <ol>
+                        <li>Scaffold directories:
+<pre><code># Onboarding system scaffold
+mkdir -p docs/onboarding/{checklists,scripts,orientation,pairing,retro,assessments}
+tree docs/onboarding || find docs/onboarding -maxdepth 2 -type d
+</code></pre>
+                        </li>
+                        <li>Create baseline engineer checklist template:
+<pre><code>cat > docs/onboarding/checklists/engineer-day1.md << 'EOF'
+# Engineer Day 1 Checklist
+| Item | Status |
+|------|--------|
+| Git installed & version matches standard | [ ] |
+| SSH key created & added to platform | [ ] |
+| Global git config (name/email/signing) | [ ] |
+| Core repos cloned | [ ] |
+| Bootstrap script run & green | [ ] |
+| Orientation map reviewed | [ ] |
+| First issue selected | [ ] |
+EOF
+</code></pre>
+                        </li>
+                        <li>Pairing schedule template:
+<pre><code>cat > docs/onboarding/pairing/week1-schedule.md << 'EOF'
+# Week 1 Pairing Schedule
+| Day | Partner | Focus Area | Outcome Signal |
+|-----|---------|-----------|----------------|
+| Mon AM | Senior Dev A | Repo navigation | Can trace feature path |
+| Mon PM | DevOps | Pipeline basics | Can locate failed run logs |
+| Tue AM | QA | Test strategy | Can run subset locally |
+| Tue PM | Architect | Module boundaries | Explains layering rationale |
+| Wed AM | Feature Team | Branch workflow | Creates feature branch correctly |
+| Wed PM | SRE | Observability | Reads latency dashboard |
+| Thu | Independent deep work | First PR progress | Draft PR opened |
+| Fri AM | Mentor | Review iteration | Applies feedback |
+| Fri PM | Self retro | Friction log | Retro doc updated |
+EOF
+</code></pre>
+                        </li>
+                        <li>Competency matrix:
+<pre><code>cat > docs/onboarding/assessments/git-competency-matrix.md << 'EOF'
+# Git Competency Matrix
+| Dimension | Level 1 | Level 2 | Level 3 | Level 4 |
+|-----------|---------|---------|---------|---------|
+| Branching | Creates feature branch | Uses topic & rebases | Manages complex merges | Designs branching strategy |
+| History | Basic log usage | Interactive rebase | Splits/squashes strategically | Coaches history hygiene |
+| Collaboration | Opens PR | Quality review feedback | Cross-repo coordination | Drives review standards |
+| Recovery | Revert simple commit | Resets & restores lost work | Resolves multi-branch conflicts | Leads incident recovery |
+EOF
+</code></pre>
+                        </li>
+                        <li>Bootstrap environment script (PowerShell sample):
+<pre><code>cat > scripts/bootstrap-dev-env.ps1 << 'EOF'
+Write-Host '🔧 Bootstrapping Dev Environment'
+git --version || throw 'Git not installed'
+if (-not (Test-Path "$HOME/.ssh")) { New-Item -ItemType Directory "$HOME/.ssh" | Out-Null }
+git config --global user.name | Out-Null
+if (-not (git config --global user.name)) { Write-Host '⚠ Missing git user.name'; }
+Write-Host '✅ Basic validation complete'
+EOF
+</code></pre>
+                        </li>
+                        <li>Curate first issues: apply <code>good-first-issue</code>, <code>onboarding-tier1</code> labels; ensure description includes reproduction + acceptance.</li>
+                        <li>Retro template:
+<pre><code>cat > docs/onboarding/retro/30-day-retro.md << 'EOF'
+# 30 Day Retro
+## What accelerated learning?
+- 
+## What caused friction?
+- 
+## Unclear concepts
+- 
+## Proposed improvements
+- 
+EOF
+</code></pre>
+                        </li>
+                        <li>Gating verifier script (concept snippet):
+<pre><code>cat > scripts/onboarding-verifier.ps1 << 'EOF'
+$Checklist = Get-Content docs/onboarding/checklists/engineer-day1.md
+$Pending = $Checklist | Select-String '\[ \]' | Measure-Object
+Write-Host "Remaining Day1 Items: $($Pending.Count)"
+EOF
+</code></pre>
+                        </li>
+                    </ol>
+                    <div class="lab-result"><strong>Expected Result:</strong> A measurable onboarding system with structured assets, automation scripts, and objective readiness signals committed.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Git Training Programs -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-code"></i> Section 3: Git Training Programs</h2>
+                <div class="section-duration">2 minutes</div>
+            </div>
+            <div class="content-block">
+                <h3>Designing Tiered, Measurable Git Capability Growth</h3>
+                <p>Ad-hoc “learn as you go” produces uneven skill growth, merge friction, and review drag. A structured <strong>tiered curriculum</strong> aligned to observable competencies enables predictable progression, targeted coaching, and measurable quality improvements in history hygiene and collaboration velocity.</p>
+
+                <div class="curriculum-tiers">
+                    <h4><i class="fas fa-layer-group"></i> Tiered Curriculum Model</h4>
+                    <table>
+                        <thead><tr><th>Tier</th><th>Focus</th><th>Core Modules</th><th>Assessment Signal</th><th>Promotion Criteria</th></tr></thead>
+                        <tbody>
+                            <tr><td>Foundations</td><td>Core commands & mental models</td><td>Commits, staging, branching, diff</td><td>Correct branch + clean PR</td><td>Completes Foundations lab set</td></tr>
+                            <tr><td>Operational</td><td>History rewriting & recovery</td><td>Rebase, squash, reflog, cherry-pick</td><td>Executes controlled history rewrite</td><td>Zero revision conflicts in review week</td></tr>
+                            <tr><td>Advanced</td><td>Strategic collaboration patterns</td><td>Subtrees, submodules, bisect, hooks</td><td>Resolves multi-branch conflict elegantly</td><td>Leads conflict resolution walkthrough</td></tr>
+                            <tr><td>Leadership</td><td>Standards & systemic improvement</td><td>ADR linkage, automation design, auditing</td><td>Drives a tooling enhancement PR</td><td>Authors accepted process ADR</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="module-design">
+                    <h4><i class="fas fa-cubes"></i> Module Design Principles</h4>
+                    <ul class="two-column">
+                        <li><strong>Single outcome per module:</strong> “Execute interactive rebase safely”</li>
+                        <li><strong>Progression ladder:</strong> Rebase → conflict resolution → bisect debugging</li>
+                        <li><strong>Dual modality:</strong> Concept primer + hands-on lab</li>
+                        <li><strong>Error pattern exposure:</strong> Deliberately inject common mistakes</li>
+                        <li><strong>Observable assessment:</strong> Script verifies artifact correctness</li>
+                        <li><strong>Retrospective reinforcement:</strong> Reflection prompt per completion</li>
+                    </ul>
+                </div>
+
+                <div class="retention-systems">
+                    <h4><i class="fas fa-sync-alt"></i> Retention & Reinforcement Systems</h4>
+                    <ol>
+                        <li><strong>Spaced practice queue:</strong> Auto-schedules module refresh (14 / 30 / 90 days)</li>
+                        <li><strong>Error journal tagging:</strong> Aggregates repeated recovery mistakes for curriculum tuning</li>
+                        <li><strong>Peer demo rotation:</strong> Engineers present solution patterns monthly</li>
+                        <li><strong>Automated drift alerts:</strong> Detect divergence between taught pattern & repo state</li>
+                        <li><strong>Capability radar:</strong> Visualize team tier distribution to target coaching</li>
+                    </ol>
+                </div>
+
+                <div class="metrics">
+                    <h4><i class="fas fa-chart-line"></i> Training Impact Metrics</h4>
+                    <table>
+                        <thead><tr><th>Metric</th><th>Purpose</th><th>Collection</th><th>Healthy Signal</th></tr></thead>
+                        <tbody>
+                            <tr><td>History Correction Incidents</td><td>Detect misuse of rewrite tools</td><td>Hook audit log</td><td>Downward trend post Operational tier</td></tr>
+                            <tr><td>Conflict Resolution Time</td><td>Efficiency in merge complexity</td><td>Incident + PR timestamps</td><td>Median decreases after Advanced</td></tr>
+                            <tr><td>Review Cycle Count</td><td>Quality of initial PR submission</td><td>PR metadata</td><td>≤1.5 cycles avg after Foundations</td></tr>
+                            <tr><td>Recovery Success Rate</td><td>Resiliency skill adoption</td><td>Lab assessment script</td><td>>95% successful exercises</td></tr>
+                            <tr><td>Curriculum Coverage</td><td>Adoption breadth</td><td>Module completion registry</td><td>≥80% team at Operational in 90 days</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="assessment-design">
+                    <h4><i class="fas fa-check-circle"></i> Assessment Design Patterns</h4>
+                    <ul>
+                        <li><strong>Artifact verification:</strong> Validate commit graph structure & message format</li>
+                        <li><strong>Automated scenario harness:</strong> Seed repo with synthetic branching conflict</li>
+                        <li><strong>Constraint enforcement:</strong> Reject force-push usage in foundational modules</li>
+                        <li><strong>Delta comparison:</strong> Measure pre/post review iteration diff cleanliness</li>
+                        <li><strong>Reflection capture:</strong> Short form describing mental model shift</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 3: Training Curriculum Builder</h4>
+                <div class="lab-content">
+                    <p><strong>Objective:</strong> Establish a structured, script-verifiable Git training curriculum with module templates, assessment automation, and progression tracking.</p>
+                    <ol>
+                        <li>Scaffold curriculum directories:
+<pre><code># Curriculum scaffold
+mkdir -p docs/training/{foundations,operational,advanced,leadership,assessments,scripts}
+tree docs/training || find docs/training -maxdepth 2 -type d
+</code></pre>
+                        </li>
+                        <li>Create a module template:
+<pre><code>cat > docs/training/_MODULE_TEMPLATE.md << 'EOF'
+---
+id: git-rebase-basics
+tier: operational
+title: Interactive Rebase for Clean History
+estimated_time: 10m
+prerequisites: [foundations-branching]
+outcome: Perform a safe interactive rebase squashing noisy commits
+assessment_script: scripts/assess-rebase.sh
+---
+
+## Concept Primer
+Brief explanation of purpose & when to apply.
+
+## Exercise Steps
+1. Start from seeded repo state
+2. Perform interactive rebase to squash commits 2–4
+3. Preserve commit messages clarity
+
+## Common Pitfalls
+- Losing changes due to abort confusion
+- Squashing already reviewed commits
+
+## Reflection Prompt
+What changed in your understanding of rewrite vs amend?
+EOF
+</code></pre>
+                        </li>
+                        <li>Seed an example Foundations module:
+<pre><code>cat > docs/training/foundations/branching-basics.md << 'EOF'
+---
+id: foundations-branching
+tier: foundations
+title: Branch Creation & Naming Hygiene
+estimated_time: 5m
+outcome: Create and push a properly named feature branch
+assessment_script: scripts/assess-branching.ps1
+---
+## Concept Primer
+Feature isolation prevents unstable mainline changes.
+## Exercise Steps
+1. Create branch: `git switch -c feature/login-audit`
+2. Make minimal change & commit
+3. Push and open draft PR
+## Pitfalls
+- Inconsistent naming reducing searchability
+## Reflection
+How does naming impact collaboration?
+EOF
+</code></pre>
+                        </li>
+                        <li>Assessment script (bash) for rebase validation:
+<pre><code>cat > docs/training/scripts/assess-rebase.sh << 'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+EXPECTED_COMMITS=3
+COUNT=$(git rev-list --count HEAD~$EXPECTED_COMMITS..HEAD || echo 0)
+if git log --oneline | head -5 | grep -qi 'fixup'; then echo '❌ Contains fixup artifacts'; exit 1; fi
+echo "✅ Basic rebase structure appears clean"
+EOF
+chmod +x docs/training/scripts/assess-rebase.sh
+</code></pre>
+                        </li>
+                        <li>Assessment script (PowerShell) for branching:
+<pre><code>cat > docs/training/scripts/assess-branching.ps1 << 'EOF'
+Write-Host '🔍 Assessing branch naming'
+$branch = git branch --show-current
+if ($branch -notmatch 'feature\/') { Write-Host "❌ Branch should start with feature/"; exit 1 }
+Write-Host '✅ Branch naming hygiene pass'
+EOF
+</code></pre>
+                        </li>
+                        <li>Progress tracking registry:
+<pre><code>cat > docs/training/assessments/progress-registry.csv << 'EOF'
+user,tier,module,status,timestamp
+alice,foundations,branching-basics,completed,2025-11-03T12:00:00Z
+EOF
+</code></pre>
+                        </li>
+                        <li>Simple promotion evaluator (concept):
+<pre><code>cat > docs/training/scripts/evaluate-promotion.ps1 << 'EOF'
+$data = Import-Csv docs/training/assessments/progress-registry.csv
+$grouped = $data | Group-Object user
+foreach ($g in $grouped) {
+  $operational = ($g.Group | Where-Object { $_.tier -eq 'operational' -and $_.status -eq 'completed' }).Count
+  if ($operational -ge 3) { Write-Host "🚀 Candidate for advanced tier: $($g.Name)" }
+}
+EOF
+</code></pre>
+                        </li>
+                        <li>Instrument hook idea (optional): attach pre-push hook verifying module completion tag file.</li>
+                        <li>Run assessment scripts manually after module completion to validate output.</li>
+                    </ol>
+                    <div class="lab-result"><strong>Expected Result:</strong> Structured curriculum with module templates, assessment automation, progression registry, and promotion evaluation logic introduced.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Mentorship & Growth Systems -->
+        <section class="lesson-section">
+            <div class="section-header">
+                <h2><i class="fas fa-hands-helping"></i> Section 4: Mentorship & Growth Systems</h2>
+                <div class="section-duration">2 minutes</div>
+            </div>
+            <div class="content-block">
+                <h3>Scaling Capability Through Structured Mentorship</h3>
+                <p>Organic mentorship produces inconsistent growth and uneven knowledge distribution. A designed mentorship system accelerates capability compounding, increases retention, and reduces leadership bottlenecks by distributing coaching capacity.</p>
+
+                <div class="mentorship-models">
+                    <h4><i class="fas fa-network-wired"></i> Mentorship Structures</h4>
+                    <table>
+                        <thead><tr><th>Model</th><th>Primary Purpose</th><th>Cadence</th><th>Strengths</th><th>Risks</th></tr></thead>
+                        <tbody>
+                            <tr><td>1:1 Mentor → Mentee</td><td>Focused skill acceleration</td><td>Weekly / Bi-weekly</td><td>Deep personalized growth</td><td>Scales poorly if not rotated</td></tr>
+                            <tr><td>Peer Circles</td><td>Shared challenge processing</td><td>Bi-weekly</td><td>Collective learning & empathy</td><td>Can drift without facilitation</td></tr>
+                            <tr><td>Guilds / Chapters</td><td>Domain excellence & standards</td><td>Monthly</td><td>Cross-team pattern alignment</td><td>Risk of ivory tower detachment</td></tr>
+                            <tr><td>Rotation Shadowing</td><td>System exposure & perspective</td><td>Per rotation (2–4 weeks)</td><td>Fast context acquisition</td><td>Interrupts deep work if unmanaged</td></tr>
+                            <tr><td>Expert Office Hours</td><td>Just-in-time unblock</td><td>Weekly / Ad-hoc</td><td>Reduces hidden queue of blockers</td><td>Can become support crutch</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="role-definitions">
+                    <h4><i class="fas fa-user-tag"></i> Role Definitions</h4>
+                    <ul class="two-column">
+                        <li><strong>Mentor:</strong> Provides structured guidance & growth artifacts</li>
+                        <li><strong>Mentee:</strong> Owns goals, tracks progress, requests feedback</li>
+                        <li><strong>Facilitator:</strong> Ensures rhythm & removes systemic blockers</li>
+                        <li><strong>Guild Lead:</strong> Curates standards & learning backlog</li>
+                        <li><strong>Program Steward:</strong> Tracks metrics & iteration needs</li>
+                    </ul>
+                </div>
+
+                <div class="matching-framework">
+                    <h4><i class="fas fa-random"></i> Matching Framework</h4>
+                    <ol>
+                        <li><strong>Baseline assessment:</strong> Competency matrix snapshot (Git + collaboration)</li>
+                        <li><strong>Goal declaration:</strong> 1–2 quarter growth targets mapped to dimensions</li>
+                        <li><strong>Capacity balancing:</strong> Prevent mentor overload (>3 active mentees)</li>
+                        <li><strong>Rotation trigger:</strong> Auto-rematch every 6 months or after goal completion</li>
+                        <li><strong>Conflict exit path:</strong> Anonymous remediation + reallocation option</li>
+                    </ol>
+                </div>
+
+                <div class="measurement-metrics">
+                    <h4><i class="fas fa-chart-pie"></i> Mentorship Impact Metrics</h4>
+                    <table>
+                        <thead><tr><th>Metric</th><th>Purpose</th><th>Collection</th><th>Healthy Signal</th></tr></thead>
+                        <tbody>
+                            <tr><td>Mentor Capacity Utilization</td><td>Balance load</td><td>Registry count</td><td>70–85% utilization</td></tr>
+                            <tr><td>Goal Completion Rate</td><td>Program effectiveness</td><td>Growth log aggregation</td><td>> 75% per cycle</td></tr>
+                            <tr><td>Retention Delta</td><td>Impact on attrition</td><td>HR comparative</td><td>Lower attrition in mentored cohort</td></tr>
+                            <tr><td>Feedback Quality Score</td><td>Mentor effectiveness</td><td>Post-session survey</td><td>Avg ≥ 4.2 / 5</td></tr>
+                            <tr><td>Skill Advancement Velocity</td><td>Acceleration of tier progression</td><td>Competency matrix diffs</td><td>Tier uplift within planned window</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="risk-mitigation">
+                    <h4><i class="fas fa-shield-alt"></i> Risk Mitigation</h4>
+                    <ul>
+                        <li><strong>Burnout Prevention:</strong> Cap sessions & rotate load quarterly</li>
+                        <li><strong>Stagnation Guard:</strong> Auto-escalate if growth log static 30 days</li>
+                        <li><strong>Dependency Risk:</strong> Encourage multi-source learning (circles + guild)</li>
+                        <li><strong>Bias Reduction:</strong> Blind match by goals before preference input</li>
+                        <li><strong>Program Drift:</strong> Quarterly retrospective with metric review</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lab-exercise">
+                <h4><i class="fas fa-flask"></i> Lab 4: Mentorship Program Implementation</h4>
+                <div class="lab-content">
+                    <p><strong>Objective:</strong> Stand up a sustainable mentorship program with structured assets, tracking, and automated evaluation signals.</p>
+                    <ol>
+                        <li>Scaffold program directories:
+<pre><code># Mentorship program scaffold
+mkdir -p docs/mentorship/{profiles,logs,matching,scripts,guides,retros}
+tree docs/mentorship || find docs/mentorship -maxdepth 2 -type d
+</code></pre>
+                        </li>
+                        <li>Create mentor profile template:
+<pre><code>cat > docs/mentorship/profiles/_TEMPLATE_PROFILE.md << 'EOF'
+---
+name: <Full Name>
+role: <Role Title>
+time_allocation_hours: 2
+expertise_domains: [git-history, automation, architecture]
+current_mentees: []
+next_rotation: YYYY-MM-DD
+availability_status: open | limited | closed
+---
+## Bio
+Short domain focus & experience summary.
+## Mentorship Style
+Examples: Socratic, directive early-phase, reflective coaching.
+## Session Structure
+- 5m check-in
+- 15m goal progress
+- 5m next steps
+## Preferred Learning Artifacts
+Playbooks, labs, code reviews, ADR discussions.
+EOF
+</code></pre>
+                        </li>
+                        <li>Growth log template:
+<pre><code>cat > docs/mentorship/logs/_TEMPLATE_GROWTH_LOG.md << 'EOF'
+# Growth Log: <Mentee Name>
+## Goals
+- [ ] Goal 1 (target date)
+- [ ] Goal 2 (target date)
+## Sessions
+| Date | Focus | Outcome | Follow-up |
+|------|-------|---------|-----------|
+| YYYY-MM-DD | Rebase recovery | Practiced fixup squash | Repeat scenario w/o notes |
+## Artifacts Referenced
+- refs-reflog-mastery lab
+## Reflection
+What shifted in understanding this period?
+EOF
+</code></pre>
+                        </li>
+                        <li>Mentorship matching registry:
+<pre><code>cat > docs/mentorship/matching/registry.csv << 'EOF'
+mentor,mentee,start_date,goal_focus,tier,target_tier
+alice,bob,2025-11-03,history-hygiene,foundations,operational
+EOF
+</code></pre>
+                        </li>
+                        <li>Capacity evaluator script:
+<pre><code>cat > docs/mentorship/scripts/evaluate-capacity.ps1 << 'EOF'
+$profiles = Get-ChildItem docs/mentorship/profiles -Filter *.md | ForEach-Object { $_.Name }
+Write-Host "🔍 Evaluating mentor capacity"
+foreach ($p in $profiles) {
+  $content = Get-Content "docs/mentorship/profiles/$p"
+  $mentees = ($content | Select-String 'current_mentees:' | ForEach-Object { $_.Line.Split(':')[1] })
+  $hours = ($content | Select-String 'time_allocation_hours:' | ForEach-Object { $_.Line.Split(':')[1] })
+  if ($mentees -and $hours) {
+    $count = ($mentees -replace '[\[\]\s]' -split ',' | Where-Object { $_ }) | Measure-Object | Select -ExpandProperty Count
+    if ($count -gt 3) { Write-Host "⚠ $p overloaded ($count mentees)" } else { Write-Host "✅ $p healthy load ($count)" }
+  }
+}
+EOF
+</code></pre>
+                        </li>
+                        <li>Progress advancement evaluator:
+<pre><code>cat > docs/mentorship/scripts/evaluate-advancement.ps1 << 'EOF'
+$registry = Import-Csv docs/mentorship/matching/registry.csv
+foreach ($r in $registry) {
+  if ($r.tier -ne $r.target_tier) {
+    Write-Host "🔄 Tracking progression: $($r.mentee) aiming $($r.target_tier) from $($r.tier)"
+  }
+}
+EOF
+</code></pre>
+                        </li>
+                        <li>Retro template:
+<pre><code>cat > docs/mentorship/retros/quarterly-retro-template.md << 'EOF'
+# Quarterly Mentorship Program Retro
+## Wins
+- 
+## Challenges
+- 
+## Growth Signals
+- Tier progression summary
+## Adjustments Planned
+- 
+EOF
+</code></pre>
+                        </li>
+                        <li>Run evaluator scripts after populating sample profiles.</li>
+                    </ol>
+                    <div class="lab-result"><strong>Expected Result:</strong> Operational mentorship system with profiles, growth logs, matching registry, capacity & advancement evaluators, and reflection scaffolds.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Summary -->
+        <div class="mission-summary">
+            <h2><i class="fas fa-medal"></i> Mission Complete: Mentoring & Training</h2>
+            <div class="achievement-grid">
+                <div class="achievement-item">
+                    <i class="fas fa-database"></i>
+                    <h4>Knowledge Systems Architect</h4>
+                    <p>Implemented structured capture systems, indexing automation, and stale detection.</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-user-plus"></i>
+                    <h4>Onboarding Accelerator</h4>
+                    <p>Established phased onboarding with measurable readiness gates and friction logging.</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-layer-group"></i>
+                    <h4>Curriculum Engineer</h4>
+                    <p>Designed tiered Git training with module templates and automated assessments.</p>
+                </div>
+                <div class="achievement-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>Mentorship Program Builder</h4>
+                    <p>Built scalable mentorship structures, capacity safeguards, and growth tracking systems.</p>
+                </div>
+            </div>
+            <div class="next-steps">
+                <h3><i class="fas fa-forward"></i> Leadership Track Progress</h3>
+                <p>You have completed all <strong>Phase 4: Leadership & Team Coordination</strong> missions. Your next frontier will involve advanced GitHub integrations and systemic automation enhancements. Mark this phase complete to reflect mastery across team enablement and capability scaling.</p>
+                <div class="nav-buttons">
+                    <a href="conflict-resolution-leadership.html" class="btn-secondary"><i class="fas fa-arrow-left"></i> Previous: Conflict Resolution Leadership</a>
+                    <a href="../../index.html" class="btn-primary"><i class="fas fa-home"></i> Return to Mission Control</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="course-info">
+                    <h3>LearnGit.space - Leadership & Team Coordination</h3>
+                    <p>Phase 4: Leadership development for scalable engineering excellence</p>
+                </div>
+                <div class="progress-indicator">
+                    <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                        <span>Phase 4 Complete: Leadership & Team Coordination</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Starfield
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            s.style.left = Math.random() * 100 + '%';
+            s.style.top = Math.random() * 100 + '%';
+            s.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(s);
+        }
+    // Phase completion tracking
+    if (typeof ProgressTracker !== 'undefined') { ProgressTracker.markPhaseComplete('leadership', 4); }
+    </script>
+</body>
+</html>
