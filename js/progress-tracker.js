@@ -8,12 +8,21 @@ const ProgressTracker = {
     
     // Mission structure
     missions: {
+        // Novice Path Missions
         'mission-briefing': { phases: 1, section: 'Pre-Launch', path: 'novice' },
         'git-basics': { phases: 10, section: 'Phase 1: Launch Sequence', path: 'novice' },
         'branches': { phases: 8, section: 'Phase 2: Orbital Maneuvers', path: 'novice' },
         'advanced': { phases: 7, section: 'Phase 3: Deep Space Operations', path: 'novice' },
         'collaboration': { phases: 6, section: 'Phase 4: Multi-Crew Missions', path: 'novice' },
-        'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System', path: 'novice' }
+        'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System', path: 'novice' },
+        
+        // Advanced Path Missions
+        'advanced-workflows': { phases: 5, section: 'Phase 1: Advanced Git Workflows', path: 'advanced' },
+        'automation': { phases: 3, section: 'Phase 2: Automation & CI/CD', path: 'advanced' },
+        'enterprise': { phases: 4, section: 'Phase 3: Enterprise Management', path: 'advanced' },
+        'leadership': { phases: 4, section: 'Phase 4: Leadership & Coordination', path: 'advanced' },
+        'github-advanced': { phases: 3, section: 'Phase 5: Advanced GitHub Features', path: 'advanced' },
+        'emergency': { phases: 2, section: 'Phase 6: Emergency Operations', path: 'advanced' }
     },
 
     // Path definitions
@@ -24,9 +33,9 @@ const ProgressTracker = {
             totalPhases: 35  // 1 + 10 + 8 + 7 + 6 + 3 = 35
         },
         advanced: {
-            name: 'Commander Operations', 
-            missions: [],  // Will be populated when advanced content is added
-            totalPhases: 0
+            name: 'Commander Operations',
+            missions: ['advanced-workflows', 'automation', 'enterprise', 'leadership', 'github-advanced', 'emergency'],
+            totalPhases: 21  // 5 + 3 + 4 + 4 + 3 + 2 = 21
         }
     },
     
@@ -498,27 +507,42 @@ function showMissionControl(pathName) {
     setTimeout(() => {
         pathContainer.style.display = 'none';
         
-        // Show mission control
-        const missionControl = document.getElementById('mission-control');
-        missionControl.style.display = 'block';
-        missionControl.style.opacity = '0';
+        // Show appropriate mission control
+        const noviceMissionControl = document.getElementById('mission-control');
+        const advancedMissionControl = document.getElementById('advanced-mission-control');
         
-        // Filter missions based on selected path
-        filterMissionsForPath(pathName);
+        // Hide both first
+        noviceMissionControl.style.display = 'none';
+        advancedMissionControl.style.display = 'none';
+        
+        // Show the correct one
+        let activeMissionControl;
+        if (pathName === 'advanced') {
+            activeMissionControl = advancedMissionControl;
+        } else {
+            activeMissionControl = noviceMissionControl;
+            // Filter missions for novice path
+            filterMissionsForPath(pathName);
+        }
+        
+        activeMissionControl.style.display = 'block';
+        activeMissionControl.style.opacity = '0';
         
         // Update progress tracking
         ProgressTracker.updateAllUI();
         
-        // Show path navigation
-        const pathNavigation = document.getElementById('path-navigation');
+        // Show appropriate path navigation
+        const pathNavigation = pathName === 'advanced' 
+            ? document.getElementById('advanced-path-navigation')
+            : document.getElementById('path-navigation');
         if (pathNavigation) {
             pathNavigation.style.display = 'block';
         }
         
         // Fade in mission control
         setTimeout(() => {
-            missionControl.style.opacity = '1';
-            missionControl.style.transform = 'translateY(0)';
+            activeMissionControl.style.opacity = '1';
+            activeMissionControl.style.transform = 'translateY(0)';
         }, 100);
     }, 300);
 }
@@ -541,19 +565,28 @@ function filterMissionsForPath(pathName) {
 function showPathSelection() {
     console.log('Returning to path selection...');
     
-    // Hide mission control with fade effect
-    const missionControl = document.getElementById('mission-control');
-    missionControl.style.opacity = '0';
-    missionControl.style.transform = 'translateY(-20px)';
+    // Hide both mission controls with fade effect
+    const noviceMissionControl = document.getElementById('mission-control');
+    const advancedMissionControl = document.getElementById('advanced-mission-control');
     
-    // Also hide path navigation
+    noviceMissionControl.style.opacity = '0';
+    noviceMissionControl.style.transform = 'translateY(-20px)';
+    advancedMissionControl.style.opacity = '0';
+    advancedMissionControl.style.transform = 'translateY(-20px)';
+    
+    // Hide both path navigations
     const pathNavigation = document.getElementById('path-navigation');
+    const advancedPathNavigation = document.getElementById('advanced-path-navigation');
     if (pathNavigation) {
         pathNavigation.style.display = 'none';
     }
+    if (advancedPathNavigation) {
+        advancedPathNavigation.style.display = 'none';
+    }
     
     setTimeout(() => {
-        missionControl.style.display = 'none';
+        noviceMissionControl.style.display = 'none';
+        advancedMissionControl.style.display = 'none';
         
         // Show path selection
         const pathContainer = document.querySelector('.path-selection-container');

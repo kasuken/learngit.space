@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Hooks & Automation Mastery - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 2.1</div>
+                <h1><i class="fas fa-cogs"></i> Git Hooks & Automation Mastery</h1>
+                <div class="chapter-subtitle">Custom Automation Triggers & Workflow Engineering</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="../advanced/advanced-history-analysis.html" class="nav-link">Previous: History Analysis</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Git Hooks & Automation</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert automation">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <strong>Automation Engineering Protocol</strong>
+                    <p>You are entering advanced automation training where you'll create intelligent systems that execute commands automatically based on Git events. These skills transform manual processes into seamless, error-free workflows.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-rocket"></i> Mission Briefing</h2>
+            <p>Commander, the most elite space operations are those that run themselves. Just as spacecraft have automated systems that monitor life support, navigation, and communication without constant human intervention, your Git repositories can have intelligent automation that ensures code quality, deploys applications, and maintains security standards automatically.</p>
+            
+            <p>You'll master <strong>Git Hooks</strong> - powerful automation triggers that execute custom scripts whenever specific Git events occur. From preventing bad commits to automatically deploying applications, hooks are your pathway to building self-managing development environments that operate with military precision.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Automation Objectives</h3>
+                <ul>
+                    <li>Master all Git hook types and their strategic applications</li>
+                    <li>Implement client-side automation for code quality and security</li>
+                    <li>Deploy server-side hooks for team workflow enforcement</li>
+                    <li>Create custom automation scripts for complex scenarios</li>
+                    <li>Establish enterprise-grade automation pipelines</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-bolt"></i> Git Hooks Architecture</h2>
+            
+            <p>Git hooks are scripts that Git executes automatically when certain events occur. Think of them as automated mission control protocols that respond instantly to specific spacecraft events, ensuring every action follows proper procedures.</p>
+
+            <div class="hooks-architecture">
+                <h3><i class="fas fa-sitemap"></i> Hook Ecosystem Overview</h3>
+                
+                <div class="hook-categories">
+                    <div class="hook-category client-side">
+                        <div class="category-header">
+                            <h4><i class="fas fa-desktop"></i> Client-Side Hooks</h4>
+                            <div class="category-badge local">LOCAL EXECUTION</div>
+                        </div>
+                        <div class="category-content">
+                            <p><strong>Your personal workspace automation</strong></p>
+                            <ul>
+                                <li>Execute on your local machine only</li>
+                                <li>Can be bypassed with --no-verify</li>
+                                <li>Perfect for code quality checks</li>
+                                <li>Not automatically shared with team</li>
+                            </ul>
+                            <div class="hook-list">
+                                <div class="hook-item">
+                                    <strong>pre-commit:</strong> Quality gates before commit
+                                </div>
+                                <div class="hook-item">
+                                    <strong>prepare-commit-msg:</strong> Auto-generate commit messages
+                                </div>
+                                <div class="hook-item">
+                                    <strong>commit-msg:</strong> Validate commit message format
+                                </div>
+                                <div class="hook-item">
+                                    <strong>post-commit:</strong> Notifications after commit
+                                </div>
+                                <div class="hook-item">
+                                    <strong>pre-push:</strong> Final checks before sharing
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hook-category server-side">
+                        <div class="category-header">
+                            <h4><i class="fas fa-server"></i> Server-Side Hooks</h4>
+                            <div class="category-badge remote">REMOTE EXECUTION</div>
+                        </div>
+                        <div class="category-content">
+                            <p><strong>Team-wide workflow enforcement</strong></p>
+                            <ul>
+                                <li>Execute on Git server (GitHub, GitLab, etc.)</li>
+                                <li>Cannot be bypassed by developers</li>
+                                <li>Enforce team-wide policies</li>
+                                <li>Trigger deployment pipelines</li>
+                            </ul>
+                            <div class="hook-list">
+                                <div class="hook-item">
+                                    <strong>pre-receive:</strong> Validate all incoming changes
+                                </div>
+                                <div class="hook-item">
+                                    <strong>update:</strong> Per-branch policy enforcement
+                                </div>
+                                <div class="hook-item">
+                                    <strong>post-receive:</strong> Deployment & notifications
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hooks-workflow">
+                    <h3><i class="fas fa-flow-chart"></i> Hook Execution Flow</h3>
+                    
+                    <div class="workflow-diagram">
+                        <div class="workflow-step">
+                            <div class="step-icon"><i class="fas fa-edit"></i></div>
+                            <div class="step-content">
+                                <h4>Developer Makes Changes</h4>
+                                <p>Code modifications in working directory</p>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        
+                        <div class="workflow-step hook-trigger">
+                            <div class="step-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="step-content">
+                                <h4>pre-commit Hook</h4>
+                                <p>Linting, testing, security scans</p>
+                                <div class="hook-decision">
+                                    <span class="pass">✅ Pass → Continue</span>
+                                    <span class="fail">❌ Fail → Block commit</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-icon"><i class="fas fa-save"></i></div>
+                            <div class="step-content">
+                                <h4>git commit</h4>
+                                <p>Changes saved to repository</p>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        
+                        <div class="workflow-step hook-trigger">
+                            <div class="step-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="step-content">
+                                <h4>post-commit Hook</h4>
+                                <p>Notifications, logging, cleanup</p>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                            <div class="step-content">
+                                <h4>git push</h4>
+                                <p>Share changes with team</p>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        
+                        <div class="workflow-step hook-trigger">
+                            <div class="step-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="step-content">
+                                <h4>pre-receive Hook</h4>
+                                <p>Server-side validation & policy enforcement</p>
+                                <div class="hook-decision">
+                                    <span class="pass">✅ Accept → Deploy</span>
+                                    <span class="fail">❌ Reject → Rollback</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-desktop"></i> Client-Side Hook Mastery</h2>
+            
+            <p>Client-side hooks run on your local machine and are your first line of defense for maintaining code quality. Master these to create a development environment that prevents errors before they happen.</p>
+
+            <div class="client-hooks">
+                <div class="hook-section pre-commit">
+                    <div class="hook-header">
+                        <h3><i class="fas fa-shield-alt"></i> Pre-Commit Hook: Quality Gateway</h3>
+                        <div class="execution-badge prevent">CAN PREVENT COMMIT</div>
+                    </div>
+                    
+                    <div class="hook-content">
+                        <p><strong>Mission:</strong> Execute quality checks before any commit is finalized</p>
+                        
+                        <div class="hook-setup">
+                            <h4><i class="fas fa-cogs"></i> Setting Up Pre-Commit Automation</h4>
+                            <div class="setup-steps">
+                                <div class="setup-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h5>Create Hook Script</h5>
+                                        <pre><code># Navigate to your repository's hooks directory
+cd your-repo/.git/hooks
+
+# Create pre-commit hook (must be executable)
+cat > pre-commit << 'EOF'
+#!/bin/bash
+# Advanced Pre-Commit Quality Gate
+
+echo "🔍 Executing pre-commit quality checks..."
+
+# Check for merge conflict markers
+if grep -r "<<<<<<< HEAD" --include="*.js" --include="*.py" --include="*.java" .; then
+    echo "❌ Merge conflict markers detected!"
+    echo "Please resolve conflicts before committing."
+    exit 1
+fi
+
+# Check for debug statements
+if grep -r "console.log\|debugger\|print(" --include="*.js" --include="*.py" .; then
+    echo "⚠️  Debug statements found!"
+    echo "Remove debug code before committing."
+    exit 1
+fi
+
+# Check for TODO comments in production files
+if grep -r "TODO\|FIXME\|HACK" --include="*.js" --include="*.py" src/; then
+    echo "📝 TODO comments found in production code"
+    echo "Please resolve or document properly."
+    # Warning only - don't exit
+fi
+
+# Run linting (if tools available)
+if command -v eslint &> /dev/null; then
+    echo "🔧 Running ESLint..."
+    if ! npx eslint . --ext .js,.jsx,.ts,.tsx; then
+        echo "❌ ESLint failed!"
+        exit 1
+    fi
+fi
+
+# Run tests
+if [ -f "package.json" ] && grep -q "test" package.json; then
+    echo "🧪 Running tests..."
+    if ! npm test; then
+        echo "❌ Tests failed!"
+        exit 1
+    fi
+fi
+
+echo "✅ All pre-commit checks passed!"
+exit 0
+EOF
+
+# Make it executable
+chmod +x pre-commit</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="setup-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h5>Test Your Hook</h5>
+                                        <pre><code># Create a test file with debug code
+echo 'console.log("debug test");' > test-debug.js
+
+# Try to commit - should be blocked
+git add test-debug.js
+git commit -m "test commit with debug code"
+
+# Should output: ❌ Debug statements found!
+
+# Clean up and try valid commit
+rm test-debug.js
+echo 'const validCode = "production ready";' > clean-code.js
+git add clean-code.js
+git commit -m "add clean production code"
+
+# Should output: ✅ All pre-commit checks passed!</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="advanced-examples">
+                            <h4><i class="fas fa-rocket"></i> Advanced Pre-Commit Scenarios</h4>
+                            
+                            <div class="example-grid">
+                                <div class="example-card">
+                                    <h5>Security Scanner</h5>
+                                    <pre><code>#!/bin/bash
+# Security-focused pre-commit hook
+
+# Check for hardcoded secrets
+if grep -r "password\|secret\|api_key\|token" --include="*.js" --include="*.py" . | grep -v ".git"; then
+    echo "🚨 SECURITY ALERT: Potential secrets detected!"
+    echo "Review and use environment variables instead."
+    exit 1
+fi
+
+# Check file permissions
+find . -name "*.sh" -not -path "./.git/*" | while read file; do
+    if [ ! -x "$file" ]; then
+        echo "⚠️  Shell script not executable: $file"
+        chmod +x "$file"
+        echo "✅ Fixed permissions for $file"
+    fi
+done</code></pre>
+                                </div>
+
+                                <div class="example-card">
+                                    <h5>Code Formatter</h5>
+                                    <pre><code>#!/bin/bash
+# Auto-format code before commit
+
+# Format JavaScript/TypeScript
+if command -v prettier &> /dev/null; then
+    echo "🎨 Formatting code with Prettier..."
+    npx prettier --write "**/*.{js,jsx,ts,tsx,json,css,md}"
+    git add -u  # Add formatted changes
+fi
+
+# Format Python
+if command -v black &> /dev/null; then
+    echo "🐍 Formatting Python with Black..."
+    black .
+    git add -u
+fi</code></pre>
+                                </div>
+
+                                <div class="example-card">
+                                    <h5>Performance Checker</h5>
+                                    <pre><code>#!/bin/bash
+# Check for performance issues
+
+# Check large files
+find . -name "*.js" -not -path "./.git/*" -size +1M | while read file; do
+    echo "⚠️  Large JavaScript file detected: $file"
+    echo "Consider code splitting or optimization."
+done
+
+# Check for performance anti-patterns
+if grep -r "for.*in.*array\|while.*true" --include="*.js" .; then
+    echo "⚠️  Potential performance issues detected"
+    echo "Review loops and consider optimization."
+fi</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hook-section commit-msg">
+                    <div class="hook-header">
+                        <h3><i class="fas fa-comment"></i> Commit-Msg Hook: Message Standards</h3>
+                        <div class="execution-badge prevent">CAN PREVENT COMMIT</div>
+                    </div>
+                    
+                    <div class="hook-content">
+                        <p><strong>Mission:</strong> Enforce consistent, professional commit message standards</p>
+                        
+                        <div class="commit-standards">
+                            <h4><i class="fas fa-clipboard-check"></i> Conventional Commit Format</h4>
+                            <div class="format-example">
+                                <pre><code>type(scope): description
+
+[optional body]
+
+[optional footer(s)]
+
+Examples:
+feat(auth): add OAuth2 integration
+fix(api): resolve user authentication timeout
+docs(readme): update installation instructions
+test(user): add comprehensive user validation tests</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="hook-implementation">
+                            <h4><i class="fas fa-code"></i> Implementation</h4>
+                            <pre><code>#!/bin/bash
+# commit-msg hook for conventional commit format
+
+commit_regex='^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,50}'
+
+# Read the commit message
+commit_message=$(cat "$1")
+
+# Check format
+if ! echo "$commit_message" | grep -qE "$commit_regex"; then
+    echo "❌ Invalid commit message format!"
+    echo ""
+    echo "Format: type(scope): description"
+    echo ""
+    echo "Types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert"
+    echo "Examples:"
+    echo "  feat(auth): add user login functionality"
+    echo "  fix(api): resolve timeout issue"
+    echo "  docs(readme): update setup instructions"
+    echo ""
+    exit 1
+fi
+
+# Check for proper capitalization
+first_word=$(echo "$commit_message" | cut -d':' -f2 | cut -d' ' -f2)
+if [[ ${first_word:0:1} =~ [A-Z] ]]; then
+    echo "⚠️  Description should start with lowercase letter"
+    echo "Current: $first_word"
+fi
+
+echo "✅ Commit message format valid!"
+exit 0</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hook-section post-commit">
+                    <div class="hook-header">
+                        <h3><i class="fas fa-bell"></i> Post-Commit Hook: Notifications & Logging</h3>
+                        <div class="execution-badge info">INFORMATIONAL ONLY</div>
+                    </div>
+                    
+                    <div class="hook-content">
+                        <p><strong>Mission:</strong> Automate notifications, logging, and follow-up actions after successful commits</p>
+                        
+                        <div class="notification-examples">
+                            <h4><i class="fas fa-satellite"></i> Notification Systems</h4>
+                            
+                            <div class="notification-grid">
+                                <div class="notification-card">
+                                    <h5>Slack Integration</h5>
+                                    <pre><code>#!/bin/bash
+# Send commit notifications to Slack
+
+SLACK_WEBHOOK="your-slack-webhook-url"
+COMMIT_HASH=$(git rev-parse HEAD)
+COMMIT_MSG=$(git log -1 --pretty=%B)
+AUTHOR=$(git log -1 --pretty=%an)
+REPO_NAME=$(basename `git rev-parse --show-toplevel`)
+
+curl -X POST -H 'Content-type: application/json' \
+    --data "{
+        \"text\": \"🚀 New commit in $REPO_NAME\",
+        \"attachments\": [{
+            \"color\": \"good\",
+            \"fields\": [{
+                \"title\": \"Author\",
+                \"value\": \"$AUTHOR\",
+                \"short\": true
+            }, {
+                \"title\": \"Commit\",
+                \"value\": \"$COMMIT_HASH\",
+                \"short\": true
+            }, {
+                \"title\": \"Message\",
+                \"value\": \"$COMMIT_MSG\",
+                \"short\": false
+            }]
+        }]
+    }" \
+    $SLACK_WEBHOOK</code></pre>
+                                </div>
+
+                                <div class="notification-card">
+                                    <h5>Development Log</h5>
+                                    <pre><code>#!/bin/bash
+# Maintain detailed development log
+
+LOG_FILE="$HOME/dev-activity.log"
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+COMMIT_HASH=$(git rev-parse --short HEAD)
+COMMIT_MSG=$(git log -1 --pretty=%B | head -1)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REPO_NAME=$(basename `git rev-parse --show-toplevel`)
+
+echo "[$TIMESTAMP] $REPO_NAME/$BRANCH: $COMMIT_HASH - $COMMIT_MSG" >> $LOG_FILE
+
+# Generate daily summary
+if [ "$(date +%H:%M)" = "17:00" ]; then
+    TODAY=$(date +%Y-%m-%d)
+    echo "📊 Today's Development Summary ($TODAY):" >> $LOG_FILE
+    grep "[$TODAY" $LOG_FILE | wc -l >> $LOG_FILE
+fi</code></pre>
+                                </div>
+
+                                <div class="notification-card">
+                                    <h5>Backup Trigger</h5>
+                                    <pre><code>#!/bin/bash
+# Auto-backup critical files after commits
+
+BACKUP_DIR="$HOME/project-backups/$(date +%Y-%m-%d)"
+REPO_NAME=$(basename `git rev-parse --show-toplevel`)
+
+# Create backup directory
+mkdir -p "$BACKUP_DIR"
+
+# Backup critical files
+if [ -f "package.json" ]; then
+    cp package.json "$BACKUP_DIR/${REPO_NAME}-package.json"
+fi
+
+if [ -f "requirements.txt" ]; then
+    cp requirements.txt "$BACKUP_DIR/${REPO_NAME}-requirements.txt"
+fi
+
+# Backup configuration files
+find . -name "*.config.*" -not -path "./.git/*" -exec cp {} "$BACKUP_DIR/" \;
+
+echo "✅ Critical files backed up to $BACKUP_DIR"</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-server"></i> Server-Side Hook Engineering</h2>
+            
+            <p>Server-side hooks execute on your Git server and enforce team-wide policies that cannot be bypassed. These are essential for maintaining consistency across your entire development organization.</p>
+
+            <div class="server-hooks">
+                <div class="hook-section pre-receive">
+                    <div class="hook-header">
+                        <h3><i class="fas fa-gateway"></i> Pre-Receive Hook: Team Policy Enforcement</h3>
+                        <div class="execution-badge enforce">TEAM ENFORCEMENT</div>
+                    </div>
+                    
+                    <div class="hook-content">
+                        <p><strong>Mission:</strong> Validate all incoming changes before they're accepted into the repository</p>
+                        
+                        <div class="policy-examples">
+                            <h4><i class="fas fa-gavel"></i> Team Policy Examples</h4>
+                            
+                            <div class="policy-grid">
+                                <div class="policy-card">
+                                    <h5>Branch Protection</h5>
+                                    <pre><code>#!/bin/bash
+# Protect main branch from direct pushes
+
+while read oldrev newrev refname; do
+    # Check if pushing to main branch
+    if [[ $refname == "refs/heads/main" ]]; then
+        echo "❌ Direct pushes to main branch are not allowed!"
+        echo "Please create a feature branch and submit a pull request."
+        echo ""
+        echo "Workflow:"
+        echo "1. git checkout -b feature/your-feature"
+        echo "2. git push origin feature/your-feature"
+        echo "3. Create pull request on GitHub"
+        exit 1
+    fi
+    
+    # Allow pushes to feature branches
+    if [[ $refname == "refs/heads/feature/"* ]]; then
+        echo "✅ Feature branch push accepted"
+    fi
+done</code></pre>
+                                </div>
+
+                                <div class="policy-card">
+                                    <h5>Commit Message Validation</h5>
+                                    <pre><code>#!/bin/bash
+# Team-wide commit message standards
+
+while read oldrev newrev refname; do
+    # Skip branch deletions
+    if [[ $newrev == "0000000000000000000000000000000000000000" ]]; then
+        continue
+    fi
+    
+    # Check each commit in the push
+    for commit in $(git rev-list $oldrev..$newrev); do
+        commit_msg=$(git cat-file commit $commit | sed '1,/^$/d')
+        
+        # Enforce ticket number in commit message
+        if ! echo "$commit_msg" | grep -qE "^(feat|fix|docs): .+ \(#[0-9]+\)"; then
+            echo "❌ Invalid commit message: $commit"
+            echo "Message: $commit_msg"
+            echo ""
+            echo "Required format: type: description (#ticket)"
+            echo "Example: feat: add user authentication (#123)"
+            exit 1
+        fi
+    done
+done
+
+echo "✅ All commit messages valid"</code></pre>
+                                </div>
+
+                                <div class="policy-card">
+                                    <h5>File Size Limits</h5>
+                                    <pre><code>#!/bin/bash
+# Prevent large files from being committed
+
+MAX_FILE_SIZE=10485760  # 10MB in bytes
+
+while read oldrev newrev refname; do
+    # Check each commit for large files
+    for commit in $(git rev-list $oldrev..$newrev); do
+        git ls-tree -r -l $commit | while read mode type hash size path; do
+            if [ "$size" -gt "$MAX_FILE_SIZE" ]; then
+                size_mb=$((size / 1048576))
+                echo "❌ File too large: $path ($size_mb MB)"
+                echo "Maximum allowed size: 10MB"
+                echo ""
+                echo "Consider using Git LFS for large files:"
+                echo "git lfs track '$path'"
+                exit 1
+            fi
+        done
+    done
+done</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hook-section post-receive">
+                    <div class="hook-header">
+                        <h3><i class="fas fa-rocket"></i> Post-Receive Hook: Deployment Automation</h3>
+                        <div class="execution-badge deploy">DEPLOYMENT TRIGGER</div>
+                    </div>
+                    
+                    <div class="hook-content">
+                        <p><strong>Mission:</strong> Automate deployment pipelines and team notifications after successful pushes</p>
+                        
+                        <div class="deployment-examples">
+                            <h4><i class="fas fa-cloud-upload-alt"></i> Automated Deployment Pipeline</h4>
+                            
+                            <div class="deployment-workflow">
+                                <pre><code>#!/bin/bash
+# Advanced deployment automation
+
+DEPLOY_LOG="/var/log/git-deployments.log"
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+
+while read oldrev newrev refname; do
+    branch=$(basename $refname)
+    
+    echo "[$TIMESTAMP] Processing push to $branch" >> $DEPLOY_LOG
+    
+    case $branch in
+        "main")
+            echo "🚀 Deploying to production..."
+            
+            # Run tests first
+            if ! npm test; then
+                echo "❌ Tests failed! Deployment aborted."
+                exit 1
+            fi
+            
+            # Build production assets
+            npm run build:prod
+            
+            # Deploy to production server
+            rsync -avz --delete ./dist/ production-server:/var/www/app/
+            
+            # Notify team
+            curl -X POST -H 'Content-type: application/json' \
+                --data '{"text": "🎉 Production deployment successful!"}' \
+                $SLACK_WEBHOOK
+            ;;
+            
+        "develop")
+            echo "🧪 Deploying to staging..."
+            
+            npm run build:staging
+            rsync -avz --delete ./dist/ staging-server:/var/www/app/
+            
+            # Run integration tests
+            npm run test:integration
+            ;;
+            
+        feature/*)
+            echo "🔧 Feature branch - creating preview deployment..."
+            
+            BRANCH_NAME=$(echo $branch | sed 's/feature\///')
+            PREVIEW_DIR="/var/www/previews/$BRANCH_NAME"
+            
+            mkdir -p $PREVIEW_DIR
+            npm run build:preview
+            rsync -avz --delete ./dist/ $PREVIEW_DIR/
+            
+            echo "Preview available at: https://previews.company.com/$BRANCH_NAME"
+            ;;
+    esac
+done</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-wrench"></i> Hands-On Lab: Complete Automation Setup</h2>
+            
+            <div class="lab-scenario">
+                <h3><i class="fas fa-flask"></i> Mission: Create Enterprise-Grade Git Automation</h3>
+                <p>You'll build a comprehensive automation system with multiple hooks working together to ensure code quality, enforce team policies, and automate deployments. This represents a real-world enterprise setup.</p>
+            </div>
+
+            <div class="automation-labs">
+                <div class="automation-lab">
+                    <div class="lab-header">
+                        <h3><i class="fas fa-cogs"></i> Lab 1: Quality Gate System</h3>
+                        <div class="lab-complexity advanced">ADVANCED SETUP</div>
+                    </div>
+                    
+                    <div class="lab-steps">
+                        <div class="lab-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Create Project with Quality Issues</h4>
+                                <pre><code>mkdir automation-demo
+cd automation-demo
+git init
+
+# Create project structure
+mkdir -p src tests docs
+echo "# Automation Demo Project" > README.md
+
+# Create files with intentional issues
+cat > src/app.js << 'EOF'
+// TODO: Fix this later
+const API_KEY = "secret-key-123";  // Security issue
+console.log("Debug mode active");  // Debug statement
+
+function calculateTotal(items) {
+    let total = 0;
+    for (let i in items) {  // Performance issue
+        total += items[i].price
+    }
+    return total;
+}
+
+module.exports = { calculateTotal };
+EOF
+
+cat > tests/app.test.js << 'EOF'
+const { calculateTotal } = require('../src/app');
+
+test('calculates total correctly', () => {
+    const items = [
+        { price: 10 },
+        { price: 20 }
+    ];
+    expect(calculateTotal(items)).toBe(30);
+});
+EOF
+
+cat > package.json << 'EOF'
+{
+  "name": "automation-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo 'Running tests...' && exit 0",
+    "lint": "echo 'Linting code...' && exit 0",
+    "build": "echo 'Building application...' && exit 0"
+  }
+}
+EOF
+
+git add .
+git commit -m "initial project setup"</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Install Multi-Stage Pre-Commit Hook</h4>
+                                <pre><code>cat > .git/hooks/pre-commit << 'EOF'
+#!/bin/bash
+# Multi-stage quality gate system
+
+echo "🔍 Starting comprehensive quality checks..."
+echo "============================================"
+
+# Stage 1: Security Scan
+echo "🔒 Stage 1: Security Analysis"
+if grep -r "password\|secret\|api_key\|token" --include="*.js" --include="*.py" src/ | grep -v "example\|placeholder"; then
+    echo "❌ CRITICAL: Hardcoded secrets detected!"
+    echo "Action required: Use environment variables"
+    echo "Example: process.env.API_KEY"
+    exit 1
+fi
+echo "✅ Security scan passed"
+
+# Stage 2: Code Quality
+echo "🧹 Stage 2: Code Quality Check"
+debug_count=$(grep -r "console\.log\|debugger\|print(" --include="*.js" --include="*.py" src/ | wc -l)
+if [ $debug_count -gt 0 ]; then
+    echo "⚠️  Found $debug_count debug statements"
+    grep -r "console\.log\|debugger" --include="*.js" src/ | head -5
+    echo "Remove debug code before committing"
+    exit 1
+fi
+echo "✅ Code quality check passed"
+
+# Stage 3: Performance Analysis
+echo "⚡ Stage 3: Performance Analysis"
+if grep -r "for.*in.*\[\|while.*true" --include="*.js" src/; then
+    echo "⚠️  Potential performance issues detected"
+    echo "Consider array methods (.map, .filter, .reduce) instead of for...in loops"
+    exit 1
+fi
+echo "✅ Performance analysis passed"
+
+# Stage 4: Test Coverage
+echo "🧪 Stage 4: Test Execution"
+if ! npm test > /dev/null 2>&1; then
+    echo "❌ Tests failed!"
+    echo "Run 'npm test' to see details"
+    exit 1
+fi
+echo "✅ All tests passed"
+
+# Stage 5: Documentation Check
+echo "📚 Stage 5: Documentation Check"
+todo_count=$(grep -r "TODO\|FIXME\|HACK" --include="*.js" src/ | wc -l)
+if [ $todo_count -gt 3 ]; then
+    echo "⚠️  High number of TODO items ($todo_count)"
+    echo "Consider creating GitHub issues for tracking"
+fi
+
+echo "============================================"
+echo "🎉 All quality gates passed! Commit approved."
+exit 0
+EOF
+
+chmod +x .git/hooks/pre-commit</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Test Quality Gates</h4>
+                                <pre><code># Try to commit with security issues
+git add .
+git commit -m "add application with security issues"
+
+# Should be blocked with: ❌ CRITICAL: Hardcoded secrets detected!
+
+# Fix security issues
+sed -i 's/const API_KEY = "secret-key-123";/const API_KEY = process.env.API_KEY;/' src/app.js
+
+# Try again - should be blocked by debug statements
+git add src/app.js
+git commit -m "fix security issue"
+
+# Should be blocked with: ⚠️ Found 1 debug statements
+
+# Fix debug issue
+sed -i '/console.log/d' src/app.js
+
+# Fix performance issue
+sed -i 's/for (let i in items)/for (let i = 0; i < items.length; i++)/' src/app.js
+sed -i 's/items\[i\]/items[i]/' src/app.js
+
+# Now commit should succeed
+git add src/app.js
+git commit -m "fix: resolve security and performance issues"
+
+# Should output: 🎉 All quality gates passed! Commit approved.</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="automation-lab">
+                    <div class="lab-header">
+                        <h3><i class="fas fa-comment"></i> Lab 2: Intelligent Commit Messages</h3>
+                        <div class="lab-complexity expert">EXPERT LEVEL</div>
+                    </div>
+                    
+                    <div class="lab-steps">
+                        <div class="lab-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Install Smart Commit Message System</h4>
+                                <pre><code># Create prepare-commit-msg hook for auto-generation
+cat > .git/hooks/prepare-commit-msg << 'EOF'
+#!/bin/bash
+# Intelligent commit message generation
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+# Only auto-generate if no message provided
+if [ "$COMMIT_SOURCE" != "message" ]; then
+    # Analyze staged changes to suggest message
+    added_files=$(git diff --cached --name-only --diff-filter=A | wc -l)
+    modified_files=$(git diff --cached --name-only --diff-filter=M | wc -l)
+    deleted_files=$(git diff --cached --name-only --diff-filter=D | wc -l)
+    
+    # Analyze file types
+    js_changes=$(git diff --cached --name-only | grep "\.js$" | wc -l)
+    css_changes=$(git diff --cached --name-only | grep "\.css$" | wc -l)
+    test_changes=$(git diff --cached --name-only | grep "test\|spec" | wc -l)
+    doc_changes=$(git diff --cached --name-only | grep "README\|\.md$" | wc -l)
+    
+    # Generate smart commit message
+    if [ $test_changes -gt 0 ]; then
+        echo "test: add/update test coverage" > $COMMIT_MSG_FILE
+    elif [ $doc_changes -gt 0 ]; then
+        echo "docs: update documentation" > $COMMIT_MSG_FILE
+    elif [ $added_files -gt $modified_files ]; then
+        echo "feat: add new functionality" > $COMMIT_MSG_FILE
+    elif [ $deleted_files -gt 0 ]; then
+        echo "refactor: remove unused code" > $COMMIT_MSG_FILE
+    else
+        echo "fix: update existing functionality" > $COMMIT_MSG_FILE
+    fi
+    
+    # Add file summary
+    echo "" >> $COMMIT_MSG_FILE
+    echo "# Changes summary:" >> $COMMIT_MSG_FILE
+    echo "# - $added_files file(s) added" >> $COMMIT_MSG_FILE
+    echo "# - $modified_files file(s) modified" >> $COMMIT_MSG_FILE
+    echo "# - $deleted_files file(s) deleted" >> $COMMIT_MSG_FILE
+    
+    if [ $js_changes -gt 0 ]; then
+        echo "# - JavaScript changes: $js_changes file(s)" >> $COMMIT_MSG_FILE
+    fi
+fi
+EOF
+
+chmod +x .git/hooks/prepare-commit-msg</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Add Commit Message Validation</h4>
+                                <pre><code>cat > .git/hooks/commit-msg << 'EOF'
+#!/bin/bash
+# Advanced commit message validation
+
+commit_file=$1
+commit_msg=$(cat $commit_file)
+
+# Remove comment lines for analysis
+clean_msg=$(echo "$commit_msg" | sed '/^#/d' | sed '/^$/d')
+
+# Check for conventional commit format
+conventional_regex="^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,50}"
+
+if ! echo "$clean_msg" | head -1 | grep -qE "$conventional_regex"; then
+    echo "❌ Commit message format invalid!"
+    echo ""
+    echo "Required format: type(scope): description"
+    echo ""
+    echo "Valid types:"
+    echo "  feat:     New feature"
+    echo "  fix:      Bug fix"
+    echo "  docs:     Documentation"
+    echo "  style:    Formatting"
+    echo "  refactor: Code restructuring"
+    echo "  test:     Testing"
+    echo "  chore:    Maintenance"
+    echo ""
+    echo "Current message:"
+    echo "$clean_msg"
+    exit 1
+fi
+
+# Check for proper capitalization and punctuation
+first_line=$(echo "$clean_msg" | head -1)
+description=$(echo "$first_line" | cut -d':' -f2- | sed 's/^ *//')
+
+if [[ ${description:0:1} =~ [A-Z] ]]; then
+    echo "⚠️  Description should start with lowercase"
+fi
+
+if [[ $description =~ \.$]]; then
+    echo "⚠️  Remove trailing period from description"
+fi
+
+# Check message length
+if [ ${#description} -gt 50 ]; then
+    echo "⚠️  Description too long (${#description} chars, max 50)"
+fi
+
+echo "✅ Commit message validated!"
+EOF
+
+chmod +x .git/hooks/commit-msg</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Test Intelligent Messaging</h4>
+                                <pre><code># Test auto-generated messages
+echo "console.log('new feature');" > src/feature.js
+git add src/feature.js
+
+# Commit without message - should auto-generate
+git commit
+
+# Editor will open with auto-generated message:
+# "feat: add new functionality"
+# 
+# # Changes summary:
+# # - 1 file(s) added
+# # - 0 file(s) modified
+# # - 0 file(s) deleted
+# # - JavaScript changes: 1 file(s)
+
+# Save and exit editor - should be accepted
+
+# Test validation with bad message
+echo "// test update" >> src/feature.js
+git add src/feature.js
+git commit -m "updated stuff"
+
+# Should output: ❌ Commit message format invalid!
+
+# Fix with proper format
+git commit -m "feat(ui): add user interface component"
+
+# Should output: ✅ Commit message validated!</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="automation-lab">
+                    <div class="lab-header">
+                        <h3><i class="fas fa-bell"></i> Lab 3: Notification & Monitoring System</h3>
+                        <div class="lab-complexity intermediate">INTERMEDIATE</div>
+                    </div>
+                    
+                    <div class="lab-steps">
+                        <div class="lab-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Create Comprehensive Monitoring Hook</h4>
+                                <pre><code>cat > .git/hooks/post-commit << 'EOF'
+#!/bin/bash
+# Comprehensive development monitoring
+
+# Configuration
+LOG_DIR="$HOME/.git-activity"
+DAILY_LOG="$LOG_DIR/activity-$(date +%Y-%m-%d).log"
+STATS_FILE="$LOG_DIR/stats.json"
+
+# Create log directory
+mkdir -p "$LOG_DIR"
+
+# Gather commit information
+COMMIT_HASH=$(git rev-parse --short HEAD)
+COMMIT_MSG=$(git log -1 --pretty=%B | head -1)
+AUTHOR=$(git config user.name)
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+REPO_NAME=$(basename `git rev-parse --show-toplevel`)
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+FILES_CHANGED=$(git diff-tree --no-commit-id --name-only -r HEAD | wc -l)
+INSERTIONS=$(git show --stat | grep insertion | sed 's/.*(\([0-9]*\) insertion.*/\1/')
+DELETIONS=$(git show --stat | grep deletion | sed 's/.*(\([0-9]*\) deletion.*/\1/')
+
+# Log detailed activity
+echo "[$TIMESTAMP] $REPO_NAME/$BRANCH: $COMMIT_HASH - $COMMIT_MSG ($FILES_CHANGED files, +$INSERTIONS/-$DELETIONS)" >> "$DAILY_LOG"
+
+# Update statistics
+if [ ! -f "$STATS_FILE" ]; then
+    echo '{"commits": 0, "files_changed": 0, "lines_added": 0, "lines_deleted": 0}' > "$STATS_FILE"
+fi
+
+# Simple stats update (in a real scenario, you'd use jq)
+CURRENT_COMMITS=$(grep -o '"commits": [0-9]*' "$STATS_FILE" | grep -o '[0-9]*')
+NEW_COMMITS=$((CURRENT_COMMITS + 1))
+sed -i "s/\"commits\": [0-9]*/\"commits\": $NEW_COMMITS/" "$STATS_FILE"
+
+# Generate productivity report
+COMMITS_TODAY=$(grep "$(date +%Y-%m-%d)" "$DAILY_LOG" | wc -l)
+
+if [ $COMMITS_TODAY -eq 1 ]; then
+    echo "🎉 First commit of the day! Starting strong."
+elif [ $COMMITS_TODAY -eq 5 ]; then
+    echo "🔥 5 commits today! You're on fire!"
+elif [ $COMMITS_TODAY -eq 10 ]; then
+    echo "💪 10 commits! Incredible productivity!"
+fi
+
+# Check for streaks
+if [ -f "$LOG_DIR/activity-$(date -d '1 day ago' +%Y-%m-%d).log" ]; then
+    echo "🌟 Commit streak maintained!"
+fi
+
+# Evening summary trigger
+HOUR=$(date +%H)
+if [ "$HOUR" = "17" ] && [ $COMMITS_TODAY -eq 1 ]; then
+    echo "📊 Daily Summary for $(date +%Y-%m-%d):"
+    echo "   Total commits: $COMMITS_TODAY"
+    echo "   Repositories active: $(grep "$(date +%Y-%m-%d)" "$DAILY_LOG" | cut -d']' -f2 | cut -d'/' -f1 | sort -u | wc -l)"
+    echo "   Most active repository: $(grep "$(date +%Y-%m-%d)" "$DAILY_LOG" | cut -d']' -f2 | cut -d'/' -f1 | sort | uniq -c | sort -nr | head -1)"
+fi
+
+echo "✅ Activity logged and monitored"
+EOF
+
+chmod +x .git/hooks/post-commit</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Test Monitoring System</h4>
+                                <pre><code># Make several commits to test monitoring
+echo "console.log('commit 1');" > src/test1.js
+git add src/test1.js
+git commit -m "feat: add test feature 1"
+
+echo "console.log('commit 2');" > src/test2.js
+git add src/test2.js
+git commit -m "feat: add test feature 2"
+
+echo "console.log('commit 3');" > src/test3.js
+git add src/test3.js
+git commit -m "feat: add test feature 3"
+
+# Check the activity log
+cat "$HOME/.git-activity/activity-$(date +%Y-%m-%d).log"
+
+# Check statistics
+cat "$HOME/.git-activity/stats.json"
+
+# Should show:
+# - Detailed commit logs with timestamps
+# - Productivity messages
+# - Updated statistics</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-toolbox"></i> Enterprise Hook Management</h2>
+            
+            <p>For large organizations, managing hooks across multiple repositories and team members requires systematic approaches and centralized control.</p>
+
+            <div class="enterprise-tools">
+                <div class="management-strategy">
+                    <h3><i class="fas fa-sitemap"></i> Centralized Hook Distribution</h3>
+                    
+                    <div class="distribution-methods">
+                        <div class="method-card">
+                            <h4><i class="fas fa-git-alt"></i> Git Templates</h4>
+                            <pre><code># Create organization-wide hook template
+mkdir -p ~/.git-templates/hooks
+
+# Install your standard hooks
+cp /path/to/standard/pre-commit ~/.git-templates/hooks/
+cp /path/to/standard/commit-msg ~/.git-templates/hooks/
+chmod +x ~/.git-templates/hooks/*
+
+# Set as default template
+git config --global init.templatedir ~/.git-templates
+
+# All new repositories will include these hooks
+git init new-project
+ls new-project/.git/hooks/</code></pre>
+                        </div>
+
+                        <div class="method-card">
+                            <h4><i class="fas fa-download"></i> Hook Installation Script</h4>
+                            <pre><code>#!/bin/bash
+# install-hooks.sh - Deploy hooks to existing repositories
+
+HOOKS_REPO="https://github.com/company/git-hooks.git"
+TEMP_DIR="/tmp/company-hooks"
+
+# Download latest hooks
+git clone $HOOKS_REPO $TEMP_DIR
+
+# Install to current repository
+if [ -d ".git" ]; then
+    cp $TEMP_DIR/hooks/* .git/hooks/
+    chmod +x .git/hooks/*
+    echo "✅ Company hooks installed"
+else
+    echo "❌ Not in a Git repository"
+    exit 1
+fi
+
+# Cleanup
+rm -rf $TEMP_DIR</code></pre>
+                        </div>
+
+                        <div class="method-card">
+                            <h4><i class="fas fa-link"></i> Symbolic Link Management</h4>
+                            <pre><code>#!/bin/bash
+# Link to centralized hooks directory
+
+HOOKS_DIR="/shared/git-hooks"
+REPO_HOOKS_DIR=".git/hooks"
+
+# Remove existing hooks
+rm -f $REPO_HOOKS_DIR/*
+
+# Create symbolic links to centralized hooks
+for hook in $HOOKS_DIR/*; do
+    hook_name=$(basename $hook)
+    ln -s $hook $REPO_HOOKS_DIR/$hook_name
+    echo "Linked $hook_name"
+done
+
+echo "✅ All hooks linked to centralized repository"</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hook-configuration">
+                    <h3><i class="fas fa-cog"></i> Configuration Management</h3>
+                    
+                    <div class="config-examples">
+                        <div class="config-card">
+                            <h4>Environment-Aware Hooks</h4>
+                            <pre><code>#!/bin/bash
+# Environment-specific hook behavior
+
+# Load configuration
+CONFIG_FILE=".git/hooks/config.json"
+if [ -f "$CONFIG_FILE" ]; then
+    ENVIRONMENT=$(grep -o '"environment": "[^"]*"' $CONFIG_FILE | cut -d'"' -f4)
+    STRICT_MODE=$(grep -o '"strict_mode": [^,}]*' $CONFIG_FILE | cut -d':' -f2 | tr -d ' ')
+else
+    ENVIRONMENT="development"
+    STRICT_MODE="false"
+fi
+
+echo "🔧 Running in $ENVIRONMENT mode (strict: $STRICT_MODE)"
+
+case $ENVIRONMENT in
+    "production")
+        # Strictest checks for production
+        run_security_scan
+        run_comprehensive_tests
+        validate_code_signing
+        ;;
+    "staging")
+        # Moderate checks for staging
+        run_tests
+        check_coding_standards
+        ;;
+    "development")
+        # Basic checks for development
+        if [ "$STRICT_MODE" = "true" ]; then
+            run_tests
+        fi
+        check_syntax
+        ;;
+esac</code></pre>
+                        </div>
+
+                        <div class="config-card">
+                            <h4>Team-Specific Rules</h4>
+                            <pre><code>#!/bin/bash
+# Team and project-specific configurations
+
+# Detect team based on repository or user
+USER_EMAIL=$(git config user.email)
+REPO_NAME=$(basename `git rev-parse --show-toplevel`)
+
+if [[ $USER_EMAIL == *"frontend"* ]] || [[ $REPO_NAME == *"ui"* ]]; then
+    TEAM="frontend"
+elif [[ $USER_EMAIL == *"backend"* ]] || [[ $REPO_NAME == *"api"* ]]; then
+    TEAM="backend"
+elif [[ $USER_EMAIL == *"devops"* ]]; then
+    TEAM="devops"
+else
+    TEAM="general"
+fi
+
+echo "👥 Applying $TEAM team rules"
+
+case $TEAM in
+    "frontend")
+        npm run lint:css
+        npm run test:unit
+        check_accessibility
+        ;;
+    "backend")
+        run_security_audit
+        run_api_tests
+        check_database_migrations
+        ;;
+    "devops")
+        validate_infrastructure_code
+        check_secrets_management
+        test_deployment_scripts
+        ;;
+esac</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="troubleshooting">
+                    <h3><i class="fas fa-bug"></i> Hook Troubleshooting</h3>
+                    
+                    <div class="troubleshooting-guide">
+                        <div class="issue-card">
+                            <h4>Hook Not Executing</h4>
+                            <div class="solution">
+                                <p><strong>Common Causes:</strong></p>
+                                <ul>
+                                    <li>File not executable: <code>chmod +x .git/hooks/hook-name</code></li>
+                                    <li>Wrong shebang: Use <code>#!/bin/bash</code> or <code>#!/usr/bin/env bash</code></li>
+                                    <li>Path issues: Use absolute paths in scripts</li>
+                                    <li>Environment variables: Source proper environment in hook</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="issue-card">
+                            <h4>Hook Blocking Valid Commits</h4>
+                            <div class="solution">
+                                <p><strong>Debug Steps:</strong></p>
+                                <pre><code># Run hook manually with debugging
+bash -x .git/hooks/pre-commit
+
+# Temporarily bypass hook
+git commit --no-verify -m "emergency fix"
+
+# Check hook exit codes
+echo $? # after hook execution</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="issue-card">
+                            <h4>Performance Issues</h4>
+                            <div class="solution">
+                                <p><strong>Optimization Techniques:</strong></p>
+                                <ul>
+                                    <li>Cache expensive operations</li>
+                                    <li>Run checks in parallel where possible</li>
+                                    <li>Skip checks for certain file types</li>
+                                    <li>Use incremental analysis (only changed files)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mission-complete">
+            <div class="completion-message">
+                <h2><i class="fas fa-trophy"></i> Automation Mission Complete, Commander!</h2>
+                <p>You have successfully mastered Git Hooks and advanced automation engineering. You're now qualified to create sophisticated automation systems that ensure code quality, enforce team policies, and streamline development workflows across entire organizations.</p>
+            </div>
+            
+            <div class="key-takeaways">
+                <h3><i class="fas fa-key"></i> Advanced Automation Skills Acquired</h3>
+                <ul>
+                    <li>✅ Complete mastery of all Git hook types and execution contexts</li>
+                    <li>✅ Client-side automation for quality gates and developer productivity</li>
+                    <li>✅ Server-side policy enforcement and deployment automation</li>
+                    <li>✅ Enterprise-grade hook management and distribution strategies</li>
+                    <li>✅ Troubleshooting and performance optimization techniques</li>
+                </ul>
+            </div>
+
+            <div class="automation-reference">
+                <h3><i class="fas fa-cogs"></i> Automation Quick Reference</h3>
+                <div class="reference-grid">
+                    <div class="ref-card">
+                        <h4>Quality Gate Hook</h4>
+                        <code>.git/hooks/pre-commit</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Message Validation</h4>
+                        <code>.git/hooks/commit-msg</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Team Notifications</h4>
+                        <code>.git/hooks/post-commit</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Deployment Trigger</h4>
+                        <code>.git/hooks/post-receive</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Bypass Hook (Emergency)</h4>
+                        <code>git commit --no-verify</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Install Hook Template</h4>
+                        <code>git config init.templatedir</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="next-mission">
+                <h3><i class="fas fa-route"></i> Prepare for Next Mission</h3>
+                <p>Your next commander operation will be <strong>GitHub Actions & CI/CD Pipeline Engineering</strong>, where you'll learn to create sophisticated continuous integration and deployment pipelines that work seamlessly with your Git hooks.</p>
+                <div class="mission-nav-buttons">
+                    <a href="../advanced/advanced-history-analysis.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
+                    <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
+                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Commander Operations Training • Phase 2.1 of Automation & CI/CD Integration</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

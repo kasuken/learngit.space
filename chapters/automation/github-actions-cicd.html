@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions & CI/CD Pipeline Engineering - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 2.2</div>
+                <h1><i class="fas fa-rocket"></i> GitHub Actions & CI/CD Pipeline Engineering</h1>
+                <div class="chapter-subtitle">Automated Deployment & Continuous Integration Mastery</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="git-hooks-automation.html" class="nav-link">Previous: Git Hooks Mastery</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">GitHub Actions & CI/CD</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert automation">
+                <i class="fas fa-satellite"></i>
+                <div>
+                    <strong>CI/CD Mission Protocol</strong>
+                    <p>You are entering advanced pipeline engineering where you'll create self-managing deployment systems that automatically test, build, and deploy your applications across multiple environments with zero human intervention.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-rocket"></i> Mission Briefing</h2>
+            <p>Commander, the most sophisticated space missions are those that operate autonomously across vast distances. Just as spacecraft deploy automated systems for navigation, life support, and communication, your development projects need intelligent pipelines that automatically validate code quality, run comprehensive tests, and deploy applications to production environments without manual intervention.</p>
+            
+            <p>You'll master <strong>GitHub Actions</strong> and <strong>CI/CD Pipeline Engineering</strong> - the mission control systems that transform your repositories into fully automated development and deployment platforms. From simple workflow automation to complex multi-environment deployment strategies, you'll build pipelines that ensure every code change is thoroughly validated before reaching users.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Pipeline Engineering Objectives</h3>
+                <ul>
+                    <li>Master GitHub Actions workflow syntax and advanced features</li>
+                    <li>Design comprehensive CI/CD pipelines for different project types</li>
+                    <li>Implement automated testing, security scanning, and quality gates</li>
+                    <li>Create multi-environment deployment strategies (dev, staging, prod)</li>
+                    <li>Integrate third-party tools and services into your pipelines</li>
+                    <li>Design enterprise-grade deployment workflows with rollback capabilities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-cogs"></i> GitHub Actions Architecture</h2>
+            
+            <p>GitHub Actions is your mission control system for automation. Think of it as the central command center that coordinates all automated operations across your development lifecycle, from code validation to deployment and monitoring.</p>
+
+            <div class="actions-architecture">
+                <h3><i class="fas fa-sitemap"></i> Actions Ecosystem Overview</h3>
+                
+                <div class="pipeline-flow">
+                    <div class="flow-header">
+                        <h4><i class="fas fa-play-circle"></i> Complete CI/CD Pipeline Flow</h4>
+                    </div>
+                    
+                    <div class="pipeline-diagram">
+                        <div class="pipeline-stage trigger">
+                            <div class="stage-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="stage-content">
+                                <h5>Trigger Event</h5>
+                                <div class="trigger-types">
+                                    <span class="trigger-badge">Push</span>
+                                    <span class="trigger-badge">Pull Request</span>
+                                    <span class="trigger-badge">Schedule</span>
+                                    <span class="trigger-badge">Manual</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                        
+                        <div class="pipeline-stage validation">
+                            <div class="stage-icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="stage-content">
+                                <h5>Code Validation</h5>
+                                <ul class="stage-steps">
+                                    <li>Syntax & Lint Checks</li>
+                                    <li>Security Scanning</li>
+                                    <li>Dependency Audit</li>
+                                    <li>Code Quality Analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                        
+                        <div class="pipeline-stage testing">
+                            <div class="stage-icon"><i class="fas fa-flask"></i></div>
+                            <div class="stage-content">
+                                <h5>Automated Testing</h5>
+                                <ul class="stage-steps">
+                                    <li>Unit Tests</li>
+                                    <li>Integration Tests</li>
+                                    <li>End-to-End Tests</li>
+                                    <li>Performance Tests</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                        
+                        <div class="pipeline-stage build">
+                            <div class="stage-icon"><i class="fas fa-hammer"></i></div>
+                            <div class="stage-content">
+                                <h5>Build & Package</h5>
+                                <ul class="stage-steps">
+                                    <li>Compile Source Code</li>
+                                    <li>Bundle Assets</li>
+                                    <li>Create Artifacts</li>
+                                    <li>Generate Documentation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                        
+                        <div class="pipeline-stage deploy">
+                            <div class="stage-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                            <div class="stage-content">
+                                <h5>Deployment</h5>
+                                <ul class="stage-steps">
+                                    <li>Deploy to Staging</li>
+                                    <li>Run Smoke Tests</li>
+                                    <li>Deploy to Production</li>
+                                    <li>Health Monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions-components">
+                    <h3><i class="fas fa-puzzle-piece"></i> GitHub Actions Components</h3>
+                    
+                    <div class="components-grid">
+                        <div class="component-card workflow">
+                            <div class="component-header">
+                                <h4><i class="fas fa-file-code"></i> Workflows</h4>
+                                <div class="component-badge main">PRIMARY</div>
+                            </div>
+                            <div class="component-content">
+                                <p><strong>Definition:</strong> YAML files that define your automation processes</p>
+                                <ul>
+                                    <li>Located in <code>.github/workflows/</code></li>
+                                    <li>Triggered by events (push, PR, schedule)</li>
+                                    <li>Contains one or more jobs</li>
+                                    <li>Can run in parallel or sequential</li>
+                                </ul>
+                                <div class="component-example">
+                                    <strong>Example:</strong> <code>ci.yml</code>, <code>deploy.yml</code>, <code>release.yml</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-card job">
+                            <div class="component-header">
+                                <h4><i class="fas fa-tasks"></i> Jobs</h4>
+                                <div class="component-badge execution">EXECUTION</div>
+                            </div>
+                            <div class="component-content">
+                                <p><strong>Definition:</strong> Groups of steps that run on the same runner</p>
+                                <ul>
+                                    <li>Run on fresh virtual machines</li>
+                                    <li>Can depend on other jobs</li>
+                                    <li>Execute steps sequentially</li>
+                                    <li>Share data through artifacts</li>
+                                </ul>
+                                <div class="component-example">
+                                    <strong>Runners:</strong> ubuntu-latest, windows-latest, macos-latest
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-card step">
+                            <div class="component-header">
+                                <h4><i class="fas fa-step-forward"></i> Steps</h4>
+                                <div class="component-badge action">ACTION</div>
+                            </div>
+                            <div class="component-content">
+                                <p><strong>Definition:</strong> Individual commands or actions within a job</p>
+                                <ul>
+                                    <li>Run shell commands</li>
+                                    <li>Use pre-built actions</li>
+                                    <li>Execute custom scripts</li>
+                                    <li>Access context information</li>
+                                </ul>
+                                <div class="component-example">
+                                    <strong>Types:</strong> <code>run:</code>, <code>uses:</code>, <code>with:</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-card action">
+                            <div class="component-header">
+                                <h4><i class="fas fa-cube"></i> Actions</h4>
+                                <div class="component-badge reusable">REUSABLE</div>
+                            </div>
+                            <div class="component-content">
+                                <p><strong>Definition:</strong> Reusable units of code for common tasks</p>
+                                <ul>
+                                    <li>Pre-built by GitHub community</li>
+                                    <li>Custom actions you create</li>
+                                    <li>JavaScript, Docker, or composite</li>
+                                    <li>Published on GitHub Marketplace</li>
+                                </ul>
+                                <div class="component-example">
+                                    <strong>Popular:</strong> checkout, setup-node, deploy-pages
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-file-code"></i> Workflow Engineering Fundamentals</h2>
+            
+            <p>Master the art of creating sophisticated GitHub Actions workflows that automate every aspect of your development lifecycle. From basic CI to complex multi-environment deployments.</p>
+
+            <div class="workflow-fundamentals">
+                <div class="workflow-section basic-workflow">
+                    <div class="workflow-header">
+                        <h3><i class="fas fa-play"></i> Basic Workflow Structure</h3>
+                        <div class="complexity-badge beginner">FOUNDATION</div>
+                    </div>
+                    
+                    <div class="workflow-content">
+                        <p><strong>Mission:</strong> Understand the fundamental structure of GitHub Actions workflows</p>
+                        
+                        <div class="workflow-example">
+                            <h4><i class="fas fa-code"></i> Essential Workflow Anatomy</h4>
+                            <pre><code># .github/workflows/ci.yml
+name: 🚀 Continuous Integration Pipeline
+
+# Define when this workflow runs
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run every day at 2 AM UTC
+    - cron: '0 2 * * *'
+
+# Define environment variables available to all jobs
+env:
+  NODE_VERSION: '18'
+  CI: true
+
+# Define the jobs that make up this workflow
+jobs:
+  # Job 1: Code Quality & Testing
+  test:
+    name: 🧪 Test & Quality Checks
+    runs-on: ubuntu-latest
+    
+    # Define job-specific environment variables
+    env:
+      DATABASE_URL: postgresql://test:test@localhost:5432/testdb
+    
+    # Define the steps for this job
+    steps:
+      # Step 1: Get the source code
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history for better analysis
+          fetch-depth: 0
+      
+      # Step 2: Set up Node.js environment
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      # Step 3: Install dependencies
+      - name: 📦 Install dependencies
+        run: npm ci
+      
+      # Step 4: Run linting
+      - name: 🔍 Run ESLint
+        run: npm run lint
+      
+      # Step 5: Run tests with coverage
+      - name: 🧪 Run tests
+        run: npm run test:coverage
+      
+      # Step 6: Upload test results
+      - name: 📊 Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage/lcov.info
+          flags: unittests
+          name: codecov-umbrella</code></pre>
+                        </div>
+
+                        <div class="workflow-breakdown">
+                            <h4><i class="fas fa-microscope"></i> Workflow Component Breakdown</h4>
+                            
+                            <div class="breakdown-grid">
+                                <div class="breakdown-card">
+                                    <h5>Trigger Configuration</h5>
+                                    <pre><code>on:
+  push:
+    branches: [ main, develop ]
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+  pull_request:
+    types: [opened, synchronize]</code></pre>
+                                    <p>Controls when the workflow executes</p>
+                                </div>
+
+                                <div class="breakdown-card">
+                                    <h5>Environment Variables</h5>
+                                    <pre><code>env:
+  NODE_VERSION: '18'
+  DATABASE_URL: ${{ secrets.DB_URL }}
+  CUSTOM_VAR: 'production-value'</code></pre>
+                                    <p>Share configuration across jobs and steps</p>
+                                </div>
+
+                                <div class="breakdown-card">
+                                    <h5>Job Dependencies</h5>
+                                    <pre><code>jobs:
+  test:
+    runs-on: ubuntu-latest
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest</code></pre>
+                                    <p>Control execution order and dependencies</p>
+                                </div>
+
+                                <div class="breakdown-card">
+                                    <h5>Conditional Execution</h5>
+                                    <pre><code>- name: Deploy to production
+  if: github.ref == 'refs/heads/main'
+  run: npm run deploy:prod</code></pre>
+                                    <p>Run steps only under specific conditions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-section advanced-patterns">
+                    <div class="workflow-header">
+                        <h3><i class="fas fa-network-wired"></i> Advanced Workflow Patterns</h3>
+                        <div class="complexity-badge advanced">ADVANCED</div>
+                    </div>
+                    
+                    <div class="workflow-content">
+                        <p><strong>Mission:</strong> Implement sophisticated workflow patterns for enterprise-grade automation</p>
+                        
+                        <div class="advanced-examples">
+                            <h4><i class="fas fa-rocket"></i> Enterprise Workflow Patterns</h4>
+                            
+                            <div class="pattern-grid">
+                                <div class="pattern-card matrix-strategy">
+                                    <h5>Matrix Strategy Pattern</h5>
+                                    <pre><code># Test across multiple environments
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16, 18, 20]
+        include:
+          - os: ubuntu-latest
+            node-version: 18
+            upload-coverage: true
+        exclude:
+          - os: windows-latest
+            node-version: 16
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      - name: Install & Test
+        run: |
+          npm ci
+          npm test
+      
+      - name: Upload Coverage
+        if: matrix.upload-coverage
+        uses: codecov/codecov-action@v3</code></pre>
+                                </div>
+
+                                <div class="pattern-card reusable-workflow">
+                                    <h5>Reusable Workflow Pattern</h5>
+                                    <pre><code># .github/workflows/reusable-deploy.yml
+name: 🚀 Reusable Deployment
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      version:
+        required: false
+        type: string
+        default: 'latest'
+    secrets:
+      DEPLOY_TOKEN:
+        required: true
+
+jobs:
+  deploy:
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Deploy to ${{ inputs.environment }}
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          echo "Deploying version $VERSION to ${{ inputs.environment }}"
+          # Your deployment logic here
+
+# Usage in another workflow:
+# jobs:
+#   deploy-staging:
+#     uses: ./.github/workflows/reusable-deploy.yml
+#     with:
+#       environment: staging
+#       version: ${{ github.sha }}
+#     secrets:
+#       DEPLOY_TOKEN: ${{ secrets.STAGING_TOKEN }}</code></pre>
+                                </div>
+
+                                <div class="pattern-card environment-protection">
+                                    <h5>Environment Protection Pattern</h5>
+                                    <pre><code># Multi-environment deployment with protection
+jobs:
+  deploy-staging:
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Staging
+        run: echo "Deploying to staging..."
+  
+  deploy-production:
+    needs: deploy-staging
+    environment: 
+      name: production
+      url: https://myapp.com
+    runs-on: ubuntu-latest
+    
+    # Only deploy to prod from main branch
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Deploy to Production
+        run: echo "Deploying to production..."
+      
+      - name: Run Health Check
+        run: |
+          curl -f https://myapp.com/health || exit 1
+          echo "✅ Health check passed!"</code></pre>
+                                </div>
+
+                                <div class="pattern-card artifact-management">
+                                    <h5>Artifact Management Pattern</h5>
+                                    <pre><code># Build artifacts and share between jobs
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build application
+        run: |
+          npm ci
+          npm run build
+          npm run test
+      
+      - name: Generate version
+        id: version
+        run: echo "version=$(date +%Y%m%d)-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-${{ steps.version.outputs.version }}
+          path: |
+            dist/
+            package.json
+          retention-days: 30
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-${{ needs.build.outputs.version }}
+      
+      - name: Deploy version ${{ needs.build.outputs.version }}
+        run: |
+          echo "Deploying version: ${{ needs.build.outputs.version }}"
+          # Deployment commands here</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-shield-alt"></i> Security & Quality Gates</h2>
+            
+            <p>Implement comprehensive security scanning and quality assurance within your CI/CD pipelines. Every deployment must pass through multiple security checkpoints before reaching production.</p>
+
+            <div class="security-gates">
+                <h3><i class="fas fa-lock"></i> Multi-Layer Security Pipeline</h3>
+                
+                <div class="security-workflow">
+                    <pre><code># .github/workflows/security-pipeline.yml
+name: 🛡️ Security & Quality Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Job 1: Static Code Analysis
+  static-analysis:
+    name: 🔍 Static Code Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # Security scanning with CodeQL
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript, python
+      
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+      
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+      
+      # Dependency vulnerability scanning
+      - name: Run npm audit
+        run: |
+          npm audit --audit-level=critical
+          npm audit --audit-level=high --dry-run
+      
+      # License compliance check
+      - name: License compliance
+        run: |
+          npm install -g license-checker
+          license-checker --onlyAllow "MIT;Apache-2.0;BSD;ISC"
+
+  # Job 2: Security Secrets Scanning
+  secrets-scan:
+    name: 🔐 Secrets Detection
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Run TruffleHog OSS
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: main
+          head: HEAD
+      
+      - name: Check for hardcoded secrets
+        run: |
+          # Custom secret patterns
+          if grep -r "password.*=" --include="*.js" --include="*.py" .; then
+            echo "❌ Potential hardcoded passwords found"
+            exit 1
+          fi
+          
+          if grep -r "api[_-]?key.*=" --include="*.js" --include="*.py" .; then
+            echo "❌ Potential API keys found"
+            exit 1
+          fi
+          
+          echo "✅ No obvious secrets detected"
+
+  # Job 3: Container Security (if using Docker)
+  container-security:
+    name: 🐳 Container Security Scan
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'Dockerfile')
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build Docker image
+        run: docker build -t security-scan:${{ github.sha }} .
+      
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'security-scan:${{ github.sha }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+      
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # Job 4: Quality Gates
+  quality-gates:
+    name: 📊 Quality Assessment
+    runs-on: ubuntu-latest
+    needs: [static-analysis, secrets-scan]
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      # Code coverage requirements
+      - name: Run tests with coverage
+        run: npm run test:coverage
+      
+      - name: Coverage Quality Gate
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.lines.pct')
+          echo "Coverage: $COVERAGE%"
+          
+          if (( $(echo "$COVERAGE < 80" | bc -l) )); then
+            echo "❌ Coverage below 80% ($COVERAGE%)"
+            exit 1
+          fi
+          
+          echo "✅ Coverage requirement met: $COVERAGE%"
+      
+      # Code complexity analysis
+      - name: Complexity Analysis
+        run: |
+          npm install -g complexity-report
+          complexity-report --format json src/ > complexity.json
+          
+          MAX_COMPLEXITY=$(cat complexity.json | jq '.reports[].complexity.cyclomatic' | sort -n | tail -1)
+          
+          if (( MAX_COMPLEXITY > 10 )); then
+            echo "❌ Cyclomatic complexity too high: $MAX_COMPLEXITY"
+            exit 1
+          fi
+          
+          echo "✅ Complexity check passed: $MAX_COMPLEXITY"
+      
+      # Performance benchmarks
+      - name: Performance Benchmarks
+        run: |
+          npm run build
+          
+          # Check bundle size
+          BUNDLE_SIZE=$(stat -c%s "dist/main.js")
+          MAX_SIZE=1048576  # 1MB
+          
+          if [ $BUNDLE_SIZE -gt $MAX_SIZE ]; then
+            echo "❌ Bundle size too large: $(($BUNDLE_SIZE / 1024))KB"
+            exit 1
+          fi
+          
+          echo "✅ Bundle size acceptable: $(($BUNDLE_SIZE / 1024))KB"</code></pre>
+                </div>
+
+                <div class="security-best-practices">
+                    <h3><i class="fas fa-check-shield"></i> Security Best Practices Implementation</h3>
+                    
+                    <div class="practices-grid">
+                        <div class="practice-card">
+                            <h4>Secrets Management</h4>
+                            <div class="practice-content">
+                                <pre><code># Never store secrets in code
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  API_KEY: ${{ secrets.API_KEY }}
+
+# Use environment-specific secrets
+- name: Deploy to production
+  if: github.ref == 'refs/heads/main'
+  env:
+    DEPLOY_KEY: ${{ secrets.PROD_DEPLOY_KEY }}
+  run: ./deploy.sh production</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-card">
+                            <h4>Permission Minimization</h4>
+                            <div class="practice-content">
+                                <pre><code># Limit workflow permissions
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  
+# Or more restrictive
+permissions: read-all
+
+# Job-specific permissions
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      deployments: write</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-card">
+                            <h4>Artifact Security</h4>
+                            <div class="practice-content">
+                                <pre><code># Sign and verify artifacts
+- name: Sign artifacts
+  uses: sigstore/cosign-installer@v3
+
+- name: Upload signed artifact
+  uses: actions/upload-artifact@v3
+  with:
+    name: signed-build
+    path: |
+      dist/
+      signature.sig
+    retention-days: 7</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-card">
+                            <h4>Supply Chain Security</h4>
+                            <div class="practice-content">
+                                <pre><code># Pin action versions with SHA
+- uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+  # @v4
+
+# Audit dependencies
+- name: Audit dependencies
+  run: |
+    npm audit --audit-level=high
+    npm run security-check</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-rocket"></i> Hands-On Lab: Complete CI/CD Pipeline</h2>
+            
+            <div class="lab-scenario">
+                <h3><i class="fas fa-flask"></i> Mission: Build Production-Ready CI/CD Pipeline</h3>
+                <p>You'll create a comprehensive CI/CD pipeline that includes testing, security scanning, multi-environment deployment, and rollback capabilities. This represents a real-world enterprise deployment system.</p>
+            </div>
+
+            <div class="pipeline-labs">
+                <div class="pipeline-lab">
+                    <div class="lab-header">
+                        <h3><i class="fas fa-satellite"></i> Lab 1: Full-Stack Application Pipeline</h3>
+                        <div class="lab-complexity expert">EXPERT LEVEL</div>
+                    </div>
+                    
+                    <div class="lab-steps">
+                        <div class="lab-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Create Application Structure</h4>
+                                <pre><code>mkdir cicd-pipeline-demo
+cd cicd-pipeline-demo
+
+# Initialize Node.js project
+npm init -y
+
+# Install dependencies
+npm install express helmet cors dotenv
+npm install --save-dev jest supertest eslint prettier nodemon
+
+# Create application files
+mkdir -p src tests .github/workflows
+
+cat > src/app.js << 'EOF'
+const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
+
+const app = express();
+
+// Security middleware
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+    res.json({ 
+        status: 'healthy', 
+        timestamp: new Date().toISOString(),
+        version: process.env.npm_package_version || '1.0.0'
+    });
+});
+
+// API endpoint
+app.get('/api/users', (req, res) => {
+    res.json([
+        { id: 1, name: 'Commander Alpha' },
+        { id: 2, name: 'Navigator Beta' }
+    ]);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+});
+
+module.exports = app;
+EOF
+
+cat > src/server.js << 'EOF'
+require('dotenv').config();
+require('./app');
+EOF</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Add Testing Infrastructure</h4>
+                                <pre><code>cat > tests/app.test.js << 'EOF'
+const request = require('supertest');
+const app = require('../src/app');
+
+describe('Application Tests', () => {
+    describe('Health Check', () => {
+        it('should return healthy status', async () => {
+            const response = await request(app)
+                .get('/health')
+                .expect(200);
+            
+            expect(response.body.status).toBe('healthy');
+            expect(response.body.timestamp).toBeDefined();
+        });
+    });
+
+    describe('Users API', () => {
+        it('should return users list', async () => {
+            const response = await request(app)
+                .get('/api/users')
+                .expect(200);
+            
+            expect(Array.isArray(response.body)).toBe(true);
+            expect(response.body.length).toBeGreaterThan(0);
+        });
+    });
+});
+EOF
+
+# Update package.json with scripts
+cat > package.json << 'EOF'
+{
+  "name": "cicd-pipeline-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/ tests/",
+    "lint:fix": "eslint src/ tests/ --fix",
+    "format": "prettier --write src/ tests/",
+    "security-check": "npm audit --audit-level=high"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2",
+    "supertest": "^6.3.3",
+    "eslint": "^8.46.0",
+    "prettier": "^3.0.1",
+    "nodemon": "^3.0.1"
+  }
+}
+EOF</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Create Production CI/CD Pipeline</h4>
+                                <pre><code>cat > .github/workflows/cicd-pipeline.yml << 'EOF'
+name: 🚀 Production CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  NODE_VERSION: '18'
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Stage 1: Code Quality & Testing
+  quality-gate:
+    name: 🔍 Quality Gate
+    runs-on: ubuntu-latest
+    
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      should-deploy: ${{ steps.deploy-check.outputs.should-deploy }}
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: 📦 Install dependencies
+        run: npm ci
+      
+      - name: 🔍 Lint code
+        run: npm run lint
+      
+      - name: 🧪 Run tests with coverage
+        run: npm run test:coverage
+      
+      - name: 📊 Coverage Quality Gate
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.lines.pct')
+          echo "Code coverage: $COVERAGE%"
+          
+          if (( $(echo "$COVERAGE < 70" | bc -l) )); then
+            echo "❌ Coverage below 70%"
+            exit 1
+          fi
+          
+          echo "✅ Coverage requirement met"
+      
+      - name: 🔐 Security audit
+        run: npm run security-check
+      
+      - name: 🏷️ Generate version
+        id: version
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            VERSION="v$(date +%Y%m%d)-$(git rev-parse --short HEAD)"
+          else
+            VERSION="dev-$(git rev-parse --short HEAD)"
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Generated version: $VERSION"
+      
+      - name: 🎯 Check deployment eligibility
+        id: deploy-check
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ] && [ "${{ github.event_name }}" = "push" ]; then
+            echo "should-deploy=true" >> $GITHUB_OUTPUT
+            echo "✅ Deployment authorized for main branch"
+          else
+            echo "should-deploy=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ Deployment skipped (not main branch or not push event)"
+          fi
+      
+      - name: 📤 Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-results-${{ steps.version.outputs.version }}
+          path: |
+            coverage/
+            jest-results.xml
+
+  # Stage 2: Security Scanning
+  security-scan:
+    name: 🛡️ Security Scan
+    runs-on: ubuntu-latest
+    needs: quality-gate
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: 🔍 Run CodeQL Analysis
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+      
+      - uses: github/codeql-action/autobuild@v2
+      - uses: github/codeql-action/analyze@v2
+      
+      - name: 🔐 Check for secrets
+        run: |
+          echo "Scanning for hardcoded secrets..."
+          if grep -r "password\|secret\|key" --include="*.js" src/ | grep -v "test\|example"; then
+            echo "❌ Potential secrets found in code"
+            exit 1
+          fi
+          echo "✅ No secrets detected"
+
+  # Stage 3: Build & Package
+  build:
+    name: 🏗️ Build Application
+    runs-on: ubuntu-latest
+    needs: [quality-gate, security-scan]
+    if: needs.quality-gate.outputs.should-deploy == 'true'
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      
+      - name: 📦 Install dependencies
+        run: npm ci --production
+      
+      - name: 🏗️ Create production build
+        run: |
+          # Create production bundle
+          mkdir -p dist
+          cp -r src/ dist/
+          cp package.json package-lock.json dist/
+          
+          # Create deployment manifest
+          cat > dist/deployment-manifest.json << EOF
+          {
+            "version": "${{ needs.quality-gate.outputs.version }}",
+            "buildTime": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "gitSha": "${{ github.sha }}",
+            "gitRef": "${{ github.ref }}",
+            "nodeVersion": "${{ env.NODE_VERSION }}"
+          }
+          EOF
+      
+      - name: 📤 Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: production-build-${{ needs.quality-gate.outputs.version }}
+          path: dist/
+          retention-days: 30
+
+  # Stage 4: Deploy to Staging
+  deploy-staging:
+    name: 🚀 Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [quality-gate, build]
+    environment: staging
+    if: needs.quality-gate.outputs.should-deploy == 'true'
+    
+    steps:
+      - name: 📥 Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: production-build-${{ needs.quality-gate.outputs.version }}
+          path: ./build
+      
+      - name: 🚀 Deploy to Staging Environment
+        env:
+          VERSION: ${{ needs.quality-gate.outputs.version }}
+          STAGING_HOST: ${{ secrets.STAGING_HOST }}
+          STAGING_KEY: ${{ secrets.STAGING_DEPLOY_KEY }}
+        run: |
+          echo "🚀 Deploying version $VERSION to staging..."
+          
+          # Simulate deployment (replace with actual deployment commands)
+          echo "- Connecting to staging server..."
+          echo "- Uploading application files..."
+          echo "- Installing dependencies..."
+          echo "- Starting application..."
+          echo "- Running smoke tests..."
+          
+          # Health check simulation
+          sleep 2
+          echo "✅ Staging deployment successful!"
+          echo "🌐 Application available at: https://staging.yourapp.com"
+      
+      - name: 🧪 Run staging smoke tests
+        run: |
+          echo "🧪 Running smoke tests against staging..."
+          
+          # Simulate smoke tests
+          echo "- Testing health endpoint..."
+          echo "- Testing API endpoints..."
+          echo "- Verifying database connectivity..."
+          
+          echo "✅ All smoke tests passed!"
+
+  # Stage 5: Deploy to Production
+  deploy-production:
+    name: 🏛️ Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [quality-gate, deploy-staging]
+    environment: 
+      name: production
+      url: https://yourapp.com
+    if: needs.quality-gate.outputs.should-deploy == 'true'
+    
+    steps:
+      - name: 📥 Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: production-build-${{ needs.quality-gate.outputs.version }}
+          path: ./build
+      
+      - name: 🏛️ Deploy to Production
+        env:
+          VERSION: ${{ needs.quality-gate.outputs.version }}
+          PROD_HOST: ${{ secrets.PRODUCTION_HOST }}
+          PROD_KEY: ${{ secrets.PRODUCTION_DEPLOY_KEY }}
+        run: |
+          echo "🏛️ Deploying version $VERSION to production..."
+          
+          # Blue-green deployment simulation
+          echo "- Creating new deployment slot..."
+          echo "- Uploading application to new slot..."
+          echo "- Installing dependencies..."
+          echo "- Running pre-flight checks..."
+          echo "- Switching traffic to new deployment..."
+          echo "- Monitoring application health..."
+          
+          sleep 3
+          echo "✅ Production deployment successful!"
+          echo "🌍 Application live at: https://yourapp.com"
+      
+      - name: 🔍 Production health check
+        run: |
+          echo "🔍 Performing production health check..."
+          
+          # Simulate health checks
+          echo "- Checking application response time..."
+          echo "- Verifying database connections..."
+          echo "- Testing critical user flows..."
+          echo "- Monitoring error rates..."
+          
+          echo "✅ Production health check passed!"
+      
+      - name: 📊 Create deployment summary
+        run: |
+          cat > deployment-summary.md << EOF
+          # 🚀 Deployment Summary
+          
+          **Version:** ${{ needs.quality-gate.outputs.version }}
+          **Environment:** Production
+          **Deployed at:** $(date -u +%Y-%m-%dT%H:%M:%SZ)
+          **Git SHA:** ${{ github.sha }}
+          
+          ## Deployment Steps Completed
+          - ✅ Quality gates passed
+          - ✅ Security scan completed
+          - ✅ Build artifacts created
+          - ✅ Staging deployment successful
+          - ✅ Production deployment successful
+          - ✅ Health checks passed
+          
+          ## URLs
+          - 🌐 **Production:** https://yourapp.com
+          - 🧪 **Staging:** https://staging.yourapp.com
+          
+          ## Rollback Information
+          Previous version can be restored using:
+          \`\`\`bash
+          # Emergency rollback command
+          git revert ${{ github.sha }}
+          \`\`\`
+          EOF
+          
+          echo "📊 Deployment summary created"
+          cat deployment-summary.md
+      
+      - name: 📤 Upload deployment report
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment-report-${{ needs.quality-gate.outputs.version }}
+          path: deployment-summary.md
+
+  # Stage 6: Post-Deployment Monitoring
+  post-deployment:
+    name: 📊 Post-Deployment Monitoring
+    runs-on: ubuntu-latest
+    needs: [quality-gate, deploy-production]
+    if: always() && needs.deploy-production.result == 'success'
+    
+    steps:
+      - name: 📊 Setup monitoring
+        run: |
+          echo "📊 Setting up post-deployment monitoring..."
+          
+          # Simulate monitoring setup
+          echo "- Configuring application performance monitoring..."
+          echo "- Setting up error tracking..."
+          echo "- Enabling user analytics..."
+          echo "- Creating deployment dashboard..."
+          
+          echo "✅ Monitoring configured for version ${{ needs.quality-gate.outputs.version }}"
+      
+      - name: 🔔 Send deployment notification
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          VERSION: ${{ needs.quality-gate.outputs.version }}
+        run: |
+          echo "🔔 Sending deployment notification..."
+          
+          # Simulate Slack notification
+          cat > notification.json << EOF
+          {
+            "text": "🚀 Production Deployment Successful!",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*Deployment Complete* 🎉\\n\\n*Version:* $VERSION\\n*Environment:* Production\\n*Status:* ✅ Successful\\n*URL:* https://yourapp.com"
+                }
+              }
+            ]
+          }
+          EOF
+          
+          echo "📧 Notification sent to team channels"
+          echo "✅ Deployment pipeline complete!"
+EOF</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Test Complete Pipeline</h4>
+                                <pre><code># Initialize Git repository and test pipeline
+git init
+git add .
+git commit -m "feat: initial CI/CD pipeline implementation"
+
+# Create main branch and push (this will trigger the pipeline)
+git branch -M main
+
+# Simulate pull request workflow
+git checkout -b feature/test-pipeline
+echo "// Test change" >> src/app.js
+git add .
+git commit -m "test: verify CI/CD pipeline functionality"
+
+# The pipeline will run on:
+# 1. Push to feature branch (quality gates only)
+# 2. Pull request to main (full validation)
+# 3. Merge to main (complete deployment)
+
+# Check pipeline status
+echo "🔍 Pipeline will execute the following stages:"
+echo "1. 🔍 Quality Gate - Code quality, testing, security audit"
+echo "2. 🛡️ Security Scan - CodeQL analysis, secrets detection"
+echo "3. 🏗️ Build - Create production artifacts"
+echo "4. 🚀 Deploy Staging - Deploy and test in staging environment"
+echo "5. 🏛️ Deploy Production - Blue-green production deployment"
+echo "6. 📊 Post-Deployment - Monitoring and notifications"
+
+echo ""
+echo "✅ Complete CI/CD pipeline created!"
+echo "🎯 Pipeline includes:"
+echo "   - Automated testing and quality gates"
+echo "   - Security scanning and vulnerability assessment"
+echo "   - Multi-environment deployment (staging → production)"
+echo "   - Health checks and rollback capabilities"
+echo "   - Monitoring and team notifications"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mission-complete">
+            <div class="completion-message">
+                <h2><i class="fas fa-trophy"></i> CI/CD Pipeline Mission Complete, Commander!</h2>
+                <p>You have successfully mastered GitHub Actions and CI/CD Pipeline Engineering. You're now qualified to design and implement enterprise-grade automation systems that ensure reliable, secure, and efficient software delivery across multiple environments.</p>
+            </div>
+            
+            <div class="key-takeaways">
+                <h3><i class="fas fa-key"></i> Advanced CI/CD Skills Acquired</h3>
+                <ul>
+                    <li>✅ Complete mastery of GitHub Actions workflow syntax and patterns</li>
+                    <li>✅ Multi-stage pipeline design with quality gates and security scanning</li>
+                    <li>✅ Advanced deployment strategies including blue-green and rolling deployments</li>
+                    <li>✅ Security integration with automated vulnerability assessment</li>
+                    <li>✅ Enterprise-grade monitoring, rollback, and notification systems</li>
+                </ul>
+            </div>
+
+            <div class="pipeline-reference">
+                <h3><i class="fas fa-rocket"></i> CI/CD Quick Reference</h3>
+                <div class="reference-grid">
+                    <div class="ref-card">
+                        <h4>Workflow Triggers</h4>
+                        <code>on: push, pull_request, schedule</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Matrix Strategy</h4>
+                        <code>strategy: matrix: {os, node-version}</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Environment Protection</h4>
+                        <code>environment: {name, url}</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Artifact Management</h4>
+                        <code>upload-artifact, download-artifact</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Secrets Management</h4>
+                        <code>${{ secrets.SECRET_NAME }}</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Conditional Execution</h4>
+                        <code>if: github.ref == 'refs/heads/main'</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="next-mission">
+                <h3><i class="fas fa-route"></i> Prepare for Next Mission</h3>
+                <p>Your next commander operation will be <strong>Tool Integration & Cloud Deployment</strong>, where you'll learn to integrate external tools, cloud services, and third-party platforms into your automation workflows.</p>
+                <div class="mission-nav-buttons">
+                    <a href="git-hooks-automation.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
+                    <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
+                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Commander Operations Training • Phase 2.2 of Automation & CI/CD Integration</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

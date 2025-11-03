@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Timeline Convergence - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 1.1</div>
+                <h1><i class="fas fa-route"></i> Advanced Timeline Convergence</h1>
+                <div class="chapter-subtitle">Strategic Merge vs Rebase Operations</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Advanced Timeline Convergence</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert">
+                <i class="fas fa-star"></i>
+                <div>
+                    <strong>Commander Operations Activated</strong>
+                    <p>You are now operating at elite command level. These advanced techniques require precision and deep understanding of Git's internal mechanisms.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-satellite-dish"></i> Mission Briefing</h2>
+            <p>Welcome to your first Commander-level operation, Space Commander! You've mastered the basics of timeline convergence through simple merges and rebases during your cadet training. Now you'll learn the sophisticated decision-making and advanced techniques that separate rookie astronauts from seasoned space commanders.</p>
+            
+            <p>In complex multi-ship operations across the galaxy, deciding <strong>when to merge vs when to rebase</strong> can mean the difference between a clean mission history and a chaotic timeline that confuses your entire crew. As a Commander, you must understand not just <em>how</em> these operations work, but <em>when</em> and <em>why</em> to use each approach.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Mission Objectives</h3>
+                <ul>
+                    <li>Master the strategic decision framework: Merge vs Rebase</li>
+                    <li>Execute interactive rebase operations for timeline cleanup</li>
+                    <li>Implement professional commit squashing techniques</li>
+                    <li>Understand team workflow implications and safety protocols</li>
+                    <li>Apply advanced recovery techniques when operations go wrong</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-project-diagram"></i> The Commander's Decision Matrix</h2>
+            
+            <p>Every space mission requires critical decisions. Should your fleet maintain separate flight paths (merge) or should ships align their trajectories into a single unified path (rebase)? The choice impacts your entire crew's ability to track mission history.</p>
+
+            <div class="comparison-matrix">
+                <div class="matrix-card merge-card">
+                    <div class="matrix-header">
+                        <h3><i class="fas fa-code-branch"></i> Merge Strategy</h3>
+                        <div class="strategy-type">Parallel Fleet Operations</div>
+                    </div>
+                    <div class="matrix-content">
+                        <h4>When to Deploy:</h4>
+                        <ul>
+                            <li><strong>Multi-crew collaboration:</strong> Preserving individual ship contributions</li>
+                            <li><strong>Feature completion:</strong> Integrating completed mission modules</li>
+                            <li><strong>Public missions:</strong> When other commanders are tracking your progress</li>
+                            <li><strong>Release integration:</strong> Combining stable mission branches</li>
+                        </ul>
+                        
+                        <h4>Advantages:</h4>
+                        <ul>
+                            <li>✅ Preserves complete mission history</li>
+                            <li>✅ Shows parallel development paths</li>
+                            <li>✅ Safe for shared/public repositories</li>
+                            <li>✅ Clear attribution of crew contributions</li>
+                        </ul>
+
+                        <h4>Trade-offs:</h4>
+                        <ul>
+                            <li>⚠️ Creates more complex timeline visualization</li>
+                            <li>⚠️ Merge commits add "noise" to history</li>
+                            <li>⚠️ Can make bisecting more challenging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="matrix-card rebase-card">
+                    <div class="matrix-header">
+                        <h3><i class="fas fa-route"></i> Rebase Strategy</h3>
+                        <div class="strategy-type">Linear Timeline Alignment</div>
+                    </div>
+                    <div class="matrix-content">
+                        <h4>When to Deploy:</h4>
+                        <ul>
+                            <li><strong>Local development:</strong> Cleaning up before sharing with crew</li>
+                            <li><strong>Feature preparation:</strong> Creating clean, reviewable commits</li>
+                            <li><strong>Timeline maintenance:</strong> Keeping main branch linear</li>
+                            <li><strong>Private missions:</strong> Before publishing your work</li>
+                        </ul>
+                        
+                        <h4>Advantages:</h4>
+                        <ul>
+                            <li>✅ Creates clean, linear mission history</li>
+                            <li>✅ Easier to follow project timeline</li>
+                            <li>✅ Better for bisecting and debugging</li>
+                            <li>✅ Professional commit presentation</li>
+                        </ul>
+
+                        <h4>Trade-offs:</h4>
+                        <ul>
+                            <li>⚠️ Rewrites mission history (dangerous if shared)</li>
+                            <li>⚠️ Loses context of parallel development</li>
+                            <li>⚠️ More complex conflict resolution</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-cogs"></i> Interactive Rebase: Advanced Timeline Editing</h2>
+            
+            <p>Interactive rebase is your most powerful timeline editing tool. Like a mission commander reviewing and perfecting a flight plan before launch, you can restructure your commit history to tell a clear, professional story.</p>
+
+            <div class="command-demonstration">
+                <div class="demo-header">
+                    <h3><i class="fas fa-terminal"></i> Commander's Interactive Rebase Protocols</h3>
+                </div>
+                
+                <div class="command-example">
+                    <div class="command-title">Initiate Interactive Timeline Edit</div>
+                    <pre><code># Review and edit last 4 commits in your mission log
+git rebase -i HEAD~4
+
+# Or rebase against main mission branch
+git rebase -i main</code></pre>
+                </div>
+
+                <div class="rebase-interface">
+                    <h4>Interactive Rebase Mission Console:</h4>
+                    <pre><code>pick 1a2b3c4 Add navigation system upgrade
+pick 5d6e7f8 Fix communication array bug  
+pick 9g0h1i2 Add crew scheduling feature
+pick 3j4k5l6 Fix typo in scheduling
+
+# Rebase Commands:
+# pick (p) = use commit as-is
+# reword (r) = use commit, but edit message
+# edit (e) = use commit, but stop for amending
+# squash (s) = combine with previous commit
+# fixup (f) = like squash, but discard message
+# drop (d) = remove commit entirely</code></pre>
+                </div>
+            </div>
+
+            <div class="advanced-techniques">
+                <h3><i class="fas fa-magic"></i> Advanced Rebase Operations</h3>
+                
+                <div class="technique-cards">
+                    <div class="technique-card">
+                        <h4><i class="fas fa-compress-arrows-alt"></i> Commit Squashing</h4>
+                        <p>Combine multiple small commits into cohesive mission milestones:</p>
+                        <pre><code># Before: Messy timeline
+# - Add feature A part 1
+# - Fix bug in feature A  
+# - Add feature A part 2
+# - Another fix
+
+# After squashing:
+# - Implement complete navigation upgrade</code></pre>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4><i class="fas fa-edit"></i> Message Rewriting</h4>
+                        <p>Professional commit messages for mission documentation:</p>
+                        <pre><code># Before: "fix stuff"
+# After: "Fix navigation array calibration issue
+
+# - Resolved sensor drift in deep space conditions
+# - Updated calibration algorithms for accuracy
+# - Added automated diagnostic checks"</code></pre>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4><i class="fas fa-arrows-alt"></i> Commit Reordering</h4>
+                        <p>Reorganize commits for logical mission flow:</p>
+                        <pre><code># Reorder commits to group related changes
+# Move setup commits before feature commits
+# Place bug fixes immediately after related features</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-shield-alt"></i> Safety Protocols & Recovery Operations</h2>
+            
+            <div class="safety-alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Critical Commander Warning</strong>
+                    <p>Never rebase commits that have been shared with your crew (pushed to shared repositories). This rewrites mission history and can cause severe timeline desynchronization.</p>
+                </div>
+            </div>
+
+            <div class="safety-protocols">
+                <div class="protocol-section">
+                    <h3><i class="fas fa-check-circle"></i> Safe Rebase Checklist</h3>
+                    <ul>
+                        <li>✅ Commits are local (not pushed to shared repositories)</li>
+                        <li>✅ No other crew members are working on this branch</li>
+                        <li>✅ You have recent backups or can recover easily</li>
+                        <li>✅ You understand the changes being made</li>
+                    </ul>
+                </div>
+
+                <div class="recovery-section">
+                    <h3><i class="fas fa-life-ring"></i> Emergency Recovery Procedures</h3>
+                    <div class="recovery-commands">
+                        <pre><code># If rebase goes wrong, abort and return to previous state
+git rebase --abort
+
+# Check reflog to see previous commit positions
+git reflog
+
+# Reset to previous position if needed
+git reset --hard HEAD@{2}
+
+# Create emergency backup before risky operations
+git branch emergency-backup</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-rocket"></i> Hands-On Mission</h2>
+            
+            <div class="mission-scenario">
+                <h3><i class="fas fa-scroll"></i> Scenario: Clean Up Development Branch</h3>
+                <p>You've been working on a new navigation system upgrade with multiple experimental commits. Before presenting to the space council, you need to create a clean, professional commit history.</p>
+            </div>
+
+            <div class="lab-steps">
+                <div class="lab-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Create Practice Repository</h4>
+                        <pre><code>mkdir advanced-timeline-practice
+cd advanced-timeline-practice
+git init
+echo "# Navigation System v2.0" > README.md
+git add README.md
+git commit -m "Initial mission setup"
+
+# Create some practice commits
+echo "Basic navigation module" > navigation.js
+git add navigation.js
+git commit -m "add nav stuff"
+
+echo "console.log('debug info')" >> navigation.js
+git add navigation.js  
+git commit -m "debug"
+
+echo "// TODO: fix this later" >> navigation.js
+git add navigation.js
+git commit -m "temp fix"
+
+echo "Navigation system complete" > navigation.js
+git add navigation.js
+git commit -m "Navigation system upgrade complete with advanced algorithms"</code></pre>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Review Current Timeline</h4>
+                        <pre><code># Check current commit history
+git log --oneline
+
+# Expected messy output:
+# abc1234 Navigation system upgrade complete with advanced algorithms  
+# def5678 temp fix
+# ghi9012 debug
+# jkl3456 add nav stuff
+# mno7890 Initial mission setup</code></pre>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Execute Interactive Rebase</h4>
+                        <pre><code># Start interactive rebase for last 4 commits
+git rebase -i HEAD~4
+
+# In the editor, change to:
+pick jkl3456 add nav stuff
+squash ghi9012 debug  
+squash def5678 temp fix
+reword abc1234 Navigation system upgrade complete with advanced algorithms</code></pre>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Professional Commit Message</h4>
+                        <p>When prompted, rewrite the commit message:</p>
+                        <pre><code>Implement advanced navigation system upgrade
+
+- Add core navigation algorithms with deep space optimization
+- Implement real-time trajectory calculations  
+- Add automated system diagnostics and error handling
+- Optimize for performance in zero-gravity conditions
+
+This completes the Phase 1 navigation overhaul as specified
+in Mission Document NAV-2024-001.</code></pre>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Verify Clean Timeline</h4>
+                        <pre><code># Check the cleaned up history
+git log --oneline
+
+# Should show clean result:
+# xyz9876 Implement advanced navigation system upgrade
+# mno7890 Initial mission setup</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-graduation-cap"></i> Team Workflow Integration</h2>
+            
+            <p>As a Commander, you must establish clear protocols for your crew regarding merge vs rebase strategies:</p>
+
+            <div class="workflow-strategies">
+                <div class="workflow-card">
+                    <h3><i class="fas fa-users-cog"></i> Feature Branch Workflow</h3>
+                    <ol>
+                        <li><strong>Local development:</strong> Use rebase freely to clean history</li>
+                        <li><strong>Before sharing:</strong> Interactive rebase to create professional commits</li>
+                        <li><strong>Integration:</strong> Merge feature branches to preserve context</li>
+                        <li><strong>Main branch:</strong> Keep linear with rebase or merge strategies</li>
+                    </ol>
+                </div>
+
+                <div class="workflow-card">
+                    <h3><i class="fas fa-code-branch"></i> Git Flow Integration</h3>
+                    <ul>
+                        <li><strong>Feature branches:</strong> Rebase against develop before merging</li>
+                        <li><strong>Release branches:</strong> Merge to main and develop</li>
+                        <li><strong>Hotfix branches:</strong> Fast-forward merge when possible</li>
+                        <li><strong>Main/Master:</strong> Only clean, tested commits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mission-complete">
+            <div class="completion-message">
+                <h2><i class="fas fa-trophy"></i> Mission Complete, Commander!</h2>
+                <p>You have successfully mastered advanced timeline convergence operations. You now understand the strategic decisions behind merge vs rebase and can execute complex interactive rebase operations with confidence.</p>
+            </div>
+            
+            <div class="key-takeaways">
+                <h3><i class="fas fa-key"></i> Key Commander Skills Acquired</h3>
+                <ul>
+                    <li>✅ Strategic decision-making for merge vs rebase operations</li>
+                    <li>✅ Interactive rebase mastery for timeline cleanup</li>
+                    <li>✅ Professional commit squashing and message rewriting</li>
+                    <li>✅ Safety protocols and recovery procedures</li>
+                    <li>✅ Team workflow integration strategies</li>
+                </ul>
+            </div>
+
+            <div class="next-mission">
+                <h3><i class="fas fa-route"></i> Prepare for Next Mission</h3>
+                <p>Your next commander operation will cover <strong>Advanced Branching Strategies</strong>, where you'll learn enterprise-level branch management and workflow patterns used by elite development teams across the galaxy.</p>
+                <div class="mission-nav-buttons">
+                    <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Return to Mission Control</a>
+                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Commander Operations Training • Phase 1 of Advanced Git Workflows</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

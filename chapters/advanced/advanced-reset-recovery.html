@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Reset & Recovery Operations - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 1.3</div>
+                <h1><i class="fas fa-history"></i> Advanced Reset & Recovery Operations</h1>
+                <div class="chapter-subtitle">Three-Tree Architecture & Disaster Recovery Protocols</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="advanced-branching-strategies.html" class="nav-link">Previous: Branching Strategies</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Advanced Reset & Recovery</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Critical Mission Recovery Protocol</strong>
+                    <p>You are entering advanced disaster recovery training. These operations can save or destroy entire mission histories. Precision and understanding are essential for safe execution.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-life-ring"></i> Mission Briefing</h2>
+            <p>Commander, space missions don't always go according to plan. Equipment fails, crew members make errors, and sometimes catastrophic events require immediate intervention to save the mission. In the development universe, Git provides powerful recovery tools, but like emergency spacecraft procedures, they must be used with complete understanding and extreme caution.</p>
+            
+            <p>You'll master Git's <strong>three-tree architecture</strong> - the fundamental system that powers all reset, checkout, and revert operations. Understanding these internal mechanisms is what separates elite space commanders from cadets who panic during emergencies.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Mission Objectives</h3>
+                <ul>
+                    <li>Master Git's three-tree architecture (Working Directory, Staging Area, Repository)</li>
+                    <li>Execute safe and dangerous reset operations with precision</li>
+                    <li>Implement advanced checkout strategies for timeline navigation</li>
+                    <li>Deploy strategic revert operations for production environments</li>
+                    <li>Establish emergency recovery protocols for catastrophic scenarios</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-cubes"></i> Git's Three-Tree Architecture</h2>
+            
+            <p>Every Git operation manipulates one or more of three critical systems in your spacecraft's computer core. Understanding these "trees" is essential for safe mission operations.</p>
+
+            <div class="three-trees-diagram">
+                <h3><i class="fas fa-sitemap"></i> Mission Control Architecture</h3>
+                
+                <div class="trees-visualization">
+                    <div class="tree working-directory">
+                        <div class="tree-header">
+                            <h4><i class="fas fa-folder-open"></i> Working Directory</h4>
+                            <div class="tree-badge active">ACTIVE WORKSPACE</div>
+                        </div>
+                        <div class="tree-content">
+                            <p><strong>Your current mission workspace</strong></p>
+                            <ul>
+                                <li>Files you're actively editing</li>
+                                <li>Real filesystem on your computer</li>
+                                <li>What you see in your editor/explorer</li>
+                                <li>Sandbox for experimentation</li>
+                            </ul>
+                            <div class="tree-files">
+                                <div class="file modified">navigation.js <span class="status">Modified</span></div>
+                                <div class="file untracked">new-feature.js <span class="status">Untracked</span></div>
+                                <div class="file clean">README.md <span class="status">Clean</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tree-arrow">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>git add</span>
+                    </div>
+
+                    <div class="tree staging-area">
+                        <div class="tree-header">
+                            <h4><i class="fas fa-clipboard-check"></i> Staging Area (Index)</h4>
+                            <div class="tree-badge staged">LAUNCH READY</div>
+                        </div>
+                        <div class="tree-content">
+                            <p><strong>Pre-flight preparation zone</strong></p>
+                            <ul>
+                                <li>Changes ready for commit</li>
+                                <li>Proposed next commit snapshot</li>
+                                <li>Quality control checkpoint</li>
+                                <li>Review before permanent logging</li>
+                            </ul>
+                            <div class="tree-files">
+                                <div class="file staged">navigation.js <span class="status">Staged</span></div>
+                                <div class="file staged">utils.js <span class="status">Staged</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tree-arrow">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>git commit</span>
+                    </div>
+
+                    <div class="tree repository">
+                        <div class="tree-header">
+                            <h4><i class="fas fa-database"></i> Repository (HEAD)</h4>
+                            <div class="tree-badge committed">PERMANENT LOG</div>
+                        </div>
+                        <div class="tree-content">
+                            <p><strong>Permanent mission history</strong></p>
+                            <ul>
+                                <li>Committed snapshots</li>
+                                <li>Complete project timeline</li>
+                                <li>Immutable historical record</li>
+                                <li>Shared with crew members</li>
+                            </ul>
+                            <div class="tree-commits">
+                                <div class="commit">abc123f <span class="message">Add navigation system</span></div>
+                                <div class="commit">def456a <span class="message">Fix communication bug</span></div>
+                                <div class="commit">ghi789b <span class="message">Update crew manifest</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trees-interaction">
+                <h3><i class="fas fa-exchange-alt"></i> How Operations Affect Each Tree</h3>
+                
+                <div class="operations-matrix">
+                    <table class="operation-table">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Working Directory</th>
+                                <th>Staging Area</th>
+                                <th>Repository</th>
+                                <th>Safety Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>git add</code></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="updated">Updated</span></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="safe">SAFE</span></td>
+                            </tr>
+                            <tr>
+                                <td><code>git commit</code></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="updated">Updated</span></td>
+                                <td><span class="safe">SAFE</span></td>
+                            </tr>
+                            <tr>
+                                <td><code>git reset --soft</code></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="updated">Updated</span></td>
+                                <td><span class="safe">SAFE</span></td>
+                            </tr>
+                            <tr>
+                                <td><code>git reset --mixed</code></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="updated">Updated</span></td>
+                                <td><span class="updated">Updated</span></td>
+                                <td><span class="caution">CAUTION</span></td>
+                            </tr>
+                            <tr class="dangerous">
+                                <td><code>git reset --hard</code></td>
+                                <td><span class="updated danger">OVERWRITTEN</span></td>
+                                <td><span class="updated">Updated</span></td>
+                                <td><span class="updated">Updated</span></td>
+                                <td><span class="danger">DESTRUCTIVE</span></td>
+                            </tr>
+                            <tr>
+                                <td><code>git checkout</code></td>
+                                <td><span class="updated">Updated</span></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="unchanged">Unchanged</span></td>
+                                <td><span class="safe">SAFE*</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-undo"></i> Advanced Reset Operations</h2>
+            
+            <p>Reset operations are your most powerful timeline manipulation tools. Like emergency spacecraft maneuvers, they can save your mission or cause catastrophic damage if used incorrectly.</p>
+
+            <div class="reset-types">
+                <div class="reset-card soft">
+                    <div class="reset-header">
+                        <h3><i class="fas fa-feather-alt"></i> Soft Reset</h3>
+                        <div class="safety-badge safe">SAFE OPERATION</div>
+                    </div>
+                    <div class="reset-content">
+                        <p><strong>Mission:</strong> Undo commits but keep all changes staged for recommit</p>
+                        
+                        <div class="command-example">
+                            <h4>Command Syntax:</h4>
+                            <pre><code># Move HEAD pointer back, keep staging area and working directory
+git reset --soft HEAD~2
+
+# Undo last commit but keep changes staged
+git reset --soft HEAD~1</code></pre>
+                        </div>
+
+                        <div class="use-cases">
+                            <h4><i class="fas fa-bullseye"></i> Strategic Applications:</h4>
+                            <ul>
+                                <li><strong>Commit message fixes:</strong> Rewrite bad commit messages</li>
+                                <li><strong>Commit reorganization:</strong> Combine multiple commits into one</li>
+                                <li><strong>Staging review:</strong> Review changes before recommitting</li>
+                                <li><strong>Safe history editing:</strong> No data loss risk</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-scenario">
+                            <h4><i class="fas fa-scenario"></i> Mission Scenario:</h4>
+                            <p>You made 3 commits with typos in the messages. Use soft reset to go back 3 commits, then create one clean commit with a proper message.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reset-card mixed">
+                    <div class="reset-header">
+                        <h3><i class="fas fa-adjust"></i> Mixed Reset (Default)</h3>
+                        <div class="safety-badge caution">USE WITH CAUTION</div>
+                    </div>
+                    <div class="reset-content">
+                        <p><strong>Mission:</strong> Undo commits and unstage changes, but preserve working directory</p>
+                        
+                        <div class="command-example">
+                            <h4>Command Syntax:</h4>
+                            <pre><code># Default reset behavior - unstage changes
+git reset HEAD~2
+git reset --mixed HEAD~2  # Same as above
+
+# Unstage specific files
+git reset HEAD navigation.js</code></pre>
+                        </div>
+
+                        <div class="use-cases">
+                            <h4><i class="fas fa-bullseye"></i> Strategic Applications:</h4>
+                            <ul>
+                                <li><strong>Unstage files:</strong> Remove files from staging area</li>
+                                <li><strong>Commit splitting:</strong> Break large commits into smaller ones</li>
+                                <li><strong>Stage management:</strong> Reorganize what gets committed</li>
+                                <li><strong>Workflow control:</strong> Fine-tune commit contents</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-scenario">
+                            <h4><i class="fas fa-scenario"></i> Mission Scenario:</h4>
+                            <p>You committed 5 files together, but they should be 2 separate commits. Use mixed reset to unstage, then commit files in logical groups.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reset-card hard">
+                    <div class="reset-header">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Hard Reset</h3>
+                        <div class="safety-badge danger">DESTRUCTIVE OPERATION</div>
+                    </div>
+                    <div class="reset-content">
+                        <p><strong>Mission:</strong> Nuclear option - completely reset to target commit, destroying all changes</p>
+                        
+                        <div class="command-example">
+                            <h4>Command Syntax:</h4>
+                            <pre><code># DANGER: Destroys all uncommitted work
+git reset --hard HEAD~2
+
+# Reset to specific commit (DESTRUCTIVE)
+git reset --hard abc123f
+
+# Reset to remote state (common recovery)
+git reset --hard origin/main</code></pre>
+                        </div>
+
+                        <div class="danger-warning">
+                            <div class="warning-header">
+                                <i class="fas fa-skull-crossbones"></i> CRITICAL WARNING
+                            </div>
+                            <p>Hard reset <strong>permanently destroys</strong> uncommitted changes in your working directory. There is no undo for this operation. Always commit or stash important work first.</p>
+                        </div>
+
+                        <div class="use-cases">
+                            <h4><i class="fas fa-bullseye"></i> Emergency Applications:</h4>
+                            <ul>
+                                <li><strong>Repository corruption recovery:</strong> Reset to known good state</li>
+                                <li><strong>Discard experiments:</strong> Throw away failed attempts</li>
+                                <li><strong>Sync with remote:</strong> Force local to match remote exactly</li>
+                                <li><strong>Clean slate operations:</strong> Start fresh from specific point</li>
+                            </ul>
+                        </div>
+
+                        <div class="safety-protocol">
+                            <h4><i class="fas fa-shield-alt"></i> Safety Protocol:</h4>
+                            <pre><code># ALWAYS create backup branch before hard reset
+git branch emergency-backup
+git reset --hard HEAD~5
+
+# If you need to recover:
+git checkout emergency-backup</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-map-marked-alt"></i> Advanced Checkout Operations</h2>
+            
+            <p>Checkout operations allow you to navigate through time and space in your repository, switching between different states without permanently altering history.</p>
+
+            <div class="checkout-strategies">
+                <div class="checkout-type">
+                    <h3><i class="fas fa-code-branch"></i> Branch Navigation</h3>
+                    <div class="checkout-examples">
+                        <pre><code># Switch between mission branches
+git checkout feature/navigation-system
+git checkout main
+git checkout develop
+
+# Create and switch to new branch
+git checkout -b feature/emergency-systems
+
+# Switch to previous branch
+git checkout -</code></pre>
+                    </div>
+                </div>
+
+                <div class="checkout-type">
+                    <h3><i class="fas fa-history"></i> Time Travel Operations</h3>
+                    <div class="checkout-examples">
+                        <pre><code># Travel to specific commit (detached HEAD)
+git checkout abc123f
+
+# Explore historical state
+git checkout HEAD~5
+
+# Check out files from different timeline
+git checkout HEAD~3 -- navigation.js
+
+# Restore file to last committed state
+git checkout HEAD -- navigation.js</code></pre>
+                    </div>
+
+                    <div class="detached-head-warning">
+                        <div class="warning-icon"><i class="fas fa-info-circle"></i></div>
+                        <div class="warning-content">
+                            <h4>Detached HEAD State</h4>
+                            <p>When checking out commits directly, you enter "detached HEAD" state. You can explore and make changes, but commits won't belong to any branch. Create a branch if you want to keep changes:</p>
+                            <pre><code>git checkout -b new-branch-name</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-type">
+                    <h3><i class="fas fa-file-alt"></i> Selective File Recovery</h3>
+                    <div class="checkout-examples">
+                        <pre><code># Restore specific file from staging area
+git checkout -- navigation.js
+
+# Get file from specific commit
+git checkout abc123f -- src/utils.js
+
+# Restore multiple files
+git checkout HEAD -- src/ tests/
+
+# Restore entire directory
+git checkout HEAD~2 -- config/</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-vs-reset">
+                <h3><i class="fas fa-balance-scale"></i> Checkout vs Reset: Strategic Decision Matrix</h3>
+                
+                <div class="decision-comparison">
+                    <div class="comparison-card checkout-card">
+                        <h4><i class="fas fa-map-marked-alt"></i> Use Checkout When:</h4>
+                        <ul>
+                            <li>✅ Switching between branches safely</li>
+                            <li>✅ Exploring historical commits temporarily</li>
+                            <li>✅ Recovering specific files without affecting commits</li>
+                            <li>✅ You want to preserve existing commits</li>
+                            <li>✅ Working with multiple parallel timelines</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-card reset-card">
+                        <h4><i class="fas fa-undo"></i> Use Reset When:</h4>
+                        <ul>
+                            <li>⚠️ Moving branch pointers permanently</li>
+                            <li>⚠️ Undoing commits from current branch</li>
+                            <li>⚠️ Changing what the last commit contains</li>
+                            <li>⚠️ You need to rewrite branch history</li>
+                            <li>⚠️ Preparing commits for sharing/reorganization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-undo-alt"></i> Strategic Revert Operations</h2>
+            
+            <p>Revert operations create new commits that undo previous changes. Unlike reset, revert is safe for shared repositories because it doesn't rewrite history - it adds corrective commits.</p>
+
+            <div class="revert-strategies">
+                <h3><i class="fas fa-shield-alt"></i> Production-Safe History Correction</h3>
+                
+                <div class="revert-scenarios">
+                    <div class="scenario-card">
+                        <h4><i class="fas fa-bug"></i> Single Commit Revert</h4>
+                        <div class="scenario-content">
+                            <p><strong>Situation:</strong> One commit introduced a critical bug in production</p>
+                            <pre><code># Revert specific commit
+git revert abc123f
+
+# Revert with custom message
+git revert abc123f -m "Revert: Fix navigation bug - caused system crash"
+
+# Revert without auto-commit (for editing)
+git revert abc123f --no-commit</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="scenario-card">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Multiple Commits Revert</h4>
+                        <div class="scenario-content">
+                            <p><strong>Situation:</strong> Feature branch was merged but needs to be completely undone</p>
+                            <pre><code># Revert a range of commits
+git revert HEAD~3..HEAD
+
+# Revert merge commit (specify parent)
+git revert -m 1 abc123f
+
+# Revert multiple specific commits
+git revert abc123f def456a ghi789b</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="scenario-card">
+                        <h4><i class="fas fa-code-branch"></i> Merge Commit Revert</h4>
+                        <div class="scenario-content">
+                            <p><strong>Situation:</strong> Entire feature merge needs to be undone</p>
+                            <pre><code># Find merge commit
+git log --oneline --graph
+
+# Revert merge (choose main parent with -m 1)
+git revert -m 1 merge-commit-hash
+
+# Alternative: revert to before merge
+git log --first-parent
+git revert range-of-commits</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="revert-advantages">
+                    <h3><i class="fas fa-star"></i> Why Revert for Production Environments</h3>
+                    <div class="advantages-grid">
+                        <div class="advantage-item">
+                            <i class="fas fa-history"></i>
+                            <h4>Preserves History</h4>
+                            <p>Complete audit trail of what was changed and why it was reverted</p>
+                        </div>
+                        <div class="advantage-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Team Safe</h4>
+                            <p>Safe for shared repositories - doesn't rewrite history that others depend on</p>
+                        </div>
+                        <div class="advantage-item">
+                            <i class="fas fa-redo"></i>
+                            <h4>Reversible</h4>
+                            <p>Can revert the revert if you change your mind later</p>
+                        </div>
+                        <div class="advantage-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Production Ready</h4>
+                            <p>Standard practice for fixing production issues without disrupting team workflow</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-rocket"></i> Hands-On Mission: Emergency Recovery Scenarios</h2>
+            
+            <div class="mission-scenario">
+                <h3><i class="fas fa-scroll"></i> Scenario: Multiple Emergency Situations</h3>
+                <p>Your development fleet has encountered several critical situations that require immediate commander intervention. Practice each recovery technique in controlled conditions.</p>
+            </div>
+
+            <div class="emergency-labs">
+                <div class="emergency-lab">
+                    <div class="emergency-header">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Emergency 1: Bad Commit Messages</h3>
+                        <div class="severity low">LOW SEVERITY</div>
+                    </div>
+                    
+                    <div class="lab-steps">
+                        <div class="lab-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Create Test Repository with Bad Commits</h4>
+                                <pre><code>mkdir emergency-recovery
+cd emergency-recovery
+git init
+echo "Initial system" > system.js
+git add system.js
+git commit -m "stuff"
+
+echo "Navigation module" > navigation.js
+git add navigation.js
+git commit -m "more stuff"
+
+echo "Communication array" > communication.js
+git add communication.js
+git commit -m "idk whatever"</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Use Soft Reset to Fix Messages</h4>
+                                <pre><code># Go back 3 commits but keep all changes staged
+git reset --soft HEAD~3
+
+# Check status - everything should be staged
+git status
+
+# Create one clean commit with proper message
+git commit -m "Initial system deployment
+
+- Add core navigation module with pathfinding algorithms
+- Implement communication array for deep space operations  
+- Configure basic system architecture and dependencies"</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Verify Clean History</h4>
+                                <pre><code># Check the cleaned up log
+git log --oneline
+
+# Should show one clean commit instead of three messy ones</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-lab">
+                    <div class="emergency-header">
+                        <h3><i class="fas fa-fire"></i> Emergency 2: Accidental File Deletion</h3>
+                        <div class="severity medium">MEDIUM SEVERITY</div>
+                    </div>
+                    
+                    <div class="lab-steps">
+                        <div class="lab-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Simulate Accidental Deletion</h4>
+                                <pre><code># Add some important files
+echo "Critical navigation data" > nav-data.js
+echo "Emergency protocols" > emergency.js
+git add .
+git commit -m "Add critical mission files"
+
+# Accidentally delete files
+rm nav-data.js emergency.js
+
+# Oh no! Critical files are gone
+ls  # Files missing from working directory</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Recovery Using Checkout</h4>
+                                <pre><code># Check what's missing
+git status
+
+# Restore files from last commit
+git checkout HEAD -- nav-data.js emergency.js
+
+# Verify recovery
+ls
+cat nav-data.js</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Alternative: Restore Everything</h4>
+                                <pre><code># If many files were deleted, restore all at once
+git checkout HEAD -- .
+
+# Or reset entire working directory (DESTRUCTIVE)
+git reset --hard HEAD</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-lab">
+                    <div class="emergency-header">
+                        <h3><i class="fas fa-skull-crossbones"></i> Emergency 3: Production Bug Revert</h3>
+                        <div class="severity high">HIGH SEVERITY</div>
+                    </div>
+                    
+                    <div class="lab-steps">
+                        <div class="lab-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Simulate Production Bug</h4>
+                                <pre><code># Create several commits, one with a "bug"
+echo "function navigate() { return true; }" > navigation.js
+git add navigation.js
+git commit -m "Add navigation function"
+
+echo "function communicate() { return false; }" >> navigation.js
+git add navigation.js
+git commit -m "Add communication - BUG: always returns false!"
+
+echo "function scanArea() { return scan; }" >> navigation.js
+git add navigation.js
+git commit -m "Add area scanning capability"</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Identify Problem Commit</h4>
+                                <pre><code># Review history to find bug
+git log --oneline
+git show HEAD~1  # Look at the buggy commit</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Safe Production Revert</h4>
+                                <pre><code># Revert the specific buggy commit
+git revert HEAD~1
+
+# Add explanatory message when prompted:
+# "Revert communication bug - function always returned false
+# 
+# This caused critical communication failures in production.
+# Original functionality will be reimplemented with proper testing."
+
+# Verify the fix
+git log --oneline
+cat navigation.js  # Bug should be gone, other changes preserved</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-lab critical">
+                    <div class="emergency-header">
+                        <h3><i class="fas fa-bomb"></i> Emergency 4: Repository Corruption</h3>
+                        <div class="severity critical">CRITICAL SEVERITY</div>
+                    </div>
+                    
+                    <div class="lab-steps">
+                        <div class="lab-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Simulate Severe Corruption</h4>
+                                <pre><code># Make several experimental changes (simulate corruption)
+echo "BROKEN EXPERIMENTAL CODE" > system.js
+echo "HALF IMPLEMENTED FEATURE" > navigation.js
+echo "CORRUPTED DATA" > communication.js
+rm emergency.js  # Accidentally deleted file
+
+# Staging area is also corrupted
+git add .
+
+# Working directory is completely messed up
+git status  # Shows chaos</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Nuclear Option: Hard Reset</h4>
+                                <pre><code># EMERGENCY PROTOCOL: Create backup first
+git branch emergency-backup-$(date +%s)
+
+# Check last known good commit
+git log --oneline -5
+
+# NUCLEAR RESET: Complete restoration
+git reset --hard HEAD~2
+
+# Verify complete restoration
+git status  # Should be clean
+ls  # Files restored to known good state</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="lab-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Alternative: Restore from Remote</h4>
+                                <pre><code># If you have remote backup
+git fetch origin
+git reset --hard origin/main
+
+# Or restore from specific remote branch
+git reset --hard origin/develop</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-clipboard-list"></i> Emergency Response Protocols</h2>
+            
+            <p>Every space commander must have standardized emergency response procedures. Here's your quick reference guide for crisis situations.</p>
+
+            <div class="response-protocols">
+                <div class="protocol-card">
+                    <div class="protocol-header">
+                        <h3><i class="fas fa-exclamation-circle"></i> Assessment Phase</h3>
+                    </div>
+                    <div class="protocol-steps">
+                        <ol>
+                            <li><strong>Don't Panic:</strong> Rushed decisions cause more damage</li>
+                            <li><strong>Assess Damage:</strong> <code>git status</code>, <code>git log --oneline -10</code></li>
+                            <li><strong>Identify Scope:</strong> Working directory? Staging? Repository?</li>
+                            <li><strong>Check Backups:</strong> Remote repositories, local branches</li>
+                            <li><strong>Create Safety Branch:</strong> <code>git branch emergency-backup</code></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="protocol-card">
+                    <div class="protocol-header">
+                        <h3><i class="fas fa-tools"></i> Recovery Decision Tree</h3>
+                    </div>
+                    <div class="decision-tree">
+                        <div class="decision-node">
+                            <strong>Problem: Bad commit messages?</strong>
+                            <div class="solution">→ Use <code>git reset --soft</code></div>
+                        </div>
+                        <div class="decision-node">
+                            <strong>Problem: Wrong files committed?</strong>
+                            <div class="solution">→ Use <code>git reset --mixed</code></div>
+                        </div>
+                        <div class="decision-node">
+                            <strong>Problem: Working directory corrupted?</strong>
+                            <div class="solution">→ Use <code>git checkout HEAD -- .</code></div>
+                        </div>
+                        <div class="decision-node">
+                            <strong>Problem: Everything is broken?</strong>
+                            <div class="solution">→ Use <code>git reset --hard</code> (after backup!)</div>
+                        </div>
+                        <div class="decision-node">
+                            <strong>Problem: Production bug?</strong>
+                            <div class="solution">→ Use <code>git revert</code></div>
+                        </div>
+                        <div class="decision-node">
+                            <strong>Problem: Shared repository?</strong>
+                            <div class="solution">→ Never use destructive operations!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="protocol-card">
+                    <div class="protocol-header">
+                        <h3><i class="fas fa-shield-alt"></i> Prevention Protocols</h3>
+                    </div>
+                    <div class="prevention-list">
+                        <ul>
+                            <li><strong>Regular Backups:</strong> Push to remote frequently</li>
+                            <li><strong>Branch Strategy:</strong> Never work directly on main</li>
+                            <li><strong>Staging Review:</strong> Always check <code>git diff --staged</code></li>
+                            <li><strong>Commit Discipline:</strong> Small, focused commits with good messages</li>
+                            <li><strong>Safety Branches:</strong> Create backups before risky operations</li>
+                            <li><strong>Team Communication:</strong> Coordinate with crew before major changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mission-complete">
+            <div class="completion-message">
+                <h2><i class="fas fa-trophy"></i> Mission Complete, Commander!</h2>
+                <p>You have successfully mastered Git's three-tree architecture and advanced recovery operations. You're now qualified to handle the most critical emergency situations that can occur in development repositories.</p>
+            </div>
+            
+            <div class="key-takeaways">
+                <h3><i class="fas fa-key"></i> Key Commander Skills Acquired</h3>
+                <ul>
+                    <li>✅ Complete understanding of Git's three-tree architecture</li>
+                    <li>✅ Safe and dangerous reset operations with precision execution</li>
+                    <li>✅ Advanced checkout strategies for timeline navigation and file recovery</li>
+                    <li>✅ Production-safe revert operations for shared repositories</li>
+                    <li>✅ Emergency response protocols for catastrophic scenarios</li>
+                </ul>
+            </div>
+
+            <div class="emergency-reference">
+                <h3><i class="fas fa-first-aid"></i> Emergency Quick Reference</h3>
+                <div class="reference-grid">
+                    <div class="ref-card">
+                        <h4>Undo Last Commit (Keep Changes)</h4>
+                        <code>git reset --soft HEAD~1</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Unstage All Files</h4>
+                        <code>git reset HEAD</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Restore Deleted File</h4>
+                        <code>git checkout HEAD -- filename</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Nuclear Reset (DESTRUCTIVE)</h4>
+                        <code>git reset --hard HEAD~1</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Safe Production Fix</h4>
+                        <code>git revert commit-hash</code>
+                    </div>
+                    <div class="ref-card">
+                        <h4>Create Emergency Backup</h4>
+                        <code>git branch emergency-backup</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="next-mission">
+                <h3><i class="fas fa-route"></i> Prepare for Next Mission</h3>
+                <p>Your next commander operation will cover <strong>Advanced History Analysis & Git Log Mastery</strong>, where you'll learn sophisticated techniques for extracting intelligence from repository history and tracking down complex issues.</p>
+                <div class="mission-nav-buttons">
+                    <a href="advanced-branching-strategies.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
+                    <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
+                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Commander Operations Training • Phase 1.3 of Advanced Git Workflows</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

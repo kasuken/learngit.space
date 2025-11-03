@@ -67,9 +67,9 @@
                     <div class="path-header">
                         <h3><i class="fas fa-user-astronaut"></i> Commander Operations</h3>
                         <span class="path-subtitle">Advanced Path</span>
-                        <div class="path-lock" id="advanced-lock">
-                            <span class="lock-icon"><i class="fas fa-tools"></i></span>
-                            <span class="lock-text">New Missions in Development</span>
+                        <div class="completion-badge advanced-completion" id="advanced-completion" style="display: none;">
+                            <span class="badge-icon"><i class="fas fa-check-circle"></i></span>
+                            <span class="badge-text">Mission Complete</span>
                         </div>
                     </div>
                     <div class="path-description">
@@ -79,10 +79,12 @@
                             <li><i class="fas fa-robot"></i> Automation & CI/CD Integration</li>
                             <li><i class="fas fa-cogs"></i> Enterprise-Level Project Management</li>
                             <li><i class="fas fa-user-tie"></i> Leadership & Team Coordination</li>
-                            <li><i class="fas fa-rocket"></i> <em>Coming Soon - New Missions in Development</em></li>
+                            <li><i class="fas fa-shield-alt"></i> Advanced GitHub Features & API</li>
+                            <li><i class="fas fa-life-ring"></i> Emergency Operations & Recovery</li>
+                            <li><i class="fas fa-clock"></i> ~4.0 hours elite training</li>
                         </ul>
                     </div>
-                    <button class="path-button advanced-coming-soon" id="advanced-button" disabled>Coming Soon - New Missions in Development</button>
+                    <button class="path-button" onclick="selectPath('advanced')">Begin Commander Operations</button>
                 </div>
             </div>
         </div>
@@ -202,6 +204,112 @@
             </div>
 
             <div class="path-navigation" id="path-navigation" style="display: none;">
+                <button class="back-to-paths-btn" onclick="showPathSelection()"><i class="fas fa-exchange-alt"></i> Switch Learning Path</button>
+            </div>
+        </section>
+
+        <!-- Advanced Path Mission Control -->
+        <section class="toc mission-control advanced-mission-control" id="advanced-mission-control" style="display: none;">
+            <h2><i class="fas fa-user-astronaut"></i> Commander Operations</h2>
+            <p>Elite training for experienced space commanders. These advanced missions require mastery of fundamental Git concepts and are designed for professional development teams managing complex, multi-crew operations across the galaxy.</p>
+            
+            <div class="toc-section mission-section" data-mission="advanced-workflows">
+                <div class="toc-section-header">
+                    <h3 class="toc-section-title"><i class="fas fa-project-diagram"></i> Phase 1: Advanced Git Workflows & Strategies</h3>
+                    <span class="phase-duration">~60 min</span>
+                </div>
+                <p class="toc-section-desc">Master sophisticated version control strategies for enterprise development</p>
+                <ol>
+                    <li><a href="chapters/advanced/advanced-merging-rebasing.html" class="mission-link" data-mission="advanced-workflows" data-phase="1"><span class="chapter-title-text">Advanced Timeline Convergence</span><span class="chapter-subtitle">Strategic Merge vs Rebase</span><span class="chapter-time">15 min</span></a></li>
+                    <li><a href="chapters/advanced/advanced-branching-strategies.html" class="mission-link" data-mission="advanced-workflows" data-phase="2"><span class="chapter-title-text">Advanced Branching Strategies</span><span class="chapter-subtitle">GitFlow & Enterprise Patterns</span><span class="chapter-time">12 min</span></a></li>
+                    <li><a href="chapters/advanced/advanced-reset-recovery.html" class="mission-link" data-mission="advanced-workflows" data-phase="3"><span class="chapter-title-text">Advanced Reset & Recovery</span><span class="chapter-subtitle">Three-Tree Architecture</span><span class="chapter-time">18 min</span><span class="launch-badge">Launch Mission</span></a></li>
+                    <li><a href="chapters/advanced/advanced-history-analysis.html" class="mission-link" data-mission="advanced-workflows" data-phase="4"><span class="chapter-title-text">Advanced History Analysis</span><span class="chapter-subtitle">Git Log Mastery & Forensics</span><span class="chapter-time">22 min</span><span class="launch-badge">Launch Mission</span></a></li>
+                    <li><span class="mission-link coming-soon" data-mission="advanced-workflows" data-phase="5"><span class="chapter-title-text">Refs and Reflog Mastery</span><span class="chapter-subtitle">Git Internals</span><span class="chapter-time">8 min</span><span class="coming-soon-badge">Coming Soon</span></span></li>
+                </ol>
+            </div>
+
+            <div class="toc-section mission-section" data-mission="automation">
+                <div class="toc-section-header">
+                    <h3 class="toc-section-title"><i class="fas fa-robot"></i> Phase 2: Automation & CI/CD Integration</h3>
+                    <span class="phase-duration">~45 min</span>
+                </div>
+                <p class="toc-section-desc">Implement automated workflows and continuous integration pipelines</p>
+                <ol start="6">
+                    <li><a href="chapters/automation/git-hooks-automation.html" class="mission-link" data-mission="automation" data-phase="1"><span class="chapter-title-text">Git Hooks Mastery</span><span class="chapter-subtitle">Custom Automation</span><span class="chapter-time">15 min</span></a></li>
+                    <li><a href="chapters/automation/github-actions-cicd.html" class="mission-link" data-mission="automation" data-phase="2"><span class="chapter-title-text">GitHub Actions & CI/CD</span><span class="chapter-subtitle">Pipeline Engineering</span><span class="chapter-time">20 min</span></a></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Tool Integration</span><span class="chapter-subtitle">Jenkins, Docker & Cloud</span><span class="chapter-time">10 min</span><span class="coming-soon-badge">Phase 2</span></span></li>
+                </ol>
+            </div>
+
+            <div class="toc-section mission-section coming-soon-section" data-mission="enterprise">
+                <div class="toc-section-header">
+                    <h3 class="toc-section-title"><i class="fas fa-cogs"></i> Phase 3: Enterprise-Level Project Management <span class="phase-coming-soon">In Development</span></h3>
+                    <span class="phase-duration">~40 min</span>
+                </div>
+                <p class="toc-section-desc">Scale Git for large organizations and complex project structures</p>
+                <ol start="9">
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Large Repository Management</span><span class="chapter-subtitle">Monorepo Strategies</span><span class="chapter-time">12 min</span><span class="coming-soon-badge">Phase 3</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Git LFS Mastery</span><span class="chapter-subtitle">Large File Management</span><span class="chapter-time">15 min</span><span class="coming-soon-badge">Phase 3</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Security & Compliance</span><span class="chapter-subtitle">Signed Commits & Auditing</span><span class="chapter-time">10 min</span><span class="coming-soon-badge">Phase 3</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Performance Optimization</span><span class="chapter-subtitle">Repository Maintenance</span><span class="chapter-time">8 min</span><span class="coming-soon-badge">Phase 3</span></span></li>
+                </ol>
+            </div>
+
+            <div class="toc-section mission-section coming-soon-section" data-mission="leadership">
+                <div class="toc-section-header">
+                    <h3 class="toc-section-title"><i class="fas fa-user-tie"></i> Phase 4: Leadership & Team Coordination <span class="phase-coming-soon">In Development</span></h3>
+                    <span class="phase-duration">~35 min</span>
+                </div>
+                <p class="toc-section-desc">Lead development teams and manage complex collaborative workflows</p>
+                <ol start="13">
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Advanced Code Review</span><span class="chapter-subtitle">Quality Gates & Processes</span><span class="chapter-time">12 min</span><span class="coming-soon-badge">Phase 4</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Team Collaboration Patterns</span><span class="chapter-subtitle">Multi-Team Coordination</span><span class="chapter-time">10 min</span><span class="coming-soon-badge">Phase 4</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Conflict Resolution Leadership</span><span class="chapter-subtitle">Advanced Strategies</span><span class="chapter-time">8 min</span><span class="coming-soon-badge">Phase 4</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Mentoring & Training</span><span class="chapter-subtitle">Knowledge Transfer</span><span class="chapter-time">8 min</span><span class="coming-soon-badge">Phase 4</span></span></li>
+                </ol>
+            </div>
+
+            <div class="toc-section mission-section coming-soon-section" data-mission="github-advanced">
+                <div class="toc-section-header">
+                    <h3 class="toc-section-title"><i class="fas fa-shield-alt"></i> Phase 5: Advanced GitHub Features <span class="phase-coming-soon">In Development</span></h3>
+                    <span class="phase-duration">~30 min</span>
+                </div>
+                <p class="toc-section-desc">Master GitHub's advanced features and API integrations</p>
+                <ol start="17">
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">GitHub API & Automation</span><span class="chapter-subtitle">Custom Integrations</span><span class="chapter-time">12 min</span><span class="coming-soon-badge">Phase 5</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Advanced Project Management</span><span class="chapter-subtitle">GitHub Projects & Boards</span><span class="chapter-time">10 min</span><span class="coming-soon-badge">Phase 5</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Open Source Leadership</span><span class="chapter-subtitle">Maintainer Workflows</span><span class="chapter-time">8 min</span><span class="coming-soon-badge">Phase 5</span></span></li>
+                </ol>
+            </div>
+
+            <div class="toc-section mission-section coming-soon-section" data-mission="emergency">
+                <div class="toc-section-header">
+                    <h3 class="toc-section-title"><i class="fas fa-life-ring"></i> Phase 6: Emergency Operations & Recovery <span class="phase-coming-soon">In Development</span></h3>
+                    <span class="phase-duration">~18 min</span>
+                </div>
+                <p class="toc-section-desc">Handle critical situations and recover from complex Git disasters</p>
+                <ol start="20">
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Disaster Recovery</span><span class="chapter-subtitle">Repository Corruption Recovery</span><span class="chapter-time">10 min</span><span class="coming-soon-badge">Phase 6</span></span></li>
+                    <li><span class="mission-link coming-soon"><span class="chapter-title-text">Advanced Troubleshooting</span><span class="chapter-subtitle">Complex Issue Resolution</span><span class="chapter-time">8 min</span><span class="coming-soon-badge">Phase 6</span></span></li>
+                </ol>
+            </div>
+
+            <div class="mission-stats">
+                <div class="stat-card">
+                    <div class="stat-number">21</div>
+                    <div class="stat-label">Elite Modules</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">~4.0</div>
+                    <div class="stat-label">Hours Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Advanced Labs</div>
+                </div>
+            </div>
+
+            <div class="path-navigation" id="advanced-path-navigation" style="display: none;">
                 <button class="back-to-paths-btn" onclick="showPathSelection()"><i class="fas fa-exchange-alt"></i> Switch Learning Path</button>
             </div>
         </section>
