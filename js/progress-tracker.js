@@ -429,8 +429,44 @@ const ProgressTracker = {
 
 // Path Selection Functions
 function selectPath(pathName) {
+    const currentPath = ProgressTracker.getSelectedPath();
+    
+    // If selecting the same path, just show mission control
+    if (currentPath === pathName) {
+        showMissionControl(pathName);
+        return;
+    }
+    
+    // If switching to a different path and user has progress, show confirmation
+    if (currentPath && currentPath !== pathName && Object.keys(ProgressTracker.progress).length > 0) {
+        showPathSwitchConfirmation(currentPath, pathName);
+        return;
+    }
+    
+    // If no current path or no progress, update selection directly
     ProgressTracker.setSelectedPath(pathName);
     showMissionControl(pathName);
+}
+
+function showPathSwitchConfirmation(fromPath, toPath) {
+    const pathNames = {
+        'novice': 'Cadet Training',
+        'advanced': 'Commander Operations'
+    };
+    
+    const confirmed = confirm(
+        `Switch Learning Path?\n\n` +
+        `You are switching from "${pathNames[fromPath]}" to "${pathNames[toPath]}".\n\n` +
+        `✓ Your progress will be preserved\n` +
+        `✓ You can switch back anytime\n` +
+        `✓ All completed chapters remain completed\n\n` +
+        `Continue with path switch?`
+    );
+    
+    if (confirmed) {
+        ProgressTracker.setSelectedPath(toPath);
+        showMissionControl(toPath);
+    }
 }
 
 function selectAdvancedPath() {
@@ -473,6 +509,12 @@ function showMissionControl(pathName) {
         // Update progress tracking
         ProgressTracker.updateAllUI();
         
+        // Show path navigation
+        const pathNavigation = document.getElementById('path-navigation');
+        if (pathNavigation) {
+            pathNavigation.style.display = 'block';
+        }
+        
         // Fade in mission control
         setTimeout(() => {
             missionControl.style.opacity = '1';
@@ -504,6 +546,12 @@ function showPathSelection() {
     missionControl.style.opacity = '0';
     missionControl.style.transform = 'translateY(-20px)';
     
+    // Also hide path navigation
+    const pathNavigation = document.getElementById('path-navigation');
+    if (pathNavigation) {
+        pathNavigation.style.display = 'none';
+    }
+    
     setTimeout(() => {
         missionControl.style.display = 'none';
         
@@ -512,7 +560,7 @@ function showPathSelection() {
         pathContainer.style.display = 'block';
         pathContainer.style.opacity = '0';
         
-        // Update path interface
+        // Update path interface (but don't clear the selected path from storage yet)
         updatePathInterface();
         
         // Fade in path selection
@@ -522,8 +570,8 @@ function showPathSelection() {
         }, 100);
     }, 300);
     
-    // Clear selected path
-    localStorage.removeItem(ProgressTracker.PATH_KEY);
+    // Note: We don't clear the selected path here anymore
+    // This allows users to see their current selection and change it if needed
 }
 
 function updatePathInterface() {
@@ -531,12 +579,47 @@ function updatePathInterface() {
     const advancedLock = document.getElementById('advanced-lock');
     const advancedButton = document.getElementById('advanced-button');
     const noviceCompletion = document.getElementById('novice-completion');
+    const currentPath = ProgressTracker.getSelectedPath();
     
+    // Update completion status
     if (noviceComplete) {
-        // Show novice completion badge
         noviceCompletion.style.display = 'flex';
     } else {
         noviceCompletion.style.display = 'none';
+    }
+    
+    // Update path buttons based on current selection
+    const noviceButton = document.querySelector('.novice-path .path-button');
+    const noviceCard = document.getElementById('novice-path');
+    const advancedCard = document.getElementById('advanced-path');
+    
+    // Reset button states
+    noviceButton.textContent = 'Begin Cadet Training';
+    noviceCard.classList.remove('path-selected');
+    advancedCard.classList.remove('path-selected');
+    
+    // Show current selection if any
+    if (currentPath === 'novice') {
+        noviceButton.textContent = 'Continue Cadet Training';
+        noviceCard.classList.add('path-selected');
+        
+        // Add switch path option
+        const switchText = document.createElement('div');
+        switchText.className = 'current-path-indicator';
+        switchText.innerHTML = '<i class="fas fa-check-circle"></i> Currently Selected Path';
+        
+        // Remove existing indicator if any
+        const existingIndicator = noviceCard.querySelector('.current-path-indicator');
+        if (existingIndicator) {
+            existingIndicator.remove();
+        }
+        
+        // Add indicator before button
+        const pathButton = noviceCard.querySelector('.path-button');
+        pathButton.parentNode.insertBefore(switchText, pathButton);
+        
+    } else if (currentPath === 'advanced') {
+        advancedCard.classList.add('path-selected');
     }
     
     // Advanced path is always locked - coming soon
@@ -596,7 +679,7 @@ function runSystemTest() {
     const functions = [
         'selectPath', 'selectAdvancedPath', 'showAdvancedConfirmationModal', 
         'closeAdvancedModal', 'confirmAdvancedPath', 'showMissionControl', 
-        'showPathSelection', 'updatePathInterface'
+        'showPathSelection', 'updatePathInterface', 'showPathSwitchConfirmation'
     ];
     
     functions.forEach(func => {
@@ -768,10 +851,8 @@ const ThemeManager = {
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        {
         ProgressTracker.init();
         checkExistingPath();
-    };
         ThemeManager.init();
     });
 } else {
