@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../js/progress-tracker.js"></script>
 </head>
-<body>
+<body data-mission="copilot" data-phase="1">
     <div class="stars" id="stars"></div>
     
     <!-- Theme Selector -->
@@ -20,14 +20,8 @@
     </div>
 
     <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
         <header>
-            <div class="nav-breadcrumb">
-                <a href="../index.html"><i class="fas fa-home"></i> Mission Control</a>
-                <span><i class="fas fa-chevron-right"></i></span>
-                <span>Phase 6: Copilot in Command</span>
-                <span><i class="fas fa-chevron-right"></i></span>
-                <span>Pre-Flight Briefing</span>
-            </div>
             <h1><i class="fas fa-robot"></i> Pre-Flight Briefing: Preparing Your Copilot</h1>
             <p class="chapter-subtitle">Configure GitHub Copilot across environments</p>
             <div class="chapter-metadata">
@@ -67,19 +61,19 @@
                 
                 <div class="code-block">
                     <div class="code-header">
-                        <span>VS Code Extensions Panel</span>
+                        <span onclick="copyCodeBlock(this)" style="cursor: pointer;" title="Click to copy">VS Code Extensions Panel</span>
                         <button onclick="copyToClipboard(this)" class="copy-btn"><i class="fas fa-copy"></i></button>
                     </div>
                     <pre><code>1. Open VS Code
 2. Press Ctrl+Shift+X (Cmd+Shift+X on Mac) to open Extensions
 3. Search for "GitHub Copilot"
-4. Click "Install" on the official GitHub Copilot extension
+4. Select "Install" on the official GitHub Copilot extension
 5. Restart VS Code when prompted</code></pre>
                 </div>
 
                 <div class="pro-tip">
                     <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
-                    <p>Also install the "GitHub Copilot Chat" extension for an enhanced conversational experience within VS Code!</p>
+                    <p>Also install the <strong>GitHub Copilot Chat</strong> extension for an enhanced conversational experience within VS Code!</p>
                 </div>
             </div>
 
@@ -94,7 +88,7 @@
                     </li>
                     <li>
                         <strong>Follow the Login Flow:</strong>
-                        <p>Click "Sign in to GitHub" and follow the browser authentication process.</p>
+                        <p>Select <strong>Sign in to GitHub</strong> and follow the browser authentication process.</p>
                     </li>
                     <li>
                         <strong>Verify Access:</strong>
@@ -140,7 +134,7 @@
                 <ol class="step-list">
                     <li>
                         <strong>Create a Codespace:</strong>
-                        <p>From any repository, click "Code" → "Codespaces" → "Create codespace on main".</p>
+                        <p>From any repository, select <strong>Code</strong> → <strong>Codespaces</strong> → <strong>Create codespace on main</strong>.</p>
                     </li>
                     <li>
                         <strong>Wait for Setup:</strong>
@@ -162,11 +156,11 @@
                 <ol class="step-list">
                     <li>
                         <strong>Access Settings:</strong>
-                        <p>In VS Code, go to File → Preferences → Settings (or Ctrl+,)</p>
+                        <p>In VS Code, go to <strong>File</strong> → <strong>Preferences</strong> → <strong>Settings</strong> (or Ctrl+,)</p>
                     </li>
                     <li>
                         <strong>Search for Copilot Settings:</strong>
-                        <p>Type "copilot" in the search bar to find all Copilot-related settings.</p>
+                        <p>Type <strong>copilot</strong> in the search bar to find all Copilot-related settings.</p>
                     </li>
                     <li>
                         <strong>Review Key Settings:</strong>
@@ -181,16 +175,6 @@
                         <p>Adjust settings based on your organization's policies and personal preferences.</p>
                     </li>
                 </ol>
-            </div>
-
-            <div class="warning-box">
-                <h4><i class="fas fa-exclamation-triangle"></i> Important Privacy Note</h4>
-                <p>Be aware of what code Copilot can see. For sensitive or proprietary code, consider:</p>
-                <ul>
-                    <li>Disabling Copilot for specific repositories</li>
-                    <li>Using GitHub Copilot for Business for enhanced privacy controls</li>
-                    <li>Reviewing your organization's AI tool policies</li>
-                </ul>
             </div>
 
             <h2><i class="fas fa-comments"></i> Phase 4: Prompt Hygiene Best Practices</h2>
@@ -231,7 +215,7 @@
                 
                 <div class="code-block">
                     <div class="code-header">
-                        <span>Create a new file: test-copilot.js</span>
+                        <span onclick="copyCodeBlock(this)" style="cursor: pointer;" title="Click to copy">Create a new file: test-copilot.js</span>
                         <button onclick="copyToClipboard(this)" class="copy-btn"><i class="fas fa-copy"></i></button>
                     </div>
                     <pre><code>// Function to generate a comprehensive git status summary
@@ -244,31 +228,38 @@ function getGitStatusSummary() {
             </div>
         </section>
 
-        <section class="mission-check">
-            <h2><i class="fas fa-check-circle"></i> Mission Check</h2>
-            <p>Verify you've completed all objectives:</p>
-            <div class="checklist">
-                <label><input type="checkbox"> GitHub Copilot extension installed in VS Code</label>
-                <label><input type="checkbox"> Successfully authenticated with GitHub account</label>
-                <label><input type="checkbox"> Verified Copilot works in GitHub web editor</label>
-                <label><input type="checkbox"> Tested Copilot in a Codespace (if available)</label>
-                <label><input type="checkbox"> Reviewed and configured privacy settings</label>
-                <label><input type="checkbox"> Tested Copilot with a Git-related code prompt</label>
+        <section class="mission-summary">
+            <h2><i class="fas fa-clipboard-check"></i> Mission Summary</h2>
+            <p>Excellent work, astronaut! You've successfully prepared your AI co-pilot for the missions ahead. Your development environment is now enhanced with intelligent assistance that will help you navigate Git workflows with greater efficiency and confidence.</p>
+            
+            <div class="key-achievements">
+                <h3>Key Achievements:</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Installed and configured GitHub Copilot in VS Code</li>
+                    <li><i class="fas fa-check"></i> Successfully authenticated with GitHub account</li>
+                    <li><i class="fas fa-check"></i> Enabled Copilot in GitHub's web-based environments</li>
+                    <li><i class="fas fa-check"></i> Configured privacy settings appropriately</li>
+                    <li><i class="fas fa-check"></i> Learned prompt hygiene best practices</li>
+                    <li><i class="fas fa-check"></i> Verified Copilot functionality across environments</li>
+                </ul>
+            </div>
+
+            <div class="next-mission">
+                <p><strong>Next Mission:</strong> In the next chapter, you'll learn how to use your AI co-pilot to generate meaningful commit messages automatically, transforming your Git workflow efficiency.</p>
             </div>
         </section>
 
-        <section class="mission-navigation">
-            <a href="../index.html" class="nav-button prev-button">
-                <i class="fas fa-arrow-left"></i> Return to Mission Control
-            </a>
-            <a href="copilot-commit-message-launch.html" class="nav-button next-button">
-                Phase 7: Commit Message Launch Sequence <i class="fas fa-arrow-right"></i>
-            </a>
-        </section>
+        <div class="mission-brief">
+            <p><strong>Key Takeaway:</strong> GitHub Copilot is your intelligent co-pilot for Git workflows. It enhances your capabilities without replacing your judgment, helping you write better commit messages, navigate complex commands, and automate routine tasks. Configure it properly, understand its privacy implications, and use it as a powerful assistant in your development journey.</p>
+        </div>
+
+        <div class="navigation">
+            <a href="../index.html" class="nav-link">← Return to Mission Control</a>
+            <a href="copilot-commit-messages.html" class="nav-link">Next: Commit Message Launch Sequence →</a>
+        </div>
 
         <footer>
-            <p><i class="fas fa-robot"></i> <strong>Phase 6: Copilot in Command</strong> • Lesson 1 of 14</p>
-            <p>Remember: You're still the commander. Copilot is here to enhance your capabilities, not replace your judgment.</p>
+            <p>Mission Control Training Program • Phase 36 of 34</p>
         </footer>
     </div>
 
@@ -297,9 +288,25 @@ function getGitStatusSummary() {
             });
         }
 
+        // Copy code block when clicking on header text
+        function copyCodeBlock(headerSpan) {
+            const codeBlock = headerSpan.parentElement.nextElementSibling;
+            const text = codeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = headerSpan.textContent;
+                headerSpan.textContent = '✓ Copied!';
+                headerSpan.style.color = 'var(--success-green)';
+                setTimeout(() => {
+                    headerSpan.textContent = originalText;
+                    headerSpan.style.color = '';
+                }, 2000);
+            });
+        }
+
         // Initialize progress tracking
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.init();
                 ProgressTracker.markChapterVisited('copilot-pre-flight-briefing');
             }
             if (typeof ThemeManager !== 'undefined') {

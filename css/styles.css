@@ -501,6 +501,93 @@ pre code {
     line-height: 1.6;
 }
 
+/* Copy Button Styling */
+.copy-btn {
+    background: transparent !important;
+    border: 1px solid rgba(255, 215, 0, 0.3) !important;
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    color: var(--primary-gold);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    box-shadow: none;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 215, 0, 0.1) !important;
+    border-color: var(--primary-gold) !important;
+    color: var(--text-light);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3) !important;
+    transform: translateY(-1px);
+}
+
+.copy-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3) !important;
+}
+
+.copy-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* Specific styling for copy buttons */
+.copy-btn,
+.copy-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover,
+.copy-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.copy-btn i,
+.copy-button i {
+    font-size: 0.9rem;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    color: inherit !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Alternative: CSS-only copy icon */
+.copy-btn .copy-icon,
+.copy-button .copy-icon {
+    width: 14px;
+    height: 14px;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.copy-btn .copy-icon::after,
+.copy-button .copy-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid currentColor;
+    border-radius: 1px;
+    top: -3px;
+    left: 3px;
+    background: var(--dark-space);
+}
+
 .mission-brief {
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
     border-left: 5px solid var(--primary-gold);
@@ -1593,4 +1680,131 @@ h2 .fas {
     50% {
         filter: drop-shadow(0 0 15px var(--glow-gold));
     }
+}
+
+/* Checkbox Styling */
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checklist label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.checklist label:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.checklist input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--secondary-blue);
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checklist input[type="checkbox"]:checked {
+    background: var(--success-green);
+    border-color: var(--success-green);
+}
+
+.checklist input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Princess Pink Theme Checkbox Override */
+[data-theme="princess-pink"] .checklist input[type="checkbox"] {
+    border-color: var(--secondary-blue);
+}
+
+[data-theme="princess-pink"] .checklist input[type="checkbox"]:checked {
+    background: var(--primary-gold);
+    border-color: var(--primary-gold);
+}
+
+/* Princess Pink Theme Copy Button Override */
+[data-theme="princess-pink"] .copy-btn {
+    border-color: rgba(217, 26, 122, 0.3) !important;
+    color: var(--primary-gold);
+    background: transparent !important;
+}
+
+[data-theme="princess-pink"] .copy-btn:hover {
+    background: rgba(217, 26, 122, 0.1) !important;
+    border-color: var(--primary-gold) !important;
+    box-shadow: 0 0 10px rgba(217, 26, 122, 0.3) !important;
+}
+
+[data-theme="princess-pink"] .copy-btn:focus {
+    box-shadow: 0 0 0 2px rgba(217, 26, 122, 0.3) !important;
+}
+
+[data-theme="princess-pink"] .copy-btn i {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+/* === FONT AWESOME ICON FIXES === */
+/* Comprehensive solution for Font Awesome icons in dark themes */
+
+/* All Font Awesome icons - remove backgrounds and ensure proper styling */
+i[class*="fa-"], i.fa, i.fas, i.far, i.fal, i.fab,
+.fa, .fas, .far, .fal, .fab,
+[class^="fa-"], [class*=" fa-"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: inherit !important;
+    /* Ensure proper font rendering */
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Override pseudo-element backgrounds */
+i[class*="fa-"]::before, i.fa::before, i.fas::before, i.far::before, i.fal::before, i.fab::before,
+.fa::before, .fas::before, .far::before, .fal::before, .fab::before,
+[class^="fa-"]::before, [class*=" fa-"]::before {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Theme-specific color overrides */
+[data-theme="princess-pink"] i[class*="fa-"],
+[data-theme="princess-pink"] .fa, [data-theme="princess-pink"] .fas,
+[data-theme="princess-pink"] .far, [data-theme="princess-pink"] .fal, [data-theme="princess-pink"] .fab {
+    color: var(--text-light) !important;
+}
+
+/* Copy button specific styling */
+.copy-btn i, .copy-button i {
+    font-size: 0.9rem;
+    padding: 0 !important;
+    margin: 0 !important;
 }

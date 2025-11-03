@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../js/progress-tracker.js"></script>
 </head>
-<body>
+<body data-mission="copilot" data-phase="3">
     <div class="stars" id="stars"></div>
     
     <!-- Theme Selector -->
@@ -20,6 +20,7 @@
     </div>
 
     <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <div class="chapter-header">
                 <h1><i class="fas fa-code-branch"></i> Branch Naming & Fleet Deployment</h1>
@@ -31,12 +32,6 @@
                 </div>
             </div>
         </header>
-
-        <nav class="chapter-nav">
-            <a href="../index.html" class="nav-button"><i class="fas fa-home"></i> Mission Control</a>
-            <a href="copilot-commit-messages.html" class="nav-button"><i class="fas fa-arrow-left"></i> Previous</a>
-            <a href="copilot-custom-instructions.html" class="nav-button">Next <i class="fas fa-arrow-right"></i></a>
-        </nav>
 
         <main class="chapter-content">
             <section class="mission-briefing">
@@ -69,7 +64,7 @@
                         <div class="code-header">
                             <span>Branch Naming Prompts</span>
                             <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="far fa-copy"></i>
+                                <i class="fas fa-clipboard"></i>
                             </button>
                         </div>
                         <pre><code>// Open Copilot Chat and try these prompts:
@@ -127,7 +122,7 @@
                         <div class="code-header">
                             <span>Alias Generation Chat</span>
                             <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="far fa-copy"></i>
+                                <i class="fas fa-clipboard"></i>
                             </button>
                         </div>
                         <pre><code>// Ask Copilot to create aliases for common operations:
@@ -147,7 +142,7 @@
                             <div class="code-header">
                                 <span>Add to ~/.gitconfig</span>
                                 <button class="copy-button" onclick="copyToClipboard(this)">
-                                    <i class="far fa-copy"></i>
+                                    <i class="fas fa-clipboard"></i>
                                 </button>
                             </div>
                             <pre><code>[alias]
@@ -177,7 +172,7 @@
                         <div class="code-header">
                             <span>Complete Workflow Script</span>
                             <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="far fa-copy"></i>
+                                <i class="fas fa-clipboard"></i>
                             </button>
                         </div>
                         <pre><code># Create a script: new-feature.sh
@@ -272,22 +267,29 @@ echo "Issue description: $1"
             </section>
         </main>
 
-        <nav class="chapter-nav">
-            <a href="../index.html" class="nav-button"><i class="fas fa-home"></i> Mission Control</a>
-            <a href="copilot-commit-messages.html" class="nav-button"><i class="fas fa-arrow-left"></i> Previous</a>
-            <a href="copilot-custom-instructions.html" class="nav-button">Next <i class="fas fa-arrow-right"></i></a>
-        </nav>
+        <div class="navigation">
+            <a href="copilot-commit-messages.html" class="nav-link">← Previous: Commit Message Launch Sequence</a>
+            <a href="copilot-custom-instructions.html" class="nav-link">Next: Custom Instructions Calibration →</a>
+        </div>
 
         <footer>
-            <p><i class="fas fa-robot"></i> <strong>Copilot Mission Control</strong> • Phase 6: Chapter 3 of 14</p>
-            <p>Remember: Well-named branches are like clear navigation beacons in the vast space of development.</p>
+            <p>Mission Control Training Program • Phase 38 of 34</p>
         </footer>
     </div>
 
     <script>
         // Initialize progress tracking
         document.addEventListener('DOMContentLoaded', function() {
-            ProgressTracker.markChapterAsVisited('copilot-branch-naming');
+            // Initialize progress tracker first
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.init();
+                ProgressTracker.markChapterAsVisited('copilot-branch-naming');
+            }
+            
+            // Initialize theme manager
+            if (typeof ThemeManager !== 'undefined') {
+                ThemeManager.init();
+            }
             
             // Create starfield
             const starsContainer = document.getElementById('stars');
@@ -309,7 +311,7 @@ echo "Issue description: $1"
             navigator.clipboard.writeText(text).then(() => {
                 button.innerHTML = '<i class="fas fa-check"></i>';
                 setTimeout(() => {
-                    button.innerHTML = '<i class="far fa-copy"></i>';
+                    button.innerHTML = '<i class="fas fa-clipboard"></i>';
                 }, 2000);
             });
         }

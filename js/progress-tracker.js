@@ -12,7 +12,8 @@ const ProgressTracker = {
         'branches': { phases: 8, section: 'Phase 2: Orbital Maneuvers' },
         'advanced': { phases: 7, section: 'Phase 3: Deep Space Operations' },
         'collaboration': { phases: 6, section: 'Phase 4: Multi-Crew Missions' },
-        'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System' }
+        'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System' },
+        'copilot': { phases: 4, section: 'Phase 6: Copilot in Command' }
     },
     
     // Initialize progress tracker

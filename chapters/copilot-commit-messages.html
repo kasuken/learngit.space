@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../js/progress-tracker.js"></script>
 </head>
-<body>
+<body data-mission="copilot" data-phase="2">
     <div class="stars" id="stars"></div>
     
     <!-- Theme Selector -->
@@ -20,6 +20,7 @@
     </div>
 
     <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <div class="chapter-header">
                 <h1><i class="fas fa-rocket"></i> Commit Message Launch Sequence</h1>
@@ -31,12 +32,6 @@
                 </div>
             </div>
         </header>
-
-        <nav class="chapter-nav">
-            <a href="../index.html" class="nav-button"><i class="fas fa-home"></i> Mission Control</a>
-            <a href="copilot-pre-flight-briefing.html" class="nav-button"><i class="fas fa-arrow-left"></i> Previous</a>
-            <a href="copilot-branch-naming.html" class="nav-button">Next <i class="fas fa-arrow-right"></i></a>
-        </nav>
 
         <main class="chapter-content">
             <section class="mission-briefing">
@@ -73,7 +68,7 @@
 2. Stage the changes (git add)
 3. Open Source Control panel (Ctrl+Shift+G)
 4. Look for the ✨ sparkle icon next to the commit message box
-5. Click the sparkle icon to generate a commit message
+5. Select the sparkle icon to generate a commit message
 6. Review and edit the suggestion if needed
 7. Commit your changes</code></pre>
                     </div>
@@ -91,7 +86,7 @@
                         <div class="code-header">
                             <span>Copilot Chat Commands</span>
                             <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="far fa-copy"></i>
+                                <i class="fas fa-clipboard"></i>
                             </button>
                         </div>
                         <pre><code>// Open Copilot Chat (Ctrl+Shift+I) and try these prompts:
@@ -144,7 +139,7 @@
                         <div class="code-header">
                             <span>Advanced Chat Prompts</span>
                             <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="far fa-copy"></i>
+                                <i class="fas fa-clipboard-check"></i>
                             </button>
                         </div>
                         <pre><code>// Context-aware prompts:
@@ -170,17 +165,33 @@
                     <div class="before-after">
                         <div class="before">
                             <h4>Without Copilot:</h4>
-                            <code>updated login stuff</code>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Basic commit message</span>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">
+                                        📋
+                                    </button>
+                                </div>
+                                <pre><code>updated login stuff</code></pre>
+                            </div>
                         </div>
                         <div class="after">
                             <h4>With Copilot:</h4>
-                            <code>feat(auth): add OAuth integration for GitHub login
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>AI-enhanced commit message</span>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">
+                                        <i class="fas fa-clipboard"></i>
+                                    </button>
+                                </div>
+                                <pre><code>feat(auth): add OAuth integration for GitHub login
 
 Implements secure authentication flow using GitHub OAuth2.
 Users can now sign in with their GitHub accounts instead of
 creating new credentials.
 
-Closes #AUTH-142</code>
+Closes #AUTH-142</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -190,16 +201,32 @@ Closes #AUTH-142</code>
                     <div class="before-after">
                         <div class="before">
                             <h4>Manual Approach:</h4>
-                            <code>fix bug</code>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Basic commit message</span>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">
+                                        <i class="fas fa-clipboard"></i>
+                                    </button>
+                                </div>
+                                <pre><code>fix bug</code></pre>
+                            </div>
                         </div>
                         <div class="after">
                             <h4>Copilot Enhancement:</h4>
-                            <code>fix(validation): resolve email format validation error
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>AI-enhanced commit message</span>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">
+                                        <i class="fas fa-clipboard"></i>
+                                    </button>
+                                </div>
+                                <pre><code>fix(validation): resolve email format validation error
 
 Corrects regex pattern that was rejecting valid email addresses
 containing plus signs. Updates test cases to cover edge cases.
 
-Fixes #BUG-089</code>
+Fixes #BUG-089</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -268,22 +295,29 @@ Fixes #BUG-089</code>
             </section>
         </main>
 
-        <nav class="chapter-nav">
-            <a href="../index.html" class="nav-button"><i class="fas fa-home"></i> Mission Control</a>
-            <a href="copilot-pre-flight-briefing.html" class="nav-button"><i class="fas fa-arrow-left"></i> Previous</a>
-            <a href="copilot-branch-naming.html" class="nav-button">Next <i class="fas fa-arrow-right"></i></a>
-        </nav>
+        <div class="navigation">
+            <a href="copilot-pre-flight-briefing.html" class="nav-link">← Previous: Copilot Pre-Flight Briefing</a>
+            <a href="copilot-branch-naming.html" class="nav-link">Next: Branch Naming Assistant →</a>
+        </div>
 
         <footer>
-            <p><i class="fas fa-robot"></i> <strong>Copilot Mission Control</strong> • Phase 6: Chapter 2 of 14</p>
-            <p>Remember: Great commit messages are the foundation of maintainable codebases.</p>
+            <p>Mission Control Training Program • Phase 37 of 34</p>
         </footer>
     </div>
 
     <script>
         // Initialize progress tracking
         document.addEventListener('DOMContentLoaded', function() {
-            ProgressTracker.markChapterAsVisited('copilot-commit-messages');
+            // Initialize progress tracker first
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.init();
+                ProgressTracker.markChapterAsVisited('copilot-commit-messages');
+            }
+            
+            // Initialize theme manager
+            if (typeof ThemeManager !== 'undefined') {
+                ThemeManager.init();
+            }
             
             // Create starfield
             const starsContainer = document.getElementById('stars');
@@ -305,7 +339,7 @@ Fixes #BUG-089</code>
             navigator.clipboard.writeText(text).then(() => {
                 button.innerHTML = '<i class="fas fa-check"></i>';
                 setTimeout(() => {
-                    button.innerHTML = '<i class="far fa-copy"></i>';
+                    button.innerHTML = '<i class="fas fa-clipboard"></i>';
                 }, 2000);
             });
         }
