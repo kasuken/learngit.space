@@ -438,21 +438,27 @@ const ProgressTracker = {
 
 // Path Selection Functions
 function selectPath(pathName) {
+    console.log('selectPath called with:', pathName);
+    
     const currentPath = ProgressTracker.getSelectedPath();
+    console.log('Current path:', currentPath);
     
     // If selecting the same path, just show mission control
     if (currentPath === pathName) {
+        console.log('Same path selected, showing mission control');
         showMissionControl(pathName);
         return;
     }
     
     // If switching to a different path and user has progress, show confirmation
     if (currentPath && currentPath !== pathName && Object.keys(ProgressTracker.progress).length > 0) {
+        console.log('Switching paths with progress, showing confirmation');
         showPathSwitchConfirmation(currentPath, pathName);
         return;
     }
     
     // If no current path or no progress, update selection directly
+    console.log('Setting new path and showing mission control');
     ProgressTracker.setSelectedPath(pathName);
     showMissionControl(pathName);
 }
@@ -497,58 +503,97 @@ function confirmAdvancedPath() {
 }
 
 function showMissionControl(pathName) {
-    console.log('Showing mission control for path:', pathName);
+    console.log('=== showMissionControl called with path:', pathName, '===');
     
-    // Hide path selection with fade effect
+    // Get all required elements
     const pathContainer = document.querySelector('.path-selection-container');
-    pathContainer.style.opacity = '0';
-    pathContainer.style.transform = 'translateY(-20px)';
+    const noviceMissionControl = document.getElementById('mission-control');
+    const advancedMissionControl = document.getElementById('advanced-mission-control');
     
+    console.log('Elements found:');
+    console.log('  - Path container:', !!pathContainer);
+    console.log('  - Novice mission control:', !!noviceMissionControl);
+    console.log('  - Advanced mission control:', !!advancedMissionControl);
+    
+    // Check if we're on the right page (homepage with path selection)
+    if (!pathContainer || !noviceMissionControl || !advancedMissionControl) {
+        console.log('Not on homepage or missing elements - showMissionControl skipped');
+        return;
+    }
+    
+    // Step 1: Hide path selection immediately
+    console.log('Step 1: Hiding path selection');
+    pathContainer.style.display = 'none';
+    
+    // Step 2: Hide both mission controls
+    console.log('Step 2: Hiding all mission controls');
+    noviceMissionControl.style.display = 'none';
+    advancedMissionControl.style.display = 'none';
+    
+    // Step 3: Clear any CSS styles that might interfere
+    console.log('Step 3: Clearing interfering styles');
+    [noviceMissionControl, advancedMissionControl].forEach(element => {
+        element.style.opacity = '';
+        element.style.transform = '';
+        element.style.visibility = '';
+    });
+    
+    // Step 4: Determine which mission control to show
+    let activeMissionControl;
+    if (pathName === 'advanced') {
+        console.log('Step 4: Selected advanced path');
+        activeMissionControl = advancedMissionControl;
+    } else {
+        console.log('Step 4: Selected novice path');
+        activeMissionControl = noviceMissionControl;
+        filterMissionsForPath(pathName);
+    }
+    
+    // Step 5: Show the selected mission control
+    console.log('Step 5: Showing active mission control');
+    activeMissionControl.style.display = 'block';
+    activeMissionControl.style.opacity = '1';
+    activeMissionControl.style.visibility = 'visible';
+    
+    // Step 6: Update progress and navigation
+    console.log('Step 6: Updating UI and navigation');
+    ProgressTracker.updateAllUI();
+    
+    const pathNavigation = pathName === 'advanced' 
+        ? document.getElementById('advanced-path-navigation')
+        : document.getElementById('path-navigation');
+    
+    if (pathNavigation) {
+        pathNavigation.style.display = 'block';
+        console.log('  - Path navigation shown');
+    } else {
+        console.log('  - Path navigation not found');
+    }
+    
+    // Step 7: Final verification
     setTimeout(() => {
-        pathContainer.style.display = 'none';
+        const finalDisplay = getComputedStyle(activeMissionControl).display;
+        console.log('=== FINAL CHECK ===');
+        console.log('Active mission control display:', finalDisplay);
+        console.log('Active mission control visibility:', getComputedStyle(activeMissionControl).visibility);
+        console.log('Active mission control opacity:', getComputedStyle(activeMissionControl).opacity);
         
-        // Show appropriate mission control
-        const noviceMissionControl = document.getElementById('mission-control');
-        const advancedMissionControl = document.getElementById('advanced-mission-control');
-        
-        // Hide both first
-        noviceMissionControl.style.display = 'none';
-        advancedMissionControl.style.display = 'none';
-        
-        // Show the correct one
-        let activeMissionControl;
-        if (pathName === 'advanced') {
-            activeMissionControl = advancedMissionControl;
+        if (finalDisplay === 'none') {
+            console.error('CRITICAL: Mission control is still hidden! Forcing display...');
+            activeMissionControl.style.cssText = 'display: block !important; opacity: 1 !important; visibility: visible !important;';
         } else {
-            activeMissionControl = noviceMissionControl;
-            // Filter missions for novice path
-            filterMissionsForPath(pathName);
+            console.log('SUCCESS: Mission control is visible');
         }
-        
-        activeMissionControl.style.display = 'block';
-        activeMissionControl.style.opacity = '0';
-        
-        // Update progress tracking
-        ProgressTracker.updateAllUI();
-        
-        // Show appropriate path navigation
-        const pathNavigation = pathName === 'advanced' 
-            ? document.getElementById('advanced-path-navigation')
-            : document.getElementById('path-navigation');
-        if (pathNavigation) {
-            pathNavigation.style.display = 'block';
-        }
-        
-        // Fade in mission control
-        setTimeout(() => {
-            activeMissionControl.style.opacity = '1';
-            activeMissionControl.style.transform = 'translateY(0)';
-        }, 100);
-    }, 300);
+    }, 100);
 }
 
 function filterMissionsForPath(pathName) {
+    console.log('Filtering missions for path:', pathName);
     const allSections = document.querySelectorAll('.mission-section');
+    console.log('Found', allSections.length, 'mission sections');
+    
+    let visibleCount = 0;
+    let hiddenCount = 0;
     
     allSections.forEach(section => {
         const mission = section.getAttribute('data-mission');
@@ -556,75 +601,91 @@ function filterMissionsForPath(pathName) {
         
         if (missionData && missionData.path === pathName) {
             section.style.display = 'block';
+            visibleCount++;
+            console.log('  ✓ Showing:', mission, '(path:', missionData.path, ')');
         } else {
             section.style.display = 'none';
+            hiddenCount++;
+            console.log('  ✗ Hiding:', mission, '(path:', missionData ? missionData.path : 'unknown', ')');
         }
     });
+    
+    console.log('Filter results:', visibleCount, 'visible,', hiddenCount, 'hidden');
 }
 
 function showPathSelection() {
-    console.log('Returning to path selection...');
+    console.log('=== showPathSelection called ===');
     
-    // Hide both mission controls with fade effect
+    // Get all elements
+    const pathContainer = document.querySelector('.path-selection-container');
     const noviceMissionControl = document.getElementById('mission-control');
     const advancedMissionControl = document.getElementById('advanced-mission-control');
-    
-    noviceMissionControl.style.opacity = '0';
-    noviceMissionControl.style.transform = 'translateY(-20px)';
-    advancedMissionControl.style.opacity = '0';
-    advancedMissionControl.style.transform = 'translateY(-20px)';
-    
-    // Hide both path navigations
     const pathNavigation = document.getElementById('path-navigation');
     const advancedPathNavigation = document.getElementById('advanced-path-navigation');
-    if (pathNavigation) {
-        pathNavigation.style.display = 'none';
-    }
-    if (advancedPathNavigation) {
-        advancedPathNavigation.style.display = 'none';
-    }
     
-    setTimeout(() => {
-        noviceMissionControl.style.display = 'none';
-        advancedMissionControl.style.display = 'none';
-        
-        // Show path selection
-        const pathContainer = document.querySelector('.path-selection-container');
+    console.log('Elements found:');
+    console.log('  - Path container:', !!pathContainer);
+    console.log('  - Mission controls:', !!noviceMissionControl, !!advancedMissionControl);
+    console.log('  - Path navigation:', !!pathNavigation, !!advancedPathNavigation);
+    
+    // Hide all mission controls immediately
+    if (noviceMissionControl) noviceMissionControl.style.display = 'none';
+    if (advancedMissionControl) advancedMissionControl.style.display = 'none';
+    
+    // Hide all path navigations
+    if (pathNavigation) pathNavigation.style.display = 'none';
+    if (advancedPathNavigation) advancedPathNavigation.style.display = 'none';
+    
+    // Show path selection
+    if (pathContainer) {
         pathContainer.style.display = 'block';
-        pathContainer.style.opacity = '0';
+        pathContainer.style.opacity = '1';
+        pathContainer.style.transform = 'translateY(0)';
+        pathContainer.style.visibility = 'visible';
+        console.log('SUCCESS: Path selection container restored');
         
-        // Update path interface (but don't clear the selected path from storage yet)
+        // Update path interface to show current selection status
         updatePathInterface();
-        
-        // Fade in path selection
-        setTimeout(() => {
-            pathContainer.style.opacity = '1';
-            pathContainer.style.transform = 'translateY(0)';
-        }, 100);
-    }, 300);
+    } else {
+        console.error('ERROR: Path container not found!');
+    }
     
-    // Note: We don't clear the selected path here anymore
-    // This allows users to see their current selection and change it if needed
+    console.log('=== showPathSelection completed ===');
 }
 
 function updatePathInterface() {
+    // Check if we're on the homepage with path selection elements
+    const pathContainer = document.querySelector('.path-selection-container');
+    if (!pathContainer) {
+        console.log('updatePathInterface: Not on homepage, skipping');
+        return;
+    }
+    
     const noviceComplete = ProgressTracker.isNovicePathComplete();
     const advancedLock = document.getElementById('advanced-lock');
     const advancedButton = document.getElementById('advanced-button');
     const noviceCompletion = document.getElementById('novice-completion');
     const currentPath = ProgressTracker.getSelectedPath();
     
-    // Update completion status
-    if (noviceComplete) {
-        noviceCompletion.style.display = 'flex';
-    } else {
-        noviceCompletion.style.display = 'none';
+    // Update completion status (only if element exists)
+    if (noviceCompletion) {
+        if (noviceComplete) {
+            noviceCompletion.style.display = 'flex';
+        } else {
+            noviceCompletion.style.display = 'none';
+        }
     }
     
     // Update path buttons based on current selection
     const noviceButton = document.querySelector('.novice-path .path-button');
     const noviceCard = document.getElementById('novice-path');
     const advancedCard = document.getElementById('advanced-path');
+    
+    // Only proceed if core elements exist
+    if (!noviceButton || !noviceCard || !advancedCard) {
+        console.log('updatePathInterface: Required path elements not found');
+        return;
+    }
     
     // Reset button states
     noviceButton.textContent = 'Begin Cadet Training';
@@ -649,32 +710,58 @@ function updatePathInterface() {
         
         // Add indicator before button
         const pathButton = noviceCard.querySelector('.path-button');
-        pathButton.parentNode.insertBefore(switchText, pathButton);
+        if (pathButton && pathButton.parentNode) {
+            pathButton.parentNode.insertBefore(switchText, pathButton);
+        }
         
     } else if (currentPath === 'advanced') {
         advancedCard.classList.add('path-selected');
     }
     
-    // Advanced path is always locked - coming soon
-    advancedLock.style.display = 'flex';
-    advancedButton.disabled = true;
-    advancedButton.textContent = 'Coming Soon - New Missions in Development';
+    // Advanced path configuration (only if elements exist)
+    if (advancedLock) {
+        advancedLock.style.display = 'flex';
+    }
+    if (advancedButton) {
+        advancedButton.disabled = true;
+        advancedButton.textContent = 'Coming Soon - New Missions in Development';
+    }
 }
 
 // Check if returning user has selected path
 function checkExistingPath() {
     console.log('Checking existing path...');
+    
+    // Only run path selection logic on the homepage (index.html)
+    const pathContainer = document.querySelector('.path-selection-container');
+    if (!pathContainer) {
+        console.log('Not on homepage - skipping path selection logic');
+        return;
+    }
+    
     const selectedPath = ProgressTracker.getSelectedPath();
     console.log('Selected path:', selectedPath);
     
     if (selectedPath) {
-        showMissionControl(selectedPath);
-    } else {
-        // Only update path interface if we're on the homepage
+        // User has previously selected a path, show their mission control
+        console.log('User has selected path:', selectedPath, '- showing mission control');
+        
+        // Add a small delay to ensure DOM is fully loaded
         setTimeout(() => {
-            if (document.querySelector('.path-selection-container')) {
-                updatePathInterface();
-            }
+            // Force hide path selection immediately
+            pathContainer.style.display = 'none';
+            console.log('Path selection container forcibly hidden');
+            
+            // Then show mission control
+            showMissionControl(selectedPath);
+        }, 50);
+    } else {
+        // No path selected yet, show path selection interface
+        console.log('No path selected - showing path selection');
+        setTimeout(() => {
+            // Ensure path selection is visible
+            pathContainer.style.display = 'block';
+            updatePathInterface();
         }, 100);
     }
 }
@@ -882,15 +969,145 @@ const ThemeManager = {
     }
 };
 
+// Expose functions to global scope for HTML onclick handlers
+window.selectPath = selectPath;
+window.selectAdvancedPath = selectAdvancedPath;
+window.showAdvancedConfirmationModal = showAdvancedConfirmationModal;
+window.closeAdvancedModal = closeAdvancedModal;
+window.confirmAdvancedPath = confirmAdvancedPath;
+window.showMissionControl = showMissionControl;
+window.showPathSelection = showPathSelection;
+window.showPathSwitchConfirmation = showPathSwitchConfirmation;
+
+// Debug function to clear localStorage
+window.clearLearnGitData = function() {
+    localStorage.removeItem('learngit_progress');
+    localStorage.removeItem('learngit_selected_path');
+    console.log('LearnGit localStorage cleared');
+    location.reload();
+};
+
+// Debug function to check current state
+window.debugCurrentState = function() {
+    const selectedPath = ProgressTracker.getSelectedPath();
+    const pathContainer = document.querySelector('.path-selection-container');
+    const noviceControl = document.getElementById('mission-control');
+    const advancedControl = document.getElementById('advanced-mission-control');
+    
+    console.log('=== Current State ===');
+    console.log('Selected path:', selectedPath);
+    console.log('Path container display:', pathContainer ? getComputedStyle(pathContainer).display : 'NOT FOUND');
+    console.log('Novice control display:', noviceControl ? getComputedStyle(noviceControl).display : 'NOT FOUND');
+    console.log('Advanced control display:', advancedControl ? getComputedStyle(advancedControl).display : 'NOT FOUND');
+    
+    return {
+        selectedPath,
+        pathContainerVisible: pathContainer ? getComputedStyle(pathContainer).display !== 'none' : false,
+        noviceControlVisible: noviceControl ? getComputedStyle(noviceControl).display !== 'none' : false,
+        advancedControlVisible: advancedControl ? getComputedStyle(advancedControl).display !== 'none' : false
+    };
+};
+
+// Debug function to force show correct interface
+window.forceCorrectInterface = function() {
+    console.log('=== Manual Interface Force ===');
+    forceCorrectInterfaceState();
+};
+
+// Additional debug function to reset path selection
+window.resetToPathSelection = function() {
+    console.log('Resetting to path selection');
+    localStorage.removeItem('learngit_selected_path');
+    forceCorrectInterfaceState();
+};
+
+// Function to force correct interface state
+function forceCorrectInterfaceState() {
+    const selectedPath = ProgressTracker.getSelectedPath();
+    const pathContainer = document.querySelector('.path-selection-container');
+    const noviceMissionControl = document.getElementById('mission-control');
+    const advancedMissionControl = document.getElementById('advanced-mission-control');
+    
+    // Only proceed if we're on the homepage
+    if (!pathContainer || !noviceMissionControl || !advancedMissionControl) {
+        return;
+    }
+    
+    console.log('Forcing correct interface state. Selected path:', selectedPath);
+    
+    if (selectedPath) {
+        // User has selected a path - hide path selection, show mission control
+        console.log('Hiding path selection, showing mission control for:', selectedPath);
+        
+        // Immediately hide path selection
+        pathContainer.style.display = 'none';
+        pathContainer.style.visibility = 'hidden';
+        
+        // Hide both mission controls first
+        noviceMissionControl.style.display = 'none';
+        advancedMissionControl.style.display = 'none';
+        
+        // Show the correct mission control
+        const targetControl = selectedPath === 'advanced' ? advancedMissionControl : noviceMissionControl;
+        console.log('Showing mission control:', selectedPath === 'advanced' ? 'advanced' : 'novice');
+        
+        targetControl.style.display = 'block';
+        targetControl.style.visibility = 'visible';
+        targetControl.style.opacity = '1';
+        
+        console.log('Mission control element styles set');
+        
+        // Filter missions for the selected path (both novice and advanced)
+        console.log('About to filter missions for path:', selectedPath);
+        filterMissionsForPath(selectedPath);
+        
+        // Show path navigation
+        const pathNavigation = selectedPath === 'advanced' 
+            ? document.getElementById('advanced-path-navigation')
+            : document.getElementById('path-navigation');
+        
+        if (pathNavigation) {
+            pathNavigation.style.display = 'block';
+        }
+        
+        console.log('Mission control should now be visible for:', selectedPath);
+    } else {
+        // No path selected - show path selection, hide mission controls
+        console.log('No path selected - showing path selection');
+        
+        pathContainer.style.display = 'block';
+        pathContainer.style.visibility = 'visible';
+        pathContainer.style.opacity = '1';
+        
+        noviceMissionControl.style.display = 'none';
+        advancedMissionControl.style.display = 'none';
+        
+        // Only call updatePathInterface if we have the necessary elements
+        if (pathContainer) {
+            updatePathInterface();
+        }
+    }
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         ProgressTracker.init();
-        checkExistingPath();
+        
+        // Force correct state immediately and with delays to handle CSS transitions
+        forceCorrectInterfaceState();
+        setTimeout(forceCorrectInterfaceState, 100);
+        setTimeout(forceCorrectInterfaceState, 300);
+        
         ThemeManager.init();
     });
 } else {
     ProgressTracker.init();
-    checkExistingPath();
+    
+    // Force correct state immediately and with delays
+    forceCorrectInterfaceState();
+    setTimeout(forceCorrectInterfaceState, 100);
+    setTimeout(forceCorrectInterfaceState, 300);
+    
     ThemeManager.init();
 }
