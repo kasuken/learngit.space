@@ -13,14 +13,6 @@
 <body>
     <div class="stars" id="stars"></div>
     
-    <!-- Theme Selector -->
-    <div class="theme-selector">
-        <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch theme">
-            <span class="theme-icon"><i class="fas fa-crown"></i></span>
-            <span class="theme-label">Princess Pink</span>
-        </button>
-    </div>
-    
     <div class="container">
         <header>
             <div class="title-wrapper">
@@ -256,6 +248,15 @@
             <p><i class="fas fa-space-shuttle"></i> <strong>Mission Control Training Program</strong> • Prepare for Launch • Version 1.0</p>
             <p>Remember, Astronaut: In space, as in code, preparation and precision make all the difference.</p>
             <p class="author-info">Created by <strong>Emanuele Bartolesi</strong> • <a href="https://github.com/kasuken" target="_blank" rel="noopener noreferrer">github.com/kasuken</a> • <a href="contributors.html" class="contributors-link"><i class="fas fa-users"></i> Contributors</a></p>
+            
+            <!-- Theme Selector -->
+            <div class="theme-selector footer-theme-selector">
+                <span class="theme-selector-label">Choose Theme:</span>
+                <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch between themes">
+                    <span class="theme-icon"><i class="fas fa-palette"></i></span>
+                    <span class="theme-label">Princess Pink</span>
+                </button>
+            </div>
         </footer>
     </div>
 

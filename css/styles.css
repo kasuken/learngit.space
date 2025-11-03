@@ -2383,6 +2383,55 @@ em {
     z-index: 9999;
 }
 
+/* Footer Theme Selector */
+.footer-theme-selector {
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.theme-selector-label {
+    color: var(--primary-gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.footer-theme-selector .theme-toggle {
+    background: linear-gradient(135deg, rgba(42, 47, 74, 0.8) 0%, rgba(26, 31, 58, 0.6) 100%);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-theme-selector .theme-toggle:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+    border-color: var(--primary-gold);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.theme-switch-hint {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-left: 0.5rem;
+    font-style: italic;
+    transition: opacity 0.3s ease;
+}
+
 .theme-toggle {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
     border: 2px solid rgba(255, 215, 0, 0.6);
@@ -2446,17 +2495,40 @@ em {
         left: 15px;
     }
     
-    .theme-toggle {
-        padding: 0.6rem 0.8rem;
+    .footer-theme-selector {
+        margin-top: 1rem;
+        padding-top: 0.75rem;
+    }
+    
+    .theme-selector-label {
         font-size: 0.8rem;
     }
     
-    .theme-label {
-        display: none;
+    .footer-theme-selector .theme-toggle {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .theme-switch-hint {
+        font-size: 0.7rem;
+        margin-left: 0;
     }
     
     .theme-icon {
         font-size: 1rem;
+    }
+    
+    /* Footer theme selector mobile adjustments */
+    .footer-theme-selector {
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+    }
+    
+    .footer-theme-selector .theme-toggle {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
     }
 }
 

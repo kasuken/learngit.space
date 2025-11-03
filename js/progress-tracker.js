@@ -774,14 +774,15 @@ const ThemeManager = {
         const label = button.querySelector('.theme-label');
         const currentTheme = this.getCurrentTheme();
         
+        // Always use palette icon to make it clear it's a theme selector
+        icon.innerHTML = '<i class="fas fa-palette"></i>';
+        
         if (currentTheme === 'princess-pink') {
-            icon.innerHTML = '<i class="fas fa-rocket"></i>';
-            label.textContent = 'Default';
-            button.setAttribute('aria-label', 'Switch to Default theme');
+            label.textContent = 'Space Theme';
+            button.setAttribute('aria-label', 'Currently using Princess Pink theme. Click to switch to Default theme');
         } else {
-            icon.innerHTML = '<i class="fas fa-crown"></i>';
-            label.textContent = 'Princess Pink';
-            button.setAttribute('aria-label', 'Switch to Princess Pink theme');
+            label.textContent = 'Space Princess Pink';
+            button.setAttribute('aria-label', 'Currently using Default theme. Click to switch to Princess Pink theme');
         }
     },
     
