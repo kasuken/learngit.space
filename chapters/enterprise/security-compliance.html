@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Compliance - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 3.3</div>
+                <h1><i class="fas fa-shield-alt"></i> Security & Compliance</h1>
+                <div class="chapter-subtitle">Signed Commits, GPG Keys & Enterprise Audit Trails</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="git-lfs-mastery.html" class="nav-link">Previous: Git LFS Mastery</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Security & Compliance</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert enterprise">
+                <i class="fas fa-lock"></i>
+                <div>
+                    <strong>Security Operations Protocol</strong>
+                    <p>You are entering advanced security and compliance training where you'll implement cryptographic commit signing, establish audit trails, and ensure enterprise-grade security for critical software development environments.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-shield-alt"></i> Mission Briefing</h2>
+            <p>Commander, securing version control in enterprise environments is like implementing security protocols for classified space missions. Just as spacecraft systems require cryptographic authentication, secure communications, and complete audit trails for every command and data transmission, your Git repositories need robust security measures that verify identity, ensure data integrity, and maintain comprehensive compliance records.</p>
+            
+            <p>You'll master <strong>Git Security & Compliance</strong> and <strong>Cryptographic Commit Verification</strong> - the advanced security protocols that enable organizations to meet stringent regulatory requirements, implement zero-trust development environments, and maintain complete audit trails for software supply chain security. From GPG key management to compliance automation, you'll build expertise in securing enterprise development workflows.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Security & Compliance Objectives</h3>
+                <ul>
+                    <li>Master GPG key generation, management, and enterprise key distribution</li>
+                    <li>Implement signed commits and tag verification for supply chain security</li>
+                    <li>Design comprehensive audit trails and compliance reporting systems</li>
+                    <li>Configure enterprise security policies and enforcement mechanisms</li>
+                    <li>Implement automated security scanning and vulnerability management</li>
+                    <li>Establish compliance frameworks for SOC2, PCI-DSS, HIPAA, and other standards</li>
+                </ul>
+            </div>
+
+            <div class="chapter-stats">
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span>10 minutes</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-layer-group"></i>
+                    <span>5 Sections</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-flask"></i>
+                    <span>1 Security Lab</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Expert Level</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- GPG Keys & Cryptographic Signing -->
+        <section id="gpg-fundamentals" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-key"></i> GPG Keys & Cryptographic Signing</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">3 minutes</span>
+                </div>
+            </div>
+
+            <p>GPG (GNU Privacy Guard) provides cryptographic signing capabilities that ensure commit authenticity and integrity. Enterprise environments rely on GPG signatures to verify that commits originate from authenticated developers and haven't been tampered with during transmission or storage.</p>
+
+            <!-- GPG Security Model -->
+            <div class="gpg-security-model">
+                <h3>🔐 GPG Security Model</h3>
+                <div class="security-flow">
+                    <div class="security-step">
+                        <div class="step-icon"><i class="fas fa-user-shield"></i></div>
+                        <div class="step-content">
+                            <h4>Developer Identity</h4>
+                            <p>GPG key pair uniquely identifies developer with cryptographic proof</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-arrow">→</div>
+                    
+                    <div class="security-step">
+                        <div class="step-icon"><i class="fas fa-pen-fancy"></i></div>
+                        <div class="step-content">
+                            <h4>Commit Signing</h4>
+                            <p>Private key creates digital signature for commit content and metadata</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-arrow">→</div>
+                    
+                    <div class="security-step">
+                        <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="step-content">
+                            <h4>Verification</h4>
+                            <p>Public key verifies signature authenticity and detects tampering</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-arrow">→</div>
+                    
+                    <div class="security-step">
+                        <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="step-content">
+                            <h4>Trust & Audit</h4>
+                            <p>Verified commits provide non-repudiable audit trail for compliance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GPG Key Generation -->
+            <div class="gpg-setup">
+                <h3>🔧 Enterprise GPG Key Setup</h3>
+                
+                <div class="setup-process">
+                    <div class="setup-step">
+                        <h4>Step 1: Generate GPG Key Pair</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create Enterprise-Grade GPG Key</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Generate new GPG key with enterprise specifications
+gpg --full-generate-key
+
+# Interactive prompts:
+# 1. Key type: (1) RSA and RSA (default)
+# 2. Key size: 4096 (enterprise standard)
+# 3. Expiration: 2y (24 months for enterprise rotation)
+# 4. Real name: John Doe
+# 5. Email: john.doe@company.com (use corporate email)
+# 6. Comment: Enterprise Development Key 2025
+# 7. Passphrase: Use strong, unique passphrase
+
+# Alternative: Non-interactive key generation
+gpg --batch --full-generate-key <<EOF
+%no-protection
+Key-Type: RSA
+Key-Length: 4096
+Subkey-Type: RSA
+Subkey-Length: 4096
+Name-Real: John Doe
+Name-Email: john.doe@company.com
+Name-Comment: Enterprise Development Key 2025
+Expire-Date: 2y
+EOF</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-step">
+                        <h4>Step 2: Configure Git with GPG Key</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Link GPG Key to Git Configuration</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># List GPG keys to get Key ID
+gpg --list-secret-keys --keyid-format=long
+
+# Example output:
+# sec   rsa4096/ABC123DEF456 2025-01-01 [SC] [expires: 2027-01-01]
+#       1234567890ABCDEF1234567890ABCDEF12345678
+# uid                 [ultimate] John Doe (Enterprise Development Key 2025) <john.doe@company.com>
+# ssb   rsa4096/456DEF789ABC 2025-01-01 [E] [expires: 2027-01-01]
+
+# Configure Git to use GPG key (use the Key ID: ABC123DEF456)
+git config --global user.signingkey ABC123DEF456
+
+# Enable commit signing by default
+git config --global commit.gpgsign true
+
+# Enable tag signing by default
+git config --global tag.gpgsign true
+
+# Configure GPG program (if needed)
+git config --global gpg.program gpg</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-step">
+                        <h4>Step 3: Test GPG Signing</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Verify GPG Signing Setup</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create test commit with signature
+echo "Security test" > test-security.txt
+git add test-security.txt
+git commit -m "test: verify GPG signing configuration"
+
+# Verify commit signature
+git log --show-signature -1
+
+# Expected output shows:
+# gpg: Signature made [date] using RSA key ID ABC123DEF456
+# gpg: Good signature from "John Doe (Enterprise Development Key 2025) <john.doe@company.com>"
+
+# Create signed tag
+git tag -s v1.0.0-security-test -m "Security test tag with GPG signature"
+
+# Verify tag signature
+git tag -v v1.0.0-security-test</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enterprise Key Management -->
+            <div class="enterprise-key-management">
+                <h3>🏢 Enterprise Key Management</h3>
+                
+                <div class="key-management-strategies">
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-server"></i> Centralized Key Server</h4>
+                        <div class="strategy-content">
+                            <p>Deploy internal GPG key server for enterprise key distribution and management</p>
+                            
+                            <div class="code-example">
+                                <pre><code class="language-bash"># Configure internal key server
+gpg --keyserver keyserver.company.com --send-keys ABC123DEF456
+
+# Import keys from enterprise server
+gpg --keyserver keyserver.company.com --recv-keys ABC123DEF456
+
+# Search for team member keys
+gpg --keyserver keyserver.company.com --search-keys john.doe@company.com</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-certificate"></i> Web of Trust</h4>
+                        <div class="strategy-content">
+                            <p>Establish trust relationships between team members through key signing</p>
+                            
+                            <div class="code-example">
+                                <pre><code class="language-bash"># Sign colleague's key after verification
+gpg --sign-key colleague@company.com
+
+# List signatures on key
+gpg --list-signatures john.doe@company.com
+
+# Check trust level
+gpg --edit-key john.doe@company.com trust</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card">
+                        <h4><i class="fas fa-sync-alt"></i> Key Rotation</h4>
+                        <div class="strategy-content">
+                            <p>Implement regular key rotation policies for enhanced security</p>
+                            
+                            <div class="rotation-timeline">
+                                <ul>
+                                    <li><strong>24 months:</strong> Standard key rotation cycle</li>
+                                    <li><strong>6 months:</strong> High-security environments</li>
+                                    <li><strong>Immediate:</strong> Suspected compromise</li>
+                                    <li><strong>30-day overlap:</strong> Transition period</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced GPG Configuration -->
+            <div class="advanced-gpg-config">
+                <h3>⚙️ Advanced GPG Configuration</h3>
+                
+                <div class="config-sections">
+                    <div class="config-section">
+                        <h4><i class="fas fa-cog"></i> GPG Agent Configuration</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">~/.gnupg/gpg-agent.conf</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># GPG Agent configuration for enterprise use
+default-cache-ttl 28800       # 8 hours
+max-cache-ttl 86400          # 24 hours
+pinentry-program /usr/bin/pinentry-curses
+
+# Security settings
+no-grab
+no-allow-external-cache
+enable-ssh-support
+
+# Logging for audit purposes
+log-file /var/log/gpg-agent.log
+debug-level basic</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="config-section">
+                        <h4><i class="fas fa-shield-alt"></i> GPG Configuration</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">~/.gnupg/gpg.conf</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Enterprise GPG configuration
+keyserver hkps://keyserver.company.com
+keyserver-options auto-key-retrieve
+keyserver-options honor-keyserver-url
+
+# Crypto preferences (strongest algorithms)
+personal-digest-preferences SHA512 SHA384 SHA256
+personal-cipher-preferences AES256 AES192 AES
+personal-compress-preferences ZLIB BZIP2 ZIP
+
+# Security settings
+require-cross-certification
+no-symkey-cache
+throw-keyids
+trust-model tofu+pgp
+
+# Display preferences for audit
+keyid-format 0xlong
+with-fingerprint
+list-options show-uid-validity
+verify-options show-uid-validity</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signed Commits & Verification -->
+        <section id="commit-signing" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-pen-fancy"></i> Signed Commits & Verification</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span name="duration-badge">2 minutes</span>
+                </div>
+            </div>
+
+            <p>Signed commits provide cryptographic proof of authorship and integrity, essential for enterprise environments requiring supply chain security, regulatory compliance, and non-repudiation guarantees.</p>
+
+            <!-- Commit Signing Workflow -->
+            <div class="signing-workflow">
+                <h3>✍️ Signed Commit Workflow</h3>
+                
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <h4>Manual Commit Signing</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create Signed Commits</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Sign individual commit
+git commit -S -m "feat: implement user authentication with OAuth2"
+
+# Sign commit with specific key
+git commit -S -u ABC123DEF456 -m "fix: resolve security vulnerability in login"
+
+# Amend existing commit with signature
+git commit --amend -S --no-edit
+
+# Create signed merge commit
+git merge feature-branch -S -m "merge: integrate authentication feature"</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>Automatic Signing Configuration</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Enable Automatic Signing</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Enable automatic commit signing globally
+git config --global commit.gpgsign true
+
+# Enable automatic tag signing
+git config --global tag.gpgsign true
+
+# Per-repository signing (overrides global)
+git config commit.gpgsign true
+
+# Disable signing for specific commit (when global signing enabled)
+git commit --no-gpg-sign -m "docs: update README"</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div name="workflow-step">
+                        <h4>Signed Tags for Releases</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Create Signed Release Tags</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Create signed tag
+git tag -s v2.1.0 -m "Release version 2.1.0 with security enhancements"
+
+# Create signed tag with detailed message
+git tag -s v2.1.1 -F release-notes.txt
+
+# List tags with signature information
+git tag -v v2.1.0
+
+# Verify all tags
+git tag -l | xargs -I {} git tag -v {}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signature Verification -->
+            <div class="signature-verification">
+                <h3>🔍 Signature Verification</h3>
+                
+                <div class="verification-methods">
+                    <div class="verification-section">
+                        <h4><i class="fas fa-search"></i> Commit Verification</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Verify Commit Signatures</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Show signature status for recent commits
+git log --show-signature -10
+
+# Show signature status with custom format
+git log --pretty="format:%h %G? %aN %s" -10
+
+# Signature status codes:
+# G = Good signature from known key
+# B = Bad signature
+# U = Good signature from unknown key
+# X = Good signature that has expired
+# Y = Good signature made by expired key
+# R = Good signature made by revoked key
+# E = Cannot check signature (missing key)
+
+# Verify specific commit
+git verify-commit HEAD
+git verify-commit abc1234
+
+# Show only verified commits
+git log --show-signature | grep -B5 -A5 "Good signature"</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="verification-section">
+                        <h4><i class="fas fa-tag"></i> Tag Verification</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Verify Release Tag Signatures</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Verify specific tag
+git verify-tag v2.1.0
+
+# Show tag with signature details
+git show --show-signature v2.1.0
+
+# List all tags with verification status
+for tag in $(git tag -l); do
+    echo "Verifying $tag:"
+    git verify-tag $tag 2>&1 | head -1
+    echo ""
+done
+
+# Verify tag during checkout
+git checkout v2.1.0
+git verify-tag HEAD</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enterprise Signing Policies -->
+            <div class="signing-policies">
+                <h3>📋 Enterprise Signing Policies</h3>
+                
+                <div class="policy-grid">
+                    <div class="policy-card mandatory">
+                        <h4><i class="fas fa-exclamation-circle"></i> Mandatory Signing</h4>
+                        <div class="policy-content">
+                            <p>All commits to protected branches must be signed</p>
+                            
+                            <div class="implementation">
+                                <h5>GitHub Branch Protection</h5>
+                                <ul>
+                                    <li>Enable "Require signed commits"</li>
+                                    <li>Configure in repository Settings > Branches</li>
+                                    <li>Apply to main, release, and security branches</li>
+                                </ul>
+                                
+                                <h5>Git Hooks Enforcement</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-bash">#!/bin/bash
+# pre-receive hook to enforce signed commits
+while read oldrev newrev refname; do
+    # Check if pushing to protected branch
+    if [[ $refname == "refs/heads/main" ]]; then
+        # Verify all commits are signed
+        git rev-list $oldrev..$newrev | while read commit; do
+            if ! git verify-commit $commit > /dev/null 2>&1; then
+                echo "Error: Commit $commit is not signed"
+                exit 1
+            fi
+        done
+    fi
+done</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-card verification">
+                        <h4><i class="fas fa-check-double"></i> Continuous Verification</h4>
+                        <div class="policy-content">
+                            <p>Automated verification in CI/CD pipelines</p>
+                            
+                            <div class="implementation">
+                                <h5>CI Pipeline Integration</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-yaml"># GitHub Actions workflow
+name: Security Verification
+on: [push, pull_request]
+
+jobs:
+  verify-signatures:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Import GPG keys
+        run: |
+          gpg --keyserver keyserver.company.com --recv-keys ${{ secrets.TRUSTED_KEYS }}
+      
+      - name: Verify commit signatures
+        run: |
+          git log --format="%H" origin/main..HEAD | while read commit; do
+            if ! git verify-commit $commit; then
+              echo "::error::Unsigned commit found: $commit"
+              exit 1
+            fi
+          done</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance & Audit Trails -->
+        <section id="compliance-auditing" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-clipboard-list"></i> Compliance & Audit Trails</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">3 minutes</span>
+                </div>
+            </div>
+
+            <p>Enterprise compliance requires comprehensive audit trails, automated reporting, and adherence to regulatory frameworks. Git repositories must maintain detailed logs of all activities for security audits and compliance verification.</p>
+
+            <!-- Audit Trail Architecture -->
+            <div class="audit-architecture">
+                <h3>📊 Comprehensive Audit Trail Architecture</h3>
+                
+                <div class="audit-layers">
+                    <div class="audit-layer git-layer">
+                        <h4><i class="fab fa-git-alt"></i> Git Layer Auditing</h4>
+                        <div class="audit-components">
+                            <div class="audit-component">
+                                <h5>Commit Metadata</h5>
+                                <ul>
+                                    <li>Author identity and email verification</li>
+                                    <li>Committer information and timestamps</li>
+                                    <li>GPG signature verification status</li>
+                                    <li>Commit message compliance scanning</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="audit-component">
+                                <h5>Repository Activities</h5>
+                                <ul>
+                                    <li>Push/pull operations with source IP</li>
+                                    <li>Branch creation and deletion events</li>
+                                    <li>Tag operations and release activities</li>
+                                    <li>Access pattern analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="audit-layer platform-layer">
+                        <h4><i class="fas fa-server"></i> Platform Layer Auditing</h4>
+                        <div class="audit-components">
+                            <div class="audit-component">
+                                <h5>Access Controls</h5>
+                                <ul>
+                                    <li>User authentication and authorization</li>
+                                    <li>Permission changes and role assignments</li>
+                                    <li>Failed access attempts and anomalies</li>
+                                    <li>Service account activities</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="audit-component">
+                                <h5>Repository Management</h5>
+                                <ul>
+                                    <li>Repository creation and configuration</li>
+                                    <li>Webhook and integration changes</li>
+                                    <li>Security policy modifications</li>
+                                    <li>Backup and recovery operations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compliance Frameworks -->
+            <div class="compliance-frameworks">
+                <h3>🏛️ Enterprise Compliance Frameworks</h3>
+                
+                <div class="framework-grid">
+                    <div class="framework-card soc2">
+                        <h4><i class="fas fa-building"></i> SOC 2 Compliance</h4>
+                        <div class="framework-content">
+                            <p><strong>System and Organization Controls</strong> - Trust service criteria for security, availability, and confidentiality</p>
+                            
+                            <div class="requirements">
+                                <h5>Key Requirements</h5>
+                                <ul>
+                                    <li><strong>Access Controls:</strong> User authentication and authorization logs</li>
+                                    <li><strong>Data Integrity:</strong> Cryptographic verification of all changes</li>
+                                    <li><strong>Monitoring:</strong> Continuous activity monitoring and alerting</li>
+                                    <li><strong>Incident Response:</strong> Security event detection and response</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="implementation">
+                                <h5>Git Implementation</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-bash"># SOC 2 audit log generation
+git log --format="%H|%an|%ae|%ad|%s|%G?" --date=iso-strict > soc2-commit-audit.log
+
+# Access control audit
+git log --format="%H|%an|%ae|%ad" --grep="access\|permission\|role" > access-changes.log</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-card pci-dss">
+                        <h4><i class="fas fa-credit-card"></i> PCI DSS</h4>
+                        <div class="framework-content">
+                            <p><strong>Payment Card Industry Data Security Standard</strong> - Requirements for payment card data protection</p>
+                            
+                            <div class="requirements">
+                                <h5>Key Requirements</h5>
+                                <ul>
+                                    <li><strong>Requirement 8:</strong> Strong authentication and access control</li>
+                                    <li><strong>Requirement 10:</strong> Comprehensive logging and monitoring</li>
+                                    <li><strong>Requirement 11:</strong> Regular security testing</li>
+                                    <li><strong>Requirement 12:</strong> Information security policy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-card hipaa">
+                        <h4><i class="fas fa-user-md"></i> HIPAA</h4>
+                        <div class="framework-content">
+                            <p><strong>Health Insurance Portability and Accountability Act</strong> - Healthcare data protection requirements</p>
+                            
+                            <div class="requirements">
+                                <h5>Key Requirements</h5>
+                                <ul>
+                                    <li><strong>Access Control:</strong> Unique user authentication and authorization</li>
+                                    <li><strong>Audit Controls:</strong> Activity monitoring and logging</li>
+                                    <li><strong>Integrity:</strong> Data alteration and destruction protection</li>
+                                    <li><strong>Transmission Security:</strong> Secure data communication</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Automated Audit Reporting -->
+            <div class="audit-reporting">
+                <h3>📈 Automated Audit Reporting</h3>
+                
+                <div class="reporting-tools">
+                    <div class="reporting-section">
+                        <h4><i class="fas fa-chart-bar"></i> Compliance Dashboard</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Generate Compliance Reports</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash">#!/bin/bash
+# Enterprise compliance reporting script
+
+REPORT_DATE=$(date +%Y-%m-%d)
+REPORT_DIR="compliance-reports/$REPORT_DATE"
+mkdir -p "$REPORT_DIR"
+
+# Signature verification report
+echo "=== GPG Signature Compliance Report ===" > "$REPORT_DIR/signature-report.txt"
+echo "Report Date: $REPORT_DATE" >> "$REPORT_DIR/signature-report.txt"
+echo "" >> "$REPORT_DIR/signature-report.txt"
+
+# Check last 30 days of commits
+git log --since="30 days ago" --format="%H|%an|%ae|%ad|%G?" --date=iso-strict > temp-commits.log
+
+# Count signature status
+TOTAL_COMMITS=$(wc -l < temp-commits.log)
+SIGNED_COMMITS=$(grep -c "|G$" temp-commits.log)
+UNSIGNED_COMMITS=$(grep -c "|N$" temp-commits.log)
+BAD_SIGNATURE=$(grep -c "|B$" temp-commits.log)
+
+echo "Total Commits (30 days): $TOTAL_COMMITS" >> "$REPORT_DIR/signature-report.txt"
+echo "Signed Commits: $SIGNED_COMMITS ($(( SIGNED_COMMITS * 100 / TOTAL_COMMITS ))%)" >> "$REPORT_DIR/signature-report.txt"
+echo "Unsigned Commits: $UNSIGNED_COMMITS" >> "$REPORT_DIR/signature-report.txt"
+echo "Bad Signatures: $BAD_SIGNATURE" >> "$REPORT_DIR/signature-report.txt"
+
+# Detailed unsigned commits
+if [ $UNSIGNED_COMMITS -gt 0 ]; then
+    echo "" >> "$REPORT_DIR/signature-report.txt"
+    echo "=== UNSIGNED COMMITS (COMPLIANCE VIOLATION) ===" >> "$REPORT_DIR/signature-report.txt"
+    grep "|N$" temp-commits.log >> "$REPORT_DIR/signature-report.txt"
+fi
+
+# Access pattern analysis
+echo "=== Access Pattern Analysis ===" > "$REPORT_DIR/access-report.txt"
+git log --since="30 days ago" --format="%an|%ae|%ad" --date=iso-strict | \
+    sort | uniq -c | sort -nr >> "$REPORT_DIR/access-report.txt"
+
+# Security events
+echo "=== Security-Related Changes ===" > "$REPORT_DIR/security-events.txt"
+git log --since="30 days ago" --grep="security\|auth\|login\|password\|token\|credential" \
+    --format="%H|%an|%ad|%s" --date=iso-strict >> "$REPORT_DIR/security-events.txt"
+
+rm temp-commits.log
+echo "Compliance reports generated in $REPORT_DIR"</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="reporting-section">
+                        <h4><i class="fas fa-bell"></i> Automated Alerting</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Security Alert System</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash">#!/bin/bash
+# Real-time security monitoring
+
+# Check for unsigned commits in last hour
+UNSIGNED_RECENT=$(git log --since="1 hour ago" --format="%H|%an|%G?" | grep "|N$" | wc -l)
+
+if [ $UNSIGNED_RECENT -gt 0 ]; then
+    # Send alert to security team
+    curl -X POST "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK" \
+         -H 'Content-type: application/json' \
+         --data '{
+           "text": "🚨 SECURITY ALERT: '"$UNSIGNED_RECENT"' unsigned commits detected in repository",
+           "channel": "#security-alerts",
+           "username": "Git Security Monitor"
+         }'
+    
+    # Log security event
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ)|UNSIGNED_COMMIT_ALERT|$UNSIGNED_RECENT commits" >> /var/log/git-security.log
+fi
+
+# Check for suspicious access patterns
+FAILED_AUTHS=$(grep "authentication failure" /var/log/auth.log | tail -n 100 | wc -l)
+if [ $FAILED_AUTHS -gt 10 ]; then
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ)|SUSPICIOUS_ACCESS|$FAILED_AUTHS failed attempts" >> /var/log/git-security.log
+fi</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compliance Automation -->
+            <div class="compliance-automation">
+                <h3>🤖 Compliance Automation</h3>
+                
+                <div class="automation-grid">
+                    <div class="automation-card">
+                        <h4><i class="fas fa-gavel"></i> Policy Enforcement</h4>
+                        <ul>
+                            <li><strong>Pre-commit hooks:</strong> Enforce signing requirements</li>
+                            <li><strong>Branch protection:</strong> Mandatory signature verification</li>
+                            <li><strong>CI/CD gates:</strong> Block unsigned code deployment</li>
+                            <li><strong>Automated remediation:</strong> Alert and guidance systems</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="automation-card">
+                        <h4><i class="fas fa-chart-line"></i> Continuous Monitoring</h4>
+                        <ul>
+                            <li><strong>Real-time alerts:</strong> Immediate security event notification</li>
+                            <li><strong>Dashboard integration:</strong> Compliance status visualization</li>
+                            <li><strong>Trend analysis:</strong> Historical compliance patterns</li>
+                            <li><strong>Risk scoring:</strong> Automated risk assessment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="automation-card">
+                        <h4><i class="fas fa-file-alt"></i> Report Generation</h4>
+                        <ul>
+                            <li><strong>Scheduled reports:</strong> Daily, weekly, monthly compliance summaries</li>
+                            <li><strong>Audit trails:</strong> Comprehensive activity logs</li>
+                            <li><strong>Evidence collection:</strong> Automated compliance evidence gathering</li>
+                            <li><strong>Regulatory reporting:</strong> Format-specific compliance reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Scanning & Vulnerability Management -->
+        <section id="security-scanning" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-bug"></i> Security Scanning & Vulnerability Management</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">2 minutes</span>
+                </div>
+            </div>
+
+            <p>Comprehensive security requires automated scanning for vulnerabilities, secrets, and compliance violations integrated into development workflows and continuous monitoring systems.</p>
+
+            <!-- Security Scanning Stack -->
+            <div class="scanning-stack">
+                <h3>🔍 Enterprise Security Scanning Stack</h3>
+                
+                <div class="scanning-categories">
+                    <div class="scanning-category secrets">
+                        <h4><i class="fas fa-key"></i> Secrets Detection</h4>
+                        <div class="category-content">
+                            <p>Prevent sensitive information from entering version control</p>
+                            
+                            <div class="tools-list">
+                                <div class="tool-item">
+                                    <h5>GitGuardian</h5>
+                                    <p>Real-time secret detection with policy enforcement</p>
+                                </div>
+                                <div class="tool-item">
+                                    <h5>TruffleHog</h5>
+                                    <p>High-entropy string and credential pattern detection</p>
+                                </div>
+                                <div class="tool-item">
+                                    <h5>detect-secrets</h5>
+                                    <p>Yelp's baseline and scanning tool for secrets</p>
+                                </div>
+                            </div>
+                            
+                            <div class="implementation-example">
+                                <h5>Pre-commit Hook Integration</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-yaml"># .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: package.lock.json
+
+  - repo: https://github.com/trufflesecurity/trufflehog
+    rev: v3.63.2
+    hooks:
+      - id: trufflehog
+        name: TruffleHog
+        description: Detect secrets in your data.
+        entry: bash -c 'trufflehog git file://. --since-commit HEAD --only-verified --fail'</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="scanning-category sast">
+                        <h4><i class="fas fa-code"></i> Static Analysis Security Testing (SAST)</h4>
+                        <div class="category-content">
+                            <p>Analyze source code for security vulnerabilities and quality issues</p>
+                            
+                            <div class="tools-list">
+                                <div class="tool-item">
+                                    <h5>SonarQube</h5>
+                                    <p>Comprehensive code quality and security analysis</p>
+                                </div>
+                                <div class="tool-item">
+                                    <h5>CodeQL</h5>
+                                    <p>GitHub's semantic code analysis engine</p>
+                                </div>
+                                <div class="tool-item">
+                                    <h5>Semgrep</h5>
+                                    <p>Fast, customizable static analysis rules</p>
+                                </div>
+                            </div>
+                            
+                            <div class="implementation-example">
+                                <h5>GitHub Actions Integration</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-yaml"># .github/workflows/security-scan.yml
+name: Security Analysis
+on: [push, pull_request]
+
+jobs:
+  codeql:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: github/codeql-action/init@v2
+        with:
+          languages: javascript, python
+      - uses: github/codeql-action/autobuild@v2
+      - uses: github/codeql-action/analyze@v2
+
+  semgrep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/secrets</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="scanning-category sca">
+                        <h4><i class="fas fa-cubes"></i> Software Composition Analysis (SCA)</h4>
+                        <div class="category-content">
+                            <p>Identify vulnerabilities in third-party dependencies and licenses</p>
+                            
+                            <div class="tools-list">
+                                <div class="tool-item">
+                                    <h5>Snyk</h5>
+                                    <p>Vulnerability scanning for dependencies and containers</p>
+                                </div>
+                                <div class="tool-item">
+                                    <h5>OWASP Dependency Check</h5>
+                                    <p>Open-source dependency vulnerability scanner</p>
+                                </div>
+                                <div class="tool-item">
+                                    <h5>WhiteSource Bolt</h5>
+                                    <p>Free license and vulnerability scanner</p>
+                                </div>
+                            </div>
+                            
+                            <div class="implementation-example">
+                                <h5>Automated Dependency Scanning</h5>
+                                <div class="code-example">
+                                    <pre><code class="language-bash">#!/bin/bash
+# Dependency security scan script
+
+echo "Starting dependency security scan..."
+
+# Node.js dependencies
+if [ -f "package.json" ]; then
+    echo "Scanning npm dependencies..."
+    npm audit --audit-level=moderate
+    
+    # Snyk scanning
+    npx snyk test --severity-threshold=high
+fi
+
+# Python dependencies
+if [ -f "requirements.txt" ]; then
+    echo "Scanning Python dependencies..."
+    safety check -r requirements.txt
+    
+    # pip-audit scanning
+    pip-audit -r requirements.txt
+fi
+
+# License compliance check
+echo "Checking license compliance..."
+license-checker --onlyAllow 'MIT;Apache-2.0;BSD-3-Clause;ISC' --summary</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vulnerability Management Workflow -->
+            <div class="vulnerability-workflow">
+                <h3>🚨 Vulnerability Management Workflow</h3>
+                
+                <div class="workflow-stages">
+                    <div class="workflow-stage detection">
+                        <h4><i class="fas fa-search"></i> Detection</h4>
+                        <ul>
+                            <li>Automated scanning in CI/CD pipelines</li>
+                            <li>Real-time monitoring of commits</li>
+                            <li>Dependency vulnerability alerts</li>
+                            <li>Secret exposure detection</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="workflow-stage assessment">
+                        <h4><i class="fas fa-clipboard-check"></i> Assessment</h4>
+                        <ul>
+                            <li>Vulnerability severity classification</li>
+                            <li>Exploitability analysis</li>
+                            <li>Business impact evaluation</li>
+                            <li>False positive validation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="workflow-stage remediation">
+                        <h4><i class="fas fa-tools"></i> Remediation</h4>
+                        <ul>
+                            <li>Automated patch application</li>
+                            <li>Security hotfix deployment</li>
+                            <li>Dependency version updates</li>
+                            <li>Configuration hardening</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="workflow-stage monitoring">
+                        <h4><i class="fas fa-eye"></i> Monitoring</h4>
+                        <ul>
+                            <li>Remediation effectiveness verification</li>
+                            <li>Continuous compliance checking</li>
+                            <li>Metrics and reporting</li>
+                            <li>Trend analysis and prevention</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Metrics -->
+            <div class="security-metrics">
+                <h3>📊 Security Metrics & KPIs</h3>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h4><i class="fas fa-tachometer-alt"></i> Detection Metrics</h4>
+                        <ul>
+                            <li><strong>Mean Time to Detection (MTTD):</strong> Average time to identify vulnerabilities</li>
+                            <li><strong>Coverage Rate:</strong> Percentage of code under security scanning</li>
+                            <li><strong>False Positive Rate:</strong> Accuracy of security scanning tools</li>
+                            <li><strong>Vulnerability Density:</strong> Vulnerabilities per lines of code</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h4><i class="fas fa-clock"></i> Response Metrics</h4>
+                        <ul>
+                            <li><strong>Mean Time to Remediation (MTTR):</strong> Average time to fix vulnerabilities</li>
+                            <li><strong>SLA Compliance:</strong> Meeting security response time commitments</li>
+                            <li><strong>Patch Deployment Time:</strong> Speed of security update rollout</li>
+                            <li><strong>Risk Exposure Time:</strong> Duration of vulnerability exposure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h4><i class="fas fa-shield-alt"></i> Compliance Metrics</h4>
+                        <ul>
+                            <li><strong>Signature Compliance Rate:</strong> Percentage of signed commits</li>
+                            <li><strong>Policy Violation Count:</strong> Security policy breaches</li>
+                            <li><strong>Audit Findings:</strong> Issues identified in security audits</li>
+                            <li><strong>Certification Status:</strong> Compliance framework adherence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="mission-complete">
+            <div class="completion-message">
+                <h2><i class="fas fa-trophy"></i> Mission Status: COMPLETE</h2>
+                <p>Outstanding achievement, Commander! You have successfully mastered enterprise security and compliance for version control systems. Your expertise in GPG signing, audit trails, vulnerability management, and compliance frameworks will enable you to implement robust security measures that meet the most stringent enterprise and regulatory requirements.</p>
+                
+                <p>Your next commander operation will be <strong>Performance Optimization</strong>, where you'll learn to maintain and optimize repository performance for large-scale enterprise environments.</p>
+                
+                <div class="mission-nav-buttons">
+                    <a href="git-lfs-mastery.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
+                    <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
+                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Commander Operations Training • Phase 3.3 of Enterprise-Level Project Management</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
