@@ -365,7 +365,6 @@ const ProgressTracker = {
         
         progressWidget.innerHTML = `
             <h4><i class="fas fa-rocket"></i> Mission Progress</h4>
-            <h4><i class="fas fa-rocket"></i> Mission Progress</h4>
             <div class="circular-progress">
                 <svg width="130" height="130">
                     <circle cx="65" cy="65" r="50" class="progress-bg"></circle>
