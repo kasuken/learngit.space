@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Flight Briefing: Preparing Your Copilot - LearnGit.space</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../js/progress-tracker.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch theme">
+            <span class="theme-icon"><i class="fas fa-crown"></i></span>
+            <span class="theme-label">Princess Pink</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="nav-breadcrumb">
+                <a href="../index.html"><i class="fas fa-home"></i> Mission Control</a>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span>Phase 6: Copilot in Command</span>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span>Pre-Flight Briefing</span>
+            </div>
+            <h1><i class="fas fa-robot"></i> Pre-Flight Briefing: Preparing Your Copilot</h1>
+            <p class="chapter-subtitle">Configure GitHub Copilot across environments</p>
+            <div class="chapter-metadata">
+                <span class="chapter-duration"><i class="fas fa-clock"></i> 8 min</span>
+                <span class="chapter-difficulty"><i class="fas fa-star"></i> Beginner</span>
+                <span class="chapter-type"><i class="fas fa-hands-helping"></i> Hands-On</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <h2><i class="fas fa-satellite"></i> Mission Briefing</h2>
+            <p>Welcome to <strong>Phase 6: Copilot in Command</strong>! You've mastered the fundamentals of Git and GitHub. Now it's time to enhance your capabilities with artificial intelligence.</p>
+            
+            <p>Just as a spacecraft's autopilot system assists astronauts without taking control away from them, GitHub Copilot will become your intelligent co-pilot in the vast universe of version control. You remain in command, making all the critical decisions, while Copilot provides suggestions, automates routine tasks, and helps you navigate complex Git workflows with greater speed and confidence.</p>
+
+            <p>In this phase, you'll learn to configure and work with GitHub Copilot across multiple environments: VS Code, GitHub.com, and the command line interface.</p>
+        </div>
+
+        <section class="learning-objectives">
+            <h2><i class="fas fa-target"></i> Learning Objectives</h2>
+            <p>By the end of this lesson, you'll be able to:</p>
+            <ul>
+                <li>Install and authenticate GitHub Copilot in VS Code</li>
+                <li>Enable Copilot features in GitHub's web-based editor and Codespaces</li>
+                <li>Configure privacy and telemetry settings appropriately</li>
+                <li>Apply good prompt hygiene practices when working with AI</li>
+                <li>Verify Copilot is working consistently across all environments</li>
+            </ul>
+        </section>
+
+        <section class="lesson-content">
+            <h2><i class="fas fa-rocket"></i> Phase 1: VS Code Extension Setup</h2>
+            
+            <div class="hands-on-section">
+                <h3><i class="fas fa-download"></i> Installing the GitHub Copilot Extension</h3>
+                <p>First, let's get Copilot installed in VS Code:</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>VS Code Extensions Panel</span>
+                        <button onclick="copyToClipboard(this)" class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code>1. Open VS Code
+2. Press Ctrl+Shift+X (Cmd+Shift+X on Mac) to open Extensions
+3. Search for "GitHub Copilot"
+4. Click "Install" on the official GitHub Copilot extension
+5. Restart VS Code when prompted</code></pre>
+                </div>
+
+                <div class="pro-tip">
+                    <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                    <p>Also install the "GitHub Copilot Chat" extension for an enhanced conversational experience within VS Code!</p>
+                </div>
+            </div>
+
+            <div class="hands-on-section">
+                <h3><i class="fas fa-key"></i> Authentication Process</h3>
+                <p>Now let's authenticate Copilot with your GitHub account:</p>
+                
+                <ol class="step-list">
+                    <li>
+                        <strong>Trigger Authentication:</strong>
+                        <p>Open any code file and start typing. Copilot will prompt you to sign in.</p>
+                    </li>
+                    <li>
+                        <strong>Follow the Login Flow:</strong>
+                        <p>Click "Sign in to GitHub" and follow the browser authentication process.</p>
+                    </li>
+                    <li>
+                        <strong>Verify Access:</strong>
+                        <p>Ensure your GitHub account has Copilot access (subscription required).</p>
+                    </li>
+                    <li>
+                        <strong>Test Installation:</strong>
+                        <p>Create a new JavaScript file and type <code>// Function to calculate</code> - you should see Copilot suggestions!</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h2><i class="fas fa-globe"></i> Phase 2: GitHub Integration</h2>
+            
+            <div class="hands-on-section">
+                <h3><i class="fas fa-browser"></i> Web-Based Editor</h3>
+                <p>Enable Copilot in GitHub's web interface:</p>
+                
+                <ol class="step-list">
+                    <li>
+                        <strong>Navigate to Any Repository:</strong>
+                        <p>Go to github.com and open any repository you have access to.</p>
+                    </li>
+                    <li>
+                        <strong>Press the Period Key:</strong>
+                        <p>Press <kbd>.</kbd> (period) to open the web-based VS Code editor.</p>
+                    </li>
+                    <li>
+                        <strong>Verify Copilot Access:</strong>
+                        <p>Look for the Copilot icon in the status bar. If not visible, your account may need Copilot access.</p>
+                    </li>
+                    <li>
+                        <strong>Test Functionality:</strong>
+                        <p>Edit a file and verify that Copilot suggestions appear as you type.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="hands-on-section">
+                <h3><i class="fas fa-cloud"></i> GitHub Codespaces</h3>
+                <p>Copilot works seamlessly in Codespaces:</p>
+                
+                <ol class="step-list">
+                    <li>
+                        <strong>Create a Codespace:</strong>
+                        <p>From any repository, click "Code" → "Codespaces" → "Create codespace on main".</p>
+                    </li>
+                    <li>
+                        <strong>Wait for Setup:</strong>
+                        <p>The Codespace will automatically include Copilot if it's enabled on your account.</p>
+                    </li>
+                    <li>
+                        <strong>Verify Integration:</strong>
+                        <p>Open a code file and test that Copilot suggestions work normally.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <h2><i class="fas fa-shield-alt"></i> Phase 3: Privacy and Settings</h2>
+            
+            <div class="hands-on-section">
+                <h3><i class="fas fa-cog"></i> Configure Privacy Settings</h3>
+                <p>It's important to understand and configure Copilot's privacy settings:</p>
+                
+                <ol class="step-list">
+                    <li>
+                        <strong>Access Settings:</strong>
+                        <p>In VS Code, go to File → Preferences → Settings (or Ctrl+,)</p>
+                    </li>
+                    <li>
+                        <strong>Search for Copilot Settings:</strong>
+                        <p>Type "copilot" in the search bar to find all Copilot-related settings.</p>
+                    </li>
+                    <li>
+                        <strong>Review Key Settings:</strong>
+                        <ul>
+                            <li><code>github.copilot.enable</code> - Enable/disable Copilot</li>
+                            <li><code>github.copilot.inlineSuggest.enable</code> - Inline suggestions</li>
+                            <li><code>github.copilot.advanced</code> - Advanced configuration options</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Configure for Your Needs:</strong>
+                        <p>Adjust settings based on your organization's policies and personal preferences.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Important Privacy Note</h4>
+                <p>Be aware of what code Copilot can see. For sensitive or proprietary code, consider:</p>
+                <ul>
+                    <li>Disabling Copilot for specific repositories</li>
+                    <li>Using GitHub Copilot for Business for enhanced privacy controls</li>
+                    <li>Reviewing your organization's AI tool policies</li>
+                </ul>
+            </div>
+
+            <h2><i class="fas fa-comments"></i> Phase 4: Prompt Hygiene Best Practices</h2>
+            
+            <div class="hands-on-section">
+                <h3><i class="fas fa-pencil-alt"></i> Writing Effective Prompts</h3>
+                <p>Good prompt hygiene helps you get better suggestions from Copilot:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-times-circle" style="color: var(--accent-red);"></i> Poor Prompt</th>
+                                <th><i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Good Prompt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>// function</code></td>
+                                <td><code>// Function to validate email address format</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>// git stuff</code></td>
+                                <td><code>// Git command to create and switch to new branch</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>// fix this</code></td>
+                                <td><code>// Handle merge conflict in package.json dependencies</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="hands-on-section">
+                <h3><i class="fas fa-magic"></i> Testing Your Setup</h3>
+                <p>Let's verify everything is working with a practical test:</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Create a new file: test-copilot.js</span>
+                        <button onclick="copyToClipboard(this)" class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code>// Function to generate a comprehensive git status summary
+function getGitStatusSummary() {
+    // Copilot should suggest the implementation here!
+}</code></pre>
+                </div>
+
+                <p>Position your cursor after the opening brace and wait for Copilot suggestions. You should see intelligent code completion that understands the context of Git operations!</p>
+            </div>
+        </section>
+
+        <section class="mission-check">
+            <h2><i class="fas fa-check-circle"></i> Mission Check</h2>
+            <p>Verify you've completed all objectives:</p>
+            <div class="checklist">
+                <label><input type="checkbox"> GitHub Copilot extension installed in VS Code</label>
+                <label><input type="checkbox"> Successfully authenticated with GitHub account</label>
+                <label><input type="checkbox"> Verified Copilot works in GitHub web editor</label>
+                <label><input type="checkbox"> Tested Copilot in a Codespace (if available)</label>
+                <label><input type="checkbox"> Reviewed and configured privacy settings</label>
+                <label><input type="checkbox"> Tested Copilot with a Git-related code prompt</label>
+            </div>
+        </section>
+
+        <section class="mission-navigation">
+            <a href="../index.html" class="nav-button prev-button">
+                <i class="fas fa-arrow-left"></i> Return to Mission Control
+            </a>
+            <a href="copilot-commit-message-launch.html" class="nav-button next-button">
+                Phase 7: Commit Message Launch Sequence <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <footer>
+            <p><i class="fas fa-robot"></i> <strong>Phase 6: Copilot in Command</strong> • Lesson 1 of 14</p>
+            <p>Remember: You're still the commander. Copilot is here to enhance your capabilities, not replace your judgment.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create animated starfield
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Copy to clipboard functionality
+        function copyToClipboard(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const text = codeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
+            });
+        }
+
+        // Initialize progress tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.markChapterVisited('copilot-pre-flight-briefing');
+            }
+            if (typeof ThemeManager !== 'undefined') {
+                ThemeManager.init();
+            }
+        });
+    </script>
+</body>
+</html>
