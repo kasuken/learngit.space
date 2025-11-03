@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributors - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/progress-tracker.js"></script>
+    <script src="js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <a href="index.html" class="home-link">← Back to Mission Control</a>
+        
+        <header>
+            <h1 class="main-title">
+                <span class="title-learn">Contributors</span>
+            </h1>
+            <p class="mission-subtitle">The amazing people who make LearnGit.space possible</p>
+        </header>
+
+        <!-- Loading State -->
+        <div id="loading-state" class="loading-container">
+            <div class="loading-spinner"></div>
+            <p>Fetching contributor data from GitHub...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="error-container" style="display: none;">
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Unable to load contributors</h3>
+                <p>Please check your internet connection and try again.</p>
+                <button onclick="loadContributors()" class="retry-btn">
+                    <i class="fas fa-redo"></i> Retry
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Contributor (Creator) -->
+        <section id="creator-section" style="display: none;">
+            <div class="section-header">
+                <h2><i class="fas fa-crown"></i> Project Creator & Lead</h2>
+                <p>The visionary behind LearnGit.space</p>
+            </div>
+            
+            <div class="creator-card" id="creator-card">
+                <!-- Creator card will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- All Contributors -->
+        <section id="contributors-section" style="display: none;">
+            <div class="section-header">
+                <h2><i class="fas fa-rocket"></i> Mission Contributors</h2>
+                <p>Everyone who has contributed to making this project better</p>
+            </div>
+            
+            <div class="contributors-grid" id="contributors-grid">
+                <!-- Contributor cards will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="contribute-section">
+            <div class="contribute-card">
+                <h3><i class="fas fa-hands-helping"></i> Want to Contribute?</h3>
+                <p>Join our mission! Contributions of all kinds are welcome - from fixing typos to adding new chapters.</p>
+                <div class="contribute-actions">
+                    <a href="https://github.com/kasuken/learngit.space" target="_blank" rel="noopener noreferrer" class="contribute-btn primary">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <a href="https://github.com/kasuken/learngit.space/issues" target="_blank" rel="noopener noreferrer" class="contribute-btn secondary">
+                        <i class="fas fa-bug"></i> Report Issues
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><i class="fas fa-globe"></i> <strong>LearnGit.space Contributors</strong> • Open Source • Community Driven</p>
+            <p>Thank you to everyone who has contributed to this project!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Contributors page functionality
+        const GITHUB_API_BASE = 'https://api.github.com';
+        const REPO_OWNER = 'kasuken';
+        const REPO_NAME = 'learngit.space';
+        const CREATOR_USERNAME = 'kasuken'; // Highlight as main contributor
+
+        // Create stars animation
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Format contribution count
+        function formatContributions(count) {
+            if (count > 1000) {
+                return (count / 1000).toFixed(1) + 'k';
+            }
+            return count.toString();
+        }
+
+        // Get role badge for contributors
+        function getContributorRole(username, contributions) {
+            if (username.toLowerCase() === CREATOR_USERNAME.toLowerCase()) {
+                return { text: 'Creator & Lead', class: 'role-creator', icon: 'fas fa-crown' };
+            }
+            if (contributions > 50) {
+                return { text: 'Core Contributor', class: 'role-core', icon: 'fas fa-star' };
+            }
+            if (contributions > 10) {
+                return { text: 'Regular Contributor', class: 'role-regular', icon: 'fas fa-code' };
+            }
+            return { text: 'Contributor', class: 'role-contributor', icon: 'fas fa-heart' };
+        }
+
+        // Create contributor card HTML
+        function createContributorCard(contributor, isCreator = false) {
+            const role = getContributorRole(contributor.login, contributor.contributions);
+            const cardClass = isCreator ? 'creator-card-content' : 'contributor-card';
+            
+            return `
+                <div class="${cardClass}">
+                    <div class="contributor-header">
+                        <div class="contributor-avatar">
+                            <img src="${contributor.avatar_url}" alt="${contributor.login}" loading="lazy">
+                            <div class="contributor-role ${role.class}">
+                                <i class="${role.icon}"></i>
+                            </div>
+                        </div>
+                        <div class="contributor-info">
+                            <h3 class="contributor-name">
+                                ${contributor.name || contributor.login}
+                                ${isCreator ? '<i class="fas fa-crown creator-crown"></i>' : ''}
+                            </h3>
+                            <p class="contributor-username">@${contributor.login}</p>
+                            <span class="contributor-role-text ${role.class}">${role.text}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contributor-stats">
+                        <div class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span class="stat-value">${formatContributions(contributor.contributions)}</span>
+                            <span class="stat-label">Contributions</span>
+                        </div>
+                        ${contributor.public_repos !== undefined ? `
+                        <div class="stat">
+                            <i class="fas fa-folder"></i>
+                            <span class="stat-value">${contributor.public_repos}</span>
+                            <span class="stat-label">Repositories</span>
+                        </div>
+                        ` : ''}
+                        ${contributor.followers !== undefined ? `
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span class="stat-value">${formatContributions(contributor.followers)}</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        ` : ''}
+                    </div>
+
+                    ${contributor.bio ? `<p class="contributor-bio">${contributor.bio}</p>` : ''}
+
+                    <div class="contributor-actions">
+                        <a href="${contributor.html_url}" target="_blank" rel="noopener noreferrer" class="contributor-link">
+                            <i class="fab fa-github"></i> View Profile
+                        </a>
+                        ${contributor.blog && contributor.blog.trim() ? `
+                        <a href="${contributor.blog.startsWith('http') ? contributor.blog : 'https://' + contributor.blog}" 
+                           target="_blank" rel="noopener noreferrer" class="contributor-link">
+                            <i class="fas fa-globe"></i> Website
+                        </a>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Load contributors from GitHub API
+        async function loadContributors() {
+            try {
+                // Show loading state
+                document.getElementById('loading-state').style.display = 'block';
+                document.getElementById('error-state').style.display = 'none';
+                
+                // Fetch contributors from GitHub API
+                console.log('Fetching contributors...');
+                const contributorsResponse = await fetch(`${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contributors`);
+                
+                if (!contributorsResponse.ok) {
+                    throw new Error(`GitHub API error: ${contributorsResponse.status}`);
+                }
+                
+                const contributors = await contributorsResponse.json();
+                console.log('Contributors fetched:', contributors.length);
+
+                // Get detailed information for each contributor
+                const detailedContributors = await Promise.all(
+                    contributors.map(async (contributor) => {
+                        try {
+                            const userResponse = await fetch(contributor.url);
+                            if (userResponse.ok) {
+                                const userDetails = await userResponse.json();
+                                return { ...contributor, ...userDetails };
+                            }
+                        } catch (error) {
+                            console.warn(`Failed to fetch details for ${contributor.login}:`, error);
+                        }
+                        return contributor;
+                    })
+                );
+
+                // Find the creator/main contributor
+                const creator = detailedContributors.find(c => 
+                    c.login.toLowerCase() === CREATOR_USERNAME.toLowerCase()
+                );
+                
+                // Other contributors (excluding creator)
+                const otherContributors = detailedContributors.filter(c => 
+                    c.login.toLowerCase() !== CREATOR_USERNAME.toLowerCase()
+                );
+
+                // Hide loading state
+                document.getElementById('loading-state').style.display = 'none';
+
+                // Display creator section
+                if (creator) {
+                    document.getElementById('creator-card').innerHTML = createContributorCard(creator, true);
+                    document.getElementById('creator-section').style.display = 'block';
+                }
+
+                // Display other contributors
+                if (otherContributors.length > 0) {
+                    const contributorsGrid = document.getElementById('contributors-grid');
+                    contributorsGrid.innerHTML = otherContributors
+                        .map(contributor => createContributorCard(contributor, false))
+                        .join('');
+                    document.getElementById('contributors-section').style.display = 'block';
+                } else if (!creator) {
+                    // If no contributors found at all, show error
+                    throw new Error('No contributors found');
+                }
+
+            } catch (error) {
+                console.error('Error loading contributors:', error);
+                
+                // Hide loading state and show error
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('error-state').style.display = 'block';
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            loadContributors();
+        });
+    </script>
+</body>
+</html>
