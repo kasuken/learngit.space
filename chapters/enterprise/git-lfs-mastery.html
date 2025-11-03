@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git LFS Mastery - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 3.2</div>
+                <h1><i class="fas fa-archive"></i> Git LFS Mastery</h1>
+                <div class="chapter-subtitle">Large File Storage & Binary Asset Management</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="large-repository-management.html" class="nav-link">Previous: Large Repository Management</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Git LFS Mastery</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert enterprise">
+                <i class="fas fa-database"></i>
+                <div>
+                    <strong>Large File Management Protocol</strong>
+                    <p>You are entering advanced binary asset management where you'll architect Git LFS solutions for handling massive files, media assets, and datasets while maintaining repository performance and team productivity.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-archive"></i> Mission Briefing</h2>
+            <p>Commander, managing large files in version control is like coordinating cargo operations for deep space missions. Just as spacecraft have specialized cargo bays for different types of equipment—with some items requiring special storage conditions, tracking protocols, and handling procedures—your repositories need sophisticated systems for managing binary assets, media files, machine learning models, and datasets that are too large for standard Git operations.</p>
+            
+            <p>You'll master <strong>Git Large File Storage (LFS)</strong> and <strong>Binary Asset Management</strong> - the specialized systems that enable teams to version control massive files without compromising repository performance. From LFS setup and configuration to migration strategies and enterprise deployment patterns, you'll build expertise in handling terabytes of binary data across distributed development teams.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Large File Management Objectives</h3>
+                <ul>
+                    <li>Master Git LFS setup, configuration, and enterprise deployment strategies</li>
+                    <li>Implement efficient workflows for binary assets, media, and large datasets</li>
+                    <li>Design migration strategies for existing repositories with large files</li>
+                    <li>Optimize LFS performance with caching, bandwidth management, and storage tiers</li>
+                    <li>Implement enterprise LFS server solutions and access control</li>
+                    <li>Create backup and disaster recovery strategies for LFS repositories</li>
+                </ul>
+            </div>
+
+            <div class="chapter-stats">
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span>15 minutes</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-layer-group"></i>
+                    <span>6 Sections</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-flask"></i>
+                    <span>2 Labs</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Expert Level</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Git LFS Fundamentals -->
+        <section id="lfs-fundamentals" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> Git LFS Fundamentals</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">3 minutes</span>
+                </div>
+            </div>
+
+            <p>Git LFS (Large File Storage) is a Git extension that replaces large files with text pointers inside Git, while storing the actual file contents on a remote server. This architecture enables version control of large binary assets without bloating repository size or degrading performance.</p>
+
+            <!-- LFS Architecture -->
+            <div class="lfs-architecture">
+                <h3>🏗️ Git LFS Architecture</h3>
+                <div class="architecture-diagram">
+                    <div class="architecture-flow">
+                        <div class="arch-component local-repo">
+                            <div class="component-header">Local Repository</div>
+                            <div class="component-content">
+                                <div class="file-item">
+                                    <i class="fas fa-file-code"></i>
+                                    <span>source.js</span>
+                                    <span class="file-size">2 KB</span>
+                                </div>
+                                <div class="file-item lfs-pointer">
+                                    <i class="fas fa-link"></i>
+                                    <span>video.mp4</span>
+                                    <span class="file-size">Pointer (128 B)</span>
+                                </div>
+                                <div class="file-item lfs-pointer">
+                                    <i class="fas fa-link"></i>
+                                    <span>model.pkl</span>
+                                    <span class="file-size">Pointer (128 B)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="arch-arrow">⬇️ Git Operations</div>
+                        
+                        <div class="arch-component git-server">
+                            <div class="component-header">Git Server</div>
+                            <div class="component-content">
+                                <div class="file-item">
+                                    <i class="fas fa-file-code"></i>
+                                    <span>source.js</span>
+                                </div>
+                                <div class="file-item lfs-pointer">
+                                    <i class="fas fa-link"></i>
+                                    <span>LFS Pointers</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="arch-arrow">⬇️ LFS Protocol</div>
+                        
+                        <div class="arch-component lfs-server">
+                            <div class="component-header">LFS Server</div>
+                            <div class="component-content">
+                                <div class="file-item lfs-actual">
+                                    <i class="fas fa-film"></i>
+                                    <span>video.mp4</span>
+                                    <span class="file-size">500 MB</span>
+                                </div>
+                                <div class="file-item lfs-actual">
+                                    <i class="fas fa-brain"></i>
+                                    <span>model.pkl</span>
+                                    <span class="file-size">2.3 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LFS vs Standard Git Comparison -->
+            <div class="comparison-table">
+                <h3>📊 LFS vs. Standard Git Comparison</h3>
+                <table class="feature-comparison">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Standard Git</th>
+                            <th>Git LFS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Repository Size</td>
+                            <td class="warning">Grows with every file version</td>
+                            <td class="excellent">Only stores pointers (~128 bytes)</td>
+                        </tr>
+                        <tr>
+                            <td>Clone Performance</td>
+                            <td class="warning">Downloads entire history</td>
+                            <td class="excellent">Downloads current version only</td>
+                        </tr>
+                        <tr>
+                            <td>Network Bandwidth</td>
+                            <td class="warning">Full file history transfer</td>
+                            <td class="excellent">Selective file download</td>
+                        </tr>
+                        <tr>
+                            <td>Diff Support</td>
+                            <td class="excellent">Full text diff capabilities</td>
+                            <td class="warning">Limited to binary comparison</td>
+                        </tr>
+                        <tr>
+                            <td>Merge Conflicts</td>
+                            <td class="good">Advanced merge strategies</td>
+                            <td class="warning">Binary merge conflicts</td>
+                        </tr>
+                        <tr>
+                            <td>Storage Requirements</td>
+                            <td class="warning">High disk usage</td>
+                            <td class="excellent">Efficient server storage</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- When to Use LFS -->
+            <div class="use-cases">
+                <h3>🎯 When to Use Git LFS</h3>
+                <div class="use-case-grid">
+                    <div class="use-case-card excellent">
+                        <h4><i class="fas fa-check-circle"></i> Ideal Use Cases</h4>
+                        <ul>
+                            <li><strong>Media Assets:</strong> Images, videos, audio files (>10MB)</li>
+                            <li><strong>Binary Executables:</strong> Compiled applications, installers</li>
+                            <li><strong>Data Files:</strong> Datasets, databases, ML models (>100MB)</li>
+                            <li><strong>Design Assets:</strong> CAD files, 3D models, textures</li>
+                            <li><strong>Game Assets:</strong> Sprites, textures, sound effects</li>
+                            <li><strong>Documents:</strong> Large PDFs, presentations, archives</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="use-case-card warning">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Avoid LFS For</h4>
+                        <ul>
+                            <li><strong>Small Files:</strong> Files under 1MB (pointer overhead)</li>
+                            <li><strong>Frequently Changed:</strong> Files modified in every commit</li>
+                            <li><strong>Text Files:</strong> Source code, configuration files</li>
+                            <li><strong>Mergeable Content:</strong> Files requiring line-by-line merging</li>
+                            <li><strong>High Availability:</strong> Critical files needing local access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Size Guidelines -->
+            <div class="size-guidelines">
+                <h3>📏 Enterprise File Size Guidelines</h3>
+                <div class="size-scale">
+                    <div class="size-tier standard-git">
+                        <div class="size-range">0 - 1MB</div>
+                        <div class="size-recommendation">Standard Git</div>
+                        <div class="size-description">Source code, configs, small assets</div>
+                    </div>
+                    
+                    <div class="size-tier consider-lfs">
+                        <div class="size-range">1MB - 10MB</div>
+                        <div class="size-recommendation">Consider LFS</div>
+                        <div class="size-description">Depends on change frequency and team size</div>
+                    </div>
+                    
+                    <div class="size-tier use-lfs">
+                        <div class="size-range">10MB - 100MB</div>
+                        <div class="size-recommendation">Use LFS</div>
+                        <div class="size-description">Media files, small datasets, documents</div>
+                    </div>
+                    
+                    <div class="size-tier must-lfs">
+                        <div class="size-range">100MB+</div>
+                        <div class="size-recommendation">Must Use LFS</div>
+                        <div class="size-description">Large datasets, ML models, video files</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LFS Setup & Configuration -->
+        <section id="lfs-setup" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-cog"></i> LFS Setup & Configuration</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">3 minutes</span>
+                </div>
+            </div>
+
+            <p>Setting up Git LFS requires installation, configuration, and proper tracking patterns to ensure efficient large file management across your development team and CI/CD systems.</p>
+
+            <!-- Installation & Initialization -->
+            <div class="setup-process">
+                <h3>🚀 Installation & Initialization</h3>
+                
+                <div class="setup-steps">
+                    <div class="setup-step">
+                        <h4>Step 1: Install Git LFS</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Platform-Specific Installation</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># macOS (Homebrew)
+brew install git-lfs
+
+# Ubuntu/Debian
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs
+
+# Windows (Chocolatey)
+choco install git-lfs
+
+# Windows (Manual - download from GitHub releases)
+# https://github.com/git-lfs/git-lfs/releases
+
+# Verify installation
+git lfs version</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-step">
+                        <h4>Step 2: Initialize LFS in Repository</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Repository LFS Setup</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Initialize LFS in existing repository
+git lfs install
+
+# Initialize LFS globally for all repositories
+git lfs install --system
+
+# Initialize LFS in new repository
+git init
+git lfs install
+
+# Verify LFS is properly configured
+git lfs env</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-step">
+                        <h4>Step 3: Configure File Tracking</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Track Large Files with LFS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Track specific file types
+git lfs track "*.zip"
+git lfs track "*.mp4"
+git lfs track "*.psd"
+git lfs track "*.pkl"
+
+# Track files by size (all files over 50MB)
+git lfs track --lockable "*.bin"
+
+# Track specific file or directory
+git lfs track "assets/videos/*"
+git lfs track "models/large-model.h5"
+
+# Commit the .gitattributes file
+git add .gitattributes
+git commit -m "feat: configure LFS tracking for large assets"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Configuration -->
+            <div class="advanced-config">
+                <h3>⚙️ Advanced LFS Configuration</h3>
+                
+                <div class="config-sections">
+                    <div class="config-section">
+                        <h4><i class="fas fa-server"></i> LFS Server Configuration</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Configure Custom LFS Server</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Set custom LFS server endpoint
+git config lfs.url "https://lfs.company.com/api/lfs"
+
+# Configure authentication
+git config lfs.https://lfs.company.com.access basic
+git config lfs.https://lfs.company.com.locksverify true
+
+# Set batch transfer settings
+git config lfs.batch true
+git config lfs.transfer.maxretries 3
+git config lfs.transfer.maxretrydelay 10
+
+# Configure concurrent transfers
+git config lfs.concurrenttransfers 8</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="config-section">
+                        <h4><i class="fas fa-download"></i> Fetch & Cache Configuration</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Optimize LFS Performance</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Configure LFS fetch behavior
+git config lfs.fetchrecentalways true
+git config lfs.fetchrecentrefsdays 7
+git config lfs.fetchrecentcommitsdays 3
+
+# Set up selective download
+git lfs fetch --recent
+git lfs fetch origin main
+
+# Configure LFS cache
+git config lfs.tlscachesize 128m
+git config lfs.activitytimeout 30
+git config lfs.dialtimeout 30</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="config-section">
+                        <h4><i class="fas fa-lock"></i> File Locking Configuration</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Configure File Locking for Binary Assets</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Track files with locking enabled
+git lfs track --lockable "*.psd"
+git lfs track --lockable "*.blend"
+git lfs track --lockable "*.max"
+
+# Lock a file for exclusive editing
+git lfs lock "assets/logo.psd"
+
+# Unlock a file after editing
+git lfs unlock "assets/logo.psd"
+
+# List locked files
+git lfs locks
+
+# Force unlock (admin only)
+git lfs unlock --force "assets/logo.psd"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- .gitattributes Configuration -->
+            <div class="gitattributes-config">
+                <h3>📄 Enterprise .gitattributes Configuration</h3>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Comprehensive .gitattributes for Enterprise Projects</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                    </div>
+                    <pre><code class="language-gitattributes"># Media Files
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.bmp filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
+*.webp filter=lfs diff=lfs merge=lfs -text
+
+# Video Files
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.avi filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+*.mkv filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+
+# Audio Files
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.flac filter=lfs diff=lfs merge=lfs -text
+*.aac filter=lfs diff=lfs merge=lfs -text
+
+# Archives & Executables
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.rar filter=lfs diff=lfs merge=lfs -text
+*.7z filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+*.dmg filter=lfs diff=lfs merge=lfs -text
+*.app filter=lfs diff=lfs merge=lfs -text
+
+# Design Files (with locking)
+*.psd filter=lfs diff=lfs merge=lfs -text lockable
+*.ai filter=lfs diff=lfs merge=lfs -text lockable
+*.sketch filter=lfs diff=lfs merge=lfs -text lockable
+*.fig filter=lfs diff=lfs merge=lfs -text lockable
+
+# 3D & CAD Files
+*.blend filter=lfs diff=lfs merge=lfs -text lockable
+*.max filter=lfs diff=lfs merge=lfs -text lockable
+*.obj filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.stl filter=lfs diff=lfs merge=lfs -text
+
+# Data & ML Files
+*.pkl filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.hdf5 filter=lfs diff=lfs merge=lfs -text
+*.npz filter=lfs diff=lfs merge=lfs -text
+*.parquet filter=lfs diff=lfs merge=lfs -text
+*.db filter=lfs diff=lfs merge=lfs -text
+
+# Documents
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.docx filter=lfs diff=lfs merge=lfs -text
+*.pptx filter=lfs diff=lfs merge=lfs -text
+*.xlsx filter=lfs diff=lfs merge=lfs -text
+
+# Game Assets
+*.unity filter=lfs diff=lfs merge=lfs -text
+*.unitypackage filter=lfs diff=lfs merge=lfs -text
+*.asset filter=lfs diff=lfs merge=lfs -text</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- LFS Workflow Operations -->
+        <section id="lfs-workflows" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-sync-alt"></i> LFS Workflow Operations</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">3 minutes</span>
+                </div>
+            </div>
+
+            <p>Mastering LFS workflows requires understanding how to efficiently work with large files in daily development activities, from adding new assets to collaborating with team members and managing storage.</p>
+
+            <!-- Basic LFS Operations -->
+            <div class="basic-operations">
+                <h3>🔄 Essential LFS Operations</h3>
+                
+                <div class="operation-group">
+                    <h4>Adding Files to LFS</h4>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">Add Large Files to Repository</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                        </div>
+                        <pre><code class="language-bash"># Add large files (ensure tracking is configured first)
+git add assets/video.mp4
+git add models/neural-network.h5
+git add design/logo.psd
+
+# Commit large files (creates LFS pointers)
+git commit -m "feat: add marketing video and ML model assets"
+
+# Push to remote (uploads to LFS server)
+git push origin main
+
+# Verify files are tracked by LFS
+git lfs ls-files
+git lfs pointer --file=assets/video.mp4</code></pre>
+                    </div>
+                </div>
+                
+                <div class="operation-group">
+                    <h4>Cloning LFS Repositories</h4>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">Clone Repository with LFS Files</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                        </div>
+                        <pre><code class="language-bash"># Clone with all LFS files
+git clone https://github.com/company/project.git
+
+# Clone without LFS files (faster for CI)
+GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/company/project.git
+
+# Clone with selective LFS download
+git lfs install --local
+git clone https://github.com/company/project.git
+git lfs pull --include="*.jpg,*.png" --exclude="videos/*"</code></pre>
+                    </div>
+                </div>
+                
+                <div class="operation-group">
+                    <h4>Selective File Operations</h4>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">Manage Large File Downloads Selectively</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                        </div>
+                        <pre><code class="language-bash"># Fetch specific LFS files
+git lfs fetch --include="*.psd,*.ai"
+git lfs fetch --exclude="*.mp4"
+
+# Download LFS files for specific paths
+git lfs pull --include="assets/images/*"
+git lfs pull --exclude="assets/videos/*"
+
+# Check LFS file status
+git lfs status
+git lfs ls-files --size
+git lfs fsck
+
+# Prune old LFS files from local cache
+git lfs prune --dry-run
+git lfs prune --recent --verify-remote</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Workflows -->
+            <div class="advanced-workflows">
+                <h3>🎯 Advanced LFS Workflows</h3>
+                
+                <div class="workflow-grid">
+                    <div class="workflow-card">
+                        <h4><i class="fas fa-users"></i> Team Collaboration</h4>
+                        <div class="workflow-content">
+                            <p>Coordinate large file changes across distributed teams with file locking and selective synchronization.</p>
+                            
+                            <div class="code-example">
+                                <pre><code class="language-bash"># Designer workflow - lock file for editing
+git lfs lock "designs/main-logo.psd"
+# Edit file
+git add designs/main-logo.psd
+git commit -m "design: update main logo colors"
+git push origin feature/logo-update
+git lfs unlock "designs/main-logo.psd"
+
+# Developer workflow - selective download
+git lfs pull --include="assets/images/*.png"
+# Skip unnecessary video assets during development</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-card">
+                        <h4><i class="fas fa-robot"></i> CI/CD Integration</h4>
+                        <div class="workflow-content">
+                            <p>Optimize CI/CD pipelines by downloading only necessary LFS files for build processes.</p>
+                            
+                            <div class="code-example">
+                                <pre><code class="language-yaml"># GitHub Actions with selective LFS
+- name: Checkout with LFS
+  uses: actions/checkout@v3
+  with:
+    lfs: false
+
+- name: Download required assets
+  run: |
+    git lfs pull --include="build-assets/*"
+    git lfs pull --include="*.dll,*.so"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-card">
+                        <h4><i class="fas fa-code-branch"></i> Branching Strategy</h4>
+                        <div class="workflow-content">
+                            <p>Handle large files across feature branches with proper merge strategies and conflict resolution.</p>
+                            
+                            <div class="code-example">
+                                <pre><code class="language-bash"># Feature branch with large files
+git checkout -b feature/video-assets
+git lfs track "*.mp4"
+git add .gitattributes
+git commit -m "track: configure video file tracking"
+
+# Add large files to feature branch
+git add videos/demo.mp4
+git commit -m "feat: add product demo video"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Optimization -->
+            <div class="performance-optimization">
+                <h3>⚡ LFS Performance Optimization</h3>
+                
+                <div class="optimization-strategies">
+                    <div class="strategy-section">
+                        <h4><i class="fas fa-download"></i> Download Optimization</h4>
+                        <ul>
+                            <li><strong>Selective Fetching:</strong> Use --include/--exclude patterns to download only needed files</li>
+                            <li><strong>Batch Operations:</strong> Configure concurrent transfers for faster downloads</li>
+                            <li><strong>Local Caching:</strong> Leverage LFS cache to avoid re-downloading files</li>
+                            <li><strong>Shallow Clones:</strong> Combine with Git shallow clones for faster initial setup</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="strategy-section">
+                        <h4><i class="fas fa-cloud-upload-alt"></i> Upload Optimization</h4>
+                        <ul>
+                            <li><strong>Batch Uploads:</strong> Group multiple file uploads in single operations</li>
+                            <li><strong>Compression:</strong> Use compressed file formats when possible</li>
+                            <li><strong>Resume Support:</strong> Leverage LFS resume capabilities for large uploads</li>
+                            <li><strong>Network Configuration:</strong> Optimize timeout and retry settings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Migration Strategies -->
+        <section id="migration-strategies" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-exchange-alt"></i> LFS Migration Strategies</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">3 minutes</span>
+                </div>
+            </div>
+
+            <p>Migrating existing repositories to use Git LFS requires careful planning and execution to preserve history while improving repository performance. Different migration strategies suit different scenarios and risk tolerances.</p>
+
+            <!-- Migration Approaches -->
+            <div class="migration-approaches">
+                <h3>🔄 Migration Approach Selection</h3>
+                
+                <div class="approach-grid">
+                    <div class="migration-approach retroactive">
+                        <h4><i class="fas fa-history"></i> Retroactive Migration</h4>
+                        <div class="approach-content">
+                            <p><strong>Rewrites Git history</strong> to move large files to LFS throughout entire repository history.</p>
+                            
+                            <div class="pros-cons">
+                                <div class="pros">
+                                    <h5>✅ Advantages</h5>
+                                    <ul>
+                                        <li>Significantly reduces repository size</li>
+                                        <li>Optimal performance for all operations</li>
+                                        <li>Clean, consistent LFS usage</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <h5>⚠️ Risks</h5>
+                                    <ul>
+                                        <li>Rewrites entire Git history</li>
+                                        <li>Requires team coordination</li>
+                                        <li>Breaks existing clones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="migration-approach progressive">
+                        <h4><i class="fas fa-step-forward"></i> Progressive Migration</h4>
+                        <div class="approach-content">
+                            <p><strong>Preserves Git history</strong> and migrates large files to LFS going forward only.</p>
+                            
+                            <div class="pros-cons">
+                                <div class="pros">
+                                    <h5>✅ Advantages</h5>
+                                    <ul>
+                                        <li>Preserves existing Git history</li>
+                                        <li>Lower risk, gradual transition</li>
+                                        <li>Existing clones remain functional</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <h5>⚠️ Limitations</h5>
+                                    <ul>
+                                        <li>Repository size includes historical large files</li>
+                                        <li>Performance benefits only for future operations</li>
+                                        <li>Mixed storage approach</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Retroactive Migration Process -->
+            <div class="retroactive-migration">
+                <h3>🔄 Retroactive Migration Process</h3>
+                <p>Use <code>git-lfs-migrate</code> to rewrite repository history and move large files to LFS.</p>
+                
+                <div class="migration-steps">
+                    <div class="migration-step">
+                        <h4>Step 1: Pre-Migration Assessment</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Analyze Repository for Migration Candidates</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Install git-lfs-migrate (included with recent LFS versions)
+git lfs version
+
+# Analyze repository to find large files
+git lfs migrate info --everything --above=10MB
+
+# Get detailed breakdown by file type
+git lfs migrate info --everything --top=50
+
+# Analyze specific branches
+git lfs migrate info --include-ref=main --above=5MB
+
+# Check repository size before migration
+du -sh .git</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="migration-step">
+                        <h4>Step 2: Execute Migration</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Migrate Large Files to LFS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Migrate specific file types across all history
+git lfs migrate import --include="*.zip,*.mp4,*.psd" --everything
+
+# Migrate files above certain size
+git lfs migrate import --above=50MB --everything
+
+# Migrate with include/exclude patterns
+git lfs migrate import \
+  --include="*.jpg,*.png,*.gif" \
+  --exclude="thumbnails/*" \
+  --everything
+
+# Migrate specific paths
+git lfs migrate import --include="assets/videos/*" --everything
+
+# Verify migration results
+git lfs ls-files
+git lfs migrate info --everything</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="migration-step">
+                        <h4>Step 3: Post-Migration Cleanup</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-title">Complete Migration and Cleanup</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                            </div>
+                            <pre><code class="language-bash"># Force push rewritten history (DESTRUCTIVE)
+git push origin --force --all
+git push origin --force --tags
+
+# Clean up local repository
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+
+# Verify repository size reduction
+du -sh .git
+
+# Team coordination: Everyone must re-clone
+echo "⚠️  ALL TEAM MEMBERS MUST RE-CLONE THE REPOSITORY"
+echo "Old clones are incompatible with rewritten history"</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="migration-warning">
+                    <div class="warning-box">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Critical Migration Warning</h4>
+                        <p>Retroactive migration rewrites Git history and is <strong>irreversible</strong>. Ensure:</p>
+                        <ul>
+                            <li>Complete team coordination and communication</li>
+                            <li>Full repository backup before migration</li>
+                            <li>All team members ready to re-clone</li>
+                            <li>CI/CD systems updated for new repository state</li>
+                            <li>External integrations tested with migrated repository</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progressive Migration -->
+            <div class="progressive-migration">
+                <h3>📈 Progressive Migration Process</h3>
+                <p>Implement LFS for new large files while preserving existing repository history.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">Set Up LFS for Future Files</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                    </div>
+                    <pre><code class="language-bash"># Initialize LFS in existing repository
+git lfs install
+
+# Configure tracking for new large files
+git lfs track "*.zip"
+git lfs track "*.mp4" 
+git lfs track "*.psd"
+git lfs track --lockable "*.ai"
+
+# Commit LFS configuration
+git add .gitattributes
+git commit -m "feat: configure LFS tracking for new large files"
+
+# Document migration strategy for team
+echo "# LFS Migration Strategy" > LFS_MIGRATION.md
+echo "- New large files (>10MB) use LFS" >> LFS_MIGRATION.md
+echo "- Existing files remain in Git history" >> LFS_MIGRATION.md
+echo "- Consider retroactive migration for major version" >> LFS_MIGRATION.md</code></pre>
+                </div>
+            </div>
+
+            <!-- Migration Best Practices -->
+            <div class="migration-best-practices">
+                <h3>✨ Migration Best Practices</h3>
+                <div class="practice-grid">
+                    <div class="practice-item">
+                        <i class="fas fa-backup"></i>
+                        <h4>Backup Strategy</h4>
+                        <p>Create complete repository backups and test recovery procedures before migration.</p>
+                    </div>
+                    <div class="practice-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Team Coordination</h4>
+                        <p>Plan migration during low-activity periods with full team communication.</p>
+                    </div>
+                    <div class="practice-item">
+                        <i class="fas fa-test-tube"></i>
+                        <h4>Test Migration</h4>
+                        <p>Practice migration on repository copy to identify issues and timing.</p>
+                    </div>
+                    <div class="practice-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Monitor Results</h4>
+                        <p>Track repository performance and team feedback after migration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enterprise LFS Deployment -->
+        <section id="enterprise-deployment" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-server"></i> Enterprise LFS Deployment</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">2 minutes</span>
+                </div>
+            </div>
+
+            <p>Enterprise LFS deployments require robust server infrastructure, security controls, and operational procedures to support large-scale development teams with diverse large file requirements.</p>
+
+            <!-- LFS Server Solutions -->
+            <div class="server-solutions">
+                <h3>🏢 Enterprise LFS Server Solutions</h3>
+                
+                <div class="solution-grid">
+                    <div class="solution-card github-enterprise">
+                        <h4><i class="fab fa-github"></i> GitHub Enterprise</h4>
+                        <div class="solution-content">
+                            <p><strong>Hosted Solution:</strong> Fully managed LFS with GitHub Enterprise Cloud/Server</p>
+                            
+                            <div class="features">
+                                <h5>Features</h5>
+                                <ul>
+                                    <li>Integrated with GitHub workflows</li>
+                                    <li>Advanced access controls</li>
+                                    <li>Automatic scaling and backups</li>
+                                    <li>Enterprise security compliance</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="config-example">
+                                <pre><code class="language-bash"># GitHub Enterprise LFS configuration
+git config lfs.url "https://github.company.com/api/lfs"
+git config lfs.batch true</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card gitlab-lfs">
+                        <h4><i class="fab fa-gitlab"></i> GitLab LFS</h4>
+                        <div class="solution-content">
+                            <p><strong>Self-Managed:</strong> GitLab CE/EE with integrated LFS support</p>
+                            
+                            <div class="features">
+                                <h5>Features</h5>
+                                <ul>
+                                    <li>Self-hosted control</li>
+                                    <li>Integrated CI/CD</li>
+                                    <li>Object storage backends</li>
+                                    <li>Custom authentication</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="config-example">
+                                <pre><code class="language-yaml"># GitLab LFS configuration
+gitlab_rails['lfs_enabled'] = true
+gitlab_rails['lfs_storage_path'] = "/mnt/lfs-storage"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card custom-server">
+                        <h4><i class="fas fa-server"></i> Custom LFS Server</h4>
+                        <div class="solution-content">
+                            <p><strong>Self-Built:</strong> Custom implementation using LFS protocol specification</p>
+                            
+                            <div class="features">
+                                <h5>Popular Solutions</h5>
+                                <ul>
+                                    <li><strong>git-lfs-server:</strong> Reference implementation</li>
+                                    <li><strong>lfs-server:</strong> Go-based server</li>
+                                    <li><strong>Artifactory:</strong> JFrog enterprise solution</li>
+                                    <li><strong>Nexus:</strong> Sonatype repository manager</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Storage Architecture -->
+            <div class="storage-architecture">
+                <h3>💾 Enterprise Storage Architecture</h3>
+                
+                <div class="architecture-diagram">
+                    <div class="storage-tier">
+                        <h4><i class="fas fa-tachometer-alt"></i> Hot Storage (Frequently Accessed)</h4>
+                        <div class="tier-content">
+                            <p>High-performance storage for active development files</p>
+                            <ul>
+                                <li><strong>Local SSD:</strong> Current branch files, recent commits</li>
+                                <li><strong>Network SSD:</strong> Shared team assets, CI/CD files</li>
+                                <li><strong>CDN:</strong> Globally distributed for remote teams</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="storage-tier">
+                        <h4><i class="fas fa-database"></i> Warm Storage (Occasionally Accessed)</h4>
+                        <div class="tier-content">
+                            <p>Balanced performance and cost for historical versions</p>
+                            <ul>
+                                <li><strong>Network HDD:</strong> Previous release assets</li>
+                                <li><strong>Object Storage:</strong> AWS S3 Standard, Azure Blob Hot</li>
+                                <li><strong>Compression:</strong> Automated compression for older files</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="storage-tier">
+                        <h4><i class="fas fa-archive"></i> Cold Storage (Rarely Accessed)</h4>
+                        <div class="tier-content">
+                            <p>Cost-optimized storage for long-term retention</p>
+                            <ul>
+                                <li><strong>Glacier:</strong> AWS S3 Glacier, Azure Archive</li>
+                                <li><strong>Tape Storage:</strong> Enterprise backup systems</li>
+                                <li><strong>Compliance:</strong> Regulatory retention requirements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security & Access Control -->
+            <div class="security-controls">
+                <h3>🔐 Security & Access Control</h3>
+                
+                <div class="security-grid">
+                    <div class="security-feature">
+                        <h4><i class="fas fa-key"></i> Authentication & Authorization</h4>
+                        <div class="code-example">
+                            <pre><code class="language-bash"># Configure LFS authentication
+git config lfs.https://lfs.company.com.access basic
+git config credential.https://lfs.company.com.username "service-account"
+
+# Use token-based authentication
+git config credential.helper store
+echo "https://token:${LFS_TOKEN}@lfs.company.com" >> ~/.git-credentials</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <h4><i class="fas fa-shield-alt"></i> Transport Security</h4>
+                        <ul>
+                            <li><strong>TLS 1.2+:</strong> Encrypted data transmission</li>
+                            <li><strong>Certificate Pinning:</strong> Prevent MITM attacks</li>
+                            <li><strong>VPN Integration:</strong> Secure network access</li>
+                            <li><strong>Rate Limiting:</strong> DDoS protection</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <h4><i class="fas fa-user-shield"></i> Access Policies</h4>
+                        <ul>
+                            <li><strong>Repository Permissions:</strong> Team-based access control</li>
+                            <li><strong>File-Level Security:</strong> Selective file access</li>
+                            <li><strong>Audit Logging:</strong> Complete access trail</li>
+                            <li><strong>Compliance:</strong> SOC2, GDPR, HIPAA support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LFS Monitoring & Maintenance -->
+        <section id="lfs-monitoring" class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> LFS Monitoring & Maintenance</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">1 minute</span>
+                </div>
+            </div>
+
+            <p>Maintaining optimal LFS performance requires continuous monitoring, proactive maintenance, and efficient troubleshooting procedures for enterprise-scale deployments.</p>
+
+            <!-- Monitoring Metrics -->
+            <div class="monitoring-metrics">
+                <h3>📊 Key LFS Metrics</h3>
+                
+                <div class="metrics-grid">
+                    <div class="metric-category">
+                        <h4><i class="fas fa-server"></i> Server Metrics</h4>
+                        <ul>
+                            <li><strong>Storage Usage:</strong> Total LFS storage consumption</li>
+                            <li><strong>Transfer Bandwidth:</strong> Upload/download rates</li>
+                            <li><strong>Request Latency:</strong> LFS API response times</li>
+                            <li><strong>Error Rates:</strong> Failed upload/download operations</li>
+                            <li><strong>Concurrent Users:</strong> Active LFS sessions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="metric-category">
+                        <h4><i class="fas fa-users"></i> User Metrics</h4>
+                        <ul>
+                            <li><strong>Clone Performance:</strong> Repository clone times</li>
+                            <li><strong>Fetch Efficiency:</strong> LFS file download performance</li>
+                            <li><strong>Cache Hit Rates:</strong> Local LFS cache effectiveness</li>
+                            <li><strong>Lock Contention:</strong> File locking conflicts</li>
+                            <li><strong>User Experience:</strong> Operation success rates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maintenance Operations -->
+            <div class="maintenance-operations">
+                <h3>🔧 Regular Maintenance Tasks</h3>
+                
+                <div class="maintenance-grid">
+                    <div class="maintenance-task">
+                        <h4><i class="fas fa-broom"></i> LFS Cleanup</h4>
+                        <div class="code-example">
+                            <pre><code class="language-bash"># Clean up local LFS cache
+git lfs prune --dry-run
+git lfs prune --recent --verify-remote
+
+# Server-side cleanup (admin)
+git lfs-server gc --older-than=30d
+git lfs-server prune --unreferenced</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="maintenance-task">
+                        <h4><i class="fas fa-chart-bar"></i> Storage Analysis</h4>
+                        <div class="code-example">
+                            <pre><code class="language-bash"># Analyze LFS usage patterns
+git lfs ls-files --size | sort -k2 -h
+git lfs migrate info --everything --top=20
+
+# Repository health check
+git lfs fsck
+git lfs env</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="maintenance-task">
+                        <h4><i class="fas fa-shield-alt"></i> Security Audits</h4>
+                        <ul>
+                            <li>Review LFS access logs</li>
+                            <li>Audit user permissions</li>
+                            <li>Check certificate validity</li>
+                            <li>Validate backup integrity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troubleshooting Guide -->
+            <div class="troubleshooting-guide">
+                <h3>🔍 Common LFS Issues & Solutions</h3>
+                
+                <div class="issue-grid">
+                    <div class="issue-card">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Slow LFS Operations</h4>
+                        <div class="solution-steps">
+                            <ol>
+                                <li>Check network bandwidth and latency</li>
+                                <li>Increase concurrent transfer settings</li>
+                                <li>Configure local LFS cache</li>
+                                <li>Use selective file fetching</li>
+                                <li>Consider CDN deployment</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="issue-card">
+                        <h4><i class="fas fa-lock"></i> File Lock Conflicts</h4>
+                        <div class="solution-steps">
+                            <ol>
+                                <li>Identify locked files: <code>git lfs locks</code></li>
+                                <li>Communicate with lock owner</li>
+                                <li>Force unlock if necessary (admin)</li>
+                                <li>Implement lock timeout policies</li>
+                                <li>Train team on locking workflow</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="issue-card">
+                        <h4><i class="fas fa-cloud-download-alt"></i> Failed Downloads</h4>
+                        <div class="solution-steps">
+                            <ol>
+                                <li>Check LFS server connectivity</li>
+                                <li>Verify authentication credentials</li>
+                                <li>Increase timeout settings</li>
+                                <li>Retry with exponential backoff</li>
+                                <li>Check server storage availability</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="mission-complete">
+            <div class="completion-message">
+                <h2><i class="fas fa-trophy"></i> Mission Status: COMPLETE</h2>
+                <p>Exceptional work, Commander! You have successfully mastered Git LFS and large file management strategies for enterprise environments. Your expertise in LFS setup, migration strategies, and enterprise deployment will enable you to efficiently manage massive binary assets while maintaining optimal repository performance.</p>
+                
+                <p>Your next commander operation will be <strong>Security & Compliance</strong>, where you'll learn to implement signed commits, GPG keys, and audit trails for enterprise security requirements.</p>
+                
+                <div class="mission-nav-buttons">
+                    <a href="large-repository-management.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
+                    <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
+                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Commander Operations Training • Phase 3.2 of Enterprise-Level Project Management</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
