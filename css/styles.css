@@ -23,6 +23,99 @@
     --completion-pink: #E91E63;
 }
 
+/* Princess Pink Theme Variables */
+:root[data-theme="princess-pink"] {
+    --primary-gold: #d91a7a;
+    --secondary-blue: #ff69b4;
+    --accent-cyan: #ffc0cb;
+    --dark-space: #2a1a2e;
+    --mid-space: #3d2340;
+    --light-space: #4f2d52;
+    --text-light: #fef7f7;
+    --text-muted: #e0b3e0;
+    --success-green: #ff1493;
+    --glow-gold: rgba(217, 26, 122, 0.4);
+    --glow-cyan: rgba(255, 192, 203, 0.4);
+    --completion-green: #ff1493;
+    --completion-orange: #ff69b4;
+    --completion-pink: #ffc0cb;
+}
+
+/* Princess Pink Theme Specific Overrides */
+[data-theme="princess-pink"] body {
+    background: radial-gradient(ellipse at bottom, #4a1a4a 0%, #2a1a2a 100%);
+}
+
+[data-theme="princess-pink"] .container {
+    background: linear-gradient(135deg, rgba(42, 26, 46, 0.98) 0%, rgba(61, 35, 64, 0.95) 100%);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 0 80px rgba(255, 105, 180, 0.15);
+    border: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+[data-theme="princess-pink"] .title-badge {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.2) 0%, rgba(255, 182, 193, 0.1) 100%);
+    border: 1px solid rgba(255, 20, 147, 0.4);
+}
+
+[data-theme="princess-pink"] .main-title .title-learn {
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.4));
+}
+
+[data-theme="princess-pink"] .main-title .title-git {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, #ff69b4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(217, 26, 122, 0.5));
+}
+
+/* Princess Pink Theme Stars - Bright Neon Pink */
+[data-theme="princess-pink"] .star {
+    background: #ff1493;
+    box-shadow: 
+        0 0 6px #ff1493,
+        0 0 12px #ff1493,
+        0 0 18px #ff1493,
+        0 0 24px #ff1493;
+    animation: twinklePink 2s infinite ease-in-out;
+}
+
+/* Princess Pink Theme Mission Brief Override */
+[data-theme="princess-pink"] .mission-brief {
+    background: linear-gradient(135deg, rgba(217, 26, 122, 0.15) 0%, rgba(255, 105, 180, 0.05) 100%);
+    border-left: 5px solid var(--primary-gold);
+    box-shadow: 0 4px 15px rgba(217, 26, 122, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+@keyframes twinklePink {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(0.8);
+        box-shadow: 
+            0 0 6px #ff1493,
+            0 0 12px #ff1493,
+            0 0 18px #ff1493,
+            0 0 24px #ff1493;
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.4);
+        box-shadow: 
+            0 0 8px #ff1493,
+            0 0 16px #ff1493,
+            0 0 24px #ff1493,
+            0 0 32px #ff1493,
+            0 0 40px #ff69b4;
+    }
+}
+
 body {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
@@ -953,7 +1046,6 @@ pre code {
 }
 
 .chapter-time {
-    display: inline-block;
     background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(79, 195, 247, 0.1) 100%);
     border: 1px solid rgba(0, 229, 255, 0.3);
     color: var(--accent-cyan);
@@ -1070,14 +1162,14 @@ footer {
 }
 
 .command-example::before {
-    content: '🚀 MISSION COMMAND';
+    content: '▶ MISSION COMMAND';
     display: block;
     color: var(--primary-gold);
-    font-weight: 700;
     margin-bottom: 0.8rem;
     font-size: 0.85rem;
     font-family: 'Orbitron', monospace;
     letter-spacing: 2px;
+    font-weight: 700;
 }
 
 ::-webkit-scrollbar {
@@ -2227,5 +2319,146 @@ em {
     
     .contribute-card h3 {
         font-size: 1.3rem;
+    }
+}
+
+/* Theme Selector Styles */
+.theme-selector {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+
+.theme-toggle {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+    border: 2px solid rgba(255, 215, 0, 0.6);
+    color: var(--text-light);
+    padding: 0.75rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.theme-toggle:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-gold);
+}
+
+.theme-toggle:focus {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 2px;
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.theme-label {
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Princess theme toggle button styling */
+[data-theme="princess-pink"] .theme-toggle {
+    border-color: rgba(255, 105, 180, 0.3);
+}
+
+[data-theme="princess-pink"] .theme-toggle:hover {
+    border-color: var(--primary-gold);
+    box-shadow: 0 4px 20px rgba(217, 26, 122, 0.3);
+}
+
+/* Mobile theme selector adjustments */
+@media (max-width: 768px) {
+    .theme-selector {
+        top: 15px;
+        left: 15px;
+    }
+    
+    .theme-toggle {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .theme-label {
+        display: none;
+    }
+    
+    .theme-icon {
+        font-size: 1rem;
+    }
+}
+
+/* Font Awesome Icon Styling */
+.fas, .far, .fab {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Title and section header icons */
+.toc-section-title .fas,
+.main-title .fas,
+h1 .fas,
+h2 .fas {
+    color: var(--primary-gold);
+    filter: drop-shadow(0 0 8px var(--glow-gold));
+    animation: iconGlow 3s infinite alternate;
+}
+
+/* Princess Pink theme icon colors */
+[data-theme="princess-pink"] .toc-section-title .fas,
+[data-theme="princess-pink"] .main-title .fas,
+[data-theme="princess-pink"] h1 .fas,
+[data-theme="princess-pink"] h2 .fas {
+    color: var(--primary-gold);
+    filter: drop-shadow(0 0 8px rgba(217, 26, 122, 0.6));
+}
+
+/* Reading time badge icons */
+.reading-time-badge .fas {
+    color: var(--accent-cyan);
+    margin-right: 0.3rem;
+}
+
+[data-theme="princess-pink"] .reading-time-badge .fas {
+    color: var(--accent-cyan);
+}
+
+/* Completion icon styling */
+.completion-icon .fas {
+    font-size: 2rem;
+    color: var(--primary-gold);
+    filter: drop-shadow(0 0 15px var(--glow-gold));
+}
+
+[data-theme="princess-pink"] .completion-icon .fas {
+    color: var(--primary-gold);
+    filter: drop-shadow(0 0 15px rgba(217, 26, 122, 0.6));
+}
+
+@keyframes iconGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px var(--glow-gold));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px var(--glow-gold));
     }
 }

@@ -1,4 +1,4 @@
-# 🚀 LearnGit.space - Your Journey Through Version Control Space
+# ▶ LearnGit.space - Your Journey Through Version Control Space
 
 **An interactive, space-themed learning platform for mastering Git and GitHub with built-in progress tracking!**
 
@@ -41,7 +41,7 @@ This website transforms learning Git into an exciting space mission with **35 co
 1. **🌟 Pre-Launch: Mission Briefing** (1 phase, ~4 min)
    - Your orientation as an astronaut
 
-2. **🚀 Phase 1: Launch Sequence** (10 phases, ~80 min)
+2. **▶ Phase 1: Launch Sequence** (10 phases, ~80 min)
    - Git fundamentals and setup
    - Terminal basics
    - GitHub introduction
@@ -68,7 +68,7 @@ This website transforms learning Git into an exciting space mission with **35 co
 
 **Total Training Time**: ~5 hours of comprehensive Git education
 
-## 🚀 Getting Started
+## ▶ Getting Started
 
 1. Open `index.html` in your modern web browser
 2. Start with "Launch Preparation" in the Pre-Launch section
@@ -187,7 +187,7 @@ When you finish a chapter:
 ## 🤝 Credits
 
 Content inspired by the open-source "Introduction to Git and GitHub" ebook by Bobby Iliev, completely reimagined with:
-- 🚀 Space exploration theme
+- ▶ Space exploration theme
 - 🎮 Interactive progress tracking
 - 🎨 Modern, beautiful UI design
 - 📊 Comprehensive analytics
@@ -205,7 +205,7 @@ This educational resource is provided freely for learning purposes.
 - **Practical**: Real-world examples and workflows
 - **Free**: No sign-ups, no costs, no barriers to learning
 
-## 🚀 Start Your Mission
+## ▶ Start Your Mission
 
 **Ready for launch, Astronaut?** 
 
@@ -227,4 +227,4 @@ Open `index.html` and begin your transformation from cadet to space commander!
 - Use the Mission Control homepage to track your overall progress
 - Take breaks between phases to practice what you've learned
 
-**Happy Learning! 🚀✨**
+**Happy Learning! ▶✨**

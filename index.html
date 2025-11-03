@@ -6,15 +6,25 @@
     <title>LearnGit.space - Your Journey Through Version Control Space</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="js/progress-tracker.js"></script>
     <script src="js/analytics.js"></script>
 </head>
 <body>
     <div class="stars" id="stars"></div>
     
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch theme">
+            <span class="theme-icon"><i class="fas fa-crown"></i></span>
+            <span class="theme-label">Princess Pink</span>
+        </button>
+    </div>
+    
     <div class="container">
         <header>
             <div class="title-wrapper">
+                <div class="title-badge"><i class="fas fa-rocket"></i> MISSION READY</div>
                 <div class="title-badge"><i class="fas fa-rocket"></i> MISSION READY</div>
                 <h1 class="main-title">
                     <span class="title-learn">Learn</span><span class="title-git">Git</span><span class="title-dot">.</span><span class="title-space">space</span>
@@ -93,6 +103,7 @@
             <div class="toc-section mission-section" data-mission="mission-briefing">
                 <div class="toc-section-header">
                     <h3 class="toc-section-title"><i class="fas fa-star"></i> Pre-Launch: Mission Briefing</h3>
+                    <h3 class="toc-section-title"><i class="fas fa-star"></i> Pre-Launch: Mission Briefing</h3>
                     <span class="phase-duration">~4 min</span>
                 </div>
                 <p class="toc-section-desc">Your first orientation as an astronaut</p>
@@ -103,6 +114,7 @@
             
             <div class="toc-section mission-section" data-mission="git-basics">
                 <div class="toc-section-header">
+                    <h3 class="toc-section-title"><i class="fas fa-rocket"></i> Phase 1: Launch Sequence</h3>
                     <h3 class="toc-section-title"><i class="fas fa-rocket"></i> Phase 1: Launch Sequence</h3>
                     <span class="phase-duration">~80 min</span>
                 </div>
@@ -158,6 +170,7 @@
 
             <div class="toc-section mission-section" data-mission="collaboration">
                 <div class="toc-section-header">
+                    <h3 class="toc-section-title"><i class="fas fa-users"></i> Phase 4: Multi-Crew Missions</h3>
                     <h3 class="toc-section-title"><i class="fas fa-users"></i> Phase 4: Multi-Crew Missions</h3>
                     <span class="phase-duration">~48 min</span>
                 </div>
@@ -231,6 +244,7 @@
         </div>
 
         <div class="mission-brief">
+            <h2><i class="fas fa-star"></i> Why This Mission Matters</h2>
             <h2><i class="fas fa-star"></i> Why This Mission Matters</h2>
             <p>In the vastness of space, every action must be recorded, every decision tracked, and every team member coordinated. The same is true for software development. Git and GitHub aren't just tools—they're your lifeline in the complex universe of modern development.</p>
             
