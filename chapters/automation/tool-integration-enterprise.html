@@ -1,0 +1,3650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Integration & Enterprise Automation Mastery - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 2.3</div>
+                <h1><i class="fas fa-satellite"></i> Tool Integration & Enterprise Automation Mastery</h1>
+                <div class="chapter-subtitle">Enterprise DevOps Tool Integration & Multi-Cloud Orchestration</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="github-actions-cicd.html" class="nav-link">Previous: GitHub Actions CI/CD</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Tool Integration & Enterprise Automation</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert automation">
+                <i class="fas fa-rocket"></i>
+                <div>
+                    <strong>Enterprise Integration Protocol</strong>
+                    <p>You are entering advanced enterprise automation training where you'll orchestrate complex multi-tool workflows that integrate Jenkins, Docker, cloud platforms, and monitoring systems for production-grade DevOps environments.</p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-satellite"></i> Mission Briefing</h2>
+            <p>Commander, the most advanced space missions require sophisticated integration of multiple autonomous systems working in perfect harmony. Just as the International Space Station coordinates life support, navigation, communication, and scientific instruments through integrated control systems, your enterprise development environments need seamless integration of CI/CD tools, containerization platforms, cloud infrastructure, and monitoring solutions.</p>
+            
+            <p>You'll master <strong>Enterprise Tool Integration</strong> and <strong>Multi-Cloud Automation</strong> - the advanced orchestration skills that transform individual tools into comprehensive automation ecosystems. From Jenkins pipeline orchestration to Docker containerization, from multi-cloud deployments to comprehensive observability, you'll build enterprise-grade automation that operates with military precision across complex infrastructure landscapes.</p>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Enterprise Integration Objectives</h3>
+                <ul>
+                    <li>Master Jenkins enterprise pipeline orchestration and multi-agent coordination</li>
+                    <li>Implement Docker containerization with security scanning and registry management</li>
+                    <li>Design multi-cloud deployment strategies across AWS, Azure, and GCP</li>
+                    <li>Build comprehensive observability with Prometheus, Grafana, and distributed tracing</li>
+                    <li>Integrate enterprise security scanning and compliance automation</li>
+                    <li>Orchestrate complex real-world enterprise automation workflows</li>
+                </ul>
+            </div>
+
+            <div class="chapter-stats">
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span>35 minutes</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-layer-group"></i>
+                    <span>6 Sections</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-flask"></i>
+                    <span>1 Enterprise Lab</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Expert Level</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission Overview -->
+        <section class="mission-overview">
+            <h2>🎯 Mission Objectives</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Jenkins Mastery</h3>
+                    <p>Configure enterprise CI/CD pipelines with Jenkins, integrate Git workflows, and implement advanced deployment strategies.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3>Container Integration</h3>
+                    <p>Master Docker containerization, registry management, and container-based deployment workflows.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Deployment</h3>
+                    <p>Deploy applications across AWS, Azure, and GCP with infrastructure as code and automated scaling.</p>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Monitoring & Observability</h3>
+                    <p>Implement comprehensive monitoring, logging, and alerting for enterprise automation workflows.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enterprise Automation Architecture -->
+        <section class="enterprise-architecture">
+            <h2>🏢 Enterprise Automation Architecture</h2>
+            <p>Understanding how enterprise tools integrate to create comprehensive automation ecosystems.</p>
+            
+            <div class="architecture-flow">
+                <div class="flow-header">
+                    <h4><i class="fas fa-sitemap"></i> Enterprise Integration Flow</h4>
+                </div>
+                <div class="enterprise-diagram">
+                    <div class="enterprise-stage source">
+                        <div class="stage-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="stage-content">
+                            <h5>Source Control</h5>
+                            <div class="stage-tools">
+                                <span class="tool-badge">Git</span>
+                                <span class="tool-badge">GitHub</span>
+                                <span class="tool-badge">GitLab</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="enterprise-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="enterprise-stage orchestration">
+                        <div class="stage-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="stage-content">
+                            <h5>Orchestration</h5>
+                            <div class="stage-tools">
+                                <span class="tool-badge">Jenkins</span>
+                                <span class="tool-badge">GitHub Actions</span>
+                                <span class="tool-badge">Azure DevOps</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="enterprise-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="enterprise-stage containerization">
+                        <div class="stage-icon">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <div class="stage-content">
+                            <h5>Containerization</h5>
+                            <div class="stage-tools">
+                                <span class="tool-badge">Docker</span>
+                                <span class="tool-badge">Kubernetes</span>
+                                <span class="tool-badge">Registry</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="enterprise-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="enterprise-stage deployment">
+                        <div class="stage-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="stage-content">
+                            <h5>Cloud Deployment</h5>
+                            <div class="stage-tools">
+                                <span class="tool-badge">AWS</span>
+                                <span class="tool-badge">Azure</span>
+                                <span class="tool-badge">GCP</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="enterprise-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    
+                    <div class="enterprise-stage monitoring">
+                        <div class="stage-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stage-content">
+                            <h5>Monitoring</h5>
+                            <div class="stage-tools">
+                                <span class="tool-badge">Prometheus</span>
+                                <span class="tool-badge">Grafana</span>
+                                <span class="tool-badge">ELK Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="integration-patterns">
+                <h3>🔗 Common Integration Patterns</h3>
+                <div class="patterns-grid">
+                    <div class="pattern-card gitops">
+                        <div class="pattern-header">
+                            <i class="fas fa-sync-alt"></i>
+                            <h4>GitOps Pattern</h4>
+                        </div>
+                        <div class="pattern-content">
+                            <p>Infrastructure and application deployment driven by Git repositories.</p>
+                            <ul>
+                                <li>Declarative infrastructure</li>
+                                <li>Git as single source of truth</li>
+                                <li>Automated sync and rollback</li>
+                                <li>Audit trail and compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pattern-card microservices">
+                        <div class="pattern-header">
+                            <i class="fas fa-cubes"></i>
+                            <h4>Microservices CI/CD</h4>
+                        </div>
+                        <div class="pattern-content">
+                            <p>Independent deployment pipelines for distributed services.</p>
+                            <ul>
+                                <li>Service-specific pipelines</li>
+                                <li>Container orchestration</li>
+                                <li>Service mesh integration</li>
+                                <li>Distributed tracing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pattern-card progressive">
+                        <div class="pattern-header">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Progressive Deployment</h4>
+                        </div>
+                        <div class="pattern-content">
+                            <p>Risk-mitigated deployments with automated rollback capabilities.</p>
+                            <ul>
+                                <li>Canary deployments</li>
+                                <li>Blue-green strategies</li>
+                                <li>Feature flags integration</li>
+                                <li>Automated monitoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pattern-card security">
+                        <div class="pattern-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Security Integration</h4>
+                        </div>
+                        <div class="pattern-content">
+                            <p>Security scanning and compliance embedded throughout the pipeline.</p>
+                            <ul>
+                                <li>Static code analysis</li>
+                                <li>Vulnerability scanning</li>
+                                <li>Compliance validation</li>
+                                <li>Secret management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Navigation -->
+        <section class="section-navigation">
+            <h2>📚 Chapter Sections</h2>
+            <div class="sections-grid">
+                <a href="#jenkins-integration" class="section-card jenkins">
+                    <div class="section-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="section-content">
+                        <h3>Jenkins Integration</h3>
+                        <p>Enterprise CI/CD with Jenkins pipelines and Git workflow automation</p>
+                        <div class="section-meta">
+                            <span class="duration">8 min</span>
+                            <span class="level">Advanced</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#docker-containerization" class="section-card docker">
+                    <div class="section-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <div class="section-content">
+                        <h3>Docker & Containerization</h3>
+                        <p>Container workflows, registry management, and deployment strategies</p>
+                        <div class="section-meta">
+                            <span class="duration">6 min</span>
+                            <span class="level">Intermediate</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#cloud-deployment" class="section-card cloud">
+                    <div class="section-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="section-content">
+                        <h3>Cloud Deployment</h3>
+                        <p>Multi-cloud deployment with infrastructure as code and automation</p>
+                        <div class="section-meta">
+                            <span class="duration">5 min</span>
+                            <span class="level">Advanced</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#monitoring-observability" class="section-card monitoring">
+                    <div class="section-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="section-content">
+                        <h3>Monitoring & Observability</h3>
+                        <p>Comprehensive monitoring, logging, and alerting systems</p>
+                        <div class="section-meta">
+                            <span class="duration">4 min</span>
+                            <span class="level">Intermediate</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="#enterprise-lab" class="section-card lab">
+                    <div class="section-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="section-content">
+                        <h3>Enterprise Integration Lab</h3>
+                        <p>Hands-on lab combining multiple tools for real-world workflow</p>
+                        <div class="section-meta">
+                            <span class="duration">12 min</span>
+                            <span class="level">Expert</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Jenkins Integration Section -->
+        <section id="jenkins-integration" class="jenkins-section">
+            <div class="section-header">
+                <h2><i class="fas fa-cogs"></i> Jenkins Integration</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge advanced">Advanced</span>
+                    <span class="duration-badge">8 minutes</span>
+                </div>
+            </div>
+
+            <p>Jenkins is the backbone of enterprise CI/CD, providing robust pipeline automation, extensive plugin ecosystem, and enterprise-grade features for complex deployment workflows.</p>
+
+            <!-- Jenkins Architecture -->
+            <div class="jenkins-architecture">
+                <h3>🏗️ Jenkins Architecture & Setup</h3>
+                
+                <div class="architecture-overview">
+                    <div class="jenkins-components">
+                        <div class="component-card master">
+                            <div class="component-header">
+                                <h4><i class="fas fa-server"></i> Jenkins Master</h4>
+                                <span class="component-badge orchestrator">Orchestrator</span>
+                            </div>
+                            <div class="component-content">
+                                <p>Central control node managing jobs, scheduling builds, and coordinating agents.</p>
+                                <ul>
+                                    <li>Job scheduling and management</li>
+                                    <li>Plugin and configuration management</li>
+                                    <li>User interface and API endpoints</li>
+                                    <li>Security and access control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="component-card agent">
+                            <div class="component-header">
+                                <h4><i class="fas fa-desktop"></i> Jenkins Agents</h4>
+                                <span class="component-badge executor">Executor</span>
+                            </div>
+                            <div class="component-content">
+                                <p>Distributed build nodes executing jobs across different environments.</p>
+                                <ul>
+                                    <li>Parallel job execution</li>
+                                    <li>Environment-specific builds</li>
+                                    <li>Resource isolation</li>
+                                    <li>Scalable build capacity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jenkins Installation -->
+                <div class="jenkins-setup">
+                    <h4>📦 Jenkins Installation & Configuration</h4>
+                    
+                    <div class="setup-options">
+                        <div class="setup-card docker">
+                            <h5><i class="fab fa-docker"></i> Docker Installation</h5>
+                            <pre><code class="language-bash"># Pull Jenkins LTS image
+docker pull jenkins/jenkins:lts
+
+# Run Jenkins container
+docker run -d \\
+  --name jenkins-master \\
+  -p 8080:8080 \\
+  -p 50000:50000 \\
+  -v jenkins_home:/var/jenkins_home \\
+  jenkins/jenkins:lts
+
+# Get initial admin password
+docker exec jenkins-master cat /var/jenkins_home/secrets/initialAdminPassword</code></pre>
+                        </div>
+                        
+                        <div class="setup-card kubernetes">
+                            <h5><i class="fas fa-dharmachakra"></i> Kubernetes Deployment</h5>
+                            <pre><code class="language-yaml"># jenkins-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts
+        ports:
+        - containerPort: 8080
+        - containerPort: 50000
+        volumeMounts:
+        - name: jenkins-home
+          mountPath: /var/jenkins_home
+      volumes:
+      - name: jenkins-home
+        persistentVolumeClaim:
+          claimName: jenkins-pvc</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jenkins Pipeline Configuration -->
+            <div class="jenkins-pipelines">
+                <h3>⚙️ Jenkins Pipeline Configuration</h3>
+                
+                <div class="pipeline-types">
+                    <div class="pipeline-card declarative">
+                        <div class="pipeline-header">
+                            <h4><i class="fas fa-code"></i> Declarative Pipeline</h4>
+                            <span class="complexity-badge beginner">Recommended</span>
+                        </div>
+                        <div class="pipeline-content">
+                            <p>Structured, opinionated syntax with built-in error handling and restart capabilities.</p>
+                            
+                            <div class="pipeline-example">
+                                <h5>Complete CI/CD Pipeline Example</h5>
+                                <pre><code class="language-groovy">pipeline {
+    agent {
+        docker {
+            image 'node:16-alpine'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+    
+    environment {
+        DOCKER_REGISTRY = 'your-registry.com'
+        IMAGE_NAME = 'your-app'
+        KUBECONFIG = credentials('kubeconfig')
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+                script {
+                    env.GIT_COMMIT_SHORT = sh(
+                        script: 'git rev-parse --short HEAD',
+                        returnStdout: true
+                    ).trim()
+                }
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm ci --only=production'
+                sh 'npm audit --audit-level moderate'
+            }
+        }
+        
+        stage('Code Quality') {
+            parallel {
+                stage('Lint') {
+                    steps {
+                        sh 'npm run lint'
+                    }
+                }
+                stage('Security Scan') {
+                    steps {
+                        sh 'npm audit --audit-level high'
+                        sh 'npx snyk test --severity-threshold=high'
+                    }
+                }
+                stage('Unit Tests') {
+                    steps {
+                        sh 'npm run test:unit -- --coverage'
+                    }
+                    post {
+                        always {
+                            publishTestResults testResultsPattern: 'test-results.xml'
+                            publishCoverageResults coveragePattern: 'coverage/lcov.info'
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Build Application') {
+            steps {
+                sh 'npm run build'
+                archiveArtifacts artifacts: 'dist/**', fingerprint: true
+            }
+        }
+        
+        stage('Docker Build') {
+            steps {
+                script {
+                    def image = docker.build("${DOCKER_REGISTRY}/${IMAGE_NAME}:${env.GIT_COMMIT_SHORT}")
+                    docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker-registry-credentials') {
+                        image.push()
+                        image.push('latest')
+                    }
+                }
+            }
+        }
+        
+        stage('Integration Tests') {
+            steps {
+                sh '''
+                    docker-compose -f docker-compose.test.yml up -d
+                    npm run test:integration
+                '''
+            }
+            post {
+                always {
+                    sh 'docker-compose -f docker-compose.test.yml down -v'
+                }
+            }
+        }
+        
+        stage('Deploy to Staging') {
+            when {
+                branch 'develop'
+            }
+            steps {
+                script {
+                    sh '''
+                        kubectl set image deployment/app-staging \\
+                            app=${DOCKER_REGISTRY}/${IMAGE_NAME}:${GIT_COMMIT_SHORT} \\
+                            --namespace=staging
+                        kubectl rollout status deployment/app-staging --namespace=staging
+                    '''
+                }
+            }
+        }
+        
+        stage('Deploy to Production') {
+            when {
+                branch 'main'
+            }
+            steps {
+                input message: 'Deploy to Production?', ok: 'Deploy'
+                script {
+                    sh '''
+                        kubectl set image deployment/app-production \\
+                            app=${DOCKER_REGISTRY}/${IMAGE_NAME}:${GIT_COMMIT_SHORT} \\
+                            --namespace=production
+                        kubectl rollout status deployment/app-production --namespace=production
+                    '''
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+        success {
+            slackSend channel: '#deployments',
+                     color: 'good',
+                     message: "✅ Deployment successful: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
+        }
+        failure {
+            slackSend channel: '#deployments',
+                     color: 'danger',
+                     message: "❌ Deployment failed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
+        }
+    }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jenkins Git Integration -->
+            <div class="jenkins-git-integration">
+                <h3>🔗 Advanced Git Integration</h3>
+                
+                <div class="git-features">
+                    <div class="feature-card webhooks">
+                        <h4><i class="fas fa-bolt"></i> Webhook Configuration</h4>
+                        <p>Automatic build triggers based on Git events.</p>
+                        
+                        <div class="webhook-setup">
+                            <h5>GitHub Webhook Setup</h5>
+                            <pre><code class="language-bash"># Jenkins webhook URL format
+https://your-jenkins.com/github-webhook/
+
+# GitHub repository settings:
+# Settings → Webhooks → Add webhook
+# Payload URL: https://your-jenkins.com/github-webhook/
+# Content type: application/json
+# Events: Push, Pull request</code></pre>
+                        </div>
+                        
+                        <div class="jenkins-config">
+                            <h5>Jenkins Job Configuration</h5>
+                            <pre><code class="language-groovy">// In Jenkins job configuration
+properties([
+    pipelineTriggers([
+        githubPush(),
+        pollSCM('H/15 * * * *'), // Fallback polling
+        upstream(threshold: 'SUCCESS', upstreamProjects: 'dependency-project')
+    ])
+])
+
+// Branch-specific triggers
+when {
+    anyOf {
+        branch 'main'
+        branch 'develop'
+        changeRequest target: 'main'
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card multibranch">
+                        <h4><i class="fas fa-code-branch"></i> Multibranch Pipeline</h4>
+                        <p>Automatic pipeline creation for branches and pull requests.</p>
+                        
+                        <div class="multibranch-config">
+                            <h5>Pipeline Detection Strategy</h5>
+                            <pre><code class="language-groovy">// Jenkinsfile in repository root
+// Automatically detected by multibranch pipeline
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('Branch Strategy') {
+            steps {
+                script {
+                    if (env.BRANCH_NAME == 'main') {
+                        echo 'Production deployment pipeline'
+                        // Production-specific steps
+                    } else if (env.BRANCH_NAME == 'develop') {
+                        echo 'Staging deployment pipeline'
+                        // Staging-specific steps
+                    } else if (env.CHANGE_ID) {
+                        echo 'Pull request validation pipeline'
+                        // PR validation steps
+                    } else {
+                        echo 'Feature branch pipeline'
+                        // Feature development steps
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jenkins Best Practices -->
+            <div class="jenkins-best-practices">
+                <h3>🎯 Jenkins Best Practices</h3>
+                
+                <div class="practices-grid">
+                    <div class="practice-card security">
+                        <h4><i class="fas fa-shield-alt"></i> Security Practices</h4>
+                        <ul>
+                            <li>Use Jenkins credentials store for secrets</li>
+                            <li>Implement role-based access control (RBAC)</li>
+                            <li>Regular security plugin updates</li>
+                            <li>Audit trails and access logging</li>
+                        </ul>
+                        <div class="practice-example">
+                            <strong>Example:</strong> Using credentials in pipeline
+                            <pre><code class="language-groovy">withCredentials([
+    string(credentialsId: 'api-key', variable: 'API_KEY'),
+    usernamePassword(credentialsId: 'db-creds', 
+                     usernameVariable: 'DB_USER', 
+                     passwordVariable: 'DB_PASS')
+]) {
+    sh 'deploy-script.sh'
+}</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="practice-card performance">
+                        <h4><i class="fas fa-tachometer-alt"></i> Performance Optimization</h4>
+                        <ul>
+                            <li>Use pipeline caching for dependencies</li>
+                            <li>Parallel execution for independent tasks</li>
+                            <li>Optimize Docker layer caching</li>
+                            <li>Regular cleanup of old builds and artifacts</li>
+                        </ul>
+                        <div class="practice-example">
+                            <strong>Example:</strong> Build caching strategy
+                            <pre><code class="language-groovy">pipeline {
+    agent any
+    options {
+        buildDiscarder(logRotator(
+            numToKeepStr: '10',
+            artifactNumToKeepStr: '5'
+        ))
+    }
+    stages {
+        stage('Cache Dependencies') {
+            steps {
+                cache(maxCacheSize: 250, caches: [
+                    arbitraryFileCache(
+                        path: 'node_modules',
+                        fingerprint: 'package-lock.json'
+                    )
+                ]) {
+                    sh 'npm ci'
+                }
+            }
+        }
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="practice-card monitoring">
+                        <h4><i class="fas fa-chart-line"></i> Pipeline Monitoring</h4>
+                        <ul>
+                            <li>Build metrics and trend analysis</li>
+                            <li>Failure notification strategies</li>
+                            <li>Performance benchmarking</li>
+                            <li>Resource usage tracking</li>
+                        </ul>
+                        <div class="practice-example">
+                            <strong>Example:</strong> Build metrics collection
+                            <pre><code class="language-groovy">post {
+    always {
+        script {
+            def buildDuration = currentBuild.duration
+            def buildResult = currentBuild.result ?: 'SUCCESS'
+            
+            // Send metrics to monitoring system
+            httpRequest(
+                httpMode: 'POST',
+                url: 'https://metrics-api.com/jenkins-builds',
+                requestBody: """
+                {
+                    "job": "${env.JOB_NAME}",
+                    "build": ${env.BUILD_NUMBER},
+                    "duration": ${buildDuration},
+                    "result": "${buildResult}",
+                    "timestamp": "${System.currentTimeMillis()}"
+                }
+                """
+            )
+        }
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Docker & Containerization Section -->
+        <section id="docker-containerization" class="docker-section">
+            <div class="section-header">
+                <h2><i class="fab fa-docker"></i> Docker & Containerization</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge intermediate">Intermediate</span>
+                    <span class="duration-badge">6 minutes</span>
+                </div>
+            </div>
+
+            <p>Docker containerization enables consistent, portable, and scalable deployment workflows. Master container-based Git workflows, registry management, and enterprise deployment strategies.</p>
+
+            <!-- Docker Architecture -->
+            <div class="docker-architecture">
+                <h3>🏗️ Docker Architecture & Git Integration</h3>
+                
+                <div class="container-workflow">
+                    <h4>📦 Container Development Workflow</h4>
+                    <div class="workflow-diagram">
+                        <div class="workflow-step source-code">
+                            <div class="step-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <div class="step-content">
+                                <h5>Source Code</h5>
+                                <p>Git repository with Dockerfile and application code</p>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        
+                        <div class="workflow-step build">
+                            <div class="step-icon">
+                                <i class="fas fa-hammer"></i>
+                            </div>
+                            <div class="step-content">
+                                <h5>Image Build</h5>
+                                <p>Docker build triggered by Git events</p>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        
+                        <div class="workflow-step registry">
+                            <div class="step-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="step-content">
+                                <h5>Registry Push</h5>
+                                <p>Tagged images pushed to container registry</p>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        
+                        <div class="workflow-step deploy">
+                            <div class="step-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="step-content">
+                                <h5>Deployment</h5>
+                                <p>Automated deployment to target environments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dockerfile Best Practices -->
+                <div class="dockerfile-practices">
+                    <h4>📋 Dockerfile Best Practices</h4>
+                    
+                    <div class="dockerfile-examples">
+                        <div class="dockerfile-card multi-stage">
+                            <div class="dockerfile-header">
+                                <h5><i class="fas fa-layer-group"></i> Multi-Stage Build</h5>
+                                <span class="practice-badge optimal">Recommended</span>
+                            </div>
+                            <div class="dockerfile-content">
+                                <p>Optimize image size and security with multi-stage builds</p>
+                                <div class="dockerfile-example">
+                                    <pre><code class="language-dockerfile"># Build stage
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+# Copy source and build
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM node:16-alpine AS production
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nextjs -u 1001
+
+# Copy built application
+COPY --from=builder --chown=nextjs:nodejs /app/dist ./dist
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
+
+# Security and optimization
+RUN npm prune --production && \
+    npm cache clean --force
+
+USER nextjs
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:3000/health || exit 1
+
+CMD ["npm", "start"]</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dockerfile-card security">
+                            <div class="dockerfile-header">
+                                <h5><i class="fas fa-shield-alt"></i> Security-Focused</h5>
+                                <span class="practice-badge security">Enterprise</span>
+                            </div>
+                            <div class="dockerfile-content">
+                                <p>Security-hardened container with vulnerability scanning integration</p>
+                                <div class="dockerfile-example">
+                                    <pre><code class="language-dockerfile"># Use official base image with known security profile
+FROM python:3.11-slim-bullseye AS base
+
+# Install security updates
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+        curl \
+        ca-certificates && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create non-root user early
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies as root, then switch to non-root
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir gunicorn[gevent]
+
+# Copy application code
+COPY --chown=appuser:appuser . .
+
+# Switch to non-root user
+USER appuser
+
+# Expose port (non-privileged)
+EXPOSE 8080
+
+# Add labels for metadata
+LABEL maintainer="devops@company.com" \
+      version="1.0" \
+      description="Secure Python application container"
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8080/health || exit 1
+
+# Use exec form for better signal handling
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "4", "app:application"]</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Docker Compose Integration -->
+            <div class="docker-compose-integration">
+                <h3>🔧 Docker Compose for Development</h3>
+                
+                <div class="compose-examples">
+                    <div class="compose-card development">
+                        <h4><i class="fas fa-code"></i> Development Environment</h4>
+                        <p>Complete development stack with hot reload and debugging capabilities</p>
+                        
+                        <div class="compose-example">
+                            <h5>docker-compose.dev.yml</h5>
+                            <pre><code class="language-yaml">version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+      - "9229:9229"  # Node.js debugger
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DEBUG=app:*
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: developer
+      POSTGRES_PASSWORD: devpass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="compose-card testing">
+                        <h4><i class="fas fa-flask"></i> Testing Environment</h4>
+                        <p>Isolated testing environment with test databases and services</p>
+                        
+                        <div class="compose-example">
+                            <h5>docker-compose.test.yml</h5>
+                            <pre><code class="language-yaml">version: '3.8'
+
+services:
+  test-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    environment:
+      - NODE_ENV=test
+      - DATABASE_URL=postgresql://test:test@test-db:5432/testdb
+      - REDIS_URL=redis://test-redis:6379
+    depends_on:
+      test-db:
+        condition: service_healthy
+      test-redis:
+        condition: service_started
+    volumes:
+      - ./test-results:/app/test-results
+      - ./coverage:/app/coverage
+    command: npm run test:ci
+    networks:
+      - test-network
+
+  test-db:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    tmpfs:
+      - /var/lib/postgresql/data
+    networks:
+      - test-network
+
+  test-redis:
+    image: redis:7-alpine
+    tmpfs:
+      - /data
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container Registry Management -->
+            <div class="registry-management">
+                <h3>🏪 Container Registry Management</h3>
+                
+                <div class="registry-strategies">
+                    <div class="strategy-card tagging">
+                        <div class="strategy-header">
+                            <h4><i class="fas fa-tags"></i> Tagging Strategy</h4>
+                        </div>
+                        <div class="strategy-content">
+                            <p>Implement consistent tagging for version control and deployment tracking</p>
+                            
+                            <div class="tagging-examples">
+                                <h5>Git-Based Tagging Automation</h5>
+                                <pre><code class="language-bash"># Automated tagging script in CI/CD
+#!/bin/bash
+
+# Get Git information
+GIT_COMMIT=$(git rev-parse --short HEAD)
+GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+GIT_TAG=$(git describe --tags --exact-match 2>/dev/null || echo "")
+
+# Registry configuration
+REGISTRY="your-registry.com"
+IMAGE_NAME="your-app"
+
+# Base image name
+BASE_IMAGE="${REGISTRY}/${IMAGE_NAME}"
+
+# Build and tag strategies
+if [ "$GIT_BRANCH" = "main" ]; then
+    # Production tags
+    docker build -t "${BASE_IMAGE}:${GIT_COMMIT}" .
+    docker build -t "${BASE_IMAGE}:latest" .
+    
+    # If tagged release
+    if [ ! -z "$GIT_TAG" ]; then
+        docker build -t "${BASE_IMAGE}:${GIT_TAG}" .
+        docker build -t "${BASE_IMAGE}:stable" .
+    fi
+    
+elif [ "$GIT_BRANCH" = "develop" ]; then
+    # Development tags
+    docker build -t "${BASE_IMAGE}:dev-${GIT_COMMIT}" .
+    docker build -t "${BASE_IMAGE}:develop" .
+    
+else
+    # Feature branch tags
+    BRANCH_CLEAN=$(echo $GIT_BRANCH | sed 's/[^a-zA-Z0-9]/-/g')
+    docker build -t "${BASE_IMAGE}:${BRANCH_CLEAN}-${GIT_COMMIT}" .
+fi
+
+# Push all built images
+docker images "${BASE_IMAGE}" --format "{{.Repository}}:{{.Tag}}" | \
+    grep -v "&lt;none&gt;" | \
+    xargs -I {} docker push {}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="strategy-card cleanup">
+                        <div class="strategy-header">
+                            <h4><i class="fas fa-broom"></i> Registry Cleanup</h4>
+                        </div>
+                        <div class="strategy-content">
+                            <p>Automated cleanup policies to manage storage and maintain security</p>
+                            
+                            <div class="cleanup-examples">
+                                <h5>Retention Policy Script</h5>
+                                <pre><code class="language-python">#!/usr/bin/env python3
+"""
+Container registry cleanup automation
+Removes old images based on age and retention policies
+"""
+
+import requests
+import json
+from datetime import datetime, timedelta
+import os
+
+class RegistryCleanup:
+    def __init__(self, registry_url, username, token):
+        self.registry_url = registry_url
+        self.auth = (username, token)
+        self.retention_policies = {
+            'production': timedelta(days=90),    # Keep prod images 90 days
+            'staging': timedelta(days=30),       # Keep staging 30 days
+            'development': timedelta(days=7),    # Keep dev 7 days
+            'feature': timedelta(days=3),        # Keep feature 3 days
+        }
+    
+    def get_image_tags(self, repository):
+        """Get all tags for a repository"""
+        url = f"{self.registry_url}/v2/{repository}/tags/list"
+        response = requests.get(url, auth=self.auth)
+        return response.json().get('tags', [])
+    
+    def get_tag_metadata(self, repository, tag):
+        """Get metadata for a specific tag"""
+        url = f"{self.registry_url}/v2/{repository}/manifests/{tag}"
+        headers = {'Accept': 'application/vnd.docker.distribution.manifest.v2+json'}
+        response = requests.get(url, auth=self.auth, headers=headers)
+        return response.json()
+    
+    def determine_tag_type(self, tag):
+        """Classify tag based on naming convention"""
+        if tag in ['latest', 'stable']:
+            return 'production'
+        elif tag.startswith('dev-') or tag == 'develop':
+            return 'development'
+        elif tag.startswith('staging-'):
+            return 'staging'
+        elif '-' in tag and not any(x in tag for x in ['v', 'stable', 'latest']):
+            return 'feature'
+        else:
+            return 'production'  # Default to production for safety
+    
+    def cleanup_repository(self, repository):
+        """Clean up old images in a repository"""
+        tags = self.get_image_tags(repository)
+        deleted_count = 0
+        
+        for tag in tags:
+            tag_type = self.determine_tag_type(tag)
+            retention_period = self.retention_policies.get(tag_type, timedelta(days=90))
+            
+            # Skip protected tags
+            if tag in ['latest', 'stable']:
+                continue
+                
+            # Get tag creation date (simplified - would need manifest inspection)
+            # For demo purposes, using tag name pattern
+            cutoff_date = datetime.now() - retention_period
+            
+            # In real implementation, would parse manifest creation date
+            # This is a simplified example
+            if self.should_delete_tag(repository, tag, cutoff_date):
+                if self.delete_tag(repository, tag):
+                    deleted_count += 1
+                    print(f"Deleted {repository}:{tag}")
+        
+        return deleted_count
+    
+    def should_delete_tag(self, repository, tag, cutoff_date):
+        """Determine if tag should be deleted based on age and policies"""
+        # Implementation would check manifest creation date
+        # This is simplified for demonstration
+        return True  # Placeholder
+    
+    def delete_tag(self, repository, tag):
+        """Delete a specific tag"""
+        try:
+            # Get manifest digest
+            url = f"{self.registry_url}/v2/{repository}/manifests/{tag}"
+            headers = {'Accept': 'application/vnd.docker.distribution.manifest.v2+json'}
+            response = requests.get(url, auth=self.auth, headers=headers)
+            digest = response.headers.get('Docker-Content-Digest')
+            
+            if digest:
+                # Delete by digest
+                delete_url = f"{self.registry_url}/v2/{repository}/manifests/{digest}"
+                delete_response = requests.delete(delete_url, auth=self.auth)
+                return delete_response.status_code == 202
+        except Exception as e:
+            print(f"Error deleting {repository}:{tag}: {e}")
+            return False
+
+if __name__ == "__main__":
+    cleanup = RegistryCleanup(
+        registry_url=os.getenv('REGISTRY_URL'),
+        username=os.getenv('REGISTRY_USER'),
+        token=os.getenv('REGISTRY_TOKEN')
+    )
+    
+    repositories = ['app/frontend', 'app/backend', 'app/worker']
+    
+    for repo in repositories:
+        print(f"Cleaning up {repo}...")
+        deleted = cleanup.cleanup_repository(repo)
+        print(f"Deleted {deleted} old images from {repo}")
+</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container Security -->
+            <div class="container-security">
+                <h3>🔒 Container Security Integration</h3>
+                
+                <div class="security-practices">
+                    <div class="security-card scanning">
+                        <h4><i class="fas fa-search"></i> Vulnerability Scanning</h4>
+                        <p>Integrate security scanning into your container CI/CD pipeline</p>
+                        
+                        <div class="scanning-example">
+                            <h5>Multi-Tool Security Pipeline</h5>
+                            <pre><code class="language-yaml"># .github/workflows/container-security.yml
+name: Container Security Scan
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build Docker image
+      run: |
+        docker build -t security-test:${{ github.sha }} .
+    
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'security-test:${{ github.sha }}'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+    
+    - name: Run Snyk container scan
+      uses: snyk/actions/docker@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        image: security-test:${{ github.sha }}
+        args: --severity-threshold=high --file=Dockerfile
+    
+    - name: Run Docker Bench Security
+      run: |
+        docker run --rm --net host --pid host --userns host --cap-add audit_control \
+          -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST \
+          -v /var/lib:/var/lib:ro \
+          -v /var/run/docker.sock:/var/run/docker.sock:ro \
+          -v /etc:/etc:ro --label docker_bench_security \
+          docker/docker-bench-security
+    
+    - name: Upload Trivy scan results
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+    
+    - name: Fail on high severity vulnerabilities
+      run: |
+        HIGH_VULNS=$(docker run --rm -v "$(pwd):/workspace" \
+          aquasec/trivy image --quiet --format json security-test:${{ github.sha }} | \
+          jq '[.Results[]?.Vulnerabilities[]? | select(.Severity=="HIGH" or .Severity=="CRITICAL")] | length')
+        
+        if [ "$HIGH_VULNS" -gt 0 ]; then
+          echo "Found $HIGH_VULNS high/critical vulnerabilities"
+          exit 1
+        fi</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="security-card runtime">
+                        <h4><i class="fas fa-eye"></i> Runtime Security</h4>
+                        <p>Monitor container behavior and enforce security policies at runtime</p>
+                        
+                        <div class="runtime-example">
+                            <h5>Falco Security Rules</h5>
+                            <pre><code class="language-yaml"># falco-rules.yaml - Container security monitoring
+- rule: Unauthorized Process in Container
+  desc: Detect unauthorized processes running in containers
+  condition: >
+    spawned_process and 
+    container and 
+    not proc.name in (authorized_processes)
+  output: >
+    Unauthorized process in container 
+    (user=%user.name command=%proc.cmdline container=%container.name)
+  priority: WARNING
+  
+- rule: Container Drift Detection  
+  desc: Detect if container is running different binary than expected
+  condition: >
+    spawned_process and 
+    container and 
+    not proc.exe in (expected_binaries) and 
+    not proc.name in (package_mgmt_binaries)
+  output: >
+    Container drift detected 
+    (user=%user.name command=%proc.cmdline container=%container.name)
+  priority: ERROR
+
+- rule: Sensitive File Access
+  desc: Monitor access to sensitive files in containers  
+  condition: >
+    open_read and 
+    container and 
+    fd.name in (sensitive_files)
+  output: >
+    Sensitive file accessed in container 
+    (user=%user.name file=%fd.name container=%container.name)
+  priority: WARNING
+
+- list: authorized_processes
+  items: [node, npm, python, gunicorn, nginx]
+  
+- list: expected_binaries
+  items: [/usr/local/bin/node, /usr/bin/python3, /usr/sbin/nginx]
+  
+- list: sensitive_files  
+  items: [/etc/passwd, /etc/shadow, /root/.ssh, /home/*/.ssh]</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Docker Best Practices -->
+            <div class="docker-best-practices">
+                <h3>🎯 Docker Best Practices Summary</h3>
+                
+                <div class="practices-summary">
+                    <div class="practice-category build">
+                        <h4><i class="fas fa-hammer"></i> Build Optimization</h4>
+                        <ul>
+                            <li>Use multi-stage builds to minimize image size</li>
+                            <li>Leverage Docker layer caching effectively</li>
+                            <li>Order Dockerfile instructions by change frequency</li>
+                            <li>Use .dockerignore to exclude unnecessary files</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-category security">
+                        <h4><i class="fas fa-shield-alt"></i> Security</h4>
+                        <ul>
+                            <li>Run containers as non-root users</li>
+                            <li>Scan images for vulnerabilities regularly</li>
+                            <li>Use distroless or minimal base images</li>
+                            <li>Implement proper secrets management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-category performance">
+                        <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
+                        <ul>
+                            <li>Optimize image layers and reduce image size</li>
+                            <li>Use health checks for better orchestration</li>
+                            <li>Implement proper resource constraints</li>
+                            <li>Monitor container metrics and logs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-category operations">
+                        <h4><i class="fas fa-cogs"></i> Operations</h4>
+                        <ul>
+                            <li>Tag images consistently with Git information</li>
+                            <li>Implement automated registry cleanup</li>
+                            <li>Use container orchestration for production</li>
+                            <li>Maintain comprehensive deployment documentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cloud Deployment Section -->
+        <section id="cloud-deployment" class="cloud-section">
+            <div class="section-header">
+                <h2><i class="fas fa-cloud"></i> Cloud Deployment</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge advanced">Advanced</span>
+                    <span class="duration-badge">5 minutes</span>
+                </div>
+            </div>
+
+            <p>Master multi-cloud deployment strategies with infrastructure as code, automated scaling, and Git-driven deployment workflows across AWS, Azure, and Google Cloud Platform.</p>
+
+            <!-- Cloud Architecture Overview -->
+            <div class="cloud-architecture">
+                <h3>☁️ Multi-Cloud Architecture Strategy</h3>
+                
+                <div class="cloud-platforms">
+                    <div class="platform-comparison">
+                        <div class="platform-card aws">
+                            <div class="platform-header">
+                                <i class="fab fa-aws"></i>
+                                <h4>Amazon Web Services</h4>
+                                <span class="platform-badge leader">Market Leader</span>
+                            </div>
+                            <div class="platform-content">
+                                <div class="platform-strengths">
+                                    <h5>Key Strengths</h5>
+                                    <ul>
+                                        <li>Extensive service ecosystem</li>
+                                        <li>Mature CI/CD tools (CodePipeline)</li>
+                                        <li>EKS for Kubernetes orchestration</li>
+                                        <li>Lambda for serverless computing</li>
+                                    </ul>
+                                </div>
+                                <div class="platform-tools">
+                                    <h5>Git Integration Tools</h5>
+                                    <div class="tool-tags">
+                                        <span class="tool-tag">CodeCommit</span>
+                                        <span class="tool-tag">CodePipeline</span>
+                                        <span class="tool-tag">CodeDeploy</span>
+                                        <span class="tool-tag">ECR</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="platform-card azure">
+                            <div class="platform-header">
+                                <i class="fab fa-microsoft"></i>
+                                <h4>Microsoft Azure</h4>
+                                <span class="platform-badge enterprise">Enterprise Focus</span>
+                            </div>
+                            <div class="platform-content">
+                                <div class="platform-strengths">
+                                    <h5>Key Strengths</h5>
+                                    <ul>
+                                        <li>Seamless Microsoft ecosystem integration</li>
+                                        <li>Azure DevOps comprehensive platform</li>
+                                        <li>Strong hybrid cloud capabilities</li>
+                                        <li>Enterprise security and compliance</li>
+                                    </ul>
+                                </div>
+                                <div class="platform-tools">
+                                    <h5>Git Integration Tools</h5>
+                                    <div class="tool-tags">
+                                        <span class="tool-tag">Azure DevOps</span>
+                                        <span class="tool-tag">Azure Pipelines</span>
+                                        <span class="tool-tag">ACR</span>
+                                        <span class="tool-tag">App Service</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="platform-card gcp">
+                            <div class="platform-header">
+                                <i class="fab fa-google"></i>
+                                <h4>Google Cloud Platform</h4>
+                                <span class="platform-badge innovation">AI/ML Leader</span>
+                            </div>
+                            <div class="platform-content">
+                                <div class="platform-strengths">
+                                    <h5>Key Strengths</h5>
+                                    <ul>
+                                        <li>Advanced AI/ML capabilities</li>
+                                        <li>Kubernetes-native (GKE)</li>
+                                        <li>Superior networking and performance</li>
+                                        <li>Cloud Functions for serverless</li>
+                                    </ul>
+                                </div>
+                                <div class="platform-tools">
+                                    <h5>Git Integration Tools</h5>
+                                    <div class="tool-tags">
+                                        <span class="tool-tag">Cloud Source</span>
+                                        <span class="tool-tag">Cloud Build</span>
+                                        <span class="tool-tag">GCR/Artifact Registry</span>
+                                        <span class="tool-tag">Cloud Deploy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infrastructure as Code -->
+            <div class="infrastructure-as-code">
+                <h3>🏗️ Infrastructure as Code (IaC)</h3>
+                
+                <div class="iac-tools">
+                    <div class="iac-card terraform">
+                        <div class="iac-header">
+                            <h4><i class="fas fa-cubes"></i> Terraform Multi-Cloud</h4>
+                            <span class="iac-badge universal">Universal</span>
+                        </div>
+                        <div class="iac-content">
+                            <p>Unified infrastructure provisioning across all cloud providers with Git-driven workflows.</p>
+                            
+                            <div class="terraform-example">
+                                <h5>Multi-Cloud Kubernetes Deployment</h5>
+                                <pre><code class="language-hcl"># terraform/main.tf - Multi-cloud infrastructure
+terraform {
+  required_version = ">= 1.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# AWS EKS Cluster
+module "aws_eks" {
+  source = "./modules/aws-eks"
+  
+  cluster_name    = "app-${var.environment}-aws"
+  cluster_version = "1.27"
+  
+  tags = {
+    Environment = var.environment
+    GitCommit   = var.git_commit
+    ManagedBy   = "terraform"
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitOps Deployment Patterns -->
+            <div class="gitops-patterns">
+                <h3>🔄 GitOps Deployment Patterns</h3>
+                
+                <div class="gitops-strategies">
+                    <div class="gitops-card argocd">
+                        <div class="gitops-header">
+                            <h4><i class="fas fa-sync-alt"></i> ArgoCD Multi-Cluster</h4>
+                        </div>
+                        <div class="gitops-content">
+                            <p>Declarative GitOps continuous delivery for Kubernetes across multiple clouds.</p>
+                            
+                            <div class="argocd-config">
+                                <h5>ArgoCD Application Configuration</h5>
+                                <pre><code class="language-yaml"># argocd/applications/multi-cloud-app.yml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: multi-cloud-app
+  namespace: argocd
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          environment: production
+  
+  template:
+    metadata:
+      name: '{{.path.basename}}-{{.name}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/company/k8s-manifests
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: '{{.server}}'
+        namespace: '{{.path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serverless Deployment -->
+            <div class="serverless-deployment">
+                <h3>⚡ Serverless Deployment Strategies</h3>
+                
+                <div class="serverless-platforms">
+                    <div class="serverless-card functions">
+                        <h4><i class="fas fa-bolt"></i> Multi-Cloud Functions</h4>
+                        <p>Deploy serverless functions across AWS Lambda, Azure Functions, and Google Cloud Functions.</p>
+                        
+                        <div class="serverless-example">
+                            <h5>Serverless Framework Multi-Cloud</h5>
+                            <pre><code class="language-yaml"># serverless.yml - Multi-cloud serverless deployment
+service: multi-cloud-api
+
+provider:
+  name: ${opt:provider, 'aws'}
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
+  
+  environment:
+    GIT_COMMIT: ${env:GITHUB_SHA, 'local'}
+    GIT_BRANCH: ${env:GITHUB_REF_NAME, 'local'}
+
+functions:
+  api:
+    handler: src/handler.api
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deployment Best Practices -->
+            <div class="cloud-deployment-practices">
+                <h3>🎯 Cloud Deployment Best Practices</h3>
+                
+                <div class="deployment-practices">
+                    <div class="practice-section security">
+                        <h4><i class="fas fa-shield-alt"></i> Security & Compliance</h4>
+                        <ul>
+                            <li>Implement least privilege access with IAM roles</li>
+                            <li>Use cloud-native secret management services</li>
+                            <li>Enable audit logging and compliance monitoring</li>
+                            <li>Encrypt data in transit and at rest</li>
+                            <li>Regular security scanning and vulnerability assessments</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-section reliability">
+                        <h4><i class="fas fa-heart"></i> Reliability & Resilience</h4>
+                        <ul>
+                            <li>Multi-region deployment for high availability</li>
+                            <li>Automated backup and disaster recovery</li>
+                            <li>Health checks and self-healing mechanisms</li>
+                            <li>Circuit breakers and retry policies</li>
+                            <li>Gradual rollout with canary deployments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monitoring & Observability Section -->
+        <section id="monitoring-observability" class="monitoring-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Monitoring & Observability</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge intermediate">Intermediate</span>
+                    <span class="duration-badge">4 minutes</span>
+                </div>
+            </div>
+
+            <p>Implement comprehensive monitoring, logging, and alerting systems to ensure reliable deployment pipelines and application performance across your enterprise automation workflows.</p>
+
+            <!-- Observability Stack -->
+            <div class="observability-stack">
+                <h3>📊 Enterprise Observability Stack</h3>
+                
+                <div class="stack-overview">
+                    <div class="observability-pillars">
+                        <div class="pillar-card metrics">
+                            <div class="pillar-header">
+                                <i class="fas fa-chart-bar"></i>
+                                <h4>Metrics & Monitoring</h4>
+                                <span class="pillar-badge quantitative">Quantitative</span>
+                            </div>
+                            <div class="pillar-content">
+                                <p>Time-series data providing quantitative insights into system performance and business metrics.</p>
+                                <div class="pillar-tools">
+                                    <h5>Key Tools</h5>
+                                    <div class="tool-stack">
+                                        <span class="tool-item prometheus">Prometheus</span>
+                                        <span class="tool-item grafana">Grafana</span>
+                                        <span class="tool-item cloudwatch">CloudWatch</span>
+                                        <span class="tool-item datadog">DataDog</span>
+                                    </div>
+                                </div>
+                                <div class="pillar-examples">
+                                    <h5>What to Monitor</h5>
+                                    <ul>
+                                        <li>Deployment success/failure rates</li>
+                                        <li>Pipeline execution times</li>
+                                        <li>Resource utilization metrics</li>
+                                        <li>Application performance indicators</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pillar-card logging">
+                            <div class="pillar-header">
+                                <i class="fas fa-file-alt"></i>
+                                <h4>Logging & Events</h4>
+                                <span class="pillar-badge contextual">Contextual</span>
+                            </div>
+                            <div class="pillar-content">
+                                <p>Structured logs and events providing detailed context about system behavior and user actions.</p>
+                                <div class="pillar-tools">
+                                    <h5>Key Tools</h5>
+                                    <div class="tool-stack">
+                                        <span class="tool-item elk">ELK Stack</span>
+                                        <span class="tool-item fluentd">Fluentd</span>
+                                        <span class="tool-item splunk">Splunk</span>
+                                        <span class="tool-item loki">Loki</span>
+                                    </div>
+                                </div>
+                                <div class="pillar-examples">
+                                    <h5>What to Log</h5>
+                                    <ul>
+                                        <li>Git webhook events and triggers</li>
+                                        <li>Pipeline stage execution details</li>
+                                        <li>Container deployment logs</li>
+                                        <li>Security and audit events</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pillar-card tracing">
+                            <div class="pillar-header">
+                                <i class="fas fa-route"></i>
+                                <h4>Distributed Tracing</h4>
+                                <span class="pillar-badge causal">Causal</span>
+                            </div>
+                            <div class="pillar-content">
+                                <p>End-to-end request tracking showing the complete journey through distributed systems.</p>
+                                <div class="pillar-tools">
+                                    <h5>Key Tools</h5>
+                                    <div class="tool-stack">
+                                        <span class="tool-item jaeger">Jaeger</span>
+                                        <span class="tool-item zipkin">Zipkin</span>
+                                        <span class="tool-item aws-xray">AWS X-Ray</span>
+                                        <span class="tool-item otel">OpenTelemetry</span>
+                                    </div>
+                                </div>
+                                <div class="pillar-examples">
+                                    <h5>What to Trace</h5>
+                                    <ul>
+                                        <li>CI/CD pipeline workflows</li>
+                                        <li>Deployment propagation paths</li>
+                                        <li>Multi-service interactions</li>
+                                        <li>Cross-cloud communications</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Monitoring -->
+            <div class="pipeline-monitoring">
+                <h3>🔍 Pipeline Monitoring Implementation</h3>
+                
+                <div class="monitoring-strategies">
+                    <div class="monitoring-card prometheus-stack">
+                        <div class="monitoring-header">
+                            <h4><i class="fas fa-fire"></i> Prometheus + Grafana Stack</h4>
+                            <span class="monitoring-badge open-source">Open Source</span>
+                        </div>
+                        <div class="monitoring-content">
+                            <p>Complete open-source monitoring solution with custom metrics and alerting.</p>
+                            
+                            <div class="prometheus-config">
+                                <h5>Jenkins Prometheus Integration</h5>
+                                <pre><code class="language-yaml"># prometheus/jenkins-monitoring.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-jenkins-config
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+      evaluation_interval: 15s
+    
+    rule_files:
+      - "jenkins_rules.yml"
+    
+    scrape_configs:
+      - job_name: 'jenkins'
+        metrics_path: '/prometheus/'
+        static_configs:
+          - targets: ['jenkins:8080']
+        scrape_interval: 30s
+        
+      - job_name: 'jenkins-nodes'
+        static_configs:
+          - targets: ['jenkins-agent-1:8080', 'jenkins-agent-2:8080']
+        
+      - job_name: 'kubernetes-pods'
+        kubernetes_sd_configs:
+          - role: pod
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+            action: keep
+            regex: true
+
+---
+apiVersion: v1
+kind: ConfigMap  
+metadata:
+  name: jenkins-alerting-rules
+data:
+  jenkins_rules.yml: |
+    groups:
+    - name: jenkins_pipeline_alerts
+      rules:
+      - alert: JenkinsPipelineFailure
+        expr: jenkins_builds_failed_build_count > 0
+        for: 0m
+        labels:
+          severity: warning
+          service: jenkins
+        annotations:
+          summary: "Jenkins pipeline failed"
+          description: "Pipeline {{ $labels.job }} failed with {{ $value }} failures"
+          
+      - alert: JenkinsHighQueueTime
+        expr: jenkins_queue_size_value > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Jenkins queue is growing"
+          description: "Jenkins has {{ $value }} jobs queued for over 5 minutes"
+          
+      - alert: JenkinsNodeOffline
+        expr: jenkins_node_online_value == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Jenkins node offline"
+          description: "Jenkins node {{ $labels.node }} has been offline for over 1 minute"</code></pre>
+                            </div>
+                            
+                            <div class="grafana-dashboard">
+                                <h5>Grafana CI/CD Dashboard</h5>
+                                <pre><code class="language-json">{
+  "dashboard": {
+    "title": "CI/CD Pipeline Monitoring",
+    "panels": [
+      {
+        "title": "Pipeline Success Rate",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "100 * (jenkins_builds_success_build_count / (jenkins_builds_success_build_count + jenkins_builds_failed_build_count))",
+            "legendFormat": "Success Rate %"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": 0},
+                {"color": "yellow", "value": 80},
+                {"color": "green", "value": 95}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "title": "Deployment Frequency",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(jenkins_builds_success_build_count[1h])",
+            "legendFormat": "Deployments per hour"
+          }
+        ]
+      },
+      {
+        "title": "Pipeline Duration",
+        "type": "heatmap",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(jenkins_builds_duration_milliseconds_bucket[5m]))",
+            "legendFormat": "95th percentile"
+          }
+        ]
+      },
+      {
+        "title": "Git Repository Activity",
+        "type": "table",
+        "targets": [
+          {
+            "expr": "jenkins_builds_last_build_number by (job)",
+            "format": "table"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="monitoring-card elk-stack">
+                        <div class="monitoring-header">
+                            <h4><i class="fas fa-search"></i> ELK Stack Logging</h4>
+                            <span class="monitoring-badge enterprise">Enterprise</span>
+                        </div>
+                        <div class="monitoring-content">
+                            <p>Centralized logging with Elasticsearch, Logstash, and Kibana for comprehensive log analysis.</p>
+                            
+                            <div class="logstash-config">
+                                <h5>Pipeline Log Processing</h5>
+                                <pre><code class="language-ruby"># logstash/pipeline-logs.conf
+input {
+  beats {
+    port => 5044
+  }
+  
+  # Jenkins logs
+  file {
+    path => "/var/log/jenkins/jenkins.log"
+    type => "jenkins"
+    codec => multiline {
+      pattern => "^\d{4}-\d{2}-\d{2}"
+      negate => true
+      what => "previous"
+    }
+  }
+  
+  # Docker container logs
+  docker {
+    type => "docker"
+  }
+  
+  # Kubernetes logs
+  http {
+    port => 8080
+    type => "kubernetes"
+  }
+}
+
+filter {
+  if [type] == "jenkins" {
+    grok {
+      match => { 
+        "message" => "%{TIMESTAMP_ISO8601:timestamp} %{LOGLEVEL:level} %{GREEDYDATA:message}" 
+      }
+    }
+    
+    if "BUILD" in [message] {
+      grok {
+        match => { 
+          "message" => "BUILD (?<build_result>SUCCESS|FAILURE|UNSTABLE) %{GREEDYDATA:build_info}" 
+        }
+        add_tag => ["build_event"]
+      }
+    }
+    
+    if "GIT" in [message] {
+      grok {
+        match => { 
+          "message" => "GIT (?<git_action>\w+) (?<repository>[\w\-\/]+) (?<commit_hash>\w+)" 
+        }
+        add_tag => ["git_event"]
+      }
+    }
+  }
+  
+  if [type] == "docker" {
+    json {
+      source => "message"
+    }
+    
+    mutate {
+      add_field => { "container_name" => "%{[attrs][name]}" }
+      add_field => { "image_name" => "%{[attrs][image]}" }
+    }
+  }
+  
+  # Parse Git commit information
+  if [git_commit] {
+    mutate {
+      add_field => { "commit_short" => "%{[git_commit][0..6]}" }
+    }
+  }
+  
+  # Add deployment stage classification
+  if [container_name] =~ /staging/ {
+    mutate { add_field => { "environment" => "staging" } }
+  } else if [container_name] =~ /production/ {
+    mutate { add_field => { "environment" => "production" } }
+  } else {
+    mutate { add_field => { "environment" => "development" } }
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["elasticsearch:9200"]
+    index => "cicd-logs-%{+YYYY.MM.dd}"
+    template_name => "cicd-template"
+    template => "/etc/logstash/templates/cicd-template.json"
+  }
+  
+  # Send alerts for critical events
+  if [level] == "ERROR" or [build_result] == "FAILURE" {
+    http {
+      url => "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
+      http_method => "post"
+      format => "json"
+      mapping => {
+        "text" => "Pipeline Alert: %{message}"
+        "channel" => "#devops-alerts"
+      }
+    }
+  }
+  
+  stdout { codec => rubydebug }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Performance Monitoring -->
+            <div class="apm-monitoring">
+                <h3>📈 Application Performance Monitoring</h3>
+                
+                <div class="apm-strategies">
+                    <div class="apm-card distributed-tracing">
+                        <h4><i class="fas fa-project-diagram"></i> Distributed Tracing Setup</h4>
+                        <p>Track requests across microservices and deployment pipelines.</p>
+                        
+                        <div class="tracing-implementation">
+                            <h5>OpenTelemetry Integration</h5>
+                            <pre><code class="language-javascript">// instrumentation.js - OpenTelemetry setup for Node.js
+const { NodeSDK } = require('@opentelemetry/sdk-node');
+const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
+const { JaegerExporter } = require('@opentelemetry/exporter-jaeger');
+const { Resource } = require('@opentelemetry/resources');
+const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
+
+// Configure the SDK
+const sdk = new NodeSDK({
+  resource: new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: 'deployment-service',
+    [SemanticResourceAttributes.SERVICE_VERSION]: process.env.GIT_COMMIT || 'unknown',
+    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: process.env.ENVIRONMENT || 'development',
+  }),
+  traceExporter: new JaegerExporter({
+    endpoint: process.env.JAEGER_ENDPOINT || 'http://jaeger:14268/api/traces',
+  }),
+  instrumentations: [getNodeAutoInstrumentations({
+    '@opentelemetry/instrumentation-fs': {
+      enabled: false, // Disable file system tracing to reduce noise
+    },
+  })],
+});
+
+// Initialize the SDK
+sdk.start();
+
+// Pipeline tracing example
+const opentelemetry = require('@opentelemetry/api');
+
+class PipelineTracer {
+  constructor() {
+    this.tracer = opentelemetry.trace.getTracer('pipeline-tracer');
+  }
+  
+  async executePipelineStage(stageName, stageFunction, context = {}) {
+    const span = this.tracer.startSpan(`pipeline.${stageName}`, {
+      attributes: {
+        'pipeline.stage': stageName,
+        'git.commit': process.env.GIT_COMMIT,
+        'git.branch': process.env.GIT_BRANCH,
+        'pipeline.id': context.pipelineId,
+        ...context
+      }
+    });
+    
+    try {
+      const result = await stageFunction();
+      span.setStatus({ code: opentelemetry.SpanStatusCode.OK });
+      span.setAttributes({
+        'pipeline.result': 'success',
+        'pipeline.duration_ms': Date.now() - span.startTime
+      });
+      return result;
+    } catch (error) {
+      span.recordException(error);
+      span.setStatus({ 
+        code: opentelemetry.SpanStatusCode.ERROR,
+        message: error.message 
+      });
+      span.setAttributes({
+        'pipeline.result': 'failure',
+        'error.type': error.constructor.name,
+        'error.message': error.message
+      });
+      throw error;
+    } finally {
+      span.end();
+    }
+  }
+  
+  async traceDeployment(deploymentConfig) {
+    const deploymentSpan = this.tracer.startSpan('deployment.execute', {
+      attributes: {
+        'deployment.target': deploymentConfig.target,
+        'deployment.strategy': deploymentConfig.strategy,
+        'service.name': deploymentConfig.serviceName,
+        'service.version': deploymentConfig.version
+      }
+    });
+    
+    return opentelemetry.context.with(
+      opentelemetry.trace.setSpan(opentelemetry.context.active(), deploymentSpan),
+      async () => {
+        try {
+          // Trace each deployment step
+          await this.executePipelineStage('validate', () => validateDeployment(deploymentConfig));
+          await this.executePipelineStage('deploy', () => executeDeployment(deploymentConfig));
+          await this.executePipelineStage('verify', () => verifyDeployment(deploymentConfig));
+          
+          deploymentSpan.setStatus({ code: opentelemetry.SpanStatusCode.OK });
+        } catch (error) {
+          deploymentSpan.recordException(error);
+          deploymentSpan.setStatus({ 
+            code: opentelemetry.SpanStatusCode.ERROR,
+            message: error.message 
+          });
+          throw error;
+        } finally {
+          deploymentSpan.end();
+        }
+      }
+    );
+  }
+}
+
+module.exports = { PipelineTracer };</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerting Strategies -->
+            <div class="alerting-strategies">
+                <h3>🚨 Intelligent Alerting</h3>
+                
+                <div class="alerting-framework">
+                    <div class="alert-categories">
+                        <div class="alert-card critical">
+                            <div class="alert-header">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h4>Critical Alerts</h4>
+                                <span class="alert-badge immediate">Immediate</span>
+                            </div>
+                            <div class="alert-content">
+                                <h5>Trigger Conditions</h5>
+                                <ul>
+                                    <li>Production deployment failures</li>
+                                    <li>Security vulnerability detected</li>
+                                    <li>Service completely unavailable</li>
+                                    <li>Data loss or corruption</li>
+                                </ul>
+                                <h5>Response Channels</h5>
+                                <div class="alert-channels">
+                                    <span class="channel-tag">PagerDuty</span>
+                                    <span class="channel-tag">SMS</span>
+                                    <span class="channel-tag">Phone</span>
+                                    <span class="channel-tag">Slack</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-card warning">
+                            <div class="alert-header">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <h4>Warning Alerts</h4>
+                                <span class="alert-badge hours">< 4 Hours</span>
+                            </div>
+                            <div class="alert-content">
+                                <h5>Trigger Conditions</h5>
+                                <ul>
+                                    <li>Staging deployment failures</li>
+                                    <li>Performance degradation</li>
+                                    <li>Resource usage thresholds</li>
+                                    <li>Test suite failures</li>
+                                </ul>
+                                <h5>Response Channels</h5>
+                                <div class="alert-channels">
+                                    <span class="channel-tag">Slack</span>
+                                    <span class="channel-tag">Email</span>
+                                    <span class="channel-tag">Dashboard</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-card informational">
+                            <div class="alert-header">
+                                <i class="fas fa-info-circle"></i>
+                                <h4>Informational</h4>
+                                <span class="alert-badge daily">Daily Summary</span>
+                            </div>
+                            <div class="alert-content">
+                                <h5>Notification Types</h5>
+                                <ul>
+                                    <li>Successful deployments</li>
+                                    <li>Performance improvements</li>
+                                    <li>Capacity planning metrics</li>
+                                    <li>Weekly/monthly reports</li>
+                                </ul>
+                                <h5>Response Channels</h5>
+                                <div class="alert-channels">
+                                    <span class="channel-tag">Email Digest</span>
+                                    <span class="channel-tag">Dashboard</span>
+                                    <span class="channel-tag">Reports</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alertmanager-config">
+                        <h4>AlertManager Configuration</h4>
+                        <pre><code class="language-yaml"># alertmanager/alertmanager.yml
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'alerts@company.com'
+  
+route:
+  group_by: ['alertname', 'environment']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 12h
+  receiver: 'web.hook'
+  routes:
+  - match:
+      severity: critical
+      environment: production
+    receiver: 'critical-alerts'
+    group_wait: 10s
+    repeat_interval: 1m
+  - match:
+      severity: warning
+    receiver: 'warning-alerts'
+  - match:
+      service: jenkins
+    receiver: 'devops-team'
+
+receivers:
+- name: 'web.hook'
+  webhook_configs:
+  - url: 'http://webhook-service:5000/alerts'
+
+- name: 'critical-alerts'
+  pagerduty_configs:
+  - service_key: 'YOUR_PAGERDUTY_SERVICE_KEY'
+    description: '{{ range .Alerts }}{{ .Annotations.summary }}{{ end }}'
+  slack_configs:
+  - api_url: 'YOUR_SLACK_WEBHOOK_URL'
+    channel: '#critical-alerts'
+    title: 'Critical Alert: {{ .GroupLabels.alertname }}'
+    text: '{{ range .Alerts }}{{ .Annotations.description }}{{ end }}'
+
+- name: 'warning-alerts'  
+  slack_configs:
+  - api_url: 'YOUR_SLACK_WEBHOOK_URL'
+    channel: '#devops-warnings'
+    title: 'Warning: {{ .GroupLabels.alertname }}'
+    
+- name: 'devops-team'
+  email_configs:
+  - to: 'devops-team@company.com'
+    subject: 'DevOps Alert: {{ .GroupLabels.alertname }}'
+    body: |
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Pipeline: {{ .Labels.job }}
+      Environment: {{ .Labels.environment }}
+      {{ end }}
+
+inhibit_rules:
+- source_match:
+    severity: 'critical'
+  target_match:
+    severity: 'warning'
+  equal: ['alertname', 'environment']</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monitoring Best Practices -->
+            <div class="monitoring-best-practices">
+                <h3>🎯 Monitoring Best Practices</h3>
+                
+                <div class="best-practices-grid">
+                    <div class="practice-card sli-slo">
+                        <h4><i class="fas fa-bullseye"></i> SLIs & SLOs</h4>
+                        <ul>
+                            <li>Define Service Level Indicators (SLIs) for key metrics</li>
+                            <li>Set realistic Service Level Objectives (SLOs)</li>
+                            <li>Monitor deployment success rates and rollback times</li>
+                            <li>Track pipeline execution duration and queue times</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card alert-fatigue">
+                        <h4><i class="fas fa-bell-slash"></i> Prevent Alert Fatigue</h4>
+                        <ul>
+                            <li>Implement alert severity levels and escalation</li>
+                            <li>Use intelligent grouping and deduplication</li>
+                            <li>Regular review and tuning of alert thresholds</li>
+                            <li>Actionable alerts with clear resolution steps</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card data-retention">
+                        <h4><i class="fas fa-database"></i> Data Retention</h4>
+                        <ul>
+                            <li>High-resolution data for recent time periods</li>
+                            <li>Aggregated data for long-term trending</li>
+                            <li>Compliance-driven retention policies</li>
+                            <li>Cost-optimized storage strategies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card automation">
+                        <h4><i class="fas fa-robot"></i> Automated Response</h4>
+                        <ul>
+                            <li>Auto-remediation for known issues</li>
+                            <li>Automated rollback on failure detection</li>
+                            <li>Self-healing infrastructure patterns</li>
+                            <li>Incident response automation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enterprise Integration Lab -->
+        <section id="enterprise-lab" class="lab-section enterprise-lab">
+            <div class="section-header">
+                <h2><i class="fas fa-flask"></i> Enterprise Integration Lab</h2>
+                <div class="section-badges">
+                    <span class="complexity-badge expert">Expert</span>
+                    <span class="duration-badge">12 minutes</span>
+                </div>
+            </div>
+
+            <p>Build a complete enterprise automation workflow combining Jenkins, Docker, multi-cloud deployment, and comprehensive monitoring. This hands-on lab simulates a real-world enterprise environment with production-grade tools and practices.</p>
+
+            <!-- Lab Overview -->
+            <div class="lab-overview">
+                <div class="lab-mission">
+                    <h3>🎯 Mission: Deploy Enterprise E-Commerce Platform</h3>
+                    <p>You'll deploy a microservices-based e-commerce platform across multiple cloud environments with full automation, monitoring, and compliance requirements.</p>
+                    
+                    <div class="lab-objectives">
+                        <div class="objective-grid">
+                            <div class="objective-item">
+                                <i class="fas fa-code-branch"></i>
+                                <h4>Git Workflow</h4>
+                                <p>Multi-branch strategy with automated testing</p>
+                            </div>
+                            <div class="objective-item">
+                                <i class="fas fa-cogs"></i>
+                                <h4>Jenkins Pipeline</h4>
+                                <p>Enterprise CI/CD with multi-stage deployment</p>
+                            </div>
+                            <div class="objective-item">
+                                <i class="fab fa-docker"></i>
+                                <h4>Containerization</h4>
+                                <p>Multi-stage Docker builds and registry management</p>
+                            </div>
+                            <div class="objective-item">
+                                <i class="fas fa-cloud"></i>
+                                <h4>Multi-Cloud Deploy</h4>
+                                <p>AWS, Azure, and GCP deployment strategies</p>
+                            </div>
+                            <div class="objective-item">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Monitoring</h4>
+                                <p>Full observability with metrics, logs, and tracing</p>
+                            </div>
+                            <div class="objective-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Security</h4>
+                                <p>Vulnerability scanning and compliance automation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-architecture">
+                    <h3>🏗️ Lab Architecture</h3>
+                    <div class="architecture-diagram">
+                        <div class="arch-layer source">
+                            <div class="layer-title">Source Control</div>
+                            <div class="layer-components">
+                                <div class="component">GitHub Enterprise</div>
+                                <div class="component">Branch Protection</div>
+                                <div class="component">PR Workflows</div>
+                            </div>
+                        </div>
+                        
+                        <div class="arch-arrow">⬇️</div>
+                        
+                        <div class="arch-layer cicd">
+                            <div class="layer-title">CI/CD Orchestration</div>
+                            <div class="layer-components">
+                                <div class="component">Jenkins Master</div>
+                                <div class="component">Build Agents</div>
+                                <div class="component">Pipeline as Code</div>
+                            </div>
+                        </div>
+                        
+                        <div class="arch-arrow">⬇️</div>
+                        
+                        <div class="arch-layer container">
+                            <div class="layer-title">Container Pipeline</div>
+                            <div class="layer-components">
+                                <div class="component">Multi-stage Builds</div>
+                                <div class="component">Security Scanning</div>
+                                <div class="component">Registry Push</div>
+                            </div>
+                        </div>
+                        
+                        <div class="arch-arrow">⬇️</div>
+                        
+                        <div class="arch-layer deploy">
+                            <div class="layer-title">Multi-Cloud Deployment</div>
+                            <div class="layer-components">
+                                <div class="component aws">AWS EKS</div>
+                                <div class="component azure">Azure AKS</div>
+                                <div class="component gcp">Google GKE</div>
+                            </div>
+                        </div>
+                        
+                        <div class="arch-arrow">⬇️</div>
+                        
+                        <div class="arch-layer monitor">
+                            <div class="layer-title">Monitoring & Observability</div>
+                            <div class="layer-components">
+                                <div class="component">Prometheus</div>
+                                <div class="component">Grafana</div>
+                                <div class="component">Jaeger</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Setup Phase -->
+            <div class="lab-phase setup">
+                <div class="phase-header">
+                    <h3><i class="fas fa-play"></i> Phase 1: Environment Setup</h3>
+                    <span class="phase-duration">3 minutes</span>
+                </div>
+                
+                <div class="lab-steps">
+                    <div class="lab-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Initialize Enterprise Repository</h4>
+                            <p>Set up a multi-service repository with enterprise branch protection and workflow policies.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-title">Repository Structure Setup</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                                </div>
+                                <pre><code class="language-bash"># Create enterprise e-commerce repository
+git init enterprise-ecommerce
+cd enterprise-ecommerce
+
+# Create microservices structure
+mkdir -p {services/{frontend,backend,payment,inventory},infrastructure/{terraform,kubernetes,jenkins},monitoring/{prometheus,grafana}}
+
+# Initialize service directories
+for service in frontend backend payment inventory; do
+  mkdir -p services/$service/{src,tests,docker}
+  echo "# $service Service" > services/$service/README.md
+done
+
+# Create branch protection strategy
+git checkout -b main
+git checkout -b develop
+git checkout -b staging
+
+# Set up Git hooks for enterprise compliance
+curl -o .git/hooks/pre-commit https://raw.githubusercontent.com/company/git-hooks/main/pre-commit-enterprise
+chmod +x .git/hooks/pre-commit
+
+# Create .gitignore for enterprise projects
+cat > .gitignore << 'EOF'
+# Dependencies
+node_modules/
+vendor/
+.env
+.env.local
+*.log
+
+# Build artifacts
+dist/
+build/
+target/
+*.jar
+*.war
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Security
+*.pem
+*.key
+credentials.json
+secrets/
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+EOF
+
+# Initialize with enterprise standards
+git add .
+git commit -m "feat: initialize enterprise e-commerce platform
+
+- Multi-service architecture setup
+- Branch protection strategy
+- Enterprise compliance hooks
+- Security-focused .gitignore"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lab-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Jenkins Enterprise Setup</h4>
+                            <p>Deploy Jenkins with enterprise plugins, security configuration, and multi-agent setup.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-title">Jenkins Master Configuration</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                                </div>
+                                <pre><code class="language-yaml"># infrastructure/jenkins/docker-compose.yml
+version: '3.8'
+
+services:
+  jenkins-master:
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./jenkins-config:/usr/share/jenkins/ref
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+      - JENKINS_ADMIN_ID=admin
+      - JENKINS_ADMIN_PASSWORD=enterprise_password_123
+    networks:
+      - jenkins-network
+  
+  jenkins-agent-docker:
+    image: jenkins/ssh-agent:latest
+    privileged: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2E... # Your SSH public key
+    networks:
+      - jenkins-network
+  
+  jenkins-agent-k8s:
+    image: jenkins/inbound-agent:latest
+    environment:
+      - JENKINS_URL=http://jenkins-master:8080
+      - JENKINS_SECRET=agent-secret-key
+      - JENKINS_AGENT_NAME=k8s-agent
+      - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
+    networks:
+      - jenkins-network
+
+volumes:
+  jenkins_home:
+
+networks:
+  jenkins-network:
+    driver: bridge</code></pre>
+                            </div>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-title">Jenkins Plugins Installation</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                                </div>
+                                <pre><code class="language-bash"># infrastructure/jenkins/plugins.txt
+workflow-aggregator:latest
+pipeline-stage-view:latest
+docker-workflow:latest
+kubernetes:latest
+github-branch-source:latest
+blueocean:latest
+prometheus:latest
+slack:latest
+sonarqube:latest
+owasp-dependency-check:latest
+ansible:latest
+terraform:latest
+aws-credentials:latest
+azure-credentials:latest
+google-kubernetes-engine:latest
+
+# Install plugins automatically
+docker exec jenkins-master jenkins-plugin-cli --plugins-from-file /usr/share/jenkins/ref/plugins.txt</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lab-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Multi-Cloud Infrastructure</h4>
+                            <p>Provision Kubernetes clusters across AWS, Azure, and GCP using Terraform.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-title">Terraform Multi-Cloud Setup</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                                </div>
+                                <pre><code class="language-hcl"># infrastructure/terraform/main.tf
+terraform {
+  required_version = ">= 1.0"
+  
+  backend "s3" {
+    bucket = "enterprise-terraform-state"
+    key    = "ecommerce/terraform.tfstate"
+    region = "us-west-2"
+  }
+  
+  required_providers {
+    aws = { source = "hashicorp/aws", version = "~> 5.0" }
+    azurerm = { source = "hashicorp/azurerm", version = "~> 3.0" }
+    google = { source = "hashicorp/google", version = "~> 4.0" }
+  }
+}
+
+# Variables
+variable "environment" { default = "production" }
+variable "git_commit" { type = string }
+
+# AWS EKS Cluster
+module "aws_infrastructure" {
+  source = "./modules/aws"
+  
+  environment = var.environment
+  git_commit  = var.git_commit
+  
+  cluster_config = {
+    name    = "ecommerce-${var.environment}-aws"
+    version = "1.27"
+    
+    node_groups = {
+      general = {
+        instance_types = ["t3.medium"]
+        desired_size   = 2
+        max_size      = 10
+        min_size      = 1
+      }
+      memory_optimized = {
+        instance_types = ["r5.large"]
+        desired_size   = 1
+        max_size      = 5
+        min_size      = 0
+      }
+    }
+  }
+  
+  monitoring_enabled = true
+  backup_enabled    = true
+}
+
+# Azure AKS Cluster
+module "azure_infrastructure" {
+  source = "./modules/azure"
+  
+  environment = var.environment
+  git_commit  = var.git_commit
+  
+  cluster_config = {
+    name               = "ecommerce-${var.environment}-azure"
+    kubernetes_version = "1.27.3"
+    
+    node_pools = [
+      {
+        name       = "default"
+        vm_size    = "Standard_DS2_v2"
+        node_count = 2
+      }
+    ]
+  }
+}
+
+# GCP GKE Cluster  
+module "gcp_infrastructure" {
+  source = "./modules/gcp"
+  
+  environment = var.environment
+  git_commit  = var.git_commit
+  
+  cluster_config = {
+    name     = "ecommerce-${var.environment}-gcp"
+    location = "us-central1"
+    
+    node_pools = [
+      {
+        name         = "general-pool"
+        machine_type = "e2-medium"
+        node_count   = 2
+      }
+    ]
+  }
+}
+
+# Outputs for Jenkins integration
+output "cluster_endpoints" {
+  value = {
+    aws   = module.aws_infrastructure.cluster_endpoint
+    azure = module.azure_infrastructure.cluster_fqdn  
+    gcp   = module.gcp_infrastructure.cluster_endpoint
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Phase -->
+            <div class="lab-phase development">
+                <div class="phase-header">
+                    <h3><i class="fas fa-code"></i> Phase 2: Service Development</h3>
+                    <span class="phase-duration">4 minutes</span>
+                </div>
+                
+                <div class="lab-steps">
+                    <div class="lab-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Create Frontend Microservice</h4>
+                            <p>Build a React-based frontend with enterprise-grade Dockerfile and CI/CD integration.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-title">Frontend Service Implementation</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                                </div>
+                                <pre><code class="language-dockerfile"># services/frontend/Dockerfile
+# Multi-stage build for production optimization
+FROM node:18-alpine AS dependencies
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+FROM node:18-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+RUN npm run test -- --coverage --watchAll=false
+
+FROM nginx:alpine AS production
+WORKDIR /usr/share/nginx/html
+
+# Copy built application
+COPY --from=build /app/build .
+COPY --from=build /app/nginx.conf /etc/nginx/nginx.conf
+
+# Security hardening
+RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
+RUN chown -R nextjs:nodejs /usr/share/nginx/html
+RUN chmod -R 755 /usr/share/nginx/html
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:80/health || exit 1
+
+# Labels for tracking
+LABEL maintainer="devops@enterprise.com"
+LABEL version="1.0"
+LABEL git.commit="${GIT_COMMIT}"
+LABEL build.date="${BUILD_DATE}"
+
+USER nextjs
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]</code></pre>
+                            </div>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-title">Frontend Package Configuration</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                                </div>
+                                <pre><code class="language-json">{
+  "name": "ecommerce-frontend",
+  "version": "1.0.0",
+  "description": "Enterprise E-Commerce Frontend Service",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:coverage": "npm test -- --coverage --watchAll=false",
+    "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint src/ --ext .js,.jsx,.ts,.tsx --fix",
+    "security:audit": "npm audit --audit-level moderate",
+    "docker:build": "docker build -t ecommerce-frontend:${GIT_COMMIT:-latest} .",
+    "docker:scan": "docker scan ecommerce-frontend:${GIT_COMMIT:-latest}"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "axios": "^1.3.0",
+    "@opentelemetry/api": "^1.4.0",
+    "@opentelemetry/sdk-web": "^1.13.0"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "eslint": "^8.36.0",
+    "eslint-config-react-app": "^7.0.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.js",
+      "!src/setupTests.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": ["react-app", "react-app/jest"]
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lab-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Backend API Service</h4>
+                            <p>Implement a Node.js backend with comprehensive monitoring and security features.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-title">Backend Service with Monitoring</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                                </div>
+                                <pre><code class="language-javascript">// services/backend/src/server.js
+const express = require('express');
+const prometheus = require('prom-client');
+const opentelemetry = require('@opentelemetry/api');
+const { NodeSDK } = require('@opentelemetry/sdk-node');
+const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
+
+// Initialize OpenTelemetry
+const sdk = new NodeSDK({
+  instrumentations: [getNodeAutoInstrumentations()],
+});
+sdk.start();
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Prometheus metrics
+const httpRequestDuration = new prometheus.Histogram({
+  name: 'http_request_duration_seconds',
+  help: 'Duration of HTTP requests in seconds',
+  labelNames: ['method', 'route', 'status'],
+  buckets: [0.1, 0.5, 1, 2, 5]
+});
+
+const httpRequestsTotal = new prometheus.Counter({
+  name: 'http_requests_total',
+  help: 'Total number of HTTP requests',
+  labelNames: ['method', 'route', 'status']
+});
+
+const deploymentInfo = new prometheus.Gauge({
+  name: 'deployment_info',
+  help: 'Information about the deployment',
+  labelNames: ['version', 'git_commit', 'environment']
+});
+
+// Set deployment info
+deploymentInfo.set(
+  { 
+    version: process.env.npm_package_version || '1.0.0',
+    git_commit: process.env.GIT_COMMIT || 'unknown',
+    environment: process.env.NODE_ENV || 'development'
+  }, 
+  1
+);
+
+// Middleware
+app.use(express.json());
+app.use((req, res, next) => {
+  const start = Date.now();
+  
+  res.on('finish', () => {
+    const duration = (Date.now() - start) / 1000;
+    const route = req.route ? req.route.path : req.path;
+    
+    httpRequestDuration
+      .labels(req.method, route, res.statusCode)
+      .observe(duration);
+    
+    httpRequestsTotal
+      .labels(req.method, route, res.statusCode)
+      .inc();
+  });
+  
+  next();
+});
+
+// Routes
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    version: process.env.npm_package_version || '1.0.0',
+    git_commit: process.env.GIT_COMMIT || 'unknown'
+  });
+});
+
+app.get('/metrics', (req, res) => {
+  res.set('Content-Type', prometheus.register.contentType);
+  res.end(prometheus.register.metrics());
+});
+
+app.get('/api/products', async (req, res) => {
+  const tracer = opentelemetry.trace.getActiveTracer();
+  const span = tracer.startSpan('get_products');
+  
+  try {
+    // Simulate database query
+    const products = [
+      { id: 1, name: 'Enterprise Widget', price: 99.99 },
+      { id: 2, name: 'Professional Tool', price: 149.99 }
+    ];
+    
+    span.setAttributes({
+      'products.count': products.length,
+      'operation.type': 'database_query'
+    });
+    
+    res.json(products);
+  } catch (error) {
+    span.recordException(error);
+    span.setStatus({ code: opentelemetry.SpanStatusCode.ERROR });
+    res.status(500).json({ error: 'Internal server error' });
+  } finally {
+    span.end();
+  }
+});
+
+// Error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal server error' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Backend service running on port ${PORT}`);
+  console.log(`Health check: http://localhost:${PORT}/health`);
+  console.log(`Metrics: http://localhost:${PORT}/metrics`);
+});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Phase -->
+            <div class="lab-phase pipeline">
+                <div class="phase-header">
+                    <h3><i class="fas fa-cogs"></i> Phase 3: Enterprise Pipeline</h3>
+                    <span class="phase-duration">5 minutes</span>
+                </div>
+                
+                <div class="lab-steps">
+                    <div class="lab-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Multi-Service Jenkins Pipeline</h4>
+                            <p>Create a comprehensive pipeline that handles all microservices with parallel execution and advanced deployment strategies.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-title">Enterprise Jenkinsfile</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
+                                </div>
+                                <pre><code class="language-groovy">// Jenkinsfile
+pipeline {
+    agent none
+    
+    environment {
+        DOCKER_REGISTRY = 'enterprise-registry.company.com'
+        SONAR_TOKEN = credentials('sonar-token')
+        SLACK_WEBHOOK = credentials('slack-webhook')
+        GIT_COMMIT_SHORT = "${env.GIT_COMMIT.take(8)}"
+    }
+    
+    stages {
+        stage('Checkout & Preparation') {
+            agent any
+            steps {
+                checkout scm
+                script {
+                    env.BUILD_VERSION = "${env.BUILD_NUMBER}-${env.GIT_COMMIT_SHORT}"
+                    env.SERVICES_CHANGED = sh(
+                        script: '''
+                            git diff --name-only HEAD~1 HEAD | grep -E "^services/" | \
+                            cut -d'/' -f2 | sort -u | tr '\n' ',' | sed 's/,$//'
+                        ''',
+                        returnStdout: true
+                    ).trim()
+                }
+                echo "Services changed: ${env.SERVICES_CHANGED}"
+            }
+        }
+        
+        stage('Parallel Service Builds') {
+            parallel {
+                stage('Frontend Service') {
+                    when {
+                        anyOf {
+                            changeset "services/frontend/**"
+                            expression { env.SERVICES_CHANGED.contains('frontend') }
+                            expression { params.FORCE_BUILD_ALL == true }
+                        }
+                    }
+                    agent {
+                        docker {
+                            image 'node:18-alpine'
+                            args '-v /var/run/docker.sock:/var/run/docker.sock'
+                        }
+                    }
+                    stages {
+                        stage('Frontend: Install & Test') {
+                            steps {
+                                dir('services/frontend') {
+                                    sh 'npm ci'
+                                    sh 'npm run lint'
+                                    sh 'npm run test:coverage'
+                                    sh 'npm run security:audit'
+                                }
+                            }
+                            post {
+                                always {
+                                    publishTestResults testResultsPattern: 'services/frontend/coverage/junit.xml'
+                                    publishCoverageResults coveragePattern: 'services/frontend/coverage/lcov.info'
+                                }
+                            }
+                        }
+                        
+                        stage('Frontend: Build & Scan') {
+                            steps {
+                                dir('services/frontend') {
+                                    script {
+                                        def image = docker.build(
+                                            "${DOCKER_REGISTRY}/ecommerce-frontend:${BUILD_VERSION}",
+                                            "--build-arg GIT_COMMIT=${GIT_COMMIT} --build-arg BUILD_DATE='${new Date().toISOString()}' ."
+                                        )
+                                        
+                                        // Security scan
+                                        sh "trivy image --exit-code 0 --severity HIGH,CRITICAL ${DOCKER_REGISTRY}/ecommerce-frontend:${BUILD_VERSION}"
+                                        
+                                        // Push to registry
+                                        docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker-registry-creds') {
+                                            image.push()
+                                            image.push('latest')
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                stage('Backend Service') {
+                    when {
+                        anyOf {
+                            changeset "services/backend/**"
+                            expression { env.SERVICES_CHANGED.contains('backend') }
+                            expression { params.FORCE_BUILD_ALL == true }
+                        }
+                    }
+                    agent {
+                        docker {
+                            image 'node:18-alpine'
+                            args '-v /var/run/docker.sock:/var/run/docker.sock'
+                        }
+                    }
+                    stages {
+                        stage('Backend: Install & Test') {
+                            steps {
+                                dir('services/backend') {
+                                    sh 'npm ci'
+                                    sh 'npm run lint'
+                                    sh 'npm run test:coverage'
+                                    sh 'npm run security:audit'
+                                }
+                            }
+                        }
+                        
+                        stage('Backend: SonarQube Analysis') {
+                            steps {
+                                dir('services/backend') {
+                                    withSonarQubeEnv('SonarQube') {
+                                        sh 'sonar-scanner -Dsonar.projectKey=ecommerce-backend -Dsonar.sources=src'
+                                    }
+                                }
+                            }
+                        }
+                        
+                        stage('Backend: Build & Scan') {
+                            steps {
+                                dir('services/backend') {
+                                    script {
+                                        def image = docker.build(
+                                            "${DOCKER_REGISTRY}/ecommerce-backend:${BUILD_VERSION}",
+                                            "--build-arg GIT_COMMIT=${GIT_COMMIT} ."
+                                        )
+                                        
+                                        // Security scanning
+                                        sh "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest image --exit-code 1 --severity CRITICAL ${DOCKER_REGISTRY}/ecommerce-backend:${BUILD_VERSION}"
+                                        
+                                        docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker-registry-creds') {
+                                            image.push()
+                                            image.push('latest')
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Integration Tests') {
+            agent any
+            steps {
+                script {
+                    // Run integration tests with Docker Compose
+                    sh '''
+                        cd integration-tests
+                        docker-compose up -d
+                        sleep 30
+                        npm run test:integration
+                    '''
+                }
+            }
+            post {
+                always {
+                    sh 'docker-compose -f integration-tests/docker-compose.yml down -v'
+                    publishTestResults testResultsPattern: 'integration-tests/results/*.xml'
+                }
+            }
+        }
+        
+        stage('Deploy to Staging') {
+            when {
+                branch 'develop'
+            }
+            agent any
+            steps {
+                script {
+                    // Multi-cloud staging deployment
+                    parallel(
+                        'AWS Staging': {
+                            deployToCluster(
+                                cluster: 'aws-staging',
+                                namespace: 'ecommerce-staging',
+                                version: env.BUILD_VERSION
+                            )
+                        },
+                        'Azure Staging': {
+                            deployToCluster(
+                                cluster: 'azure-staging', 
+                                namespace: 'ecommerce-staging',
+                                version: env.BUILD_VERSION
+                            )
+                        }
+                    )
+                }
+            }
+        }
+        
+        stage('Production Deployment Approval') {
+            when {
+                branch 'main'
+            }
+            agent none
+            steps {
+                timeout(time: 30, unit: 'MINUTES') {
+                    input message: 'Deploy to Production?', ok: 'Deploy',
+                          submitterParameter: 'APPROVER',
+                          parameters: [
+                              choice(name: 'DEPLOYMENT_STRATEGY', 
+                                     choices: ['blue-green', 'canary', 'rolling'], 
+                                     description: 'Deployment Strategy'),
+                              booleanParam(name: 'RUN_LOAD_TESTS', 
+                                          defaultValue: true, 
+                                          description: 'Run load tests after deployment')
+                          ]
+                }
+            }
+        }
+        
+        stage('Production Deployment') {
+            when {
+                branch 'main'
+            }
+            agent any
+            steps {
+                script {
+                    echo "Deploying to production with ${params.DEPLOYMENT_STRATEGY} strategy"
+                    echo "Approved by: ${env.APPROVER}"
+                    
+                    // Multi-cloud production deployment
+                    parallel(
+                        'AWS Production': {
+                            deployToProduction(
+                                cloud: 'aws',
+                                strategy: params.DEPLOYMENT_STRATEGY,
+                                version: env.BUILD_VERSION
+                            )
+                        },
+                        'Azure Production': {
+                            deployToProduction(
+                                cloud: 'azure',
+                                strategy: params.DEPLOYMENT_STRATEGY,
+                                version: env.BUILD_VERSION
+                            )
+                        },
+                        'GCP Production': {
+                            deployToProduction(
+                                cloud: 'gcp',
+                                strategy: params.DEPLOYMENT_STRATEGY,
+                                version: env.BUILD_VERSION
+                            )
+                        }
+                    )
+                }
+            }
+        }
+        
+        stage('Post-Deployment Validation') {
+            when {
+                branch 'main'
+            }
+            agent any
+            steps {
+                script {
+                    if (params.RUN_LOAD_TESTS) {
+                        // Run load tests
+                        sh '''
+                            cd load-tests
+                            k6 run --out influxdb=http://influxdb:8086/k6 production-load-test.js
+                        '''
+                    }
+                    
+                    // Health checks across all clouds
+                    sh '''
+                        # Wait for services to be ready
+                        sleep 60
+                        
+                        # Check health endpoints
+                        for cloud in aws azure gcp; do
+                            echo "Checking $cloud health..."
+                            curl -f "https://ecommerce-$cloud.company.com/health" || exit 1
+                        done
+                    '''
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+        success {
+            script {
+                def message = """
+✅ *Deployment Successful*
+Branch: `${env.BRANCH_NAME}`
+Commit: `${env.GIT_COMMIT_SHORT}`
+Build: `${env.BUILD_NUMBER}`
+Services: `${env.SERVICES_CHANGED ?: 'all'}`
+Approver: `${env.APPROVER ?: 'automated'}`
+"""
+                slackSend(channel: '#deployments', color: 'good', message: message)
+            }
+        }
+        failure {
+            script {
+                def message = """
+❌ *Deployment Failed*
+Branch: `${env.BRANCH_NAME}`
+Build: `${env.BUILD_NUMBER}`
+Stage: `${env.STAGE_NAME}`
+"""
+                slackSend(channel: '#deployments', color: 'danger', message: message)
+            }
+        }
+    }
+}
+
+// Helper functions
+def deployToCluster(Map config) {
+    sh """
+        kubectl config use-context ${config.cluster}
+        helm upgrade --install ecommerce ./kubernetes/helm-chart \
+            --namespace ${config.namespace} \
+            --create-namespace \
+            --set image.tag=${config.version} \
+            --set environment=staging \
+            --wait --timeout=10m
+    """
+}
+
+def deployToProduction(Map config) {
+    sh """
+        kubectl config use-context ${config.cloud}-production
+        
+        case "${config.strategy}" in
+            "blue-green")
+                helm upgrade --install ecommerce-green ./kubernetes/helm-chart \
+                    --namespace ecommerce-production \
+                    --set image.tag=${config.version} \
+                    --set deployment.color=green \
+                    --wait --timeout=15m
+                
+                # Switch traffic after validation
+                kubectl patch service ecommerce-service \
+                    -p '{"spec":{"selector":{"color":"green"}}}'
+                ;;
+            "canary")
+                helm upgrade --install ecommerce ./kubernetes/helm-chart \
+                    --namespace ecommerce-production \
+                    --set image.tag=${config.version} \
+                    --set deployment.canary.enabled=true \
+                    --set deployment.canary.weight=10 \
+                    --wait --timeout=15m
+                ;;
+            *)
+                helm upgrade --install ecommerce ./kubernetes/helm-chart \
+                    --namespace ecommerce-production \
+                    --set image.tag=${config.version} \
+                    --wait --timeout=15m
+                ;;
+        esac
+    """
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Validation -->
+            <div class="lab-validation">
+                <h3>✅ Lab Validation & Results</h3>
+                
+                <div class="validation-checklist">
+                    <div class="validation-category">
+                        <h4><i class="fas fa-code-branch"></i> Git Workflow Validation</h4>
+                        <ul class="checklist">
+                            <li>✅ Multi-branch strategy implemented</li>
+                            <li>✅ Branch protection rules active</li>
+                            <li>✅ Pre-commit hooks functioning</li>
+                            <li>✅ Automated change detection working</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="validation-category">
+                        <h4><i class="fas fa-cogs"></i> Jenkins Pipeline Validation</h4>
+                        <ul class="checklist">
+                            <li>✅ Parallel service builds executing</li>
+                            <li>✅ Security scanning integrated</li>
+                            <li>✅ Quality gates enforced</li>
+                            <li>✅ Multi-cloud deployment successful</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="validation-category">
+                        <h4><i class="fas fa-chart-line"></i> Monitoring Validation</h4>
+                        <ul class="checklist">
+                            <li>✅ Prometheus metrics collecting</li>
+                            <li>✅ Grafana dashboards displaying</li>
+                            <li>✅ Distributed tracing active</li>
+                            <li>✅ Alerts configured and firing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="validation-category">
+                        <h4><i class="fas fa-shield-alt"></i> Security Validation</h4>
+                        <ul class="checklist">
+                            <li>✅ Container vulnerability scanning</li>
+                            <li>✅ Code quality analysis</li>
+                            <li>✅ Dependency security audits</li>
+                            <li>✅ Infrastructure compliance checks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Conclusion -->
+            <div class="lab-conclusion">
+                <h3>🎓 Congratulations! Enterprise Integration Mastery</h3>
+                
+                <div class="achievements">
+                    <div class="achievement-grid">
+                        <div class="achievement-card">
+                            <i class="fas fa-trophy"></i>
+                            <h4>Enterprise Architect</h4>
+                            <p>Successfully designed and implemented a multi-cloud enterprise architecture</p>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <i class="fas fa-rocket"></i>
+                            <h4>DevOps Engineer</h4>
+                            <p>Built comprehensive CI/CD pipelines with advanced deployment strategies</p>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Security Champion</h4>
+                            <p>Integrated security scanning and compliance throughout the pipeline</p>
+                        </div>
+                        
+                        <div class="achievement-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Observability Expert</h4>
+                            <p>Implemented comprehensive monitoring, logging, and alerting systems</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="next-steps">
+                    <h4>🚀 Next Steps in Your Journey</h4>
+                    <ul>
+                        <li><strong>Phase 3: Enterprise Management</strong> - Scale for large organizations and complex project structures</li>
+                        <li><strong>Advanced GitOps</strong> - Implement declarative infrastructure and application management</li>
+                        <li><strong>Compliance Automation</strong> - Automated security and regulatory compliance workflows</li>
+                        <li><strong>Performance Optimization</strong> - Advanced repository and pipeline optimization techniques</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="mission-complete">
+            <div class="completion-message">
+                <h2><i class="fas fa-trophy"></i> Mission Status: COMPLETE</h2>
+                <p>Congratulations, Commander! You have successfully mastered enterprise tool integration and automation orchestration. Your comprehensive automation workflows are now operational across multiple cloud environments with full observability and security compliance.</p>
+                
+                <p>Your next commander operation will be <strong>Phase 3: Enterprise Management</strong>, where you'll learn to scale Git operations for large organizations and implement advanced governance strategies.</p>
+                
+                <div class="mission-nav-buttons">
+                    <a href="github-actions-cicd.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
+                    <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
+                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Commander Operations Training • Phase 2.3 of Automation & CI/CD Integration</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

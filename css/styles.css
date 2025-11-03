@@ -5781,6 +5781,525 @@ h2 .fas {
     font-size: 0.8rem;
 }
 
+/* =============================================================================
+   ENTERPRISE TOOL INTEGRATION STYLING
+   ============================================================================= */
+
+/* Enterprise Architecture Flow */
+.enterprise-architecture {
+    margin: 3rem 0;
+}
+
+.architecture-flow {
+    margin: 2rem 0;
+    background: rgba(15, 25, 35, 0.8);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(100, 149, 237, 0.3);
+}
+
+.enterprise-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 2rem 0;
+}
+
+.enterprise-stage {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-width: 180px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(100, 149, 237, 0.2);
+}
+
+.enterprise-stage.source {
+    background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.1) 0%, 
+        rgba(255, 165, 0, 0.1) 100%);
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.enterprise-stage.orchestration {
+    background: linear-gradient(135deg, 
+        rgba(50, 205, 50, 0.1) 0%, 
+        rgba(34, 139, 34, 0.1) 100%);
+    border-color: rgba(50, 205, 50, 0.4);
+}
+
+.enterprise-stage.containerization {
+    background: linear-gradient(135deg, 
+        rgba(100, 149, 237, 0.1) 0%, 
+        rgba(65, 105, 225, 0.1) 100%);
+    border-color: rgba(100, 149, 237, 0.4);
+}
+
+.enterprise-stage.deployment {
+    background: linear-gradient(135deg, 
+        rgba(138, 43, 226, 0.1) 0%, 
+        rgba(75, 0, 130, 0.1) 100%);
+    border-color: rgba(138, 43, 226, 0.4);
+}
+
+.enterprise-stage.monitoring {
+    background: linear-gradient(135deg, 
+        rgba(220, 20, 60, 0.1) 0%, 
+        rgba(178, 34, 34, 0.1) 100%);
+    border-color: rgba(220, 20, 60, 0.4);
+}
+
+.enterprise-stage .stage-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: #0f1923;
+}
+
+.enterprise-stage.source .stage-icon {
+    background: #ffd700;
+}
+
+.enterprise-stage.orchestration .stage-icon {
+    background: #32cd32;
+}
+
+.enterprise-stage.containerization .stage-icon {
+    background: #6495ed;
+}
+
+.enterprise-stage.deployment .stage-icon {
+    background: #8a2be2;
+}
+
+.enterprise-stage.monitoring .stage-icon {
+    background: #dc143c;
+}
+
+.stage-content h5 {
+    color: var(--primary-gold);
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+}
+
+.stage-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tool-badge {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    display: inline-block;
+}
+
+.enterprise-arrow {
+    color: var(--primary-gold);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    animation: pulse-enterprise 2s infinite;
+}
+
+@keyframes pulse-enterprise {
+    0%, 100% { opacity: 1; transform: translateX(0); }
+    50% { opacity: 0.7; transform: translateX(5px); }
+}
+
+/* Integration Patterns */
+.integration-patterns {
+    margin: 3rem 0;
+}
+
+.patterns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.pattern-card {
+    background: rgba(15, 25, 35, 0.8);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(100, 149, 237, 0.2);
+}
+
+.pattern-card.gitops {
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.pattern-card.microservices {
+    border-color: rgba(50, 205, 50, 0.4);
+}
+
+.pattern-card.progressive {
+    border-color: rgba(100, 149, 237, 0.4);
+}
+
+.pattern-card.security {
+    border-color: rgba(220, 20, 60, 0.4);
+}
+
+.pattern-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pattern-header h4 {
+    color: var(--primary-gold);
+    margin: 0;
+}
+
+.pattern-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.pattern-content li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #b0c4de;
+}
+
+.pattern-content li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary-gold);
+    font-weight: bold;
+}
+
+/* Jenkins Specific Styling */
+.jenkins-section {
+    background: rgba(15, 25, 35, 0.6);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(100, 149, 237, 0.3);
+}
+
+.jenkins-architecture {
+    margin: 2rem 0;
+}
+
+.jenkins-components {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.component-card.master {
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.component-card.agent {
+    border-color: rgba(50, 205, 50, 0.4);
+}
+
+.component-badge.orchestrator {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.component-badge.executor {
+    background: rgba(50, 205, 50, 0.2);
+    color: #32cd32;
+    border: 1px solid rgba(50, 205, 50, 0.3);
+}
+
+/* Setup Options */
+.setup-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.setup-card {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid rgba(100, 149, 237, 0.2);
+}
+
+.setup-card.docker {
+    border-color: rgba(100, 149, 237, 0.4);
+}
+
+.setup-card.kubernetes {
+    border-color: rgba(138, 43, 226, 0.4);
+}
+
+.setup-card h5 {
+    color: var(--primary-gold);
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Pipeline Types */
+.pipeline-types {
+    margin: 2rem 0;
+}
+
+.pipeline-card {
+    background: rgba(15, 25, 35, 0.8);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(100, 149, 237, 0.2);
+    margin-bottom: 2rem;
+}
+
+.pipeline-card.declarative {
+    border-color: rgba(50, 205, 50, 0.4);
+}
+
+.pipeline-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pipeline-header h4 {
+    color: var(--primary-gold);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Git Integration Features */
+.jenkins-git-integration {
+    margin: 3rem 0;
+}
+
+.git-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: rgba(15, 25, 35, 0.8);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(100, 149, 237, 0.2);
+}
+
+.feature-card.webhooks {
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.feature-card.multibranch {
+    border-color: rgba(50, 205, 50, 0.4);
+}
+
+.feature-card h4 {
+    color: var(--primary-gold);
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.webhook-setup, .jenkins-config, .multibranch-config {
+    margin: 1.5rem 0;
+}
+
+.webhook-setup h5, .jenkins-config h5, .multibranch-config h5 {
+    color: #b0c4de;
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+}
+
+/* Section Navigation */
+.section-navigation {
+    margin: 3rem 0;
+}
+
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.section-card {
+    background: rgba(15, 25, 35, 0.8);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(100, 149, 237, 0.2);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.section-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-gold);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+}
+
+.section-card.jenkins {
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.section-card.docker {
+    border-color: rgba(100, 149, 237, 0.4);
+}
+
+.section-card.cloud {
+    border-color: rgba(138, 43, 226, 0.4);
+}
+
+.section-card.monitoring {
+    border-color: rgba(50, 205, 50, 0.4);
+}
+
+.section-card.lab {
+    border-color: rgba(220, 20, 60, 0.4);
+}
+
+.section-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: #0f1923;
+}
+
+.section-content h3 {
+    color: var(--primary-gold);
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+}
+
+.section-content p {
+    color: #b0c4de;
+    text-align: center;
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+}
+
+.section-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.duration, .level {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.duration {
+    background: rgba(100, 149, 237, 0.2);
+    color: #6495ed;
+    border: 1px solid rgba(100, 149, 237, 0.3);
+}
+
+.level {
+    background: rgba(255, 69, 0, 0.2);
+    color: #ff4500;
+    border: 1px solid rgba(255, 69, 0, 0.3);
+}
+
+/* Coming Soon Sections */
+.coming-soon-section {
+    margin: 3rem 0;
+}
+
+.coming-soon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.coming-soon-card {
+    background: rgba(15, 25, 35, 0.4);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(100, 149, 237, 0.1);
+    text-align: center;
+    position: relative;
+    opacity: 0.7;
+}
+
+.coming-soon-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: #6b7280;
+}
+
+.coming-soon-card h3 {
+    color: #6b7280;
+    margin: 0 0 0.5rem 0;
+}
+
+.coming-soon-card p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin: 0 0 1rem 0;
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
 /* Responsive Design for GitHub Actions */
 @media (max-width: 768px) {
     .pipeline-diagram {
@@ -5811,6 +6330,44 @@ h2 .fas {
     
     .trigger-types {
         justify-content: flex-start;
+    }
+}
+
+/* Responsive Design for Enterprise Integration */
+@media (max-width: 768px) {
+    .enterprise-diagram {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .enterprise-arrow {
+        transform: rotate(90deg);
+        margin: 1rem 0;
+    }
+    
+    .enterprise-stage {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .jenkins-components, .setup-options, .git-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .sections-grid, .coming-soon-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pipeline-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .section-meta {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
 
