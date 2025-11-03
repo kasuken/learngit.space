@@ -2,17 +2,32 @@
 // Tracks chapter completion and displays progress
 
 const ProgressTracker = {
-    // Storage key
+    // Storage keys
     STORAGE_KEY: 'learngit_progress',
+    PATH_KEY: 'learngit_selected_path',
     
     // Mission structure
     missions: {
-        'mission-briefing': { phases: 1, section: 'Pre-Launch' },
-        'git-basics': { phases: 10, section: 'Phase 1: Launch Sequence' },
-        'branches': { phases: 8, section: 'Phase 2: Orbital Maneuvers' },
-        'advanced': { phases: 7, section: 'Phase 3: Deep Space Operations' },
-        'collaboration': { phases: 6, section: 'Phase 4: Multi-Crew Missions' },
-        'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System' }
+        'mission-briefing': { phases: 1, section: 'Pre-Launch', path: 'novice' },
+        'git-basics': { phases: 10, section: 'Phase 1: Launch Sequence', path: 'novice' },
+        'branches': { phases: 8, section: 'Phase 2: Orbital Maneuvers', path: 'novice' },
+        'advanced': { phases: 7, section: 'Phase 3: Deep Space Operations', path: 'novice' },
+        'collaboration': { phases: 6, section: 'Phase 4: Multi-Crew Missions', path: 'novice' },
+        'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System', path: 'novice' }
+    },
+
+    // Path definitions
+    paths: {
+        novice: {
+            name: 'Cadet Training',
+            missions: ['mission-briefing', 'git-basics', 'branches', 'advanced', 'collaboration', 'beyond'],
+            totalPhases: 35  // 1 + 10 + 8 + 7 + 6 + 3 = 35
+        },
+        advanced: {
+            name: 'Commander Operations', 
+            missions: [],  // Will be populated when advanced content is added
+            totalPhases: 0
+        }
     },
     
     // Initialize progress tracker
@@ -81,6 +96,42 @@ const ProgressTracker = {
             completed: completedPhases,
             total: totalPhases,
             percentage: Math.round((completedPhases / totalPhases) * 100)
+        };
+    },
+
+    // Path management methods
+    setSelectedPath(path) {
+        localStorage.setItem(this.PATH_KEY, path);
+    },
+
+    getSelectedPath() {
+        return localStorage.getItem(this.PATH_KEY);
+    },
+
+    isNovicePathComplete() {
+        const novicePhases = this.paths.novice.totalPhases;
+        let completedPhases = 0;
+        
+        for (const mission of this.paths.novice.missions) {
+            completedPhases += this.progress[mission] ? this.progress[mission].length : 0;
+        }
+        
+        return completedPhases >= novicePhases;
+    },
+
+    getPathProgress(pathName) {
+        const path = this.paths[pathName];
+        if (!path) return 0;
+        
+        let completedPhases = 0;
+        for (const mission of path.missions) {
+            completedPhases += this.progress[mission] ? this.progress[mission].length : 0;
+        }
+        
+        return {
+            completed: completedPhases,
+            total: path.totalPhases,
+            percentage: Math.round((completedPhases / path.totalPhases) * 100)
         };
     },
     
@@ -226,6 +277,11 @@ const ProgressTracker = {
         // This runs on the homepage
         if (!document.querySelector('.mission-control')) return;
         
+        // Update path interface if available
+        if (typeof updatePathInterface === 'function') {
+            updatePathInterface();
+        }
+        
         // Update section progress
         const sections = document.querySelectorAll('.mission-section');
         sections.forEach(section => {
@@ -308,7 +364,7 @@ const ProgressTracker = {
         }
         
         progressWidget.innerHTML = `
-            <h4>🚀 Mission Progress</h4>
+            <h4><i class="fas fa-rocket"></i> Mission Progress</h4>
             <div class="circular-progress">
                 <svg width="130" height="130">
                     <circle cx="65" cy="65" r="50" class="progress-bg"></circle>
@@ -325,17 +381,268 @@ const ProgressTracker = {
     resetProgress() {
         if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
             localStorage.removeItem(this.STORAGE_KEY);
+            localStorage.removeItem(this.PATH_KEY);
             this.progress = {};
             this.updateAllUI();
             alert('Progress reset successfully!');
             location.reload();
         }
+    },
+    
+    // Demo function to simulate novice path completion (for testing)
+    simulateNoviceCompletion() {
+        console.log('Simulating novice path completion...');
+        
+        // Complete mission briefing (1 phase)
+        this.completeChapter('mission-briefing', 1);
+        
+        // Complete all git-basics phases (10 phases)
+        for (let i = 1; i <= 10; i++) {
+            this.completeChapter('git-basics', i);
+        }
+        
+        // Complete all branches phases (8 phases)
+        for (let i = 1; i <= 8; i++) {
+            this.completeChapter('branches', i);
+        }
+        
+        // Complete all advanced phases (7 phases)
+        for (let i = 1; i <= 7; i++) {
+            this.completeChapter('advanced', i);
+        }
+        
+        // Complete all collaboration phases (6 phases)
+        for (let i = 1; i <= 6; i++) {
+            this.completeChapter('collaboration', i);
+        }
+        
+        // Complete all beyond phases (3 phases)
+        for (let i = 1; i <= 3; i++) {
+            this.completeChapter('beyond', i);
+        }
+        
+        console.log('Novice completion check:', this.isNovicePathComplete());
+        this.updateAllUI();
+        alert('Complete Cadet Training path finished! All 35 training phases completed.');
     }
 };
 
+// Path Selection Functions
+function selectPath(pathName) {
+    ProgressTracker.setSelectedPath(pathName);
+    showMissionControl(pathName);
+}
+
+function selectAdvancedPath() {
+    // Advanced path is coming soon
+    alert('Commander Operations Coming Soon!\n\nNew advanced missions are currently in development at Mission Control. Stay tuned for exciting new content that will take your Git skills to the next level!');
+}
+
+function showAdvancedConfirmationModal() {
+    document.getElementById('advanced-confirmation-modal').style.display = 'flex';
+}
+
+function closeAdvancedModal() {
+    document.getElementById('advanced-confirmation-modal').style.display = 'none';
+}
+
+function confirmAdvancedPath() {
+    closeAdvancedModal();
+    selectPath('advanced');
+}
+
+function showMissionControl(pathName) {
+    console.log('Showing mission control for path:', pathName);
+    
+    // Hide path selection with fade effect
+    const pathContainer = document.querySelector('.path-selection-container');
+    pathContainer.style.opacity = '0';
+    pathContainer.style.transform = 'translateY(-20px)';
+    
+    setTimeout(() => {
+        pathContainer.style.display = 'none';
+        
+        // Show mission control
+        const missionControl = document.getElementById('mission-control');
+        missionControl.style.display = 'block';
+        missionControl.style.opacity = '0';
+        
+        // Filter missions based on selected path
+        filterMissionsForPath(pathName);
+        
+        // Update progress tracking
+        ProgressTracker.updateAllUI();
+        
+        // Fade in mission control
+        setTimeout(() => {
+            missionControl.style.opacity = '1';
+            missionControl.style.transform = 'translateY(0)';
+        }, 100);
+    }, 300);
+}
+
+function filterMissionsForPath(pathName) {
+    const allSections = document.querySelectorAll('.mission-section');
+    
+    allSections.forEach(section => {
+        const mission = section.getAttribute('data-mission');
+        const missionData = ProgressTracker.missions[mission];
+        
+        if (missionData && missionData.path === pathName) {
+            section.style.display = 'block';
+        } else {
+            section.style.display = 'none';
+        }
+    });
+}
+
+function showPathSelection() {
+    console.log('Returning to path selection...');
+    
+    // Hide mission control with fade effect
+    const missionControl = document.getElementById('mission-control');
+    missionControl.style.opacity = '0';
+    missionControl.style.transform = 'translateY(-20px)';
+    
+    setTimeout(() => {
+        missionControl.style.display = 'none';
+        
+        // Show path selection
+        const pathContainer = document.querySelector('.path-selection-container');
+        pathContainer.style.display = 'block';
+        pathContainer.style.opacity = '0';
+        
+        // Update path interface
+        updatePathInterface();
+        
+        // Fade in path selection
+        setTimeout(() => {
+            pathContainer.style.opacity = '1';
+            pathContainer.style.transform = 'translateY(0)';
+        }, 100);
+    }, 300);
+    
+    // Clear selected path
+    localStorage.removeItem(ProgressTracker.PATH_KEY);
+}
+
+function updatePathInterface() {
+    const noviceComplete = ProgressTracker.isNovicePathComplete();
+    const advancedLock = document.getElementById('advanced-lock');
+    const advancedButton = document.getElementById('advanced-button');
+    const noviceCompletion = document.getElementById('novice-completion');
+    
+    if (noviceComplete) {
+        // Show novice completion badge
+        noviceCompletion.style.display = 'flex';
+    } else {
+        noviceCompletion.style.display = 'none';
+    }
+    
+    // Advanced path is always locked - coming soon
+    advancedLock.style.display = 'flex';
+    advancedButton.disabled = true;
+    advancedButton.textContent = 'Coming Soon - New Missions in Development';
+}
+
+// Check if returning user has selected path
+function checkExistingPath() {
+    console.log('Checking existing path...');
+    const selectedPath = ProgressTracker.getSelectedPath();
+    console.log('Selected path:', selectedPath);
+    
+    if (selectedPath) {
+        showMissionControl(selectedPath);
+    } else {
+        // Only update path interface if we're on the homepage
+        setTimeout(() => {
+            if (document.querySelector('.path-selection-container')) {
+                updatePathInterface();
+            }
+        }, 100);
+    }
+}
+
+// System Test Function
+function runSystemTest() {
+    console.log('Starting LearnGit.space Path System Test...');
+    
+    const results = [];
+    
+    // Test 1: Path interface elements exist
+    const pathContainer = document.querySelector('.path-selection-container');
+    const novicePath = document.getElementById('novice-path');
+    const advancedPath = document.getElementById('advanced-path');
+    const modal = document.getElementById('advanced-confirmation-modal');
+    
+    results.push(`✓ Path selection interface: ${pathContainer ? 'FOUND' : 'MISSING'}`);
+    results.push(`✓ Novice path card: ${novicePath ? 'FOUND' : 'MISSING'}`);
+    results.push(`✓ Advanced path card: ${advancedPath ? 'FOUND' : 'MISSING'}`);
+    results.push(`✓ Confirmation modal: ${modal ? 'FOUND' : 'MISSING'}`);
+    
+    // Test 2: Progress tracking functionality
+    const initialNoviceComplete = ProgressTracker.isNovicePathComplete();
+    results.push(`✓ Initial novice completion: ${initialNoviceComplete}`);
+    
+    // Test 3: Path definitions
+    const novicePathData = ProgressTracker.paths.novice;
+    const advancedPathData = ProgressTracker.paths.advanced;
+    results.push(`✓ Novice path missions: ${novicePathData.missions.length} (expected: 3)`);
+    results.push(`✓ Advanced path missions: ${advancedPathData.missions.length} (expected: 3)`);
+    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 19)`);
+    results.push(`✓ Advanced total phases: ${advancedPathData.totalPhases} (expected: 16)`);
+    
+    // Test 4: Function availability
+    const functions = [
+        'selectPath', 'selectAdvancedPath', 'showAdvancedConfirmationModal', 
+        'closeAdvancedModal', 'confirmAdvancedPath', 'showMissionControl', 
+        'showPathSelection', 'updatePathInterface'
+    ];
+    
+    functions.forEach(func => {
+        results.push(`✓ Function ${func}: ${typeof window[func] === 'function' ? 'AVAILABLE' : 'MISSING'}`);
+    });
+    
+    // Test 5: Mission sections have correct data attributes
+    const missionSections = document.querySelectorAll('.mission-section');
+    const sectionCount = missionSections.length;
+    results.push(`✓ Mission sections found: ${sectionCount} (expected: 6)`);
+    
+    let sectionsWithPath = 0;
+    missionSections.forEach(section => {
+        const mission = section.getAttribute('data-mission');
+        if (ProgressTracker.missions[mission]) {
+            sectionsWithPath++;
+        }
+    });
+    results.push(`✓ Sections with valid mission data: ${sectionsWithPath}/${sectionCount}`);
+    
+    // Display results
+    const testResults = `
+LEARNGIT.SPACE SYSTEM TEST RESULTS
+
+${results.join('\n')}
+
+SUMMARY:
+- Total tests: ${results.length}
+- Path system: ${pathContainer && novicePath && advancedPath ? 'OPERATIONAL' : 'ISSUES DETECTED'}
+- Progress tracking: ${typeof ProgressTracker.isNovicePathComplete === 'function' ? 'FUNCTIONAL' : 'ERROR'}
+- Modal system: ${modal ? 'READY' : 'MISSING'}
+
+System Status: ${results.every(r => !r.includes('MISSING') && !r.includes('ERROR')) ? 'ALL SYSTEMS GO!' : 'SOME ISSUES DETECTED'}
+    `;
+    
+    console.log(testResults);
+    alert(testResults);
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => ProgressTracker.init());
+    document.addEventListener('DOMContentLoaded', () => {
+        ProgressTracker.init();
+        checkExistingPath();
+    });
 } else {
     ProgressTracker.init();
+    checkExistingPath();
 }

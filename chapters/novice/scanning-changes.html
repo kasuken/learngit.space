@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanning for Changes - Mission Control</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="branches" data-phase="5">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1><i class="fas fa-search"></i> Scanning for Changes</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 8 min read</div>
+            <p class="subtitle">Git Diff</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 12</strong> • Difficulty: Beginner</p>
+        </div>
+        <article>
+            <h2>Detecting System Modifications</h2>
+            <p>The <code>git diff</code> command is your scanner—it shows exactly what changed between different states of your files. Essential for reviewing work before committing.</p>
+            <h2>Basic Diff Usage</h2>
+            <p>See unstaged changes:</p>
+            <div class="command-example">
+                <pre><code>git diff</code></pre>
+            </div>
+            <p>This compares your working directory to the staging area.</p>
+            <h3>See Staged Changes</h3>
+            <div class="command-example">
+                <pre><code>git diff --staged</code></pre>
+            </div>
+            <p>Shows what's in the staging area vs. last commit.</p>
+            <h2>Reading Diff Output</h2>
+            <pre><code>diff --git a/navigation.js b/navigation.js
+index 3a8f2c1..7b9d4e2 100644
+--- a/navigation.js
++++ b/navigation.js
+@@ -10,7 +10,7 @@ function calculateCourse() {
+     const distance = Math.sqrt(dx*dx + dy*dy);
+-    const speed = 1000; // meters per second
++    const speed = 1500; // increased for faster travel
+     return distance / speed;</code></pre>
+            <ul>
+                <li><code>---</code> and <code>+++</code>: Old and new file versions</li>
+                <li><code>-</code> lines: Removed (shown in red)</li>
+                <li><code>+</code> lines: Added (shown in green)</li>
+                <li><code>@@ -10,7 +10,7 @@</code>: Line numbers context</li>
+            </ul>
+            <h2>Compare Specific Files</h2>
+            <div class="command-example">
+                <pre><code>git diff navigation.js</code></pre>
+            </div>
+            <h2>Compare Commits</h2>
+            <div class="command-example">
+                <pre><code>git diff commit1 commit2
+git diff HEAD~2 HEAD    # Compare 2 commits ago to now</code></pre>
+            </div>
+            <h2>Compare Branches</h2>
+            <div class="command-example">
+                <pre><code>git diff main feature-branch</code></pre>
+            </div>
+            <h2>Useful Diff Options</h2>
+            <ul>
+                <li><code>--stat</code>: Show summary statistics</li>
+                <li><code>--color-words</code>: Highlight changed words, not lines</li>
+                <li><code>--name-only</code>: Just list changed files</li>
+            </ul>
+            <h2>Why Use Diff?</h2>
+            <ul>
+                <li>Review your work before committing</li>
+                <li>Understand what teammates changed</li>
+                <li>Verify fixes worked correctly</li>
+                <li>Catch accidental changes</li>
+            </ul>
+            <h2>Next: Reviewing History</h2>
+            <p>You can now see what changed. Next, we'll explore <code>git log</code> to review your complete mission history.</p>
+        </article>
+        <div class="navigation">
+            <a href="mission-log.html" class="nav-link">← Previous: Mission Log</a>
+            <a href="reviewing-logs.html" class="nav-link">Next: Reviewing Logs →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 12 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

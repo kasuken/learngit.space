@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Docking Requests - Mission Control</title><link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="collaboration" data-phase="3">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header><h1><i class="fas fa-handshake"></i> Docking Requests</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 2 min read</div><p class="subtitle">Pull Requests on GitHub</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 24</strong> • Difficulty: Beginner</p></div>
+        <article>
+            <h2>Proposing Changes for Review</h2>
+            <p>Pull requests (PRs) are how you propose changes, get feedback, and collaborate with teams on GitHub.</p>
+            <h2>Creating a Pull Request</h2>
+            <ol>
+                <li>Push your branch: <code>git push origin feature-branch</code></li>
+                <li>Go to the repository on GitHub</li>
+                <li>Click "Compare & pull request"</li>
+                <li>Add title and description</li>
+                <li>Select reviewers (if on a team)</li>
+                <li>Click "Create pull request"</li>
+            </ol>
+            <h2>PR Description Best Practices</h2>
+            <ul>
+                <li>Explain what changed and why</li>
+                <li>Link to relevant issues</li>
+                <li>Include screenshots for UI changes</li>
+                <li>Mention testing performed</li>
+                <li>Note breaking changes</li>
+            </ul>
+            <h3>Example Description</h3>
+            <pre><code>## Changes
+- Add real-time sensor monitoring
+- Implement automatic alerts for anomalies
+
+## Why
+Closes #42 - Need real-time visibility into sensor data
+
+## Testing
+- Tested with 1000+ data points
+- Verified alerts trigger correctly
+- Checked performance impact (minimal)
+
+## Screenshots
+[Include screenshots here]</code></pre>
+            <h2>Code Review Process</h2>
+            <ol>
+                <li>Reviewers examine code</li>
+                <li>Leave comments and suggestions</li>
+                <li>Author addresses feedback</li>
+                <li>Push additional commits to same branch</li>
+                <li>Once approved, merge</li>
+            </ol>
+            <h2>Responding to Feedback</h2>
+            <ul>
+                <li>Make requested changes</li>
+                <li>Commit and push (PR updates automatically)</li>
+                <li>Reply to comments</li>
+                <li>Mark conversations as resolved</li>
+            </ul>
+            <h2>Merging Pull Requests</h2>
+            <p>Three merge options:</p>
+            <ul>
+                <li><strong>Merge commit:</strong> Preserves all commits</li>
+                <li><strong>Squash and merge:</strong> Combines into one commit</li>
+                <li><strong>Rebase and merge:</strong> Linear history</li>
+            </ul>
+            <h2>Draft PRs</h2>
+            <p>Mark PR as draft for early feedback without formal review.</p>
+            <h2>PR Etiquette</h2>
+            <ul>
+                <li>Keep PRs focused and small</li>
+                <li>Respond promptly to reviews</li>
+                <li>Be respectful in discussions</li>
+                <li>Thank reviewers</li>
+                <li>Test before requesting review</li>
+            </ul>
+            <h2>Next: Cockpit Integration</h2>
+            <p>You've mastered pull requests. Next, learn to use Git within VS Code for a streamlined workflow.</p>
+        </article>
+        <div class="navigation">
+            <a href="crew-coordination.html" class="nav-link">← Previous: Crew Coordination</a>
+            <a href="cockpit-integration.html" class="nav-link">Next: Cockpit Integration →</a>
+        </div>
+        <footer><p>Mission Control Training Program • Phase 24 of 34</p></footer>
+    </div>
+    <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
+</body>
+</html>

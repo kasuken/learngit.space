@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Communications - Mission Control</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="git-basics" data-phase="10">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1><i class="fas fa-lock"></i> Secure Communications</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div>
+            <p class="subtitle">SSH Keys</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 15</strong> • Difficulty: Intermediate</p>
+        </div>
+        <article>
+            <h2>Encrypted Transmissions</h2>
+            <p>SSH keys provide secure, password-free authentication between your spacecraft and mission control. They use public-key cryptography—industry standard security.</p>
+            <h2>Why SSH Keys?</h2>
+            <ul>
+                <li>More secure than passwords</li>
+                <li>No typing passwords repeatedly</li>
+                <li>Required for many Git operations</li>
+                <li>Can't be brute-forced</li>
+            </ul>
+            <h2>Checking for Existing Keys</h2>
+            <div class="command-example">
+                <pre><code>ls -la ~/.ssh</code></pre>
+            </div>
+            <p>Look for files like <code>id_rsa.pub</code> or <code>id_ed25519.pub</code>. If they exist, you already have keys!</p>
+            <h2>Generating New SSH Key</h2>
+            <div class="command-example">
+                <pre><code>ssh-keygen -t ed25519 -C "your.email@example.com"</code></pre>
+            </div>
+            <p>Press Enter to accept default file location. Enter a passphrase (recommended but optional).</p>
+            <p>This creates two files:</p>
+            <ul>
+                <li><code>id_ed25519</code>: Private key (keep secret!)</li>
+                <li><code>id_ed25519.pub</code>: Public key (share with GitHub)</li>
+            </ul>
+            <h2>Starting SSH Agent</h2>
+            <div class="command-example">
+                <pre><code>eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519</code></pre>
+            </div>
+            <h2>Adding Key to GitHub</h2>
+            <ol>
+                <li>Copy your public key:</li>
+            </ol>
+            <div class="command-example">
+                <pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+            </div>
+            <ol start="2">
+                <li>Go to GitHub → Settings → SSH and GPG keys</li>
+                <li>Click "New SSH key"</li>
+                <li>Paste your public key</li>
+                <li>Give it a title (e.g., "Personal Laptop")</li>
+                <li>Click "Add SSH key"</li>
+            </ol>
+            <h2>Testing Connection</h2>
+            <div class="command-example">
+                <pre><code>ssh -T git@github.com</code></pre>
+            </div>
+            <p>You should see: "Hi username! You've successfully authenticated..."</p>
+            <h2>HTTPS vs SSH</h2>
+            <p>Two ways to connect to GitHub:</p>
+            <ul>
+                <li><strong>HTTPS:</strong> <code>https://github.com/user/repo.git</code> (requires password/token)</li>
+                <li><strong>SSH:</strong> <code>git@github.com:user/repo.git</code> (uses SSH keys)</li>
+            </ul>
+            <p>SSH is more convenient for frequent pushing/pulling.</p>
+            <div class="mission-brief">
+                <h3>Security Note</h3>
+                <p>Never share your private key (<code>id_ed25519</code>). Only share the public key (<code>id_ed25519.pub</code>). The private key is like your password—keep it secret!</p>
+            </div>
+            <h2>Next: Transmitting to Space</h2>
+            <p>Your secure communications channel is established. Now let's push your code to GitHub!</p>
+        </article>
+        <div class="navigation">
+            <a href="cargo-manifest.html" class="nav-link">← Previous: Cargo Manifest</a>
+            <a href="transmission-uplink.html" class="nav-link">Next: Transmission Uplink →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 15 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

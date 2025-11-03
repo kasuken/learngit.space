@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuring Your Ship's Systems - Mission Control</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="git-basics" data-phase="5">
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        
+        <header>
+            <h1><i class="fas fa-wrench"></i> Configuring Your Ship's Systems</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 20 min read</div>
+            <p class="subtitle">Git Configuration</p>
+        </header>
+
+        <div class="mission-brief">
+            <p><strong>Mission Phase 6</strong> • Difficulty: Beginner</p>
+        </div>
+
+        <article>
+            <h2>Your Digital Identity</h2>
+            
+            <p>Every astronaut needs identification. When you make changes to your code, Git records who made them. This isn't about surveillance—it's about collaboration and accountability. Let's configure Git with your identity.</p>
+
+            <h2>Essential Configuration</h2>
+
+            <h3>Setting Your Name</h3>
+            
+            <p>Tell Git who you are:</p>
+            
+            <div class="command-example">
+                <pre><code>git config --global user.name "Your Name"</code></pre>
+            </div>
+            
+            <p>Example:</p>
+            <div class="command-example">
+                <pre><code>git config --global user.name "Commander Shepard"</code></pre>
+            </div>
+
+            <h3>Setting Your Email</h3>
+            
+            <p>Configure your email address:</p>
+            
+            <div class="command-example">
+                <pre><code>git config --global user.email "your.email@example.com"</code></pre>
+            </div>
+            
+            <p>Example:</p>
+            <div class="command-example">
+                <pre><code>git config --global user.email "shepard@normandy.space"</code></pre>
+            </div>
+            
+            <p><strong>Important:</strong> If you plan to use GitHub, use the email associated with your GitHub account.</p>
+
+            <h2>Understanding Configuration Levels</h2>
+            
+            <p>Git has three configuration levels:</p>
+            
+            <ul>
+                <li><strong>System:</strong> Applies to all users on the computer (<code>--system</code>)</li>
+                <li><strong>Global:</strong> Applies to all your repositories (<code>--global</code>)</li>
+                <li><strong>Local:</strong> Applies to a specific repository (no flag, or <code>--local</code>)</li>
+            </ul>
+            
+            <p>Most of the time, you'll use <code>--global</code>. Local settings override global, which override system.</p>
+
+            <h2>Configuring Your Default Editor</h2>
+            
+            <p>Git sometimes opens a text editor (like for commit messages). Set your preferred editor:</p>
+            
+            <p><strong>VS Code:</strong></p>
+            <div class="command-example">
+                <pre><code>git config --global core.editor "code --wait"</code></pre>
+            </div>
+            
+            <p><strong>Vim:</strong></p>
+            <div class="command-example">
+                <pre><code>git config --global core.editor "vim"</code></pre>
+            </div>
+            
+            <p><strong>Nano:</strong></p>
+            <div class="command-example">
+                <pre><code>git config --global core.editor "nano"</code></pre>
+            </div>
+            
+            <p><strong>Notepad (Windows):</strong></p>
+            <div class="command-example">
+                <pre><code>git config --global core.editor "notepad"</code></pre>
+            </div>
+
+            <h2>Line Ending Configuration</h2>
+            
+            <p>Different operating systems use different line endings. Configure Git to handle this:</p>
+            
+            <p><strong>Windows:</strong></p>
+            <div class="command-example">
+                <pre><code>git config --global core.autocrlf true</code></pre>
+            </div>
+            
+            <p><strong>Mac/Linux:</strong></p>
+            <div class="command-example">
+                <pre><code>git config --global core.autocrlf input</code></pre>
+            </div>
+
+            <h2>Viewing Your Configuration</h2>
+            
+            <p>See all configuration settings:</p>
+            
+            <div class="command-example">
+                <pre><code>git config --list</code></pre>
+            </div>
+            
+            <p>See a specific setting:</p>
+            <div class="command-example">
+                <pre><code>git config user.name
+git config user.email</code></pre>
+            </div>
+
+            <h2>Useful Optional Configurations</h2>
+
+            <h3>Color Output</h3>
+            
+            <p>Make Git output colorful and easier to read:</p>
+            
+            <div class="command-example">
+                <pre><code>git config --global color.ui auto</code></pre>
+            </div>
+
+            <h3>Default Branch Name</h3>
+            
+            <p>Set the name for your default branch (GitHub uses "main"):</p>
+            
+            <div class="command-example">
+                <pre><code>git config --global init.defaultBranch main</code></pre>
+            </div>
+
+            <h3>Pull Behavior</h3>
+            
+            <p>Configure how Git handles pulls:</p>
+            
+            <div class="command-example">
+                <pre><code>git config --global pull.rebase false</code></pre>
+            </div>
+
+            <h2>Configuration File Locations</h2>
+            
+            <p>Git stores configuration in files:</p>
+            
+            <ul>
+                <li><strong>Global:</strong> <code>~/.gitconfig</code> (or <code>~/.config/git/config</code>)</li>
+                <li><strong>Local:</strong> <code>.git/config</code> in each repository</li>
+            </ul>
+            
+            <p>You can edit these files directly, but using <code>git config</code> commands is safer.</p>
+
+            <h2>Verifying Your Setup</h2>
+            
+            <p>Let's verify everything is configured correctly:</p>
+            
+            <div class="command-example">
+                <pre><code>git config --global --list</code></pre>
+            </div>
+            
+            <p>You should see at least:</p>
+            <pre><code>user.name=Your Name
+user.email=your.email@example.com</code></pre>
+
+            <div class="mission-brief">
+                <h3>Quick Setup Script</h3>
+                <p>Here's a complete basic configuration you can copy and paste (replace with your details):</p>
+                <pre><code>git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+git config --global core.editor "code --wait"
+git config --global init.defaultBranch main
+git config --global color.ui auto</code></pre>
+            </div>
+
+            <h2>Changing Configuration Later</h2>
+            
+            <p>You can change any setting anytime by running the config command again:</p>
+            
+            <div class="command-example">
+                <pre><code>git config --global user.email "newemail@example.com"</code></pre>
+            </div>
+
+            <h2>Removing Configuration</h2>
+            
+            <p>Remove a setting:</p>
+            
+            <div class="command-example">
+                <pre><code>git config --global --unset user.name</code></pre>
+            </div>
+
+            <h2>Why This Matters</h2>
+            
+            <p>Every commit you make includes your name and email. This allows:</p>
+            
+            <ul>
+                <li>Team members to know who wrote code</li>
+                <li>Future you to remember what you were thinking</li>
+                <li>Project maintainers to contact contributors</li>
+                <li>GitHub to link commits to your profile</li>
+            </ul>
+            
+            <p>It's like signing your work—professional and essential for collaboration.</p>
+
+            <h2>Configuration Complete</h2>
+            
+            <p>Your spacecraft systems are now configured. Git knows who you are and has sensible defaults for everything else. You're ready to learn about GitHub—mission control for your code.</p>
+            
+            <div class="mission-brief">
+                <p><strong>Configuration Check:</strong> Your Git identity is set. Every commit will now be properly attributed to you. This is a one-time setup—you won't need to do it again unless you get a new computer or want to change your details.</p>
+            </div>
+        </article>
+
+        <div class="navigation">
+            <a href="terminal-commands.html" class="nav-link">← Previous: Terminal Commands</a>
+            <a href="mission-control-center.html" class="nav-link">Next: Mission Control Center →</a>
+        </div>
+
+        <footer>
+            <p>Mission Control Training Program • Phase 6 of 34</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

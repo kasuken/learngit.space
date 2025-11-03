@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Navigation System - Mission Control</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="git-basics" data-phase="1">
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        
+        <header>
+            <h1><i class="fas fa-compass"></i> The Navigation System</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 5 min read</div>
+            <p class="subtitle">What is Git?</p>
+        </header>
+
+        <div class="mission-brief">
+            <p><strong>Mission Phase 2</strong> • Difficulty: Beginner</p>
+        </div>
+
+        <article>
+            <h2>Understanding Your Spacecraft's Brain</h2>
+            
+            <p>Git is your spacecraft's navigation system—a sophisticated tool that tracks every position, every maneuver, and every course correction you make on your journey through code development. But what exactly is it, and why do we need it?</p>
+
+            <h2>The Problem Git Solves</h2>
+            
+            <p>Imagine you're working on a critical system for your spacecraft. You've got the navigation working perfectly. Then you decide to add a new feature—automated course correction. You spend hours coding, and suddenly... nothing works. The navigation is broken, and you can't remember exactly what you changed.</p>
+            
+            <p>Without Git, you're stranded in space. With Git, you simply travel back in time to when everything worked, examine what changed, and fix the problem.</p>
+
+            <h2>What Is Git?</h2>
+            
+            <p>Git is a <strong>distributed version control system</strong>. Let's break that down using space terminology:</p>
+            
+            <ul>
+                <li><strong>Version Control:</strong> Like a flight recorder that logs every change to your spacecraft's systems, Git logs every change to your code</li>
+                <li><strong>Distributed:</strong> Every astronaut has a complete copy of the mission logs, not just mission control. If one system fails, the others have all the data</li>
+                <li><strong>System:</strong> It's a complete framework with protocols, commands, and workflows designed for managing code across time and teams</li>
+            </ul>
+
+            <h2>Git's Core Philosophy</h2>
+            
+            <p>Git was created by Linus Torvalds in 2005 to manage the Linux kernel—one of the largest and most complex software projects in existence. He designed it with specific goals:</p>
+            
+            <ul>
+                <li><strong>Speed:</strong> Operations should be lightning-fast, even with massive codebases</li>
+                <li><strong>Simplicity:</strong> The core design is elegant, though the interface can seem complex at first</li>
+                <li><strong>Non-linear Development:</strong> Thousands of developers should be able to work simultaneously on different features</li>
+                <li><strong>Distributed:</strong> No single point of failure—every copy is a complete backup</li>
+                <li><strong>Data Integrity:</strong> Every change is cryptographically verified</li>
+            </ul>
+
+            <h2>How Git Thinks</h2>
+            
+            <p>Most systems think of files as a list of changes over time. Git thinks differently. It takes <strong>snapshots</strong> of your entire project at specific moments.</p>
+            
+            <p>Think of it like this: Instead of recording "adjusted thruster by 3 degrees at timestamp X," Git takes a complete photograph of all your spacecraft systems at each important moment. These photographs are called <em>commits</em>.</p>
+
+            <h3>The Three States</h3>
+            
+            <p>Files in your Git repository can exist in three states, like stages of a rocket launch:</p>
+            
+            <ol>
+                <li><strong>Modified (Working Directory):</strong> You've changed files, but haven't locked them in yet—like making adjustments before committing to a course correction</li>
+                <li><strong>Staged (Staging Area):</strong> You've marked changes to be included in the next snapshot—like systems ready for the next mission phase</li>
+                <li><strong>Committed (Repository):</strong> Changes are safely stored in your database—like official mission logs that can't be altered</li>
+            </ol>
+
+            <h2>Git vs GitHub: Understanding the Difference</h2>
+            
+            <p>This confuses many new astronauts, so let's clarify:</p>
+            
+            <ul>
+                <li><strong>Git:</strong> The navigation software installed on your spacecraft. It works completely offline.</li>
+                <li><strong>GitHub:</strong> Mission control—a central hub where you can back up your work, share it with other astronauts, and collaborate on projects</li>
+            </ul>
+            
+            <p>You can use Git without GitHub. But GitHub (and similar services like GitLab and Bitbucket) adds powerful collaboration features that make team missions possible.</p>
+
+            <h2>Why Git Became the Standard</h2>
+            
+            <p>Before Git, there were other version control systems—CVS, Subversion, Mercurial. But Git won the adoption race because it:</p>
+            
+            <ul>
+                <li>Works offline (crucial when you're in deep space with no connection to mission control)</li>
+                <li>Handles branching and merging elegantly (allowing parallel timelines to coexist)</li>
+                <li>Is incredibly fast (operations that took minutes in other systems take milliseconds)</li>
+                <li>Protects data integrity (corruption is virtually impossible)</li>
+                <li>Scales from solo projects to massive teams</li>
+            </ul>
+
+            <h2>What You'll Be Able to Do</h2>
+            
+            <p>Once you master Git, you'll be able to:</p>
+            
+            <ul>
+                <li>Track every change you make to your code</li>
+                <li>Experiment fearlessly, knowing you can always go back</li>
+                <li>See who changed what, when, and why</li>
+                <li>Work on multiple features simultaneously</li>
+                <li>Collaborate with developers worldwide</li>
+                <li>Contribute to open-source projects</li>
+                <li>Manage complex projects with confidence</li>
+            </ul>
+
+            <div class="mission-brief">
+                <h3>The Learning Curve</h3>
+                <p>Git has a reputation for being difficult to learn. This is partly true—it has a steep initial learning curve. But here's the secret: you don't need to learn everything at once.</p>
+                <p>About 90% of your daily work will use the same 10-15 commands. Learn those well, and you'll be productive immediately. The advanced features are there when you need them, but you can grow into them over time.</p>
+            </div>
+
+            <h2>Git's Local Power</h2>
+            
+            <p>One of Git's most powerful features is that almost everything happens locally on your machine. This means:</p>
+            
+            <ul>
+                <li>You can work without an internet connection</li>
+                <li>Operations are extremely fast</li>
+                <li>You can experiment freely without affecting others</li>
+                <li>Your complete project history is always available</li>
+            </ul>
+            
+            <p>It's like having a complete copy of all mission logs on your spacecraft, rather than having to radio mission control for every piece of information.</p>
+
+            <h2>Ready to Install Your Navigation System?</h2>
+            
+            <p>Now that you understand what Git is and why it's essential, you're ready to start using it. In the next mission phase, we'll dive deeper into version control concepts before installing Git on your system.</p>
+            
+            <div class="mission-brief">
+                <p><strong>Key Takeaway:</strong> Git is a powerful navigation system for your code. It tracks every change, enables time travel through your project history, and makes collaboration possible. You don't need to master everything at once—learn the basics well, and build from there.</p>
+            </div>
+        </article>
+
+        <div class="navigation">
+            <a href="launch-preparation.html" class="nav-link">← Previous: Launch Preparation</a>
+            <a href="flight-recorder-basics.html" class="nav-link">Next: Flight Recorder Basics →</a>
+        </div>
+
+        <footer>
+            <p>Mission Control Training Program • Phase 2 of 34</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

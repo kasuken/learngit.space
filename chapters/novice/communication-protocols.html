@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Communication Protocols - Mission Control</title><link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="beyond" data-phase="1">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header><h1><i class="fas fa-edit"></i> Communication Protocols</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 5 min read</div><p class="subtitle">Markdown Cheat Sheet</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 31</strong> • Difficulty: Beginner</p></div>
+        <article>
+            <h2>The Language of Documentation</h2>
+            <p>Markdown is a lightweight markup language GitHub uses for README files, issues, pull requests, and documentation.</p>
+            <h2>Headers</h2>
+            <pre><code># H1 Header
+## H2 Header
+### H3 Header
+#### H4 Header</code></pre>
+            <h2>Emphasis</h2>
+            <pre><code>*italic* or _italic_
+**bold** or __bold__
+***bold italic***
+~~strikethrough~~</code></pre>
+            <h2>Lists</h2>
+            <pre><code>Unordered:
+* Item 1
+* Item 2
+  * Nested item
+
+Ordered:
+1. First
+2. Second
+3. Third</code></pre>
+            <h2>Links</h2>
+            <pre><code>[Link text](https://example.com)
+[Link with title](https://example.com "Tooltip text")</code></pre>
+            <h2>Images</h2>
+            <pre><code>![Alt text](image-url.png)
+![Logo](https://example.com/logo.png "Optional title")</code></pre>
+            <h2>Code</h2>
+            <pre><code>Inline: `code here`
+
+Block:
+```javascript
+function hello() {
+    console.log("Hello!");
+}
+```</code></pre>
+            <h2>Blockquotes</h2>
+            <pre><code>> This is a quote
+> 
+> Multiple paragraphs</code></pre>
+            <h2>Tables</h2>
+            <pre><code>| Header 1 | Header 2 |
+|----------|----------|
+| Cell 1   | Cell 2   |
+| Cell 3   | Cell 4   |</code></pre>
+            <h2>Task Lists</h2>
+            <pre><code>- [x] Completed task
+- [ ] Pending task
+- [ ] Another task</code></pre>
+            <h2>Horizontal Rule</h2>
+            <pre><code>---
+or
+***</code></pre>
+            <h2>GitHub-Specific Features</h2>
+            <h3>Mention Users</h3>
+            <pre><code>@username</code></pre>
+            <h3>Reference Issues</h3>
+            <pre><code>#123 (issue number)</code></pre>
+            <h3>Emoji</h3>
+            <pre><code>:rocket: :star: :tada:</code></pre>
+            <h3>Alerts (New!)</h3>
+            <pre><code>> [!NOTE]
+> Useful information
+
+> [!WARNING]
+> Critical warning</code></pre>
+            <h2>README Best Practices</h2>
+            <ul>
+                <li>Start with clear project description</li>
+                <li>Include installation instructions</li>
+                <li>Provide usage examples</li>
+                <li>Document API/features</li>
+                <li>Add contributing guidelines</li>
+                <li>Include license information</li>
+            </ul>
+            <h2>Next: Your Astronaut Profile</h2>
+            <p>You've learned Markdown formatting. Next, create your GitHub profile README—your professional introduction to the developer community!</p>
+        </article>
+        <div class="navigation">
+            <a href="vessel-switching.html" class="nav-link">← Previous: Vessel Switching</a>
+            <a href="astronaut-profile.html" class="nav-link">Next: Astronaut Profile →</a>
+        </div>
+        <footer><p>Mission Control Training Program • Phase 31 of 34</p></footer>
+    </div>
+    <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
+</body>
+</html>

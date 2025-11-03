@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Vessel Switching - Mission Control</title><link rel="stylesheet" href="../../css/styles.css"><script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="branches" data-phase="8">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header><h1><i class="fas fa-exchange-alt"></i> Vessel Switching</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 7 min read</div><p class="subtitle">Git Switch Command</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 30</strong> • Difficulty: Beginner</p></div>
+        <article>
+            <h2>Modern Branch Navigation</h2>
+            <p>Git 2.23 introduced <code>git switch</code> and <code>git restore</code> to split the confusing <code>git checkout</code> command into clearer, focused commands.</p>
+            <h2>Switch vs Checkout</h2>
+            <p><code>git checkout</code> did too many things:</p>
+            <ul>
+                <li>Switch branches</li>
+                <li>Create branches</li>
+                <li>Restore files</li>
+                <li>Checkout specific commits</li>
+            </ul>
+            <p>New commands are clearer:</p>
+            <ul>
+                <li><code>git switch</code>: Change branches</li>
+                <li><code>git restore</code>: Restore files</li>
+            </ul>
+            <h2>Basic Switch</h2>
+            <div class="command-example"><pre><code>git switch main
+git switch feature-branch</code></pre></div>
+            <h2>Create and Switch</h2>
+            <div class="command-example"><pre><code>git switch -c new-feature</code></pre></div>
+            <p>Creates and switches to new branch.</p>
+            <h2>Switch to Previous Branch</h2>
+            <div class="command-example"><pre><code>git switch -</code></pre></div>
+            <p>Like <code>cd -</code>, returns to previous branch.</p>
+            <h2>Detached HEAD</h2>
+            <div class="command-example"><pre><code>git switch --detach abc123</code></pre></div>
+            <p>View specific commit without affecting branches.</p>
+            <h2>Restore Command</h2>
+            <p>Replaces <code>checkout</code> for files:</p>
+            <div class="command-example"><pre><code>git restore file.txt          # Discard changes
+git restore --staged file.txt # Unstage file</code></pre></div>
+            <h2>Why Use Switch?</h2>
+            <ul>
+                <li>Clearer intent</li>
+                <li>Safer (less chance of mistakes)</li>
+                <li>Easier to remember</li>
+                <li>Future of Git</li>
+            </ul>
+            <h2>Checkout Still Works</h2>
+            <p><code>git checkout</code> isn't going away, but <code>switch</code> and <code>restore</code> are recommended for new users.</p>
+            <h2>Next: Communication Protocols</h2>
+            <p>You've mastered branch navigation. Next, learn Markdown—GitHub's formatting language for documentation.</p>
+        </article>
+        <div class="navigation">
+            <a href="timeline-adjustment.html" class="nav-link">← Previous: Timeline Adjustment</a>
+            <a href="communication-protocols.html" class="nav-link">Next: Communication Protocols →</a>
+        </div>
+        <footer><p>Mission Control Training Program • Phase 30 of 34</p></footer>
+    </div>
+    <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
+</body>
+</html>

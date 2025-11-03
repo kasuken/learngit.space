@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Quick Command Reference - Mission Control</title><link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="beyond" data-phase="3">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header><h1><i class="fas fa-book"></i> Quick Command Reference</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 3 min read</div><p class="subtitle">Git Commands Cheat Sheet</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 33</strong> • Reference Material</p></div>
+        <article>
+            <h2>Essential Commands</h2>
+            <h3>Setup & Configuration</h3>
+            <pre><code>git config --global user.name "Name"
+git config --global user.email "email@example.com"
+git config --list</code></pre>
+            <h3>Creating Repositories</h3>
+            <pre><code>git init
+git clone &lt;url&gt;</code></pre>
+            <h3>Basic Workflow</h3>
+            <pre><code>git status
+git add &lt;file&gt;
+git add .
+git commit -m "message"
+git push
+git pull</code></pre>
+            <h3>Branching</h3>
+            <pre><code>git branch                    # List branches
+git branch &lt;name&gt;             # Create branch
+git switch &lt;branch&gt;           # Switch branch
+git switch -c &lt;branch&gt;        # Create and switch
+git branch -d &lt;branch&gt;        # Delete branch
+git merge &lt;branch&gt;            # Merge branch</code></pre>
+            <h3>Viewing History</h3>
+            <pre><code>git log
+git log --oneline
+git log --graph --all
+git diff
+git diff --staged
+git show &lt;commit&gt;</code></pre>
+            <h3>Undoing Changes</h3>
+            <pre><code>git restore &lt;file&gt;            # Discard changes
+git restore --staged &lt;file&gt;   # Unstage
+git commit --amend            # Amend last commit
+git revert &lt;commit&gt;           # Revert commit
+git reset --soft HEAD~1       # Undo commit, keep changes staged
+git reset HEAD~1              # Undo commit, unstage changes
+git reset --hard HEAD~1       # Undo commit, discard changes</code></pre>
+            <h3>Stashing</h3>
+            <pre><code>git stash
+git stash save "message"
+git stash list
+git stash apply
+git stash pop
+git stash drop</code></pre>
+            <h3>Remote Repositories</h3>
+            <pre><code>git remote -v
+git remote add origin &lt;url&gt;
+git push -u origin main
+git push origin &lt;branch&gt;
+git pull origin &lt;branch&gt;
+git fetch</code></pre>
+            <h3>Rebasing</h3>
+            <pre><code>git rebase &lt;branch&gt;
+git rebase -i HEAD~3
+git rebase --continue
+git rebase --abort</code></pre>
+            <h3>Tagging</h3>
+            <pre><code>git tag
+git tag v1.0.0
+git tag -a v1.0.0 -m "Version 1.0"
+git push --tags</code></pre>
+            <h3>Inspection</h3>
+            <pre><code>git blame &lt;file&gt;
+git log --follow &lt;file&gt;
+git reflog</code></pre>
+            <h2>GitHub CLI</h2>
+            <pre><code>gh auth login
+gh repo create
+gh pr create
+gh pr list
+gh pr view &lt;number&gt;
+gh issue create
+gh issue list</code></pre>
+            <h2>Special Files</h2>
+            <h3>.gitignore</h3>
+            <pre><code># Patterns to ignore
+*.log
+node_modules/
+.env
+build/</code></pre>
+            <h2>Useful Aliases</h2>
+            <pre><code>git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.unstage "restore --staged"
+git config --global alias.lg "log --graph --oneline --all"</code></pre>
+            <h2>Common Workflows</h2>
+            <h3>Feature Development</h3>
+            <pre><code>git switch main
+git pull
+git switch -c feature-name
+# Make changes
+git add .
+git commit -m "Add feature"
+git push -u origin feature-name
+# Create PR on GitHub
+# After merge:
+git switch main
+git pull
+git branch -d feature-name</code></pre>
+            <h3>Fixing Bugs</h3>
+            <pre><code>git switch main
+git switch -c bugfix-name
+# Fix bug
+git add .
+git commit -m "Fix bug"
+git push -u origin bugfix-name</code></pre>
+            <h3>Updating Fork</h3>
+            <pre><code>git remote add upstream &lt;original-repo-url&gt;
+git fetch upstream
+git switch main
+git merge upstream/main
+git push origin main</code></pre>
+            <div class="mission-brief">
+                <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+                <ul>
+                    <li>Run <code>git status</code> frequently</li>
+                    <li>Commit often with clear messages</li>
+                    <li>Pull before starting work</li>
+                    <li>Never force push to shared branches</li>
+                    <li>Use branches for all work</li>
+                </ul>
+            </div>
+            <h2>Next: Mission Complete</h2>
+            <p>You now have a complete command reference. Bookmark this page! Next, we'll wrap up your training and discuss your journey ahead.</p>
+        </article>
+        <div class="navigation">
+            <a href="astronaut-profile.html" class="nav-link">← Previous: Astronaut Profile</a>
+            <a href="mission-complete.html" class="nav-link">Next: Mission Complete →</a>
+        </div>
+        <footer><p>Mission Control Training Program • Phase 33 of 34</p></footer>
+    </div>
+    <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
+</body>
+</html>

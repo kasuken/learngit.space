@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiving Updates - Mission Control</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>
+    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="branches" data-phase="4">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1><i class="fas fa-inbox"></i> Receiving Updates</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 9 min read</div>
+            <p class="subtitle">Git Pull</p>
+        </header>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 17</strong> • Difficulty: Beginner</p>
+        </div>
+        <article>
+            <h2>Downloading from Mission Control</h2>
+            <p>While you work, teammates push changes to GitHub. Use <code>git pull</code> to download and integrate their work into yours.</p>
+            <h2>The Pull Command</h2>
+            <div class="command-example">
+                <pre><code>git pull</code></pre>
+            </div>
+            <p>This downloads new commits and merges them into your current branch.</p>
+            <h2>What Pull Actually Does</h2>
+            <p><code>git pull</code> is actually two commands:</p>
+            <ol>
+                <li><code>git fetch</code>: Downloads new commits</li>
+                <li><code>git merge</code>: Merges them into your branch</li>
+            </ol>
+            <p>You can run these separately for more control.</p>
+            <h2>Fetch vs Pull</h2>
+            <h3>Fetch (Safe)</h3>
+            <div class="command-example">
+                <pre><code>git fetch</code></pre>
+            </div>
+            <p>Downloads changes but doesn't merge. Lets you review before integrating.</p>
+            <h3>Pull (Convenient)</h3>
+            <div class="command-example">
+                <pre><code>git pull</code></pre>
+            </div>
+            <p>Downloads and merges in one step. Faster but less control.</p>
+            <h2>Specifying Remote and Branch</h2>
+            <div class="command-example">
+                <pre><code>git pull origin main</code></pre>
+            </div>
+            <h2>Pull with Rebase</h2>
+            <div class="command-example">
+                <pre><code>git pull --rebase</code></pre>
+            </div>
+            <p>Instead of merging, rebases your commits on top of the pulled changes. Creates cleaner history.</p>
+            <h2>Handling Conflicts</h2>
+            <p>If you and a teammate edited the same lines, Git can't auto-merge:</p>
+            <pre><code>Auto-merging navigation.js
+CONFLICT (content): Merge conflict in navigation.js
+Automatic merge failed; fix conflicts and then commit.</code></pre>
+            <p>Open the conflicted file. You'll see:</p>
+            <pre><code><<<<<<< HEAD
+const speed = 1500;
+=======
+const speed = 2000;
+>>>>>>> main</code></pre>
+            <p>Edit to resolve, remove markers, then:</p>
+            <div class="command-example">
+                <pre><code>git add navigation.js
+git commit</code></pre>
+            </div>
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Pull before starting work each day</li>
+                <li>Pull before pushing</li>
+                <li>Commit your work before pulling</li>
+                <li>Pull frequently to avoid conflicts</li>
+            </ul>
+            <div class="mission-brief">
+                <h3>Workflow Tip</h3>
+                <p>Many developers follow this pattern:</p>
+                <ol>
+                    <li>Start day: <code>git pull</code></li>
+                    <li>Work on code</li>
+                    <li>Commit changes</li>
+                    <li>Before push: <code>git pull</code></li>
+                    <li>Resolve any conflicts</li>
+                    <li><code>git push</code></li>
+                </ol>
+            </div>
+            <h2>Viewing Remote Changes</h2>
+            <p>After <code>git fetch</code>, compare with:</p>
+            <div class="command-example">
+                <pre><code>git log HEAD..origin/main    # See new commits
+git diff HEAD origin/main     # See changes</code></pre>
+            </div>
+            <h2>Next: Parallel Timelines</h2>
+            <p>You can now synchronize with teammates. Next, we'll explore Git's most powerful feature: branching!</p>
+        </article>
+        <div class="navigation">
+            <a href="transmission-uplink.html" class="nav-link">← Previous: Transmission Uplink</a>
+            <a href="parallel-timelines.html" class="nav-link">Next: Parallel Timelines →</a>
+        </div>
+        <footer>
+            <p>Mission Control Training Program • Phase 17 of 34</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>

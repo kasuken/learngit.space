@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Quick Commands - Mission Control</title><link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
+</head>
+<body data-mission="collaboration" data-phase="6">
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <a href="../index.html" class="home-link">← Back to Mission Control</a>
+        <header><h1><i class="fas fa-bolt"></i> Quick Commands</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 10 min read</div><p class="subtitle">Git Aliases</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 28</strong> • Difficulty: Beginner</p></div>
+        <article>
+            <h2>Custom Shortcuts</h2>
+            <p>Aliases let you create shortcuts for frequently-used commands, saving time and keystrokes.</p>
+            <h2>Creating Aliases</h2>
+            <div class="command-example"><pre><code>git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status</code></pre></div>
+            <p>Now use <code>git st</code> instead of <code>git status</code>!</p>
+            <h2>Useful Aliases</h2>
+            <h3>Better Log</h3>
+            <div class="command-example"><pre><code>git config --global alias.lg "log --graph --oneline --decorate --all"</code></pre></div>
+            <h3>Unstage</h3>
+            <div class="command-example"><pre><code>git config --global alias.unstage "restore --staged"</code></pre></div>
+            <h3>Last Commit</h3>
+            <div class="command-example"><pre><code>git config --global alias.last "log -1 HEAD"</code></pre></div>
+            <h3>Amend (no edit)</h3>
+            <div class="command-example"><pre><code>git config --global alias.amend "commit --amend --no-edit"</code></pre></div>
+            <h3>Visual History</h3>
+            <div class="command-example"><pre><code>git config --global alias.tree "log --graph --pretty=format:'%C(yellow)%h%C(reset) -%C(bold blue)%d%C(reset) %s %C(dim white)- %an, %ar%C(reset)' --all"</code></pre></div>
+            <h2>Complex Aliases</h2>
+            <p>Aliases can run shell commands using <code>!</code>:</p>
+            <div class="command-example"><pre><code>git config --global alias.contributors "!git log --format='%aN' | sort -u"</code></pre></div>
+            <h2>Viewing Aliases</h2>
+            <div class="command-example"><pre><code>git config --get-regexp alias</code></pre></div>
+            <h2>Removing Aliases</h2>
+            <div class="command-example"><pre><code>git config --global --unset alias.co</code></pre></div>
+            <h2>Recommended Starter Set</h2>
+            <div class="mission-brief">
+                <pre><code>git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.unstage "restore --staged"
+git config --global alias.last "log -1 HEAD"
+git config --global alias.lg "log --graph --oneline --all"</code></pre>
+            </div>
+            <h2>Next: Timeline Adjustment</h2>
+            <p>Aliases speed up your workflow. Next, learn rebasing—an advanced but powerful technique for maintaining clean history.</p>
+        </article>
+        <div class="navigation">
+            <a href="cargo-hold.html" class="nav-link">← Previous: Cargo Hold</a>
+            <a href="timeline-adjustment.html" class="nav-link">Next: Timeline Adjustment →</a>
+        </div>
+        <footer><p>Mission Control Training Program • Phase 28 of 34</p></footer>
+    </div>
+    <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
+</body>
+</html>
