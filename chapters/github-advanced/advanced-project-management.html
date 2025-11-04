@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Project Management - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+    <div id="stars" class="stars"></div>
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 5.2</div>
+                <h1><i class="fas fa-project-diagram"></i> Advanced Project Management</h1>
+                <div class="chapter-subtitle">GitHub Projects • Enterprise Workflows • Team Coordination</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="github-api-automation.html" class="nav-link">Previous: API & Automation</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Advanced Project Management</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert">
+                <i class="fas fa-satellite"></i>
+                <div>
+                    <strong>Mission Critical: Enterprise Project Orchestration</strong>
+                    <p>Master advanced project management techniques using GitHub's enterprise features to coordinate complex multi-team initiatives and drive organizational efficiency.</p>
+                </div>
+            </div>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Mission Objectives</h3>
+                <ul>
+                    <li>Master GitHub Projects (Beta) and classic project boards</li>
+                    <li>Implement advanced workflow automation and project templates</li>
+                    <li>Design enterprise-scale project governance and reporting</li>
+                    <li>Build custom project integrations and analytics dashboards</li>
+                    <li>Establish cross-team coordination and dependency management</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="main-content">
+            <!-- Section 1: GitHub Projects Mastery -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">01</div>
+                    <h2><i class="fas fa-table"></i> GitHub Projects Mastery</h2>
+                    <p>Master both classic Project Boards and new GitHub Projects (Beta) for comprehensive project management</p>
+                </div>
+
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h3><i class="fas fa-columns"></i> Classic Project Boards</h3>
+                        <p>Traditional Kanban-style project management with automated workflows</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Repository & Organization boards</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Automated card movements</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Custom column workflows</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h3><i class="fas fa-layer-group"></i> GitHub Projects (Beta)</h3>
+                        <p>Next-generation project management with advanced views and custom fields</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-star"></i>
+                                <span>Multiple view types (Table, Board, Roadmap)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-star"></i>
+                                <span>Custom fields and metadata</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-star"></i>
+                                <span>Advanced filtering and sorting</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h3><i class="fas fa-chart-gantt"></i> Project Templates</h3>
+                        <p>Standardized project structures for consistent team workflows</p>
+                        <div class="code-example">
+<pre><code># Project Template Structure
+├── 📋 Backlog
+├── 🔄 In Progress  
+├── 👀 In Review
+├── ✅ Done
+├── 🚫 Blocked
+└── 📦 Released</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-rocket"></i> Lab 1: Enterprise Project Setup</h3>
+                    
+                    <div class="lab-step">
+                        <h4>Step 1: Create Multi-Repository Project</h4>
+                        <div class="code-example">
+<pre><code># Using GitHub CLI to create organization project
+gh project create --owner "your-org" \
+  --title "Q4 Platform Migration" \
+  --body "Cross-team initiative for platform modernization"
+
+# Add repositories to project
+gh project item-add PROJECT_ID --content-type Repository \
+  --content-id REPO_ID
+
+# Create custom fields
+gh api graphql -f query='
+mutation {
+  updateProjectV2(input: {
+    projectId: "PROJECT_ID"
+    customFields: [
+      {
+        name: "Priority"
+        dataType: SINGLE_SELECT
+        options: [{name: "Critical"}, {name: "High"}, {name: "Medium"}, {name: "Low"}]
+      }
+      {
+        name: "Team"
+        dataType: SINGLE_SELECT  
+        options: [{name: "Backend"}, {name: "Frontend"}, {name: "DevOps"}, {name: "QA"}]
+      }
+      {
+        name: "Story Points"
+        dataType: NUMBER
+      }
+    ]
+  }) {
+    projectV2 {
+      id
+    }
+  }
+}'</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="lab-step">
+                        <h4>Step 2: Automated Workflow Configuration</h4>
+                        <div class="code-example">
+<pre><code># .github/workflows/project-automation.yml
+name: Project Automation
+on:
+  issues:
+    types: [opened, closed, labeled]
+  pull_request:
+    types: [opened, closed, merged, ready_for_review]
+
+jobs:
+  update_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add issue to project
+        if: github.event.action == 'opened'
+        uses: actions/add-to-project@v0.4.0
+        with:
+          project-url: https://github.com/orgs/your-org/projects/1
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          
+      - name: Move to In Progress
+        if: github.event.action == 'assigned'
+        uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project: https://github.com/orgs/your-org/projects/1
+          column: In Progress
+          repo-token: ${{ secrets.PROJECT_TOKEN }}
+          
+      - name: Auto-assign reviewers
+        if: github.event.pull_request.draft == false
+        run: |
+          gh pr edit ${{ github.event.pull_request.number }} \
+            --add-reviewer team-leads \
+            --add-label "ready-for-review"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Advanced Workflow Automation -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">02</div>
+                    <h2><i class="fas fa-cogs"></i> Advanced Workflow Automation</h2>
+                    <p>Implement sophisticated automation rules and custom project behaviors</p>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-robot"></i> Intelligent Project Automation Engine</h3>
+                    
+                    <div class="automation-grid">
+                        <div class="automation-card">
+                            <h4><i class="fas fa-magic"></i> Smart Issue Routing</h4>
+                            <div class="mini-code">
+<pre><code># Auto-assign based on labels and expertise
+class IssueRouter {
+  constructor(teamConfig) {
+    this.teams = teamConfig;
+    this.expertiseMap = new Map();
+  }
+
+  async routeIssue(issue) {
+    const labels = issue.labels.map(l => l.name);
+    const team = this.determineTeam(labels);
+    const assignee = await this.selectBestAssignee(team, issue);
+    
+    return {
+      team,
+      assignee,
+      priority: this.calculatePriority(issue),
+      estimatedEffort: this.estimateEffort(issue)
+    };
+  }
+  
+  determineTeam(labels) {
+    if (labels.includes('backend')) return 'backend-team';
+    if (labels.includes('frontend')) return 'frontend-team';
+    if (labels.includes('bug')) return 'maintenance-team';
+    return 'triage-team';
+  }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="automation-card">
+                            <h4><i class="fas fa-chart-line"></i> Progress Tracking</h4>
+                            <div class="mini-code">
+<pre><code># Automatic progress calculation and reporting
+class ProjectTracker {
+  async calculateProgress(projectId) {
+    const issues = await this.getProjectIssues(projectId);
+    
+    return {
+      totalStoryPoints: this.sumStoryPoints(issues),
+      completedPoints: this.sumStoryPoints(
+        issues.filter(i => i.state === 'closed')
+      ),
+      burndownData: await this.generateBurndown(projectId),
+      teamVelocity: await this.calculateVelocity(projectId),
+      blockers: issues.filter(i => i.labels.includes('blocked'))
+    };
+  }
+  
+  async generateReport(projectId) {
+    const progress = await this.calculateProgress(projectId);
+    return {
+      completionRate: Math.round(
+        (progress.completedPoints / progress.totalStoryPoints) * 100
+      ),
+      estimatedCompletion: this.predictCompletion(progress),
+      riskFactors: this.identifyRisks(progress)
+    };
+  }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="automation-card">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Risk Detection</h4>
+                            <div class="mini-code">
+<pre><code># Proactive risk identification and alerts
+class RiskMonitor {
+  async analyzeProject(projectId) {
+    const metrics = await this.gatherMetrics(projectId);
+    
+    const risks = [];
+    
+    // Velocity degradation
+    if (metrics.currentVelocity < metrics.avgVelocity * 0.7) {
+      risks.push({
+        type: 'velocity_drop',
+        severity: 'high',
+        message: 'Team velocity dropped by 30%',
+        recommendation: 'Review workload and blockers'
+      });
+    }
+    
+    // Scope creep detection
+    if (metrics.scopeIncrease > 0.2) {
+      risks.push({
+        type: 'scope_creep',
+        severity: 'medium',
+        message: 'Project scope increased by 20%',
+        recommendation: 'Reassess timeline and resources'
+      });
+    }
+    
+    return this.prioritizeRisks(risks);
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Enterprise Governance -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">03</div>
+                    <h2><i class="fas fa-shield-alt"></i> Enterprise Governance</h2>
+                    <p>Implement project governance, compliance tracking, and executive reporting</p>
+                </div>
+
+                <div class="governance-framework">
+                    <h3><i class="fas fa-building"></i> Multi-Level Project Hierarchy</h3>
+                    
+                    <div class="hierarchy-diagram">
+                        <div class="hierarchy-level executive">
+                            <h4><i class="fas fa-crown"></i> Executive Portfolio</h4>
+                            <p>Strategic initiatives and OKR tracking</p>
+                            <div class="level-items">
+                                <span class="item">Q4 Platform Migration</span>
+                                <span class="item">Security Compliance</span>
+                                <span class="item">Market Expansion</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hierarchy-level program">
+                            <h4><i class="fas fa-sitemap"></i> Program Management</h4>
+                            <p>Cross-functional program coordination</p>
+                            <div class="level-items">
+                                <span class="item">Backend Modernization</span>
+                                <span class="item">Frontend Redesign</span>
+                                <span class="item">Infrastructure Upgrade</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hierarchy-level project">
+                            <h4><i class="fas fa-project-diagram"></i> Project Execution</h4>
+                            <p>Team-level sprint and delivery management</p>
+                            <div class="level-items">
+                                <span class="item">API Refactoring</span>
+                                <span class="item">Database Migration</span>
+                                <span class="item">UI Component Library</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-chart-pie"></i> Enterprise Dashboard Builder</h3>
+                    <div class="code-example">
+<pre><code>class ExecutiveDashboard {
+  constructor(portfolioProjects) {
+    this.projects = portfolioProjects;
+    this.kpis = new Map();
+  }
+  
+  async generateExecutiveSummary() {
+    const summary = {
+      portfolioHealth: await this.assessPortfolioHealth(),
+      resourceUtilization: await this.calculateResourceUtilization(),
+      riskSummary: await this.aggregateRisks(),
+      deliveryForecast: await this.forecastDeliveries(),
+      budgetStatus: await this.trackBudgetVsBurn()
+    };
+    
+    return this.formatForExecutives(summary);
+  }
+  
+  async assessPortfolioHealth() {
+    const healthScores = await Promise.all(
+      this.projects.map(p => this.calculateProjectHealth(p.id))
+    );
+    
+    return {
+      overall: this.weightedAverage(healthScores),
+      trending: this.calculateTrend(healthScores),
+      atRiskCount: healthScores.filter(s => s.score < 70).length,
+      onTrackCount: healthScores.filter(s => s.score >= 80).length
+    };
+  }
+  
+  async generateComplianceReport() {
+    return {
+      securityReviews: await this.trackSecurityReviews(),
+      codeQualityGates: await this.validateQualityGates(),
+      documentationCoverage: await this.checkDocumentation(),
+      testCoverage: await this.aggregateTestMetrics()
+    };
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Advanced Analytics & Reporting -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">04</div>
+                    <h2><i class="fas fa-chart-area"></i> Advanced Analytics</h2>
+                    <p>Build comprehensive analytics and predictive insights for project success</p>
+                </div>
+
+                <div class="analytics-suite">
+                    <div class="analytics-card">
+                        <h4><i class="fas fa-tachometer-alt"></i> Real-Time Metrics</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <span class="metric-value">87%</span>
+                                <span class="metric-label">Sprint Completion</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">24</span>
+                                <span class="metric-label">Story Points/Sprint</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">2.1</span>
+                                <span class="metric-label">Cycle Time (days)</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">94%</span>
+                                <span class="metric-label">Quality Score</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h4><i class="fas fa-crystal-ball"></i> Predictive Analytics</h4>
+                        <div class="mini-code">
+<pre><code># Delivery prediction engine
+class DeliveryPredictor {
+  async predictCompletion(projectId) {
+    const historical = await this.getHistoricalData(projectId);
+    const current = await this.getCurrentMetrics(projectId);
+    
+    // Monte Carlo simulation for delivery prediction
+    const simulations = this.runMonteCarloSimulation({
+      remainingWork: current.remainingStoryPoints,
+      teamVelocity: historical.avgVelocity,
+      velocityVariance: historical.velocityStdDev,
+      scopeChangeRate: historical.avgScopeChange,
+      iterations: 10000
+    });
+    
+    return {
+      mostLikelyDate: simulations.p50,
+      optimisticDate: simulations.p10, 
+      pessimisticDate: simulations.p90,
+      confidence: this.calculateConfidence(simulations),
+      recommendedActions: this.generateRecommendations(simulations)
+    };
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h4><i class="fas fa-users"></i> Team Performance</h4>
+                        <div class="performance-indicators">
+                            <div class="indicator">
+                                <i class="fas fa-arrow-up text-success"></i>
+                                <span>Velocity trending up 15%</span>
+                            </div>
+                            <div class="indicator">
+                                <i class="fas fa-exclamation-triangle text-warning"></i>
+                                <span>3 blocked items need attention</span>
+                            </div>
+                            <div class="indicator">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>All quality gates passed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Summary -->
+            <div class="mission-summary-section">
+                <div class="section-header">
+                    <div class="section-number">05</div>
+                    <h2><i class="fas fa-flag-checkered"></i> Mission Summary</h2>
+                    <p>Advanced Project Management mastery achieved - Leading enterprise-scale initiatives</p>
+                </div>
+
+                <div class="achievement-grid">
+                    <div class="achievement-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>Project Master</h4>
+                        <p>GitHub Projects & Boards expertise</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-robot"></i>
+                        <h4>Automation Architect</h4>
+                        <p>Advanced workflow automation</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Governance Leader</h4>
+                        <p>Enterprise compliance & reporting</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-chart-area"></i>
+                        <h4>Analytics Expert</h4>
+                        <p>Predictive project insights</p>
+                    </div>
+                </div>
+
+                <div class="completion-certificate">
+                    <div class="certificate-header">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Enterprise Project Commander</h3>
+                    </div>
+                    <div class="certificate-content">
+                        <p><strong>Completion Date:</strong> <span id="completion-date"></span></p>
+                        <p><strong>Skills Mastered:</strong> GitHub Projects, Workflow Automation, Enterprise Governance, Predictive Analytics</p>
+                        <div class="skill-badges">
+                            <span class="skill-badge">GitHub Projects</span>
+                            <span class="skill-badge">Automation</span>
+                            <span class="skill-badge">Governance</span>
+                            <span class="skill-badge">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-cta">
+                    <h3>🚀 Mission Complete - Executive Leadership Achieved!</h3>
+                    <p>You now command enterprise-scale project management across multi-team initiatives. Ready for Phase 5.3: Open Source Leadership?</p>
+                    <div class="cta-actions">
+                        <a href="../../index.html" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Return to Mission Control
+                        </a>
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-rocket"></i> Phase 5.3 Coming Soon
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Create animated stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Set completion date
+        document.addEventListener('DOMContentLoaded', function() {
+            const completionDate = document.getElementById('completion-date');
+            if (completionDate) {
+                completionDate.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            // Animate achievement items
+            const achievements = document.querySelectorAll('.achievement-item');
+            achievements.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Interactive metrics animation
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                const value = parseInt(metric.textContent);
+                let current = 0;
+                const increment = value / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= value) {
+                        current = value;
+                        clearInterval(timer);
+                    }
+                    metric.textContent = Math.round(current) + (metric.textContent.includes('%') ? '%' : '');
+                }, 30);
+            });
+        });
+
+        // Progress tracking
+        if (typeof ProgressTracker !== 'undefined') {
+            ProgressTracker.markPhaseComplete('github-advanced', 2);
+        }
+    </script>
+
+    <!-- Project Management Specific Styles -->
+    <style>
+        .hierarchy-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .hierarchy-level {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid;
+            position: relative;
+        }
+
+        .hierarchy-level.executive {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-left-color: #d4af37;
+        }
+
+        .hierarchy-level.program {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border-left-color: #00d4ff;
+        }
+
+        .hierarchy-level.project {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.2) 0%, rgba(0, 255, 127, 0.1) 100%);
+            border-left-color: #00ff7f;
+        }
+
+        .level-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .level-items .item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .automation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .automation-card {
+            background: rgba(25, 35, 45, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .automation-card h4 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .analytics-suite {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .analytics-card {
+            background: rgba(25, 35, 45, 0.8);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .analytics-card h4 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(15, 25, 35, 0.8);
+            border-radius: 8px;
+        }
+
+        .metric-value {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ff7f;
+        }
+
+        .metric-label {
+            display: block;
+            font-size: 0.85rem;
+            color: #b0c4de;
+            margin-top: 0.25rem;
+        }
+
+        .performance-indicators {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: rgba(15, 25, 35, 0.8);
+            border-radius: 8px;
+        }
+
+        .text-success { color: #00ff7f; }
+        .text-warning { color: #ffa500; }
+
+        .governance-framework {
+            background: rgba(25, 35, 45, 0.6);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .lab-step {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(15, 25, 35, 0.6);
+            border-radius: 8px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .lab-step h4 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-item i {
+            color: #00ff7f;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hierarchy-diagram {
+                gap: 1rem;
+            }
+            
+            .automation-grid,
+            .analytics-suite {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .level-items {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

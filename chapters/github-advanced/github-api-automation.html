@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub API & Automation - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+    <div id="stars" class="stars"></div>
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 5.1</div>
+                <h1><i class="fas fa-cogs"></i> GitHub API & Automation</h1>
+                <div class="chapter-subtitle">Enterprise Integration Mastery</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="../leadership/mentoring-training.html" class="nav-link">Previous: Phase 4</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">GitHub API & Automation</span>
+                <span class="nav-separator">•</span>
+                <a href="advanced-project-management.html" class="nav-link">Next: Project Management</a>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert">
+                <i class="fas fa-satellite"></i>
+                <div>
+                    <strong>Mission Critical: Advanced Integration Protocol</strong>
+                    <p>Master GitHub's API to create enterprise-level automation, custom integrations, and intelligent workflows that scale across your development fleet.</p>
+                </div>
+            </div>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Mission Objectives</h3>
+                <ul>
+                    <li>Master GitHub REST and GraphQL APIs for enterprise automation</li>
+                    <li>Implement secure authentication and API management</li>
+                    <li>Build automated repository governance systems</li>
+                    <li>Create custom workflows and enterprise integrations</li>
+                    <li>Deploy real-time monitoring and alerting solutions</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="main-content">
+            <!-- Section 1: API Fundamentals -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">01</div>
+                    <h2><i class="fas fa-code"></i> API Fundamentals</h2>
+                    <p>Master GitHub's REST and GraphQL APIs with enterprise authentication</p>
+                </div>
+
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h3><i class="fas fa-key"></i> Authentication</h3>
+                        <div class="code-example">
+<pre><code># Personal Access Token
+curl -H "Authorization: token YOUR_TOKEN" \
+  https://api.github.com/user
+
+# GitHub App JWT
+curl -H "Authorization: Bearer YOUR_JWT" \
+  https://api.github.com/app</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h3><i class="fas fa-chart-line"></i> Rate Limiting</h3>
+                        <div class="code-example">
+<pre><code># Check rate limit
+curl -H "Authorization: token YOUR_TOKEN" \
+  https://api.github.com/rate_limit
+
+# Response headers show limits
+X-RateLimit-Remaining: 4999
+X-RateLimit-Reset: 1625097600</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="concept-card">
+                        <h3><i class="fas fa-database"></i> GraphQL vs REST</h3>
+                        <div class="code-example">
+<pre><code># GraphQL - Single request
+query {
+  repository(owner: "octocat", name: "Hello-World") {
+    issues(first: 10) {
+      edges { node { title, state } }
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Repository Automation -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">02</div>
+                    <h2><i class="fas fa-robot"></i> Repository Automation</h2>
+                    <p>Automate repository management, branch policies, and release processes</p>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-code-branch"></i> Automated Repository Manager</h3>
+                    <div class="code-example">
+<pre><code>class RepositoryManager {
+  async createRepository(name, options = {}) {
+    const response = await fetch('https://api.github.com/user/repos', {
+      method: 'POST',
+      headers: {
+        'Authorization': `token ${this.token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        private: options.private || false,
+        auto_init: true,
+        gitignore_template: options.gitignore || 'Node'
+      })
+    });
+    
+    if (response.ok) {
+      const repo = await response.json();
+      await this.setupBranchProtection(repo.full_name);
+      return repo;
+    }
+  }
+
+  async setupBranchProtection(repoName) {
+    return fetch(`https://api.github.com/repos/${repoName}/branches/main/protection`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${this.token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        required_status_checks: { strict: true, contexts: ['ci/tests'] },
+        enforce_admins: true,
+        required_pull_request_reviews: { required_approving_review_count: 2 }
+      })
+    });
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Workflow Integration -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">03</div>
+                    <h2><i class="fas fa-cogs"></i> Workflow Integration</h2>
+                    <p>Control GitHub Actions and CI/CD pipelines programmatically</p>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-play-circle"></i> Workflow Controller</h3>
+                    <div class="code-example">
+<pre><code>class WorkflowManager {
+  async triggerWorkflow(owner, repo, workflowId, ref = 'main') {
+    return fetch(`https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflowId}/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `token ${this.token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ ref })
+    });
+  }
+
+  async getWorkflowRuns(owner, repo) {
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/actions/runs`);
+    return response.json();
+  }
+
+  async downloadArtifact(owner, repo, artifactId) {
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/actions/artifacts/${artifactId}/zip`,
+      { headers: { 'Authorization': `token ${this.token}` } }
+    );
+    return response.blob();
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Enterprise Integration Lab -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">04</div>
+                    <h2><i class="fas fa-network-wired"></i> Enterprise Integration</h2>
+                    <p>Build comprehensive enterprise automation with monitoring and alerts</p>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-project-diagram"></i> Enterprise Integration Hub</h3>
+                    
+                    <div class="integration-grid">
+                        <div class="integration-card">
+                            <h4><i class="fab fa-jira"></i> JIRA Sync</h4>
+                            <div class="mini-code">
+<pre><code>// Auto-sync GitHub issues with JIRA
+async syncWithJira(issue) {
+  const jiraIssue = {
+    fields: {
+      project: { key: 'PROJ' },
+      summary: issue.title,
+      description: issue.body,
+      issuetype: { name: 'Task' }
+    }
+  };
+  
+  return fetch(`${this.jiraUrl}/rest/api/3/issue`, {
+    method: 'POST',
+    headers: { 
+      'Authorization': `Basic ${this.jiraAuth}`,
+      'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify(jiraIssue)
+  });
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="integration-card">
+                            <h4><i class="fab fa-slack"></i> Slack Notifications</h4>
+                            <div class="mini-code">
+<pre><code>// Real-time Slack alerts
+async notifySlack(event) {
+  const message = {
+    channel: '#dev-alerts',
+    text: `🚀 ${event.action}: ${event.repository.name}`,
+    attachments: [{
+      color: event.action === 'opened' ? 'good' : 'warning',
+      fields: [
+        { title: 'Author', value: event.sender.login, short: true },
+        { title: 'Repository', value: event.repository.full_name, short: true }
+      ]
+    }]
+  };
+  
+  return fetch(this.slackWebhook, {
+    method: 'POST',
+    body: JSON.stringify(message)
+  });
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="integration-card">
+                            <h4><i class="fas fa-chart-area"></i> Monitoring Dashboard</h4>
+                            <div class="mini-code">
+<pre><code>// Real-time metrics collection
+class GitHubMonitor {
+  async collectMetrics() {
+    const metrics = {
+      repositories: await this.getRepoCount(),
+      pullRequests: await this.getPRStats(),
+      deployments: await this.getDeploymentStatus(),
+      codeQuality: await this.getCodeQualityMetrics()
+    };
+    
+    // Send to monitoring system
+    await this.sendToDatadog(metrics);
+    return metrics;
+  }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="integration-card">
+                            <h4><i class="fas fa-shield-alt"></i> API Gateway</h4>
+                            <div class="mini-code">
+<pre><code>// Secure API gateway with rate limiting
+app.use('/api/github', rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+}));
+
+app.use('/api/github', authenticateToken);
+
+app.get('/api/github/repos', async (req, res) => {
+  const repos = await github.getRepos(req.user.id);
+  res.json(repos);
+});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Summary -->
+            <div class="mission-summary-section">
+                <div class="section-header">
+                    <div class="section-number">05</div>
+                    <h2><i class="fas fa-flag-checkered"></i> Mission Summary</h2>
+                    <p>Enterprise GitHub mastery achieved - Review your commander-level skills</p>
+                </div>
+
+                <div class="achievement-grid">
+                    <div class="achievement-item">
+                        <i class="fas fa-code"></i>
+                        <h4>API Master</h4>
+                        <p>REST & GraphQL expertise</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-robot"></i>
+                        <h4>Automation Expert</h4>
+                        <p>Repository & workflow automation</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-network-wired"></i>
+                        <h4>Integration Architect</h4>
+                        <p>Enterprise system connections</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Security Commander</h4>
+                        <p>Production-ready solutions</p>
+                    </div>
+                </div>
+
+                <div class="completion-certificate">
+                    <div class="certificate-header">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Enterprise GitHub Commander</h3>
+                    </div>
+                    <div class="certificate-content">
+                        <p><strong>Completion Date:</strong> <span id="completion-date"></span></p>
+                        <p><strong>Skills Mastered:</strong> GitHub API Architecture, Repository Automation, Workflow Engineering, Enterprise Integration</p>
+                        <div class="skill-badges">
+                            <span class="skill-badge">GitHub API</span>
+                            <span class="skill-badge">Automation</span>
+                            <span class="skill-badge">Integration</span>
+                            <span class="skill-badge">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-cta">
+                    <h3>🚀 Mission Complete - What's Next?</h3>
+                    <p>You've mastered enterprise GitHub automation! Ready for Phase 6: DevOps & Cloud Integration?</p>
+                    <div class="cta-actions">
+                        <a href="../../index.html" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Return to Mission Control
+                        </a>
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-rocket"></i> Phase 6 Coming Soon
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Create animated stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Set completion date
+        document.addEventListener('DOMContentLoaded', function() {
+            const completionDate = document.getElementById('completion-date');
+            if (completionDate) {
+                completionDate.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            // Animate achievement items
+            const achievements = document.querySelectorAll('.achievement-item');
+            achievements.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // Progress tracking
+        if (typeof ProgressTracker !== 'undefined') {
+            ProgressTracker.markPhaseComplete('github-advanced', 1);
+        }
+    </script>
+
+
+</body>
+</html>

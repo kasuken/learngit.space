@@ -2931,6 +2931,19 @@ h2 .fas {
     margin-left: 1rem;
 }
 
+.phase-available {
+    background: rgba(0, 255, 127, 0.2);
+    color: #00ff7f;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 1rem;
+    box-shadow: 0 0 10px rgba(0, 255, 127, 0.3);
+}
+
 .mission-link.coming-soon {
     opacity: 0.7;
     cursor: not-allowed;
@@ -2948,6 +2961,34 @@ h2 .fas {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-left: 0.5rem;
+}
+
+.chapter-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 0.5rem;
+}
+
+.chapter-badge.new {
+    background: linear-gradient(135deg, #00ff7f 0%, #32cd32 100%);
+    color: #1a1a1a;
+    box-shadow: 0 0 8px rgba(0, 255, 127, 0.4);
+    animation: pulse-new 2s infinite;
+}
+
+@keyframes pulse-new {
+    0%, 100% { 
+        box-shadow: 0 0 8px rgba(0, 255, 127, 0.4);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(0, 255, 127, 0.6);
+        transform: scale(1.05);
+    }
 }
 
 .advanced-mission-control {
@@ -6395,5 +6436,131 @@ h2 .fas {
     
     .reference-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* GitHub API & Automation Specific Styles */
+.integration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.integration-card {
+    background: rgba(25, 35, 45, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.integration-card h4 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.mini-code {
+    background: rgba(15, 25, 35, 0.9);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.85rem;
+    overflow-x: auto;
+}
+
+.mini-code pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.achievement-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(25, 35, 45, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.achievement-item i {
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+}
+
+.achievement-item h4 {
+    color: #00d4ff;
+    margin-bottom: 0.5rem;
+}
+
+.completion-certificate {
+    background: linear-gradient(135deg, rgba(25, 35, 45, 0.9) 0%, rgba(15, 25, 35, 0.9) 100%);
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.certificate-header i {
+    font-size: 3rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+}
+
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.skill-badge {
+    background: linear-gradient(135deg, #00ff7f 0%, #32cd32 100%);
+    color: #1a1a1a;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.mission-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .integration-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievement-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
     }
 }
