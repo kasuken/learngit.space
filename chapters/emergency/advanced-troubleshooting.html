@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Troubleshooting - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+    <div id="stars" class="stars"></div>
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">EMERGENCY • PHASE 6.2</div>
+                <h1><i class="fas fa-tools"></i> Advanced Troubleshooting</h1>
+                <div class="chapter-subtitle">Complex Issue Resolution • Expert Debugging</div>
+                <div class="difficulty-badge emergency">EMERGENCY RESPONSE</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="disaster-recovery.html" class="nav-link">Previous: Disaster Recovery</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Advanced Troubleshooting</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="emergency-alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>CRITICAL MISSION: Complex Issue Resolution</strong>
+                    <p>Master advanced Git debugging techniques for the most complex and obscure issues that standard procedures can't solve.</p>
+                </div>
+            </div>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Troubleshooting Objectives</h3>
+                <ul>
+                    <li>Diagnose complex merge conflicts and resolution strategies</li>
+                    <li>Debug performance issues and optimize large repositories</li>
+                    <li>Resolve network and remote synchronization problems</li>
+                    <li>Handle advanced workflow conflicts and edge cases</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="main-content">
+            <!-- Section 1: Complex Merge Conflicts -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">01</div>
+                    <h2><i class="fas fa-code-branch"></i> Complex Merge Conflicts</h2>
+                    <p>Resolve challenging merge scenarios that break standard workflows</p>
+                </div>
+
+                <div class="conflict-scenarios">
+                    <div class="scenario-grid">
+                        <div class="scenario-card">
+                            <h4>🔥 Binary File Conflicts</h4>
+                            <div class="quick-fix">
+                                <div class="problem">Images, docs, or binaries in conflict</div>
+                                <div class="solution">
+<pre><code># Choose version explicitly
+git checkout --ours path/to/binary-file
+git checkout --theirs path/to/binary-file
+
+# Manual selection with attributes
+echo "*.pdf merge=ours" >> .gitattributes
+git add .gitattributes</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card">
+                            <h4>⚡ Recursive Merge Hell</h4>
+                            <div class="quick-fix">
+                                <div class="problem">Deep conflicts across multiple branches</div>
+                                <div class="solution">
+<pre><code># Reset and use 3-way merge
+git merge --abort
+git merge --strategy=recursive --strategy-option=patience
+
+# Alternative: octopus merge for multiple branches
+git merge branch1 branch2 branch3</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card">
+                            <h4>💀 Submodule Conflicts</h4>
+                            <div class="quick-fix">
+                                <div class="problem">Submodule pointer conflicts</div>
+                                <div class="solution">
+<pre><code># Update submodule to latest
+git submodule update --remote
+git add submodule-name
+
+# Force submodule to specific commit
+cd submodule-name
+git checkout abc123
+cd ..
+git add submodule-name</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conflict-tools">
+                    <h3><i class="fas fa-wrench"></i> Advanced Conflict Resolution</h3>
+                    <div class="tool-showcase">
+<pre><code># Ultimate conflict analyzer
+#!/bin/bash
+analyze_complex_conflicts() {
+    echo "=== CONFLICT ANALYSIS ==="
+    
+    # Show conflict summary
+    git diff --name-only --diff-filter=U | while read file; do
+        echo "CONFLICTED: $file"
+        
+        # Count conflict markers
+        conflicts=$(grep -c "<<<<<<< HEAD" "$file" 2>/dev/null || echo "0")
+        echo "  Conflicts: $conflicts"
+        
+        # Show conflict context
+        grep -n -A2 -B2 "<<<<<<< HEAD" "$file" 2>/dev/null || true
+        echo ""
+    done
+    
+    # Suggest resolution strategy
+    echo "=== SUGGESTED STRATEGY ==="
+    file_count=$(git diff --name-only --diff-filter=U | wc -l)
+    
+    if [[ $file_count -gt 10 ]]; then
+        echo "⚠️  MASS CONFLICT: Consider merge --abort and rebase strategy"
+    elif [[ $file_count -gt 5 ]]; then
+        echo "⚡ MEDIUM CONFLICT: Use merge tool or manual resolution"
+    else
+        echo "✅ MANAGEABLE: Manual resolution recommended"
+    fi
+}
+
+# Execute analysis
+analyze_complex_conflicts</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Performance Debugging -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">02</div>
+                    <h2><i class="fas fa-tachometer-alt"></i> Performance Debugging</h2>
+                    <p>Optimize slow Git operations and large repository performance</p>
+                </div>
+
+                <div class="performance-diagnostics">
+                    <div class="diagnostic-toolkit">
+                        <h4><i class="fas fa-stopwatch"></i> Performance Profiling</h4>
+<pre><code># Git operation timing
+GIT_TRACE_PERFORMANCE=1 git status
+GIT_TRACE_PERFORMANCE=1 git log --oneline -100
+
+# Repository size analysis
+git count-objects -vH
+git rev-list --objects --all | \
+  git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize)' | \
+  awk '{sum+=$3} END {print "Total size:", sum/1024/1024 "MB"}'
+
+# Find large files
+git rev-list --objects --all | \
+  git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize) %(rest)' | \
+  awk '$3 > 1048576 {print $3/1048576 "MB", $4}' | sort -nr</code></pre>
+                    </div>
+
+                    <div class="optimization-strategies">
+                        <h4><i class="fas fa-rocket"></i> Quick Optimizations</h4>
+                        <div class="strategy-grid">
+                            <div class="strategy">
+                                <strong>🗜️ Repository Cleanup</strong>
+<pre><code># Aggressive optimization
+git gc --aggressive --prune=now
+git repack -ad
+git reflog expire --expire=now --all</code></pre>
+                            </div>
+                            <div class="strategy">
+                                <strong>📁 Large File Management</strong>
+<pre><code># Remove large files from history
+git filter-branch --tree-filter 'rm -f large-file.zip' HEAD
+git push --force
+
+# Use Git LFS for future large files
+git lfs track "*.zip"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Network & Remote Issues -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">03</div>
+                    <h2><i class="fas fa-network-wired"></i> Network & Remote Issues</h2>
+                    <p>Debug connectivity and synchronization problems</p>
+                </div>
+
+                <div class="network-debugging">
+                    <div class="common-fixes">
+                        <div class="fix-card">
+                            <h4>🌐 Connection Timeouts</h4>
+<pre><code># Increase timeouts
+git config --global http.postBuffer 524288000
+git config --global http.timeout 600
+
+# Use SSH instead of HTTPS
+git remote set-url origin git@github.com:user/repo.git</code></pre>
+                        </div>
+
+                        <div class="fix-card">
+                            <h4>🔐 Authentication Failures</h4>
+<pre><code># Clear credential cache
+git credential-manager-core erase
+echo "url=https://github.com" | git credential fill
+
+# Test SSH connection
+ssh -T git@github.com</code></pre>
+                        </div>
+
+                        <div class="fix-card">
+                            <h4>⚡ Sync Conflicts</h4>
+<pre><code># Force sync with remote
+git fetch --all
+git reset --hard origin/main
+
+# Partial clone for large repos
+git clone --filter=blob:limit=1m &lt;url&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Workflow Edge Cases -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">04</div>
+                    <h2><i class="fas fa-puzzle-piece"></i> Workflow Edge Cases</h2>
+                    <p>Handle unusual scenarios and workflow breakdowns</p>
+                </div>
+
+                <div class="edge-cases">
+                    <div class="case-studies">
+                        <div class="case-card">
+                            <h4>🔄 Detached HEAD Recovery</h4>
+<pre><code># Create branch from detached HEAD
+git branch recovery-branch
+git checkout recovery-branch
+
+# Or merge back to main
+git checkout main
+git merge HEAD@{1}</code></pre>
+                        </div>
+
+                        <div class="case-card">
+                            <h4>🗂️ Branch Pointer Corruption</h4>
+<pre><code># Recreate branch from reflog
+git reflog show branch-name
+git branch branch-name-fixed &lt;commit-hash&gt;
+
+# Update branch pointer
+git update-ref refs/heads/branch-name &lt;commit-hash&gt;</code></pre>
+                        </div>
+
+                        <div class="case-card">
+                            <h4>⚠️ Partial Commits Missing</h4>
+<pre><code># Find lost commits
+git fsck --lost-found
+ls .git/lost-found/commit/
+
+# Recover specific commit
+git show &lt;lost-commit-hash&gt;
+git branch recovery &lt;lost-commit-hash&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-toolkit">
+                    <h3><i class="fas fa-toolbox"></i> Emergency Troubleshooting Script</h3>
+<pre><code>#!/bin/bash
+# Git Emergency Troubleshooter
+
+emergency_diagnosis() {
+    echo "🚨 GIT EMERGENCY DIAGNOSIS"
+    echo "========================="
+    
+    # Basic health
+    echo "Repository Status:"
+    git status --porcelain | head -10
+    
+    # Performance check
+    echo -e "\nPerformance Metrics:"
+    time git log --oneline -1 >/dev/null
+    
+    # Remote connectivity
+    echo -e "\nRemote Status:"
+    git remote -v | while read name url type; do
+        if [[ "$type" == "(fetch)" ]]; then
+            timeout 10s git ls-remote "$name" >/dev/null 2>&1 && \
+                echo "✅ $name: OK" || echo "❌ $name: FAILED"
+        fi
+    done
+    
+    # Conflict check
+    echo -e "\nActive Conflicts:"
+    git diff --name-only --diff-filter=U | wc -l | \
+        xargs echo "Conflicted files:"
+    
+    # Repository size
+    echo -e "\nRepository Size:"
+    du -sh .git/ 2>/dev/null || echo "Unable to determine size"
+    
+    echo -e "\n🔧 Run 'git gc --aggressive' if performance is slow"
+    echo "🌐 Check network if remote operations fail"
+    echo "⚡ Use 'git mergetool' for conflict resolution"
+}
+
+# Execute diagnosis
+emergency_diagnosis</code></pre>
+                </div>
+            </div>
+
+            <!-- Mission Summary -->
+            <div class="mission-summary-section">
+                <div class="section-header">
+                    <div class="section-number">05</div>
+                    <h2><i class="fas fa-certificate"></i> Troubleshooting Mastery</h2>
+                    <p>Advanced Git debugging skills acquired - Ready for any complex issue</p>
+                </div>
+
+                <div class="mastery-grid">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-code-branch"></i> Conflict Resolution</h4>
+                        <div class="skills">
+                            <span>Binary file conflicts</span>
+                            <span>Recursive merge issues</span>
+                            <span>Submodule conflicts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-tachometer-alt"></i> Performance Optimization</h4>
+                        <div class="skills">
+                            <span>Large repository cleanup</span>
+                            <span>Operation profiling</span>
+                            <span>File size management</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-network-wired"></i> Network Debugging</h4>
+                        <div class="skills">
+                            <span>Connection timeouts</span>
+                            <span>Authentication fixes</span>
+                            <span>Sync problem resolution</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-puzzle-piece"></i> Edge Case Handling</h4>
+                        <div class="skills">
+                            <span>Detached HEAD recovery</span>
+                            <span>Branch pointer repair</span>
+                            <span>Lost commit retrieval</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-completion">
+                    <h3>🎉 Phase 6 Complete - Emergency Operations Mastery!</h3>
+                    <div class="completion-summary">
+                        <div class="phase-chapter">
+                            <i class="fas fa-life-ring"></i>
+                            <h4>6.1: Disaster Recovery</h4>
+                            <p>Critical repository recovery</p>
+                        </div>
+                        <div class="phase-chapter">
+                            <i class="fas fa-tools"></i>
+                            <h4>6.2: Advanced Troubleshooting</h4>
+                            <p>Complex issue resolution</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-cta">
+                    <h3>⚡ Git Expert Status Achieved!</h3>
+                    <p>You've mastered every aspect of Git - from basics to emergency operations. You're now equipped to handle any Git challenge with confidence.</p>
+                    <div class="cta-actions">
+                        <a href="../../index.html" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Mission Control
+                        </a>
+                        <div class="completion-badge">
+                            <i class="fas fa-trophy"></i>
+                            <span>Git Master Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Emergency star animation
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 75; i++) {
+            const star = document.createElement('div');
+            star.className = 'star emergency-star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Copy code functionality
+        document.querySelectorAll('pre code').forEach(block => {
+            block.addEventListener('click', function() {
+                navigator.clipboard.writeText(this.textContent);
+                this.style.background = 'rgba(0, 255, 127, 0.2)';
+                setTimeout(() => {
+                    this.style.background = '';
+                }, 300);
+            });
+        });
+
+        // Progress tracking
+        if (typeof ProgressTracker !== 'undefined') {
+            ProgressTracker.markChapterComplete('emergency', 'advanced-troubleshooting');
+            ProgressTracker.markPhaseComplete('emergency', 1); // Complete Phase 6
+        }
+    </script>
+
+    <!-- Troubleshooting Specific Styles -->
+    <style>
+        .scenario-grid,
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .scenario-card,
+        .fix-card,
+        .case-card {
+            background: rgba(15, 25, 35, 0.8);
+            border: 2px solid #ff4500;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .scenario-card h4,
+        .fix-card h4,
+        .case-card h4 {
+            color: #ff4500;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .quick-fix .problem {
+            background: rgba(255, 69, 0, 0.1);
+            padding: 0.5rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .solution,
+        .tool-showcase {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .solution pre,
+        .tool-showcase pre,
+        .fix-card pre,
+        .case-card pre,
+        .emergency-toolkit pre {
+            margin: 0;
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .strategy {
+            background: rgba(15, 25, 35, 0.6);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #00d4ff;
+        }
+
+        .strategy strong {
+            color: #00d4ff;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .mastery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-category {
+            background: rgba(15, 25, 35, 0.8);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .skill-category h4 {
+            color: #ff4500;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skills span {
+            background: rgba(255, 69, 0, 0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255, 69, 0, 0.3);
+        }
+
+        .completion-summary {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .phase-chapter {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(15, 25, 35, 0.6);
+            border-radius: 12px;
+            min-width: 200px;
+        }
+
+        .phase-chapter i {
+            font-size: 2rem;
+            color: #ff4500;
+            margin-bottom: 0.5rem;
+        }
+
+        .completion-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .scenario-grid,
+            .strategy-grid,
+            .mastery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .completion-summary {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>
