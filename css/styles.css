@@ -950,6 +950,38 @@ pre code {
         width: 95%;
     }
     
+    .toc-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .toc-section-title {
+        font-size: 1.4rem;
+        width: 100%;
+        border-left: 3px solid var(--primary-gold); /* Thinner border on mobile */
+        padding-left: 0.75rem;
+    }
+    
+    .phase-duration {
+        align-self: flex-end;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        min-width: 60px; /* Smaller min-width on mobile */
+    }
+    
+    .toc-section a {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .chapter-time {
+        align-self: flex-end;
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
+    }
+    
     .modal-actions {
         flex-direction: column;
     }
@@ -987,6 +1019,7 @@ pre code {
     border-radius: 15px;
     border: 1px solid rgba(79, 195, 247, 0.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Prevents content from overflowing container */
 }
 
 .toc-section-header {
@@ -994,6 +1027,8 @@ pre code {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
+    gap: 1rem;
+    flex-wrap: nowrap;
 }
 
 .toc-section-title {
@@ -1004,6 +1039,12 @@ pre code {
     text-shadow: 0 0 15px var(--glow-gold);
     border-left: 4px solid var(--primary-gold);
     padding-left: 1rem;
+    flex: 1;
+    min-width: 0; /* Allows title to shrink if needed */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .phase-duration {
@@ -1014,11 +1055,15 @@ pre code {
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-family: 'Orbitron', monospace;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
     animation: pulseDuration 3s infinite;
+    flex-shrink: 0; /* Prevents badge from shrinking */
+    white-space: nowrap; /* Prevents text wrapping */
+    min-width: 70px; /* Ensures consistent minimum width */
+    text-align: center;
 }
 
 @keyframes pulseDuration {
@@ -1073,13 +1118,17 @@ pre code {
     color: var(--text-light);
     font-size: 1.1rem;
     font-weight: 500;
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     padding: 1rem 1.5rem;
     background: linear-gradient(135deg, rgba(26, 31, 58, 0.6) 0%, rgba(42, 47, 74, 0.4) 100%);
     border-radius: 8px;
     border: 1px solid rgba(79, 195, 247, 0.2);
     transition: all 0.3s ease;
     margin-top: 0.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .chapter-title-text {
@@ -1098,6 +1147,13 @@ pre code {
     font-weight: 300;
 }
 
+.chapter-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
 .chapter-time {
     background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(79, 195, 247, 0.1) 100%);
     border: 1px solid rgba(0, 229, 255, 0.3);
@@ -1107,10 +1163,11 @@ pre code {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     font-weight: 600;
-    margin-left: 0.5rem;
     letter-spacing: 0.5px;
-    float: right;
     box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+    flex-shrink: 0;
+    white-space: nowrap;
+    align-self: center;
 }
 
 .toc-section a:hover {
@@ -2928,7 +2985,9 @@ h2 .fas {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .phase-available {
@@ -2940,8 +2999,10 @@ h2 .fas {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 255, 127, 0.3);
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .mission-link.coming-soon {
