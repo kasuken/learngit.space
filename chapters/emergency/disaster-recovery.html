@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disaster Recovery - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+    <div id="stars" class="stars"></div>
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">EMERGENCY • PHASE 6.1</div>
+                <h1><i class="fas fa-life-ring"></i> Disaster Recovery</h1>
+                <div class="chapter-subtitle">Critical Repository Recovery • Data Rescue Operations</div>
+                <div class="difficulty-badge emergency">EMERGENCY RESPONSE</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="../github-advanced/open-source-leadership.html" class="nav-link">Previous: Phase 5</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Disaster Recovery</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="emergency-alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>CRITICAL MISSION: Repository Disaster Response</strong>
+                    <p>Master emergency Git recovery procedures for catastrophic repository failures, data corruption, and critical system disasters. Your ability to recover from the impossible may save years of development work.</p>
+                </div>
+            </div>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Emergency Objectives</h3>
+                <ul>
+                    <li>Execute repository corruption detection and recovery procedures</li>
+                    <li>Perform emergency data rescue from damaged Git objects</li>
+                    <li>Implement disaster prevention and backup strategies</li>
+                    <li>Master forensic analysis of repository failures</li>
+                    <li>Deploy emergency collaboration protocols for team disasters</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="main-content">
+            <!-- Section 1: Critical Assessment -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">01</div>
+                    <h2><i class="fas fa-stethoscope"></i> Critical Assessment</h2>
+                    <p>Rapidly diagnose repository health and identify critical failure points</p>
+                </div>
+
+                <div class="assessment-protocols">
+                    <div class="protocol-framework">
+                        <h3><i class="fas fa-heartbeat"></i> Repository Health Diagnostics</h3>
+                        <div class="diagnostic-grid">
+                            <div class="diagnostic-card integrity">
+                                <h4><i class="fas fa-shield-alt"></i> Integrity Check</h4>
+                                <div class="diagnostic-commands">
+                                    <div class="command-example">
+                                        <code>git fsck --full --no-reflogs --unreachable --dangling</code>
+                                        <span class="command-desc">Complete filesystem check</span>
+                                    </div>
+                                    <div class="command-example">
+                                        <code>git verify-pack -v .git/objects/pack/*.idx</code>
+                                        <span class="command-desc">Verify pack file integrity</span>
+                                    </div>
+                                    <div class="command-example">
+                                        <code>git count-objects -v</code>
+                                        <span class="command-desc">Object database statistics</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="diagnostic-card corruption">
+                                <h4><i class="fas fa-bug"></i> Corruption Detection</h4>
+                                <div class="diagnostic-commands">
+                                    <div class="command-example">
+                                        <code>git cat-file -t &lt;object-hash&gt;</code>
+                                        <span class="command-desc">Test object readability</span>
+                                    </div>
+                                    <div class="command-example">
+                                        <code>git show-ref --verify refs/heads/main</code>
+                                        <span class="command-desc">Verify reference integrity</span>
+                                    </div>
+                                    <div class="command-example">
+                                        <code>find .git -name "*.idx" -exec git verify-pack {} \;</code>
+                                        <span class="command-desc">Batch pack verification</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="diagnostic-card performance">
+                                <h4><i class="fas fa-tachometer-alt"></i> Performance Analysis</h4>
+                                <div class="diagnostic-commands">
+                                    <div class="command-example">
+                                        <code>git gc --aggressive --prune=now</code>
+                                        <span class="command-desc">Aggressive cleanup test</span>
+                                    </div>
+                                    <div class="command-example">
+                                        <code>git log --oneline --all | wc -l</code>
+                                        <span class="command-desc">Commit count analysis</span>
+                                    </div>
+                                    <div class="command-example">
+                                        <code>du -sh .git/</code>
+                                        <span class="command-desc">Repository size check</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-triage">
+                    <h3><i class="fas fa-ambulance"></i> Emergency Triage System</h3>
+                    <div class="triage-matrix">
+                        <div class="severity-level critical">
+                            <h4><i class="fas fa-skull-crossbones"></i> CRITICAL - Immediate Action Required</h4>
+                            <div class="symptoms">
+                                <span class="symptom">Repository won't open</span>
+                                <span class="symptom">Git commands fail with "corrupt object"</span>
+                                <span class="symptom">Missing .git directory</span>
+                                <span class="symptom">All branches disappeared</span>
+                            </div>
+                            <div class="response-time">⚡ Response Time: &lt; 5 minutes</div>
+                        </div>
+
+                        <div class="severity-level high">
+                            <h4><i class="fas fa-exclamation-triangle"></i> HIGH - Urgent Response Needed</h4>
+                            <div class="symptoms">
+                                <span class="symptom">Some commits unreachable</span>
+                                <span class="symptom">Pack files corrupted</span>
+                                <span class="symptom">Remote sync failing</span>
+                                <span class="symptom">Branch history damaged</span>
+                            </div>
+                            <div class="response-time">🔥 Response Time: &lt; 15 minutes</div>
+                        </div>
+
+                        <div class="severity-level medium">
+                            <h4><i class="fas fa-exclamation-circle"></i> MEDIUM - Planned Recovery</h4>
+                            <div class="symptoms">
+                                <span class="symptom">Performance degradation</span>
+                                <span class="symptom">Large repository size</span>
+                                <span class="symptom">Slow operations</span>
+                                <span class="symptom">Warning messages</span>
+                            </div>
+                            <div class="response-time">⏰ Response Time: &lt; 2 hours</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Emergency Recovery Procedures -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">02</div>
+                    <h2><i class="fas fa-tools"></i> Emergency Recovery</h2>
+                    <p>Execute critical recovery operations to restore repository functionality</p>
+                </div>
+
+                <div class="recovery-protocols">
+                    <div class="recovery-scenario">
+                        <h3><i class="fas fa-fire-extinguisher"></i> Critical Recovery Scenarios</h3>
+
+                        <div class="scenario-card scenario-corruption">
+                            <h4>🔥 Scenario 1: Complete Repository Corruption</h4>
+                            <div class="scenario-content">
+                                <div class="problem-description">
+                                    <strong>Problem:</strong> Git fsck reports multiple corrupt objects, repository unusable
+                                </div>
+                                
+                                <div class="recovery-steps">
+                                    <h5><i class="fas fa-list-ol"></i> Emergency Recovery Procedure:</h5>
+                                    <div class="step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <strong>Immediate Backup</strong>
+                                            <code>cp -r .git .git-backup-$(date +%Y%m%d_%H%M%S)</code>
+                                            <p>Create emergency backup before any recovery attempts</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <strong>Object Recovery</strong>
+                                            <div class="code-block">
+<pre><code># Extract salvageable objects
+mkdir recovery-objects
+git cat-file --batch-check --batch-all-objects | \
+  while read sha1 type size; do 
+    if git cat-file -e $sha1 2>/dev/null; then
+      git cat-file $type $sha1 > recovery-objects/$sha1
+    fi
+  done
+
+# Rebuild object database
+git hash-object -w recovery-objects/*</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <strong>Reference Reconstruction</strong>
+                                            <div class="code-block">
+<pre><code># Find branch heads from reflogs
+git reflog --all | grep "checkout: moving from" | \
+  awk '{print $NF}' | sort -u > potential-branches.txt
+
+# Verify and recreate branches
+while read branch; do
+  if git rev-parse --verify $branch >/dev/null 2>&1; then
+    echo "Recreating branch: $branch"
+    git branch -f recovered-$branch $branch
+  fi
+done < potential-branches.txt</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <strong>Remote Restoration</strong>
+                                            <code>git clone --bare &lt;remote-url&gt; .git-remote-backup</code>
+                                            <code>rsync -av .git-remote-backup/ .git/</code>
+                                            <p>Use remote as source of truth for final restoration</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card scenario-missing-commits">
+                            <h4>💀 Scenario 2: Missing Critical Commits</h4>
+                            <div class="scenario-content">
+                                <div class="problem-description">
+                                    <strong>Problem:</strong> Important commits lost after failed rebase/merge/reset
+                                </div>
+                                
+                                <div class="recovery-steps">
+                                    <h5><i class="fas fa-search"></i> Forensic Recovery:</h5>
+                                    <div class="forensic-toolkit">
+                                        <div class="tool">
+                                            <strong>Reflog Archaeology</strong>
+                                            <div class="code-block">
+<pre><code># Comprehensive reflog search
+git reflog --all --date=iso --format="%h %gd %gs %s"
+
+# Find specific patterns
+git log --walk-reflogs --oneline --grep="your-search-term"
+
+# Recover from specific reflog entry
+git branch recovery-branch HEAD@{2}</code></pre>
+                                            </div>
+                                        </div>
+
+                                        <div class="tool">
+                                            <strong>Dangling Object Recovery</strong>
+                                            <div class="code-block">
+<pre><code># Find all dangling commits
+git fsck --no-reflog --unreachable | grep commit
+
+# Examine dangling commits
+git fsck --no-reflog --unreachable | grep commit | \
+  cut -d' ' -f3 | while read commit; do
+    echo "=== Commit $commit ==="
+    git show --stat $commit
+    echo ""
+  done
+
+# Create branches from recovered commits
+git branch recovery-$(date +%s) &lt;commit-hash&gt;</code></pre>
+                                            </div>
+                                        </div>
+
+                                        <div class="tool">
+                                            <strong>Working Directory Recovery</strong>
+                                            <div class="code-block">
+<pre><code># Create commit from working directory changes
+git add -A
+git commit -m "Emergency recovery: $(date)"
+
+# Stash recovery
+git stash list --date=iso
+git stash show -p stash@{0}
+git stash pop stash@{0}</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card scenario-pack-corruption">
+                            <h4>📦 Scenario 3: Pack File Corruption</h4>
+                            <div class="scenario-content">
+                                <div class="problem-description">
+                                    <strong>Problem:</strong> Pack files corrupted, objects inaccessible
+                                </div>
+                                
+                                <div class="recovery-steps">
+                                    <h5><i class="fas fa-wrench"></i> Pack Recovery Protocol:</h5>
+                                    <div class="code-block">
+<pre><code># Verify pack corruption
+cd .git/objects/pack
+for pack in pack-*.idx; do
+  echo "Verifying $pack"
+  git verify-pack -v "$pack" || echo "CORRUPTED: $pack"
+done
+
+# Extract objects from corrupted packs
+git unpack-objects < pack-*.pack
+
+# Remove corrupted packs
+rm pack-*.pack pack-*.idx
+
+# Rebuild clean packs
+cd ../..
+git repack -ad
+git gc --aggressive</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recovery-automation">
+                    <h3><i class="fas fa-robot"></i> Automated Recovery Systems</h3>
+                    <div class="automation-framework">
+                        <div class="code-example">
+<pre><code>#!/bin/bash
+# Emergency Git Recovery Automation Script
+
+set -euo pipefail
+
+REPO_PATH="${1:-.}"
+BACKUP_DIR="emergency-backup-$(date +%Y%m%d_%H%M%S)"
+LOG_FILE="recovery-$(date +%Y%m%d_%H%M%S).log"
+
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOG_FILE"
+}
+
+emergency_backup() {
+    log "Creating emergency backup..."
+    cp -r "$REPO_PATH/.git" "$BACKUP_DIR"
+    log "Backup created at: $BACKUP_DIR"
+}
+
+assess_damage() {
+    log "Assessing repository damage..."
+    
+    # Check basic repository structure
+    if [[ ! -d "$REPO_PATH/.git" ]]; then
+        log "CRITICAL: No .git directory found!"
+        return 3
+    fi
+    
+    # Run filesystem check
+    cd "$REPO_PATH"
+    if ! git fsck --no-reflogs 2>&1 | tee fsck-output.txt; then
+        corruption_level=$(grep -c "error\|corrupt\|missing" fsck-output.txt || true)
+        log "Found $corruption_level corruption issues"
+        return $((corruption_level > 10 ? 2 : 1))
+    fi
+    
+    log "Repository appears healthy"
+    return 0
+}
+
+recover_objects() {
+    log "Attempting object recovery..."
+    
+    # Create recovery workspace
+    mkdir -p recovery-workspace
+    
+    # Extract all readable objects
+    git cat-file --batch-check --batch-all-objects | \
+        while read sha1 type size; do 
+            if git cat-file -e "$sha1" 2>/dev/null; then
+                git cat-file "$type" "$sha1" > "recovery-workspace/$sha1"
+            else
+                log "Unreadable object: $sha1"
+            fi
+        done
+    
+    # Rebuild object database
+    for obj in recovery-workspace/*; do
+        if [[ -f "$obj" ]]; then
+            git hash-object -w "$obj" || log "Failed to re-hash: $(basename "$obj")"
+        fi
+    done
+}
+
+recover_references() {
+    log "Recovering branch references..."
+    
+    # Backup current refs
+    cp -r .git/refs .git/refs-backup 2>/dev/null || true
+    
+    # Try to recover from reflogs
+    find .git/logs -name "*" -type f | while read reflog; do
+        ref_name=$(echo "$reflog" | sed 's|.git/logs/||')
+        if [[ -f "$reflog" ]]; then
+            last_commit=$(tail -1 "$reflog" | cut -d' ' -f2)
+            if git rev-parse --verify "$last_commit" >/dev/null 2>&1; then
+                log "Recovering reference: $ref_name -> $last_commit"
+                git update-ref "$ref_name" "$last_commit"
+            fi
+        fi
+    done
+}
+
+main() {
+    log "Starting emergency Git recovery for: $REPO_PATH"
+    
+    # Create backup first
+    emergency_backup
+    
+    # Assess damage level
+    assess_damage
+    damage_level=$?
+    
+    case $damage_level in
+        0)
+            log "No recovery needed - repository is healthy"
+            ;;
+        1)
+            log "Minor corruption detected - attempting repair"
+            git gc --aggressive
+            ;;
+        2)
+            log "Major corruption detected - full recovery protocol"
+            recover_objects
+            recover_references
+            ;;
+        3)
+            log "CRITICAL: Repository structure missing - manual intervention required"
+            exit 1
+            ;;
+    esac
+    
+    # Final verification
+    if git fsck --no-reflogs; then
+        log "Recovery completed successfully!"
+    else
+        log "Recovery partially successful - manual intervention may be needed"
+    fi
+}
+
+# Execute main function
+main "$@"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Forensic Analysis -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">03</div>
+                    <h2><i class="fas fa-search"></i> Forensic Analysis</h2>
+                    <p>Investigate disaster causes and prevent future failures</p>
+                </div>
+
+                <div class="forensic-tools">
+                    <h3><i class="fas fa-microscope"></i> Git Forensics Toolkit</h3>
+                    
+                    <div class="forensic-techniques">
+                        <div class="technique-card">
+                            <h4><i class="fas fa-history"></i> Timeline Reconstruction</h4>
+                            <div class="technique-content">
+                                <div class="code-block">
+<pre><code># Complete timeline analysis
+git log --all --full-history --date=iso --format="%h %ad %an %s" --graph
+
+# Find when corruption occurred
+git reflog --all --date=iso | grep -E "(corrupt|error|fail)"
+
+# Analyze specific time periods
+git log --since="2024-11-01" --until="2024-11-02" --all --oneline</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technique-card">
+                            <h4><i class="fas fa-fingerprint"></i> Object Forensics</h4>
+                            <div class="technique-content">
+                                <div class="code-block">
+<pre><code># Analyze object relationships
+git rev-list --objects --all | \
+  sort | uniq | \
+  while read sha1 name; do
+    size=$(git cat-file -s "$sha1" 2>/dev/null || echo "CORRUPT")
+    type=$(git cat-file -t "$sha1" 2>/dev/null || echo "CORRUPT")
+    echo "$sha1 $type $size $name"
+  done > object-inventory.txt
+
+# Find largest objects (potential corruption sources)
+git rev-list --objects --all | \
+  git cat-file --batch-check='%(objectname) %(objecttype) %(objectsize)' | \
+  sort -k3 -n | tail -20</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="technique-card">
+                            <h4><i class="fas fa-network-wired"></i> Corruption Pattern Analysis</h4>
+                            <div class="technique-content">
+                                <div class="code-block">
+<pre><code># Pattern detection script
+#!/bin/bash
+
+analyze_corruption_patterns() {
+    echo "=== Corruption Pattern Analysis ==="
+    
+    # Check for common corruption signatures
+    git fsck 2>&1 | while read line; do
+        case "$line" in
+            *"corrupt"*)
+                echo "CORRUPTION: $line"
+                ;;
+            *"missing"*)
+                echo "MISSING: $line"
+                ;;
+            *"dangling"*)
+                echo "DANGLING: $line"
+                ;;
+        esac
+    done | sort | uniq -c | sort -nr
+    
+    # Analyze pack file health
+    echo -e "\n=== Pack File Analysis ==="
+    find .git/objects/pack -name "*.pack" | while read pack; do
+        echo "Checking: $pack"
+        git verify-pack -v "$pack" 2>&1 | grep -E "(corrupt|error|bad)"
+    done
+    
+    # Repository statistics
+    echo -e "\n=== Repository Statistics ==="
+    git count-objects -v
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prevention-protocols">
+                    <h3><i class="fas fa-shield-alt"></i> Disaster Prevention Protocols</h3>
+                    
+                    <div class="prevention-framework">
+                        <div class="prevention-pillar">
+                            <h4><i class="fas fa-save"></i> Automated Backup Systems</h4>
+                            <div class="backup-strategies">
+                                <div class="strategy">
+                                    <strong>Multi-Remote Strategy</strong>
+                                    <div class="code-block">
+<pre><code># Setup multiple remotes for redundancy
+git remote add backup-github git@github.com:user/repo-backup.git
+git remote add backup-gitlab git@gitlab.com:user/repo-backup.git
+git remote add local-backup /path/to/local/backup.git
+
+# Automated sync script
+#!/bin/bash
+for remote in origin backup-github backup-gitlab local-backup; do
+    echo "Syncing to $remote..."
+    git push "$remote" --all --tags || echo "Failed to sync $remote"
+done</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="strategy">
+                                    <strong>Scheduled Repository Verification</strong>
+                                    <div class="code-block">
+<pre><code># Cron job for daily verification (add to crontab)
+0 2 * * * cd /path/to/repo && git fsck --full > /tmp/git-fsck.log 2>&1
+
+# Weekly comprehensive backup
+0 0 * * 0 cd /path/to/repo && git bundle create backup-$(date +%Y%m%d).bundle --all</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prevention-pillar">
+                            <h4><i class="fas fa-eye"></i> Monitoring & Alerting</h4>
+                            <div class="monitoring-setup">
+                                <div class="code-block">
+<pre><code># Repository health monitoring script
+#!/bin/bash
+
+REPO_PATH="$1"
+WEBHOOK_URL="$2"  # Slack/Teams webhook for alerts
+
+check_repository_health() {
+    cd "$REPO_PATH"
+    
+    # Run comprehensive checks
+    errors=0
+    
+    # Filesystem check
+    if ! git fsck --no-reflogs >/dev/null 2>&1; then
+        errors=$((errors + 1))
+        echo "ERROR: Repository corruption detected"
+    fi
+    
+    # Pack verification
+    find .git/objects/pack -name "*.pack" | while read pack; do
+        if ! git verify-pack "$pack" >/dev/null 2>&1; then
+            errors=$((errors + 1))
+            echo "ERROR: Pack corruption in $pack"
+        fi
+    done
+    
+    # Size monitoring
+    repo_size=$(du -sm .git | cut -f1)
+    if [[ $repo_size -gt 1000 ]]; then  # Alert if > 1GB
+        echo "WARNING: Repository size is ${repo_size}MB"
+    fi
+    
+    # Send alerts if errors found
+    if [[ $errors -gt 0 ]]; then
+        send_alert "Repository health check failed with $errors errors"
+    fi
+}
+
+send_alert() {
+    if [[ -n "$WEBHOOK_URL" ]]; then
+        curl -X POST "$WEBHOOK_URL" \
+             -H 'Content-Type: application/json' \
+             -d "{\"text\":\"🚨 Git Repository Alert: $1\"}"
+    fi
+}
+
+check_repository_health</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Team Disaster Coordination -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">04</div>
+                    <h2><i class="fas fa-users-cog"></i> Team Disaster Coordination</h2>
+                    <p>Coordinate emergency response across development teams during critical incidents</p>
+                </div>
+
+                <div class="coordination-protocols">
+                    <h3><i class="fas fa-bullhorn"></i> Emergency Communication Protocols</h3>
+                    
+                    <div class="communication-framework">
+                        <div class="protocol-stage">
+                            <h4>📢 Stage 1: Immediate Alert (0-5 minutes)</h4>
+                            <div class="stage-actions">
+                                <div class="action-item">
+                                    <strong>Incident Declaration</strong>
+                                    <p>Immediately notify all team members via primary communication channels</p>
+                                    <div class="alert-template">
+                                        <strong>🚨 CRITICAL GIT INCIDENT</strong><br>
+                                        Repository: [REPO_NAME]<br>
+                                        Impact: [BRIEF_DESCRIPTION]<br>
+                                        Status: Investigation in progress<br>
+                                        Lead: [YOUR_NAME]<br>
+                                        Next Update: [TIME]
+                                    </div>
+                                </div>
+                                <div class="action-item">
+                                    <strong>Work Stoppage</strong>
+                                    <p>All team members stop pushing/pulling until recovery complete</p>
+                                    <code>git config --global push.default nothing</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="protocol-stage">
+                            <h4>🔍 Stage 2: Assessment & Isolation (5-15 minutes)</h4>
+                            <div class="stage-actions">
+                                <div class="action-item">
+                                    <strong>Damage Assessment</strong>
+                                    <div class="code-block">
+<pre><code># Team coordination script
+#!/bin/bash
+echo "=== EMERGENCY ASSESSMENT PROTOCOL ==="
+echo "Repository: $(pwd)"
+echo "Time: $(date)"
+echo "Operator: $(git config user.name)"
+echo ""
+
+# Quick health check
+echo "Repository Status:"
+git status --porcelain
+echo ""
+
+echo "Recent Activity:"
+git log --oneline -10
+echo ""
+
+echo "Remote Sync Status:"
+git remote -v | while read remote url type; do
+    if [[ "$type" == "(fetch)" ]]; then
+        echo "Testing $remote..."
+        git ls-remote "$remote" >/dev/null 2>&1 && echo "✓ $remote OK" || echo "✗ $remote FAILED"
+    fi
+done</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="protocol-stage">
+                            <h4>🛠️ Stage 3: Recovery Coordination (15+ minutes)</h4>
+                            <div class="stage-actions">
+                                <div class="recovery-roles">
+                                    <div class="role-card">
+                                        <h5>🎯 Incident Commander</h5>
+                                        <ul>
+                                            <li>Overall incident coordination</li>
+                                            <li>Communication with stakeholders</li>
+                                            <li>Decision making authority</li>
+                                            <li>Recovery progress tracking</li>
+                                        </ul>
+                                    </div>
+                                    <div class="role-card">
+                                        <h5>🔧 Technical Lead</h5>
+                                        <ul>
+                                            <li>Execute recovery procedures</li>
+                                            <li>Technical decision making</li>
+                                            <li>Tool and script development</li>
+                                            <li>Risk assessment</li>
+                                        </ul>
+                                    </div>
+                                    <div class="role-card">
+                                        <h5>📋 Documentation Lead</h5>
+                                        <ul>
+                                            <li>Incident timeline tracking</li>
+                                            <li>Recovery step documentation</li>
+                                            <li>Lessons learned capture</li>
+                                            <li>Post-incident reporting</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-recovery-tools">
+                    <h3><i class="fas fa-toolbox"></i> Team Recovery Coordination Tools</h3>
+                    
+                    <div class="coordination-dashboard">
+                        <div class="code-example">
+<pre><code># Multi-team recovery coordination script
+#!/bin/bash
+
+INCIDENT_ID="INC-$(date +%Y%m%d%H%M)"
+TEAM_REPOS="repo1 repo2 repo3"  # List of affected repositories
+COORDINATION_FILE="incident-${INCIDENT_ID}.log"
+
+setup_coordination() {
+    echo "=== Git Disaster Recovery Coordination ===" > "$COORDINATION_FILE"
+    echo "Incident ID: $INCIDENT_ID" >> "$COORDINATION_FILE"
+    echo "Start Time: $(date)" >> "$COORDINATION_FILE"
+    echo "Coordinator: $(git config user.name)" >> "$COORDINATION_FILE"
+    echo "" >> "$COORDINATION_FILE"
+}
+
+assess_team_repositories() {
+    echo "Repository Assessment:" >> "$COORDINATION_FILE"
+    
+    for repo in $TEAM_REPOS; do
+        echo "--- Checking $repo ---" >> "$COORDINATION_FILE"
+        
+        if [[ -d "$repo/.git" ]]; then
+            cd "$repo"
+            
+            # Health check
+            if git fsck --no-reflogs >/dev/null 2>&1; then
+                echo "✓ $repo: Healthy" >> "../$COORDINATION_FILE"
+            else
+                error_count=$(git fsck 2>&1 | grep -c "error\|corrupt" || echo "0")
+                echo "✗ $repo: $error_count errors detected" >> "../$COORDINATION_FILE"
+            fi
+            
+            # Remote status
+            git remote | while read remote; do
+                if git ls-remote "$remote" >/dev/null 2>&1; then
+                    echo "  ✓ Remote $remote: Accessible" >> "../$COORDINATION_FILE"
+                else
+                    echo "  ✗ Remote $remote: Unreachable" >> "../$COORDINATION_FILE"
+                fi
+            done
+            
+            cd ..
+        else
+            echo "✗ $repo: Repository not found" >> "$COORDINATION_FILE"
+        fi
+        echo "" >> "$COORDINATION_FILE"
+    done
+}
+
+coordinate_team_backup() {
+    echo "Creating team-wide emergency backups..." >> "$COORDINATION_FILE"
+    
+    mkdir -p "emergency-backups-$INCIDENT_ID"
+    
+    for repo in $TEAM_REPOS; do
+        if [[ -d "$repo/.git" ]]; then
+            echo "Backing up $repo..." >> "$COORDINATION_FILE"
+            tar -czf "emergency-backups-$INCIDENT_ID/${repo}-backup.tar.gz" "$repo"
+        fi
+    done
+}
+
+generate_recovery_plan() {
+    cat >> "$COORDINATION_FILE" << 'EOF'
+
+=== RECOVERY PLAN ===
+
+Phase 1: Immediate Stabilization
+□ Stop all team development work
+□ Create emergency backups of all repositories
+□ Assess damage extent across all repos
+□ Establish communication channels
+
+Phase 2: Repository Recovery
+□ Identify least damaged repository as reference
+□ Execute recovery procedures on critical repos
+□ Verify recovered repositories
+□ Test remote connectivity
+
+Phase 3: Team Coordination
+□ Coordinate team workspace updates
+□ Verify all team members can access repos
+□ Resume development with caution
+□ Monitor for recurring issues
+
+Phase 4: Post-Incident
+□ Document lessons learned
+□ Implement prevention measures
+□ Update team disaster protocols
+□ Schedule team retrospective
+
+EOF
+}
+
+main() {
+    setup_coordination
+    assess_team_repositories
+    coordinate_team_backup
+    generate_recovery_plan
+    
+    echo "Coordination setup complete. See: $COORDINATION_FILE"
+    echo "Share this file with all team members."
+}
+
+main "$@"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Summary -->
+            <div class="mission-summary-section">
+                <div class="section-header">
+                    <div class="section-number">05</div>
+                    <h2><i class="fas fa-medal"></i> Emergency Response Mastery</h2>
+                    <p>Critical disaster recovery skills acquired - Ready for any Git emergency</p>
+                </div>
+
+                <div class="emergency-readiness">
+                    <h3><i class="fas fa-shield-alt"></i> Emergency Response Capabilities</h3>
+                    <div class="capability-matrix">
+                        <div class="capability-category">
+                            <h4><i class="fas fa-stethoscope"></i> Diagnostic Mastery</h4>
+                            <div class="skills-grid">
+                                <span class="skill">Repository health assessment</span>
+                                <span class="skill">Corruption pattern analysis</span>
+                                <span class="skill">Performance degradation detection</span>
+                                <span class="skill">Emergency triage protocols</span>
+                            </div>
+                        </div>
+                        
+                        <div class="capability-category">
+                            <h4><i class="fas fa-tools"></i> Recovery Expertise</h4>
+                            <div class="skills-grid">
+                                <span class="skill">Object database reconstruction</span>
+                                <span class="skill">Reference recovery procedures</span>
+                                <span class="skill">Pack file restoration</span>
+                                <span class="skill">Automated recovery systems</span>
+                            </div>
+                        </div>
+                        
+                        <div class="capability-category">
+                            <h4><i class="fas fa-search"></i> Forensic Analysis</h4>
+                            <div class="skills-grid">
+                                <span class="skill">Timeline reconstruction</span>
+                                <span class="skill">Object forensics</span>
+                                <span class="skill">Corruption root cause analysis</span>
+                                <span class="skill">Prevention protocol design</span>
+                            </div>
+                        </div>
+                        
+                        <div class="capability-category">
+                            <h4><i class="fas fa-users-cog"></i> Team Coordination</h4>
+                            <div class="skills-grid">
+                                <span class="skill">Emergency communication</span>
+                                <span class="skill">Incident command structure</span>
+                                <span class="skill">Multi-team recovery coordination</span>
+                                <span class="skill">Post-incident documentation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-certification">
+                    <div class="certification-header">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Git Emergency Response Specialist</h3>
+                    </div>
+                    <div class="certification-content">
+                        <p><strong>Certification Date:</strong> <span id="completion-date"></span></p>
+                        <p><strong>Emergency Skills Mastered:</strong> Critical Assessment, Emergency Recovery, Forensic Analysis, Team Coordination</p>
+                        <div class="emergency-badges">
+                            <span class="emergency-badge">Disaster Assessment</span>
+                            <span class="emergency-badge">Critical Recovery</span>
+                            <span class="emergency-badge">Forensic Analysis</span>
+                            <span class="emergency-badge">Team Leadership</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-cta">
+                    <h3>🚨 Emergency Response Ready!</h3>
+                    <p>You now possess the critical skills to handle any Git disaster. From repository corruption to team-wide emergencies, you can assess, recover, and coordinate under pressure.</p>
+                    <div class="cta-actions">
+                        <a href="../../index.html" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Return to Mission Control
+                        </a>
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-tools"></i> Phase 6.2 Coming Soon
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Create more dramatic stars for emergency theme
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star emergency-star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Set completion date
+        document.addEventListener('DOMContentLoaded', function() {
+            const completionDate = document.getElementById('completion-date');
+            if (completionDate) {
+                completionDate.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            // Emergency alert animations
+            const alerts = document.querySelectorAll('.emergency-alert, .severity-level');
+            alerts.forEach((alert, index) => {
+                setTimeout(() => {
+                    alert.style.opacity = '1';
+                    alert.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            // Diagnostic command hover effects
+            const commands = document.querySelectorAll('.command-example code');
+            commands.forEach(cmd => {
+                cmd.addEventListener('click', function() {
+                    // Copy to clipboard functionality
+                    navigator.clipboard.writeText(this.textContent);
+                    
+                    // Visual feedback
+                    this.style.background = 'rgba(0, 255, 127, 0.2)';
+                    setTimeout(() => {
+                        this.style.background = '';
+                    }, 300);
+                });
+            });
+
+            // Emergency severity animations
+            const severityLevels = document.querySelectorAll('.severity-level');
+            severityLevels.forEach(level => {
+                level.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.boxShadow = '0 0 20px rgba(255, 0, 0, 0.3)';
+                });
+                
+                level.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+
+        // Progress tracking
+        if (typeof ProgressTracker !== 'undefined') {
+            ProgressTracker.markChapterComplete('emergency', 'disaster-recovery');
+        }
+    </script>
+
+    <!-- Emergency Theme Styles -->
+    <style>
+        /* Emergency Theme Overrides */
+        .emergency-alert {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(255, 69, 0, 0.1) 100%);
+            border: 2px solid #ff0000;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            animation: emergency-pulse 2s infinite;
+        }
+
+        @keyframes emergency-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); }
+        }
+
+        .emergency-alert i {
+            color: #ff0000;
+            font-size: 2rem;
+            margin-top: 0.25rem;
+        }
+
+        .difficulty-badge.emergency {
+            background: linear-gradient(135deg, #ff0000 0%, #ff4500 100%);
+            color: white;
+            font-weight: bold;
+            animation: emergency-blink 1.5s infinite;
+        }
+
+        @keyframes emergency-blink {
+            0%, 50% { opacity: 1; }
+            75% { opacity: 0.7; }
+        }
+
+        .diagnostic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .diagnostic-card {
+            background: rgba(15, 25, 35, 0.8);
+            border: 2px solid;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .diagnostic-card.integrity {
+            border-color: #00ff7f;
+        }
+
+        .diagnostic-card.corruption {
+            border-color: #ff4500;
+        }
+
+        .diagnostic-card.performance {
+            border-color: #00d4ff;
+        }
+
+        .diagnostic-card h4 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .diagnostic-card.integrity h4 { color: #00ff7f; }
+        .diagnostic-card.corruption h4 { color: #ff4500; }
+        .diagnostic-card.performance h4 { color: #00d4ff; }
+
+        .command-example {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border-left: 3px solid #d4af37;
+        }
+
+        .command-example code {
+            display: block;
+            font-family: 'Fira Code', monospace;
+            color: #00ff7f;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .command-desc {
+            font-size: 0.85rem;
+            color: #b0c4de;
+            font-style: italic;
+        }
+
+        .triage-matrix {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .severity-level {
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .severity-level.critical {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.3) 0%, rgba(139, 0, 0, 0.2) 100%);
+            border-color: #ff0000;
+        }
+
+        .severity-level.high {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.3) 0%, rgba(255, 69, 0, 0.2) 100%);
+            border-color: #ff8c00;
+        }
+
+        .severity-level.medium {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(218, 165, 32, 0.2) 100%);
+            border-color: #ffd700;
+        }
+
+        .severity-level h4 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .symptoms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .symptom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .response-time {
+            font-weight: bold;
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .scenario-card {
+            background: rgba(15, 25, 35, 0.8);
+            border: 2px solid #ff4500;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .scenario-card h4 {
+            color: #ff4500;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .problem-description {
+            background: rgba(255, 69, 0, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff4500;
+            margin-bottom: 1.5rem;
+        }
+
+        .recovery-steps {
+            margin-top: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #000;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content strong {
+            color: #00d4ff;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .emergency-star {
+            background: #ff0000 !important;
+            box-shadow: 0 0 6px #ff0000;
+        }
+
+        .capability-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .capability-category {
+            background: rgba(15, 25, 35, 0.8);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .capability-category h4 {
+            color: #ff4500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill {
+            background: rgba(255, 69, 0, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 69, 0, 0.3);
+        }
+
+        .emergency-badge {
+            background: linear-gradient(135deg, #ff0000 0%, #ff4500 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .diagnostic-grid,
+            .capability-matrix {
+                grid-template-columns: 1fr;
+            }
+            
+            .triage-matrix {
+                gap: 0.5rem;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -6564,3 +6564,272 @@ h2 .fas {
         align-items: center;
     }
 }
+
+/* Open Source Leadership Specific Styles */
+.maintainer-framework,
+.community-strategy,
+.security-framework,
+.sustainability-model,
+.leadership-impact {
+    background: rgba(25, 35, 45, 0.6);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.governance-elements,
+.journey-stages,
+.security-grid,
+.funding-grid,
+.metrics-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.element-card,
+.security-card,
+.funding-card {
+    background: rgba(15, 25, 35, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.stage-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid;
+    position: relative;
+}
+
+.stage-card.discover {
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.2) 0%, rgba(255, 165, 0, 0.1) 100%);
+    border-color: #ffa500;
+}
+
+.stage-card.engage {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 212, 255, 0.1) 100%);
+    border-color: #00d4ff;
+}
+
+.stage-card.grow {
+    background: linear-gradient(135deg, rgba(0, 255, 127, 0.2) 0%, rgba(0, 255, 127, 0.1) 100%);
+    border-color: #00ff7f;
+}
+
+.stage-card.lead {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+    border-color: #d4af37;
+}
+
+.impact-journey {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.journey-step {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(15, 25, 35, 0.8);
+    border-radius: 12px;
+    border: 2px solid #d4af37;
+    min-width: 200px;
+}
+
+.journey-arrow {
+    font-size: 2rem;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+.phase-completion {
+    background: rgba(25, 35, 45, 0.8);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    transition: all 1s ease;
+}
+
+.phase-summary {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.phase-chapter {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(15, 25, 35, 0.6);
+    border-radius: 12px;
+    min-width: 180px;
+}
+
+@media (max-width: 768px) {
+    .governance-elements,
+    .journey-stages,
+    .security-grid,
+    .funding-grid,
+    .metrics-showcase {
+        grid-template-columns: 1fr;
+    }
+    
+    .impact-journey {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .journey-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .phase-summary {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Emergency Operations Specific Styles */
+.emergency-alert {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(255, 69, 0, 0.1) 100%);
+    border: 2px solid #ff0000;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    animation: emergency-pulse 2s infinite;
+}
+
+@keyframes emergency-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); }
+}
+
+.difficulty-badge.emergency {
+    background: linear-gradient(135deg, #ff0000 0%, #ff4500 100%);
+    color: white;
+    font-weight: bold;
+    animation: emergency-blink 1.5s infinite;
+}
+
+@keyframes emergency-blink {
+    0%, 50% { opacity: 1; }
+    75% { opacity: 0.7; }
+}
+
+.assessment-protocols,
+.recovery-protocols,
+.forensic-tools,
+.coordination-protocols {
+    background: rgba(25, 35, 45, 0.6);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.diagnostic-grid,
+.capability-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.diagnostic-card,
+.capability-category {
+    background: rgba(15, 25, 35, 0.8);
+    border: 2px solid;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.diagnostic-card.integrity {
+    border-color: #00ff7f;
+}
+
+.diagnostic-card.corruption {
+    border-color: #ff4500;
+}
+
+.diagnostic-card.performance {
+    border-color: #00d4ff;
+}
+
+.scenario-card {
+    background: rgba(15, 25, 35, 0.8);
+    border: 2px solid #ff4500;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+}
+
+.triage-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.severity-level {
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid;
+    transition: all 0.3s ease;
+}
+
+.severity-level.critical {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.3) 0%, rgba(139, 0, 0, 0.2) 100%);
+    border-color: #ff0000;
+}
+
+.severity-level.high {
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.3) 0%, rgba(255, 69, 0, 0.2) 100%);
+    border-color: #ff8c00;
+}
+
+.severity-level.medium {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(218, 165, 32, 0.2) 100%);
+    border-color: #ffd700;
+}
+
+.command-example {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border-left: 3px solid #d4af37;
+}
+
+.command-example code {
+    display: block;
+    font-family: 'Fira Code', monospace;
+    color: #00ff7f;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.emergency-star {
+    background: #ff0000 !important;
+    box-shadow: 0 0 6px #ff0000;
+}
+
+@media (max-width: 768px) {
+    .diagnostic-grid,
+    .capability-matrix {
+        grid-template-columns: 1fr;
+    }
+}

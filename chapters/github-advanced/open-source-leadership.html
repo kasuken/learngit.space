@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Source Leadership - LearnGit.space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+    <div id="stars" class="stars"></div>
+    <div class="container">
+        <header>
+            <div class="chapter-header">
+                <div class="chapter-number">COMMANDER • PHASE 5.3</div>
+                <h1><i class="fas fa-users"></i> Open Source Leadership</h1>
+                <div class="chapter-subtitle">Maintainer Mastery • Community Building • Global Impact</div>
+                <div class="difficulty-badge commander">COMMANDER LEVEL</div>
+            </div>
+            <div class="chapter-nav">
+                <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Mission Control</a>
+                <span class="nav-separator">•</span>
+                <a href="advanced-project-management.html" class="nav-link">Previous: Project Management</a>
+                <span class="nav-separator">•</span>
+                <span class="current-chapter">Open Source Leadership</span>
+            </div>
+        </header>
+
+        <div class="mission-brief">
+            <div class="commander-alert">
+                <i class="fas fa-globe"></i>
+                <div>
+                    <strong>Mission Critical: Global Open Source Leadership</strong>
+                    <p>Lead and sustain thriving open source communities, managing contributors worldwide while maintaining project quality, security, and long-term vision.</p>
+                </div>
+            </div>
+
+            <div class="learning-objectives">
+                <h3><i class="fas fa-crosshairs"></i> Mission Objectives</h3>
+                <ul>
+                    <li>Master open source project governance and maintainer workflows</li>
+                    <li>Build and nurture global contributor communities</li>
+                    <li>Implement security, quality, and compliance frameworks</li>
+                    <li>Design sustainable project funding and growth strategies</li>
+                    <li>Lead cross-organization collaboration and standards development</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="main-content">
+            <!-- Section 1: Maintainer Excellence -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">01</div>
+                    <h2><i class="fas fa-crown"></i> Maintainer Excellence</h2>
+                    <p>Master the art of open source project leadership and community stewardship</p>
+                </div>
+
+                <div class="maintainer-framework">
+                    <div class="framework-pillar">
+                        <h3><i class="fas fa-gavel"></i> Project Governance</h3>
+                        <div class="governance-elements">
+                            <div class="element-card">
+                                <h4>Charter & Mission</h4>
+                                <ul>
+                                    <li>Clear project vision and goals</li>
+                                    <li>Scope and boundary definitions</li>
+                                    <li>Success metrics and milestones</li>
+                                    <li>Community values and principles</li>
+                                </ul>
+                            </div>
+                            <div class="element-card">
+                                <h4>Decision Making</h4>
+                                <ul>
+                                    <li>Consensus vs. benevolent dictator models</li>
+                                    <li>Technical steering committees</li>
+                                    <li>RFC and proposal processes</li>
+                                    <li>Conflict resolution mechanisms</li>
+                                </ul>
+                            </div>
+                            <div class="element-card">
+                                <h4>Release Management</h4>
+                                <ul>
+                                    <li>Semantic versioning strategy</li>
+                                    <li>Release cadence and planning</li>
+                                    <li>Breaking change policies</li>
+                                    <li>LTS and support lifecycles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-code"></i> Maintainer Automation Toolkit</h3>
+                    <div class="code-example">
+<pre><code># Advanced maintainer workflow automation
+class MaintainerWorkflow {
+  constructor(repoConfig) {
+    this.repo = repoConfig.repo;
+    this.maintainerTeam = repoConfig.maintainerTeam;
+    this.automationRules = new Map();
+    this.qualityGates = new QualityGateManager();
+  }
+
+  // Intelligent PR triage and routing
+  async triagePullRequest(pr) {
+    const analysis = await this.analyzePR(pr);
+    
+    const routing = {
+      priority: this.calculatePriority(analysis),
+      reviewers: await this.assignOptimalReviewers(pr, analysis),
+      labels: this.generateLabels(analysis),
+      milestones: this.suggestMilestone(pr),
+      estimatedReviewTime: this.estimateReviewEffort(analysis)
+    };
+
+    // Auto-approve simple changes
+    if (analysis.riskLevel === 'low' && analysis.type === 'documentation') {
+      await this.autoApproveIfTrusted(pr);
+    }
+
+    return routing;
+  }
+
+  async assignOptimalReviewers(pr, analysis) {
+    const expertise = await this.getFileExpertise(pr.changedFiles);
+    const availability = await this.getReviewerAvailability();
+    const workload = await this.getCurrentReviewerWorkload();
+    
+    // Load balancing algorithm for reviewer assignment
+    return this.balanceReviewLoad({
+      requiredExpertise: expertise,
+      availableReviewers: availability,
+      currentWorkload: workload,
+      prComplexity: analysis.complexity
+    });
+  }
+
+  // Community health monitoring
+  async monitorCommunityHealth() {
+    return {
+      contributorGrowth: await this.trackContributorMetrics(),
+      responseTime: await this.measureResponseTimes(),
+      burnoutIndicators: await this.detectMaintainerBurnout(),
+      diversityMetrics: await this.analyzeCommunityDiversity(),
+      retentionRate: await this.calculateContributorRetention()
+    };
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Community Building -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">02</div>
+                    <h2><i class="fas fa-handshake"></i> Community Building</h2>
+                    <p>Foster inclusive, diverse, and thriving contributor communities worldwide</p>
+                </div>
+
+                <div class="community-strategy">
+                    <div class="strategy-pillar">
+                        <h3><i class="fas fa-seedling"></i> Contributor Journey</h3>
+                        <div class="journey-stages">
+                            <div class="stage-card discover">
+                                <h4><i class="fas fa-eye"></i> Discover</h4>
+                                <div class="stage-tactics">
+                                    <span class="tactic">Clear README & docs</span>
+                                    <span class="tactic">Beginner-friendly issues</span>
+                                    <span class="tactic">Demo videos & tutorials</span>
+                                    <span class="tactic">Conference presentations</span>
+                                </div>
+                            </div>
+                            <div class="stage-card engage">
+                                <h4><i class="fas fa-hand-paper"></i> First Contribution</h4>
+                                <div class="stage-tactics">
+                                    <span class="tactic">Good first issue labels</span>
+                                    <span class="tactic">Mentorship programs</span>
+                                    <span class="tactic">Quick feedback loops</span>
+                                    <span class="tactic">Celebration & recognition</span>
+                                </div>
+                            </div>
+                            <div class="stage-card grow">
+                                <h4><i class="fas fa-chart-line"></i> Regular Contributor</h4>
+                                <div class="stage-tactics">
+                                    <span class="tactic">Advanced issue access</span>
+                                    <span class="tactic">Design discussions</span>
+                                    <span class="tactic">Reviewer privileges</span>
+                                    <span class="tactic">Community leadership roles</span>
+                                </div>
+                            </div>
+                            <div class="stage-card lead">
+                                <h4><i class="fas fa-crown"></i> Maintainer</h4>
+                                <div class="stage-tactics">
+                                    <span class="tactic">Commit access</span>
+                                    <span class="tactic">Release responsibilities</span>
+                                    <span class="tactic">Governance participation</span>
+                                    <span class="tactic">Community representation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-users-cog"></i> Community Management System</h3>
+                    <div class="code-example">
+<pre><code>class CommunityManager {
+  constructor(projectConfig) {
+    this.project = projectConfig;
+    this.contributors = new ContributorDatabase();
+    this.mentorship = new MentorshipProgram();
+    this.events = new EventManager();
+  }
+
+  // New contributor onboarding
+  async onboardNewContributor(contributor) {
+    const profile = await this.createContributorProfile(contributor);
+    
+    // Welcome sequence
+    await this.sendWelcomeMessage(contributor, {
+      personalizedGuide: this.generatePersonalizedGuide(profile),
+      mentorMatch: await this.findMentor(profile.skills, profile.interests),
+      firstIssues: await this.suggestFirstIssues(profile),
+      communityChannels: this.getRelevantChannels(profile)
+    });
+
+    // Track onboarding progress
+    await this.trackOnboardingMetrics(contributor.id);
+  }
+
+  // Contributor recognition system
+  async recognizeContributions() {
+    const contributions = await this.analyzeRecentContributions();
+    
+    for (const contribution of contributions.significant) {
+      await this.createRecognitionPost({
+        contributor: contribution.author,
+        achievement: contribution.impact,
+        socialShare: this.generateSocialContent(contribution),
+        badgeUnlock: this.checkBadgeEligibility(contribution)
+      });
+    }
+  }
+
+  // Community health dashboard
+  async generateCommunityReport() {
+    return {
+      growth: {
+        newContributors: await this.countNewContributors('month'),
+        retentionRate: await this.calculateRetention(),
+        contributorProgression: await this.trackProgressions()
+      },
+      engagement: {
+        averageResponseTime: await this.measureResponseTimes(),
+        discussionActivity: await this.analyzeDiscussions(),
+        eventParticipation: await this.trackEventAttendance()
+      },
+      diversity: {
+        geographical: await this.analyzeGeographicDistribution(),
+        organizational: await this.trackOrganizationalDiversity(),
+        experience: await this.mapExperienceLevels()
+      },
+      sustainability: {
+        maintainerWorkload: await this.assessMaintainerCapacity(),
+        burnoutRisk: await this.detectBurnoutIndicators(),
+        successionPlanning: await this.evaluateLeadershipPipeline()
+      }
+    };
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Security & Quality Leadership -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">03</div>
+                    <h2><i class="fas fa-shield-alt"></i> Security & Quality Leadership</h2>
+                    <p>Establish enterprise-grade security practices and maintain exceptional code quality</p>
+                </div>
+
+                <div class="security-framework">
+                    <div class="security-pillar">
+                        <h3><i class="fas fa-lock"></i> Security Operations</h3>
+                        <div class="security-grid">
+                            <div class="security-card vulnerability">
+                                <h4><i class="fas fa-bug"></i> Vulnerability Management</h4>
+                                <div class="practices-list">
+                                    <div class="practice">Security advisories & CVE process</div>
+                                    <div class="practice">Automated dependency scanning</div>
+                                    <div class="practice">Responsible disclosure policies</div>
+                                    <div class="practice">Security patch prioritization</div>
+                                </div>
+                            </div>
+                            <div class="security-card supply-chain">
+                                <h4><i class="fas fa-link"></i> Supply Chain Security</h4>
+                                <div class="practices-list">
+                                    <div class="practice">Signed commits & releases</div>
+                                    <div class="practice">SBOM generation & tracking</div>
+                                    <div class="practice">Dependency pinning strategies</div>
+                                    <div class="practice">Reproducible builds</div>
+                                </div>
+                            </div>
+                            <div class="security-card access">
+                                <h4><i class="fas fa-key"></i> Access Control</h4>
+                                <div class="practices-list">
+                                    <div class="practice">Multi-factor authentication</div>
+                                    <div class="practice">Principle of least privilege</div>
+                                    <div class="practice">Regular access reviews</div>
+                                    <div class="practice">Offboarding procedures</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-microscope"></i> Security Automation Pipeline</h3>
+                    <div class="code-example">
+<pre><code># Comprehensive security automation for open source projects
+class SecurityPipeline {
+  constructor(projectConfig) {
+    this.project = projectConfig;
+    this.scanners = {
+      sast: new StaticAnalysisScanner(),
+      sca: new DependencyScanner(), 
+      secrets: new SecretScanner(),
+      infrastructure: new InfrastructureScanner()
+    };
+  }
+
+  async runSecuritySuite(pr) {
+    const results = await Promise.all([
+      this.scanners.sast.analyze(pr.changedFiles),
+      this.scanners.sca.checkDependencies(pr.dependencies),
+      this.scanners.secrets.scanForSecrets(pr.diff),
+      this.scanners.infrastructure.validateConfig(pr.configChanges)
+    ]);
+
+    const findings = this.consolidateFindings(results);
+    
+    // Risk-based decision making
+    if (findings.critical.length > 0) {
+      await this.blockMerge(pr, findings);
+      await this.notifySecurityTeam(findings);
+    } else if (findings.high.length > 0) {
+      await this.requestSecurityReview(pr, findings);
+    }
+
+    return this.generateSecurityReport(findings);
+  }
+
+  // Automated security response
+  async handleSecurityIncident(incident) {
+    const response = {
+      severity: this.classifyIncident(incident),
+      affectedVersions: await this.identifyAffectedVersions(incident),
+      mitigationSteps: await this.generateMitigation(incident),
+      communicationPlan: this.createCommsPlan(incident)
+    };
+
+    // Automated response actions
+    if (response.severity >= 'high') {
+      await this.createSecurityAdvisory(response);
+      await this.notifyDownstreams(response);
+      await this.preparePatchRelease(response);
+    }
+
+    return response;
+  }
+
+  // Supply chain verification
+  async verifySupplyChain() {
+    return {
+      dependencyIntegrity: await this.verifyDependencyHashes(),
+      signatureValidation: await this.validateCommitSignatures(),
+      buildReproducibility: await this.testBuildReproducibility(),
+      sbomGeneration: await this.generateSBOM(),
+      complianceCheck: await this.checkLicenseCompliance()
+    };
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Sustainable Growth & Impact -->
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-number">04</div>
+                    <h2><i class="fas fa-rocket"></i> Sustainable Growth</h2>
+                    <p>Build sustainable funding models and scale global impact responsibly</p>
+                </div>
+
+                <div class="sustainability-model">
+                    <div class="funding-strategies">
+                        <h3><i class="fas fa-coins"></i> Funding & Sustainability Models</h3>
+                        <div class="funding-grid">
+                            <div class="funding-card">
+                                <h4><i class="fas fa-heart"></i> Sponsorship Programs</h4>
+                                <ul>
+                                    <li>GitHub Sponsors integration</li>
+                                    <li>Corporate sponsorship tiers</li>
+                                    <li>Open Collective management</li>
+                                    <li>Transparent fund allocation</li>
+                                </ul>
+                            </div>
+                            <div class="funding-card">
+                                <h4><i class="fas fa-building"></i> Foundation Models</h4>
+                                <ul>
+                                    <li>Linux Foundation projects</li>
+                                    <li>Apache Software Foundation</li>
+                                    <li>Cloud Native Computing Foundation</li>
+                                    <li>Independent foundation setup</li>
+                                </ul>
+                            </div>
+                            <div class="funding-card">
+                                <h4><i class="fas fa-briefcase"></i> Commercial Models</h4>
+                                <ul>
+                                    <li>Dual licensing strategies</li>
+                                    <li>Support & consulting services</li>
+                                    <li>Managed hosting offerings</li>
+                                    <li>Enterprise feature tiers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="impact-measurement">
+                        <h3><i class="fas fa-chart-area"></i> Impact & Metrics Dashboard</h3>
+                        <div class="metrics-showcase">
+                            <div class="metric-group adoption">
+                                <h4>Adoption Metrics</h4>
+                                <div class="metric-item">
+                                    <span class="metric-number">2.5M</span>
+                                    <span class="metric-label">Monthly Downloads</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-number">15K</span>
+                                    <span class="metric-label">GitHub Stars</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-number">500+</span>
+                                    <span class="metric-label">Organizations Using</span>
+                                </div>
+                            </div>
+                            <div class="metric-group community">
+                                <h4>Community Health</h4>
+                                <div class="metric-item">
+                                    <span class="metric-number">850</span>
+                                    <span class="metric-label">Contributors</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-number">12h</span>
+                                    <span class="metric-label">Avg Response Time</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-number">89%</span>
+                                    <span class="metric-label">Contributor Satisfaction</span>
+                                </div>
+                            </div>
+                            <div class="metric-group impact">
+                                <h4>Global Impact</h4>
+                                <div class="metric-item">
+                                    <span class="metric-number">45</span>
+                                    <span class="metric-label">Countries Represented</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-number">$2.3M</span>
+                                    <span class="metric-label">Estimated Value Created</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-number">125</span>
+                                    <span class="metric-label">Dependent Projects</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-implementation">
+                    <h3><i class="fas fa-globe-americas"></i> Global Impact Orchestrator</h3>
+                    <div class="code-example">
+<pre><code>class OpenSourceImpactOrchestrator {
+  constructor(projects) {
+    this.portfolio = projects;
+    this.impactMetrics = new ImpactMetrics();
+    this.sustainability = new SustainabilityTracker();
+    this.ecosystem = new EcosystemMapper();
+  }
+
+  async orchestrateGlobalInitiative(initiative) {
+    // Cross-project collaboration
+    const collaborationPlan = await this.designCollaboration({
+      participatingProjects: this.identifyRelevantProjects(initiative),
+      sharedResources: await this.poolResources(),
+      coordinationMechanisms: this.establishCoordination(),
+      impactMeasurement: this.defineSuccessMetrics(initiative)
+    });
+
+    // Sustainable funding strategy
+    const fundingStrategy = await this.developFundingPlan({
+      totalBudgetNeeded: this.calculateBudgetRequirement(initiative),
+      fundingSources: await this.identifyFundingSources(),
+      allocationStrategy: this.designFundAllocation(),
+      sustainabilityModel: this.createSustainabilityModel()
+    });
+
+    return this.launchInitiative(collaborationPlan, fundingStrategy);
+  }
+
+  // Ecosystem health monitoring
+  async monitorEcosystemHealth() {
+    return {
+      projectVitality: await this.assessProjectVitality(),
+      interdependencies: await this.mapDependencies(),
+      riskFactors: await this.identifyEcosystemRisks(),
+      growthOpportunities: await this.spotGrowthAreas(),
+      sustainabilityIndex: await this.calculateSustainabilityIndex()
+    };
+  }
+
+  // Standards development leadership
+  async leadStandardsDevelopment(standardsArea) {
+    const workingGroup = await this.formWorkingGroup(standardsArea);
+    
+    return {
+      rfcProcess: this.establishRFCProcess(),
+      consensusBuilding: await this.facilitateConsensus(workingGroup),
+      implementationGuidance: this.createImplementationGuide(),
+      adoptionStrategy: this.designAdoptionStrategy(),
+      maintenancePlan: this.createMaintenancePlan()
+    };
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Summary -->
+            <div class="mission-summary-section">
+                <div class="section-header">
+                    <div class="section-number">05</div>
+                    <h2><i class="fas fa-flag-checkered"></i> Mission Summary</h2>
+                    <p>Open Source Leadership mastery achieved - Ready to lead global software communities</p>
+                </div>
+
+                <div class="leadership-impact">
+                    <h3><i class="fas fa-trophy"></i> Leadership Transformation</h3>
+                    <div class="impact-journey">
+                        <div class="journey-step">
+                            <div class="step-icon"><i class="fas fa-user"></i></div>
+                            <h4>Individual Contributor</h4>
+                            <p>Started as a code contributor</p>
+                        </div>
+                        <div class="journey-arrow">→</div>
+                        <div class="journey-step">
+                            <div class="step-icon"><i class="fas fa-users"></i></div>
+                            <h4>Community Leader</h4>
+                            <p>Built thriving contributor communities</p>
+                        </div>
+                        <div class="journey-arrow">→</div>
+                        <div class="journey-step">
+                            <div class="step-icon"><i class="fas fa-globe"></i></div>
+                            <h4>Global Influencer</h4>
+                            <p>Leading ecosystem-wide initiatives</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievement-grid">
+                    <div class="achievement-item">
+                        <i class="fas fa-crown"></i>
+                        <h4>Maintainer Master</h4>
+                        <p>Advanced project governance & workflows</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Community Builder</h4>
+                        <p>Global contributor engagement</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Security Leader</h4>
+                        <p>Enterprise-grade security practices</p>
+                    </div>
+                    <div class="achievement-item">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Impact Catalyst</h4>
+                        <p>Sustainable growth & global influence</p>
+                    </div>
+                </div>
+
+                <div class="completion-certificate">
+                    <div class="certificate-header">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Open Source Leadership Commander</h3>
+                    </div>
+                    <div class="certificate-content">
+                        <p><strong>Completion Date:</strong> <span id="completion-date"></span></p>
+                        <p><strong>Leadership Skills Mastered:</strong> Project Governance, Community Building, Security Leadership, Sustainable Growth</p>
+                        <div class="skill-badges">
+                            <span class="skill-badge">Maintainer Excellence</span>
+                            <span class="skill-badge">Community Leadership</span>
+                            <span class="skill-badge">Security Governance</span>
+                            <span class="skill-badge">Global Impact</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phase-completion">
+                    <h3>🎉 Phase 5 Complete - Advanced GitHub Mastery Achieved!</h3>
+                    <div class="phase-summary">
+                        <div class="phase-chapter">
+                            <i class="fas fa-cogs"></i>
+                            <h4>5.1: API & Automation</h4>
+                            <p>Enterprise integration mastery</p>
+                        </div>
+                        <div class="phase-chapter">
+                            <i class="fas fa-project-diagram"></i>
+                            <h4>5.2: Project Management</h4>
+                            <p>Advanced coordination & analytics</p>
+                        </div>
+                        <div class="phase-chapter">
+                            <i class="fas fa-users"></i>
+                            <h4>5.3: Open Source Leadership</h4>
+                            <p>Global community leadership</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-cta">
+                    <h3>🌟 Congratulations, Open Source Commander!</h3>
+                    <p>You've mastered the highest levels of GitHub expertise. You're now ready to lead global software initiatives and shape the future of technology.</p>
+                    <div class="cta-actions">
+                        <a href="../../index.html" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Return to Mission Control
+                        </a>
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-rocket"></i> Phase 6 Coming Soon
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Create animated stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 75; i++) { // More stars for celebration
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Set completion date
+        document.addEventListener('DOMContentLoaded', function() {
+            const completionDate = document.getElementById('completion-date');
+            if (completionDate) {
+                completionDate.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            // Animate achievement items
+            const achievements = document.querySelectorAll('.achievement-item');
+            achievements.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Animate metrics with counting effect
+            const metrics = document.querySelectorAll('.metric-number');
+            metrics.forEach(metric => {
+                const text = metric.textContent;
+                const value = parseFloat(text.replace(/[^0-9.]/g, ''));
+                const suffix = text.replace(/[0-9.]/g, '');
+                
+                let current = 0;
+                const increment = value / 60;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= value) {
+                        current = value;
+                        clearInterval(timer);
+                    }
+                    
+                    if (suffix.includes('K') || suffix.includes('M')) {
+                        metric.textContent = (Math.round(current * 10) / 10) + suffix;
+                    } else if (suffix.includes('%')) {
+                        metric.textContent = Math.round(current) + '%';
+                    } else if (suffix.includes('h')) {
+                        metric.textContent = Math.round(current) + 'h';
+                    } else {
+                        metric.textContent = Math.round(current) + suffix;
+                    }
+                }, 50);
+            });
+
+            // Phase completion celebration
+            setTimeout(() => {
+                const phaseCompletion = document.querySelector('.phase-completion');
+                if (phaseCompletion) {
+                    phaseCompletion.style.background = 'linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(0, 255, 127, 0.2) 100%)';
+                    phaseCompletion.style.border = '2px solid #d4af37';
+                    phaseCompletion.style.boxShadow = '0 0 30px rgba(212, 175, 55, 0.4)';
+                }
+            }, 2000);
+        });
+
+        // Progress tracking - Phase 5 complete!
+        if (typeof ProgressTracker !== 'undefined') {
+            ProgressTracker.markPhaseComplete('github-advanced', 3);
+            ProgressTracker.markPhaseComplete('phase-5', 1); // Mark entire Phase 5 as complete
+        }
+    </script>
+
+    <!-- Open Source Leadership Specific Styles -->
+    <style>
+        .maintainer-framework {
+            background: rgba(25, 35, 45, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .framework-pillar {
+            margin-bottom: 2rem;
+        }
+
+        .framework-pillar h3 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .governance-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .element-card {
+            background: rgba(15, 25, 35, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .element-card h4 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .element-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .element-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .element-card li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #00ff7f;
+            font-size: 0.8rem;
+        }
+
+        .community-strategy {
+            background: rgba(25, 35, 45, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .journey-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stage-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 2px solid;
+            position: relative;
+        }
+
+        .stage-card.discover {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.2) 0%, rgba(255, 165, 0, 0.1) 100%);
+            border-color: #ffa500;
+        }
+
+        .stage-card.engage {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border-color: #00d4ff;
+        }
+
+        .stage-card.grow {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.2) 0%, rgba(0, 255, 127, 0.1) 100%);
+            border-color: #00ff7f;
+        }
+
+        .stage-card.lead {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border-color: #d4af37;
+        }
+
+        .stage-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .stage-tactics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .tactic {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .security-framework {
+            background: rgba(25, 35, 45, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .security-card {
+            background: rgba(15, 25, 35, 0.8);
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .security-card h4 {
+            color: #ff4500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .practices-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .practice {
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #ff4500;
+        }
+
+        .sustainability-model {
+            background: rgba(25, 35, 45, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .funding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .funding-card {
+            background: rgba(15, 25, 35, 0.8);
+            border: 1px solid rgba(0, 255, 127, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .funding-card h4 {
+            color: #00ff7f;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metrics-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .metric-group {
+            background: rgba(15, 25, 35, 0.8);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-group h4 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .metric-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00d4ff;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #b0c4de;
+        }
+
+        .leadership-impact {
+            background: rgba(25, 35, 45, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .impact-journey {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .journey-step {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(15, 25, 35, 0.8);
+            border-radius: 12px;
+            border: 2px solid #d4af37;
+            min-width: 200px;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .journey-step h4 {
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .journey-arrow {
+            font-size: 2rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .phase-completion {
+            background: rgba(25, 35, 45, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            transition: all 1s ease;
+        }
+
+        .phase-summary {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .phase-chapter {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(15, 25, 35, 0.6);
+            border-radius: 12px;
+            min-width: 180px;
+        }
+
+        .phase-chapter i {
+            font-size: 2rem;
+            color: #00ff7f;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-chapter h4 {
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .phase-chapter p {
+            font-size: 0.85rem;
+            color: #b0c4de;
+        }
+
+        @media (max-width: 768px) {
+            .governance-elements,
+            .journey-stages,
+            .security-grid,
+            .funding-grid,
+            .metrics-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-journey {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .journey-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .phase-summary {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>
