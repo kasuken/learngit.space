@@ -1147,12 +1147,7 @@ pre code {
     font-weight: 300;
 }
 
-.chapter-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 0;
-}
+
 
 .chapter-time {
     background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(79, 195, 247, 0.1) 100%);
