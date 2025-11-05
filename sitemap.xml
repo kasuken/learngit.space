@@ -199,6 +199,30 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.learngit.space/chapters/novice/copilot-pre-flight-briefing.html</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.learngit.space/chapters/novice/copilot-commit-messages.html</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.learngit.space/chapters/novice/copilot-custom-instructions.html</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.learngit.space/chapters/novice/copilot-branch-naming.html</loc>
+    <lastmod>2025-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.learngit.space/chapters/novice/crew-coordination.html</loc>
     <lastmod>2025-11-05</lastmod>
     <changefreq>monthly</changefreq>
