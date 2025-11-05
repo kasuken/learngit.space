@@ -48,7 +48,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT22M",
+      "timeRequired": "PT10M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -73,7 +73,7 @@
         
         <header>
             <h1><i class="fas fa-search"></i> Advanced History Analysis</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 22 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 10 min read</div>
             <p class="subtitle">Git Log Mastery & Forensics</p>
         </header>
 
@@ -104,1050 +104,192 @@
         </div>
 
         <div class="content-section">
-            <h2><i class="fas fa-clock"></i> Advanced Log Filtering Techniques</h2>
+            <h2><i class="fas fa-clock"></i> Advanced Log Filtering</h2>
             
-            <p>Basic <code>git log</code> shows you a timeline, but advanced filtering transforms it into a precision investigation tool. Master these techniques to extract exactly the intelligence you need.</p>
+            <p>Advanced filtering transforms <code>git log</code> into a precision investigation tool.</p>
 
             <div class="filtering-arsenal">
-                <h3><i class="fas fa-filter"></i> Time-Based Investigation</h3>
+                <h3><i class="fas fa-filter"></i> Essential Filters</h3>
                 
-                <div class="filter-categories">
-                    <div class="filter-category">
-                        <h4><i class="fas fa-calendar-alt"></i> Temporal Filtering</h4>
-                        <div class="filter-examples">
-                            <pre><code># Investigate specific time periods
-git log --since="2024-01-01" --until="2024-12-31"
-git log --since="2 weeks ago"
-git log --since="3 months ago" --until="1 week ago"
+                <pre><code># Time-based filtering
+git log --since="2 weeks ago" --until="yesterday"
+git log --since="2024-01-01"
 
-# Precise temporal investigation
-git log --since="2024-10-15 14:30" --until="2024-10-15 18:00"
-git log --after="Oct 15 2024" --before="Oct 16 2024"
+# Author filtering
+git log --author="Sarah"
+git log --author="sarah@"  # Email match
 
-# Relative time investigation
-git log --since="yesterday" 
-git log --since="1 hour ago"</code></pre>
-                        </div>
-                    </div>
+# Content searches
+git log --grep="security"  # Search commit messages
+git log -S "function_name"  # Pickaxe: when code was added/removed
+git log -G "pattern"  # Regex search in changes
 
-                    <div class="filter-category">
-                        <h4><i class="fas fa-user-tie"></i> Author & Contributor Analysis</h4>
-                        <div class="filter-examples">
-                            <pre><code># Track specific operatives
-git log --author="Sarah Chen"
-git log --author="sarah@"  # Email partial match
-git log --committer="jenkins@ci"  # CI system commits
+# File-specific
+git log --follow -- filename
+git log -- "*.js"
 
-# Multiple author investigation
-git log --author="Sarah\|John\|Maria"  # Regex OR pattern
-git log --grep="hotfix" --author="emergency@"
-
-# Exclude specific contributors
-git log --perl-regexp --author="^(?!.*jenkins).*"</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="filter-category">
-                        <h4><i class="fas fa-search"></i> Content-Based Forensics</h4>
-                        <div class="filter-examples">
-                            <pre><code># Search commit messages for intelligence
-git log --grep="security"  # Case-sensitive search
-git log --grep="bug\|fix\|error" --regexp-ignore-case  # Multiple patterns
-git log --grep="CVE-" --all  # Security vulnerability tracking
-
-# Search actual code changes
-git log -S "function authenticate"  # Pickaxe search - when text was added/removed
-git log -G "password.*validation"  # Regex search in changes
-git log -S "API_KEY" --source --all  # Track API key usage across all branches
-
-# Combined intelligence gathering
-git log --grep="security" -S "password" --since="6 months ago"</code></pre>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="advanced-filters">
-                    <h3><i class="fas fa-microscope"></i> Surgical Precision Filters</h3>
-                    
-                    <div class="precision-grid">
-                        <div class="precision-card">
-                            <h4><i class="fas fa-file-code"></i> File-Specific Investigation</h4>
-                            <pre><code># Track specific files through history
-git log --follow -- config/database.yml
-git log --stat -- src/security/
-
-# Multiple file patterns
-git log -- "*.js" "*.ts" "*.jsx"
-git log --name-only -- src/ tests/
-
-# Ignore specific paths
-git log -- . ":(exclude)node_modules" ":(exclude)*.log"</code></pre>
-                        </div>
-
-                        <div class="precision-card">
-                            <h4><i class="fas fa-code-branch"></i> Branch Intelligence</h4>
-                            <pre><code># Investigate branch relationships
-git log main..feature-branch  # What's in feature but not main
-git log feature-branch..main  # What's in main but not feature
-git log main...feature-branch  # Symmetric difference
-
-# Multi-branch analysis
-git log --graph --oneline --all --decorate
-git log --first-parent main  # Only merge commits on main
-git log --merges --since="1 month ago"  # All merges recently</code></pre>
-                        </div>
-
-                        <div class="precision-card">
-                            <h4><i class="fas fa-list-ol"></i> Quantitative Analysis</h4>
-                            <pre><code># Statistical investigation
-git log --oneline | wc -l  # Total commits
-git log --author="Sarah" --oneline | wc -l  # Author commit count
-git log --since="1 month ago" --pretty=format:"%h %an" | sort | uniq -c | sort -nr
-
-# Limit and paginate results
-git log -10  # Last 10 commits
-git log --skip=20 -10  # Skip 20, show next 10
-git log --max-count=50 --since="2024-01-01"</code></pre>
-                        </div>
-                    </div>
-                </div>
+# Branch comparisons
+git log main..feature  # In feature, not in main
+git log --graph --oneline --all</code></pre>
             </div>
         </div>
 
         <div class="content-section">
-            <h2><i class="fas fa-dna"></i> Forensic Analysis Techniques</h2>
+            <h2><i class="fas fa-dna"></i> Forensic Analysis</h2>
             
-            <p>Transform your repository investigation from basic timeline viewing into sophisticated forensic analysis. These techniques help you solve complex mysteries hidden in code evolution.</p>
-
             <div class="forensic-tools">
-                <div class="forensic-card blame-analysis">
-                    <div class="forensic-header">
-                        <h3><i class="fas fa-fingerprint"></i> Git Blame: Line-by-Line Forensics</h3>
-                        <div class="technique-badge advanced">FORENSIC LEVEL</div>
-                    </div>
-                    
-                    <div class="forensic-content">
-                        <p><strong>Mission:</strong> Determine exactly who wrote each line of code and when</p>
-                        
-                        <div class="blame-techniques">
-                            <h4><i class="fas fa-search-plus"></i> Basic Blame Investigation</h4>
-                            <pre><code># Standard blame analysis
-git blame src/authentication.js
+                <h3><i class="fas fa-fingerprint"></i> Git Blame</h3>
+                <p>Determine who wrote each line and when:</p>
+                <pre><code># Basic blame
+git blame filename
 
-# Show email addresses and timestamps
-git blame -e --date=short src/config.js
+# With details
+git blame -e --date=short filename
 
-# Ignore whitespace changes (find real authors)
-git blame -w -M src/utils.js
+# Specific line range
+git blame -L 100,120 filename
 
-# Show original line numbers from moves/copies
-git blame -M -C src/moved-file.js</code></pre>
-                            
-                            <h4><i class="fas fa-history"></i> Historical Blame Analysis</h4>
-                            <pre><code># Blame from specific commit (before recent changes)
-git blame abc123f -- src/security.js
+# From specific commit
+git blame abc123f -- filename</code></pre>
 
-# Blame specific line ranges
-git blame -L 150,200 src/database.js
-git blame -L 50,+20 src/api.js  # 20 lines starting from line 50
-
-# Interactive blame exploration
-git blame -L 100,120 src/auth.js | while read line; do
-    hash=$(echo $line | cut -d' ' -f1)
-    git show $hash --stat
-done</code></pre>
-                            
-                            <div class="blame-interpretation">
-                                <h4><i class="fas fa-detective"></i> Reading Blame Intelligence</h4>
-                                <div class="blame-output-example">
-                                    <pre><code>a1b2c3d4 (Sarah Chen     2024-03-15 14:23:17 +0000  45) function validatePassword(password) {
-e5f6g7h8 (John Smith     2024-02-20 09:15:33 +0000  46)     if (!password || password.length < 8) {
-a1b2c3d4 (Sarah Chen     2024-03-15 14:23:17 +0000  47)         throw new Error('Password must be at least 8 characters');
-i9j0k1l2 (Maria Garcia   2024-04-01 16:45:22 +0000  48)     }
-i9j0k1l2 (Maria Garcia   2024-04-01 16:45:22 +0000  49)     return bcrypt.hash(password, 12);
-^a1b2c3d (Initial commit 2023-12-01 10:00:00 +0000  50) }</code></pre>
-                                    
-                                    <div class="blame-legend">
-                                        <div class="legend-item">
-                                            <span class="legend-color recent"></span>
-                                            <strong>Recent Changes:</strong> Sarah's security improvements (March 2024)
-                                        </div>
-                                        <div class="legend-item">
-                                            <span class="legend-color medium"></span>
-                                            <strong>Medium Age:</strong> John's validation logic (February 2024)
-                                        </div>
-                                        <div class="legend-item">
-                                            <span class="legend-color old"></span>
-                                            <strong>Original Code:</strong> Initial implementation (December 2023)
-                                        </div>
-                                        <div class="legend-item">
-                                            <span class="legend-color latest"></span>
-                                            <strong>Latest Update:</strong> Maria's security enhancement (April 2024)
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="forensic-card bisect-analysis">
-                    <div class="forensic-header">
-                        <h3><i class="fas fa-crosshairs"></i> Git Bisect: Bug Hunter Protocol</h3>
-                        <div class="technique-badge expert">EXPERT LEVEL</div>
-                    </div>
-                    
-                    <div class="forensic-content">
-                        <p><strong>Mission:</strong> Systematically hunt down the exact commit that introduced a bug</p>
-                        
-                        <div class="bisect-protocol">
-                            <h4><i class="fas fa-play"></i> Binary Search Investigation</h4>
-                            <div class="protocol-steps">
-                                <div class="bisect-step">
-                                    <div class="step-number">1</div>
-                                    <div class="step-content">
-                                        <h5>Initialize Investigation</h5>
-                                        <pre><code># Start bisect investigation
+                <h3><i class="fas fa-crosshairs"></i> Git Bisect - Binary Bug Hunt</h3>
+                <p>Find the exact commit that introduced a bug:</p>
+                <pre><code># Start investigation
 git bisect start
+git bisect bad  # Current is bad
+git bisect good v1.0  # Known good version
 
-# Mark current commit as bad (bug exists)
-git bisect bad
+# Test and mark
+git bisect good  # or bad
+# Repeat until Git finds the commit
 
-# Mark known good commit (bug didn't exist)
-git bisect good v2.1.0  # or specific commit hash</code></pre>
-                                    </div>
-                                </div>
+# Automated
+git bisect run npm test
 
-                                <div class="bisect-step">
-                                    <div class="step-number">2</div>
-                                    <div class="step-content">
-                                        <h5>Test & Mark Evidence</h5>
-                                        <pre><code># Git automatically checks out middle commit
-# Test your application/run tests
-npm test  # or your test command
+# Finish
+git bisect reset</code></pre>
 
-# Mark result based on evidence
-git bisect good    # If bug doesn't exist here
-git bisect bad     # If bug exists here
-git bisect skip    # If can't determine (build fails, etc.)</code></pre>
-                                    </div>
-                                </div>
+                <h3><i class="fas fa-chart-line"></i> Repository Statistics</h3>
+                <pre><code># Top contributors
+git log --format='%aN' | sort | uniq -c | sort -nr
 
-                                <div class="bisect-step">
-                                    <div class="step-number">3</div>
-                                    <div class="step-content">
-                                        <h5>Automated Hunt Protocol</h5>
-                                        <pre><code># Automate the entire investigation
-git bisect run npm test  # Run until test passes
-git bisect run ./test-script.sh  # Custom test script
-git bisect run python -m pytest tests/security_test.py
+# Most modified files
+git log --name-only --format='' | grep -v '^$' | sort | uniq -c | sort -nr
 
-# Advanced automated investigation
-git bisect run sh -c "make && ./run-integration-tests"</code></pre>
-                                    </div>
-                                </div>
-
-                                <div class="bisect-step">
-                                    <div class="step-number">4</div>
-                                    <div class="step-content">
-                                        <h5>Close Investigation</h5>
-                                        <pre><code># Git shows you the guilty commit
-git bisect reset  # Return to original HEAD
-
-# Investigate the culprit
-git show [guilty-commit-hash]
-git log -p [guilty-commit-hash]</code></pre>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bisect-visualization">
-                            <h4><i class="fas fa-sitemap"></i> Binary Search Visualization</h4>
-                            <div class="search-timeline">
-                                <div class="timeline-commits">
-                                    <div class="commit good">v2.1.0<br><span class="status">✅ GOOD</span></div>
-                                    <div class="commit unknown">A</div>
-                                    <div class="commit unknown">B</div>
-                                    <div class="commit testing">C<br><span class="status">🔍 TESTING</span></div>
-                                    <div class="commit unknown">D</div>
-                                    <div class="commit unknown">E</div>
-                                    <div class="commit bad">HEAD<br><span class="status">❌ BAD</span></div>
-                                </div>
-                                <div class="search-info">
-                                    <p><strong>Binary search algorithm:</strong> Tests ~log₂(n) commits instead of all commits</p>
-                                    <p><strong>Example:</strong> 1000 commits = ~10 tests instead of 1000 manual checks</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="forensic-card log-analysis">
-                    <div class="forensic-header">
-                        <h3><i class="fas fa-chart-line"></i> Statistical Crime Analysis</h3>
-                        <div class="technique-badge tactical">TACTICAL LEVEL</div>
-                    </div>
-                    
-                    <div class="forensic-content">
-                        <p><strong>Mission:</strong> Extract patterns and statistics from repository history for strategic intelligence</p>
-                        
-                        <div class="analysis-techniques">
-                            <h4><i class="fas fa-users"></i> Contributor Analysis</h4>
-                            <pre><code># Top contributors by commit count
-git log --format='%aN' | sort | uniq -c | sort -nr | head -10
-
-# Contributor activity by time period
-git log --since="6 months ago" --format='%aN %ad' --date=short | \
-    awk '{print $1, $2}' | sort | uniq -c | sort -nr
-
-# Lines of code by contributor (approximation)
-git log --numstat --format='%aN' | \
-    awk 'NF==3 {plus+=$1; minus+=$2} NF==1 {name=$0} END {print name, plus, minus}'</code></pre>
-                            
-                            <h4><i class="fas fa-clock"></i> Temporal Pattern Analysis</h4>
-                            <pre><code># Commits by day of week
-git log --format='%ad' --date=format:'%w' | sort | uniq -c
-
-# Commits by hour of day (find peak productivity)
-git log --format='%ad' --date=format:'%H' | sort | uniq -c | sort -k2n
-
-# Monthly activity trends
-git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c
-
-# Commit size patterns
-git log --oneline --numstat | \
-    awk '/^[a-f0-9]/ {files=0; added=0; deleted=0} \
-         /^[0-9]/ {files++; added+=$1; deleted+=$2} \
-         /^$/ {print files, added, deleted}'</code></pre>
-                            
-                            <h4><i class="fas fa-file-alt"></i> File Evolution Intelligence</h4>
-                            <pre><code># Most frequently modified files (hotspots)
-git log --name-only --format='' | sort | uniq -c | sort -nr | head -20
-
-# File modification by contributor
-git log --name-only --format='%aN' -- src/critical.js | \
-    grep -v '^$' | sort | uniq -c | sort -nr
-
-# Track file size evolution
-git log --oneline --numstat -- important-file.js | \
-    awk '/^[a-f0-9]/ {commit=$0} /^[0-9]/ {print commit, $1+$2}'</code></pre>
-                        </div>
-                    </div>
-                </div>
+# Commits by month
+git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c</code></pre>
             </div>
         </div>
 
         <div class="content-section">
-            <h2><i class="fas fa-palette"></i> Advanced Formatting & Visualization</h2>
+            <h2><i class="fas fa-palette"></i> Custom Formatting</h2>
             
-            <p>Transform raw Git data into clear, actionable intelligence through sophisticated formatting and visualization techniques.</p>
+            <pre><code># Compact one-liner with graph
+git log --oneline --graph --all
 
-            <div class="formatting-arsenal">
-                <div class="format-category">
-                    <h3><i class="fas fa-magic"></i> Custom Log Formats</h3>
-                    
-                    <div class="format-examples">
-                        <h4><i class="fas fa-terminal"></i> Professional Report Formats</h4>
-                        <div class="format-showcase">
-                            <div class="format-card">
-                                <h5>Compact Mission Report</h5>
-                                <pre><code># One-line mission summary
-git log --oneline --graph --decorate --all
+# Custom format with colors
+git log --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(reset): %s" --date=short
 
-# Custom compact format with dates
-git log --pretty=format:"%C(yellow)%h %C(red)%ad %C(blue)%an%C(reset): %s" \
-        --date=short -10
+# Detailed format
+git log --pretty=format:"Hash: %H%nAuthor: %an <%ae>%nDate: %ad%nSubject: %s%n" --date=iso
 
-# Result preview:
-# a1b2c3d 2024-10-15 Sarah: Fix authentication vulnerability
-# e5f6g7h 2024-10-14 John: Add user input validation
-# i9j0k1l 2024-10-13 Maria: Implement secure session handling</code></pre>
-                            </div>
+# With file statistics
+git log --stat --oneline
 
-                            <div class="format-card">
-                                <h5>Detailed Intelligence Report</h5>
-                                <pre><code># Full forensic details
-git log --pretty=format:"%C(bold blue)Hash:%C(reset) %H%n%C(bold green)Author:%C(reset) %an <%ae>%n%C(bold yellow)Date:%C(reset) %ad%n%C(bold red)Subject:%C(reset) %s%n%C(bold magenta)Body:%C(reset)%n%b%n%C(dim)--- End of Record ---%C(reset)%n" \
-        --date=iso -5
-
-# Custom security audit format
-git log --pretty=format:"[%ad] %C(red)%h%C(reset) by %C(blue)%an%C(reset) (%C(green)%ae%C(reset)): %C(yellow)%s%C(reset)" \
-        --date=iso --grep="security\|vulnerability\|CVE" --all</code></pre>
-                            </div>
-
-                            <div class="format-card">
-                                <h5>Statistical Summary</h5>
-                                <pre><code># Commit statistics with file changes
-git log --stat --pretty=format:"%C(bold)%h - %an, %ar:%C(reset)%n%s%n"
-
-# Changes per commit with graph
-git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --stat
-
-# Name-only changes for quick overview
-git log --name-only --pretty=format:"=== %h by %an on %ad ===" --date=short</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="format-category">
-                    <h3><i class="fas fa-project-diagram"></i> Advanced Graph Visualization</h3>
-                    
-                    <div class="graph-techniques">
-                        <h4><i class="fas fa-code-branch"></i> Branch Relationship Mapping</h4>
-                        <pre><code># ASCII branch visualization
-git log --graph --oneline --all --decorate
-
-# Detailed branch relationships with colors
-git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
-
-# Show only branch points and merges
-git log --graph --simplify-by-decoration --pretty=format:'%d' --all
-
-# Full topology with commit details
-git log --graph --format=fuller --all</code></pre>
-                        
-                        <h4><i class="fas fa-sitemap"></i> Topology Analysis</h4>
-                        <pre><code># First-parent history (main development line)
-git log --first-parent --graph --oneline
-
-# Show merge commits only
-git log --merges --graph --oneline --decorate
-
-# No-merge commits only (direct changes)
-git log --no-merges --oneline --since="1 month ago"
-
-# Ancestry path between commits
-git log --ancestry-path commit1..commit2 --graph</code></pre>
-                    </div>
-                </div>
-
-                <div class="format-category">
-                    <h3><i class="fas fa-filter"></i> Output Processing & Analysis</h3>
-                    
-                    <div class="processing-techniques">
-                        <h4><i class="fas fa-cogs"></i> Shell Pipeline Integration</h4>
-                        <pre><code># Extract and analyze commit patterns
-git log --format='%s' | grep -i "fix\|bug" | wc -l  # Count bug fixes
-
-# Author email domain analysis
-git log --format='%ae' | cut -d'@' -f2 | sort | uniq -c | sort -nr
-
-# Commit message length analysis
-git log --format='%s' | awk '{print length}' | \
-    awk '{sum+=$1; count++} END {print "Average:", sum/count, "chars"}'
-
-# Time between commits analysis
-git log --format='%at' | sort -n | \
-    awk 'NR>1 {print ($1-prev)/3600 "hours"} {prev=$1}'</code></pre>
-                        
-                        <h4><i class="fas fa-file-export"></i> Export & Reporting</h4>
-                        <pre><code># Generate CSV report for external analysis
-git log --format='"%h","%an","%ae","%ad","%s"' --date=iso > commits.csv
-
-# JSON format for programmatic analysis
-git log --pretty=format:'{"hash":"%H","author":"%an","email":"%ae","date":"%ad","message":"%s"},' --date=iso -100 | sed '$s/,$//' | sed '1i[' | sed '$a]' > commits.json
-
-# Security audit report
-git log --grep="security\|vulnerability\|password\|auth" \
-        --format="SECURITY: %h by %an on %ad - %s" \
-        --date=short > security-audit.txt
-
-# Generate release notes
-git log v1.0..v2.0 --pretty=format:"- %s (%an)" --no-merges > CHANGELOG.md</code></pre>
-                    </div>
-                </div>
-            </div>
+# Export to CSV
+git log --format='"%h","%an","%ae","%ad","%s"' --date=iso > commits.csv</code></pre>
         </div>
 
         <div class="content-section">
-            <h2><i class="fas fa-microscope"></i> Hands-On Investigation: Repository Crime Scene</h2>
+            <h2><i class="fas fa-microscope"></i> Hands-On: Find a Bug with Bisect</h2>
             
-            <div class="investigation-scenario">
-                <h3><i class="fas fa-exclamation-triangle"></i> Crime Scene: Security Breach Investigation</h3>
-                <p>A critical security vulnerability has been discovered in production. You must conduct a full forensic investigation to determine how it was introduced, when, and by whom. Use your advanced Git skills to solve this mystery.</p>
-            </div>
+            <p>Practice using git bisect to hunt down a performance regression:</p>
 
-            <div class="investigation-labs">
-                <div class="investigation-lab">
-                    <div class="lab-header">
-                        <h3><i class="fas fa-search"></i> Case 1: The Mysterious Password Leak</h3>
-                        <div class="case-difficulty high">HIGH PRIORITY</div>
-                    </div>
-                    
-                    <div class="case-details">
-                        <div class="evidence-briefing">
-                            <h4><i class="fas fa-clipboard-list"></i> Evidence Summary</h4>
-                            <ul>
-                                <li><strong>Issue:</strong> Production logs show hardcoded API keys in configuration files</li>
-                                <li><strong>Timeline:</strong> Discovered today, but vulnerability may be months old</li>
-                                <li><strong>Impact:</strong> Potential unauthorized access to external services</li>
-                                <li><strong>Your Mission:</strong> Find when and how the API keys were introduced</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="investigation-steps">
-                            <div class="step">
-                                <div class="step-number">1</div>
-                                <div class="step-content">
-                                    <h4>Set Up Crime Scene Repository</h4>
-                                    <pre><code>mkdir security-investigation
-cd security-investigation
-git init
+            <pre><code># Create test repository
+mkdir bug-hunt && cd bug-hunt && git init
 
-# Create realistic commit history with planted evidence
-echo "# Configuration File" > config.js
-echo "export const DATABASE_URL = 'localhost:5432'" >> config.js
-git add config.js
-git commit -m "Initial configuration setup"
+# Create fast version
+echo "// Fast implementation" > app.js
+git add app.js && git commit -m "Fast version" && git tag v1.0
 
-echo "export const API_TIMEOUT = 5000" >> config.js
-git add config.js
-git commit -m "Add API timeout configuration"
+# Add commits
+echo "// Feature A" >> app.js && git add app.js && git commit -m "Add feature A"
+echo "// Feature B" >> app.js && git add app.js && git commit -m "Add feature B"
 
-# Plant the evidence (API key accidentally committed)
-echo "export const SECRET_API_KEY = 'sk-abc123-REAL-KEY-def456'" >> config.js
-git add config.js
-git commit -m "Update API configuration and timeout values"
+# Introduce bug
+echo "// SLOW CODE HERE" >> app.js && git add app.js && git commit -m "Refactor"
 
-echo "export const DEBUG_MODE = false" >> config.js
-git add config.js
-git commit -m "Disable debug mode for production"
+# More commits
+echo "// Feature C" >> app.js && git add app.js && git commit -m "Add feature C"
 
-# Additional innocent commits to hide the evidence
-echo "export const MAX_RETRIES = 3" >> config.js
-git add config.js
-git commit -m "Add retry configuration"</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">2</div>
-                                <div class="step-content">
-                                    <h4>Forensic Investigation: Pickaxe Search</h4>
-                                    <pre><code># Search for when API key was introduced
-git log -S "SECRET_API_KEY" --source --all
-
-# More specific search for API key patterns
-git log -S "sk-" --oneline --all
-git log -G "API_KEY.*=" --oneline
-
-# Get detailed information about the suspicious commit
-git log -S "SECRET_API_KEY" -p  # Show actual changes
-
-# Who was the author of this commit?
-git log -S "SECRET_API_KEY" --format=fuller</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">3</div>
-                                <div class="step-content">
-                                    <h4>Line-by-Line Blame Analysis</h4>
-                                    <pre><code># Examine current state of config file
-git blame config.js
-
-# Focus on the suspicious line
-git blame -L 3,3 config.js  # If API key is on line 3
-
-# Get commit details for the guilty line
-GUILTY_HASH=$(git blame -L 3,3 config.js | cut -d' ' -f1)
-git show $GUILTY_HASH
-
-# Check if this pattern exists in other files
-git log -S "sk-" --name-only --all</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">4</div>
-                                <div class="step-content">
-                                    <h4>Generate Security Audit Report</h4>
-                                    <pre><code># Create comprehensive security report
-echo "=== SECURITY INCIDENT REPORT ===" > security-report.txt
-echo "Generated on: $(date)" >> security-report.txt
-echo "" >> security-report.txt
-
-echo "VULNERABLE COMMIT DETAILS:" >> security-report.txt
-git log -S "SECRET_API_KEY" --format="Hash: %H%nAuthor: %an <%ae>%nDate: %ad%nMessage: %s%n" --date=iso >> security-report.txt
-
-echo "FILES AFFECTED:" >> security-report.txt
-git log -S "SECRET_API_KEY" --name-only --format="" >> security-report.txt
-
-echo "FULL CHANGE DETAILS:" >> security-report.txt
-git log -S "SECRET_API_KEY" -p >> security-report.txt
-
-# Display the report
-cat security-report.txt</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="investigation-lab">
-                    <div class="lab-header">
-                        <h3><i class="fas fa-bug"></i> Case 2: The Elusive Performance Bug</h3>
-                        <div class="case-difficulty critical">CRITICAL PRIORITY</div>
-                    </div>
-                    
-                    <div class="case-details">
-                        <div class="evidence-briefing">
-                            <h4><i class="fas fa-clipboard-list"></i> Evidence Summary</h4>
-                            <ul>
-                                <li><strong>Issue:</strong> Application performance degraded dramatically in recent weeks</li>
-                                <li><strong>Timeline:</strong> Performance was good in version 1.5, terrible in current version</li>
-                                <li><strong>Impact:</strong> Response times increased from 100ms to 3000ms</li>
-                                <li><strong>Your Mission:</strong> Use git bisect to find the exact commit that caused the slowdown</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="investigation-steps">
-                            <div class="step">
-                                <div class="step-number">1</div>
-                                <div class="step-content">
-                                    <h4>Create Performance Crime Scene</h4>
-                                    <pre><code># Create repository with performance regression
-mkdir performance-investigation
-cd performance-investigation
-git init
-
-# Create initial "fast" implementation
-cat > performance-test.js << 'EOF'
-// Fast implementation - O(1) lookup
-const cache = new Map();
-
-function fastLookup(id) {
-    if (cache.has(id)) {
-        return cache.get(id);
-    }
-    const result = `Result for ${id}`;
-    cache.set(id, result);
-    return result;
-}
-
-// Performance test
-const start = Date.now();
-for (let i = 0; i < 10000; i++) {
-    fastLookup(i % 100);
-}
-const end = Date.now();
-const time = end - start;
-console.log(`Execution time: ${time}ms`);
-process.exit(time > 1000 ? 1 : 0);  // Exit 1 if slow (>1000ms), 0 if fast
-EOF
-
-git add performance-test.js
-git commit -m "v1.5: Initial fast implementation with caching"
-git tag v1.5
-
-# Add some innocent commits
-echo "// Added documentation" >> performance-test.js
-git add performance-test.js
-git commit -m "Add documentation comments"
-
-echo "// More documentation" >> performance-test.js
-git add performance-test.js
-git commit -m "Improve code documentation"</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">2</div>
-                                <div class="step-content">
-                                    <h4>Introduce the Performance Bug</h4>
-                                    <pre><code># Replace with slow implementation (the bug!)
-cat > performance-test.js << 'EOF'
-// Slow implementation - O(n) lookup every time
-const data = [];
-
-function slowLookup(id) {
-    // Someone "improved" this by removing the cache... badly
-    for (let i = 0; i < 1000; i++) {  // Simulate expensive operation
-        data.push(`Item ${i}`);
-    }
-    
-    // Linear search through growing array
-    for (let item of data) {
-        if (item.includes(id.toString())) {
-            return `Result for ${id}`;
-        }
-    }
-    return `Result for ${id}`;
-}
-
-// Performance test
-const start = Date.now();
-for (let i = 0; i < 10000; i++) {
-    slowLookup(i % 100);
-}
-const end = Date.now();
-const time = end - start;
-console.log(`Execution time: ${time}ms`);
-process.exit(time > 1000 ? 1 : 0);  // Exit 1 if slow (>1000ms), 0 if fast
-EOF
-
-git add performance-test.js
-git commit -m "Refactor lookup function for better maintainability"
-
-# Add more commits to hide the evidence
-echo "// Version 2.0 release" >> performance-test.js
-git add performance-test.js
-git commit -m "Prepare for v2.0 release"
-
-echo "// Final touches" >> performance-test.js
-git add performance-test.js
-git commit -m "Final optimizations and cleanup"
-git tag v2.0</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">3</div>
-                                <div class="step-content">
-                                    <h4>Execute Binary Search Investigation</h4>
-                                    <pre><code># Start the hunt with git bisect
+# Find the bug
 git bisect start
+git bisect bad  # Current is slow
+git bisect good v1.0  # v1.0 was fast
 
-# Mark current state as bad (slow performance)
-node performance-test.js  # Should show >1000ms
-git bisect bad
-
-# Mark v1.5 as good (fast performance)
-git bisect good v1.5
-
-# Git will automatically checkout middle commit
-# Test performance at this point
-node performance-test.js
-
-# Based on result, mark as good or bad
-# Repeat until git finds the guilty commit
-# git bisect good   # if performance is acceptable
-# git bisect bad    # if performance is poor
-
-# Alternatively, automate the entire investigation
-git bisect reset  # Start over for automated approach
-git bisect start HEAD v1.5
-git bisect run node performance-test.js</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">4</div>
-                                <div class="step-content">
-                                    <h4>Analyze the Guilty Commit</h4>
-                                    <pre><code># Git bisect will identify the exact commit
-# Examine the performance-killing change
-GUILTY_COMMIT=$(git rev-list --bisect HEAD v1.5)
-git show $GUILTY_COMMIT
-
-# Generate performance regression report
-echo "=== PERFORMANCE REGRESSION ANALYSIS ===" > regression-report.txt
-echo "Investigation completed on: $(date)" >> regression-report.txt
-echo "" >> regression-report.txt
-
-echo "PERFORMANCE REGRESSION INTRODUCED IN:" >> regression-report.txt
-git log $GUILTY_COMMIT -1 --format="Commit: %H%nAuthor: %an <%ae>%nDate: %ad%nMessage: %s" --date=iso >> regression-report.txt
-
-echo "" >> regression-report.txt
-echo "CODE CHANGES:" >> regression-report.txt
-git show $GUILTY_COMMIT --stat >> regression-report.txt
-
-echo "" >> regression-report.txt
-echo "DETAILED DIFF:" >> regression-report.txt
-git show $GUILTY_COMMIT >> regression-report.txt
-
-# Clean up bisect state
-git bisect reset
-
-cat regression-report.txt</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="investigation-lab">
-                    <div class="lab-header">
-                        <h3><i class="fas fa-chart-bar"></i> Case 3: Repository Intelligence Analysis</h3>
-                        <div class="case-difficulty medium">ANALYTICAL PRIORITY</div>
-                    </div>
-                    
-                    <div class="case-details">
-                        <div class="evidence-briefing">
-                            <h4><i class="fas fa-clipboard-list"></i> Mission Parameters</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Generate comprehensive repository intelligence report</li>
-                                <li><strong>Scope:</strong> Analyze contributor patterns, hot files, and development trends</li>
-                                <li><strong>Deliverable:</strong> Executive summary with actionable insights</li>
-                                <li><strong>Timeline:</strong> Complete analysis using current repository</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="investigation-steps">
-                            <div class="step">
-                                <div class="step-number">1</div>
-                                <div class="step-content">
-                                    <h4>Contributor Intelligence Gathering</h4>
-                                    <pre><code># Identify top contributors by commit volume
-echo "=== TOP CONTRIBUTORS BY COMMITS ===" > intelligence-report.txt
-git log --format='%aN' | sort | uniq -c | sort -nr | head -10 >> intelligence-report.txt
-
-echo "" >> intelligence-report.txt
-echo "=== CONTRIBUTOR ACTIVITY TIMELINE ===" >> intelligence-report.txt
-git log --format='%aN %ad' --date=short | head -20 >> intelligence-report.txt
-
-echo "" >> intelligence-report.txt
-echo "=== RECENT ACTIVITY (LAST 30 COMMITS) ===" >> intelligence-report.txt
-git log --oneline -30 --format='%ad %an: %s' --date=short >> intelligence-report.txt</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">2</div>
-                                <div class="step-content">
-                                    <h4>File Hotspot Analysis</h4>
-                                    <pre><code># Identify most frequently modified files
-echo "" >> intelligence-report.txt
-echo "=== FILE MODIFICATION HOTSPOTS ===" >> intelligence-report.txt
-git log --name-only --format='' | grep -v '^$' | sort | uniq -c | sort -nr | head -15 >> intelligence-report.txt
-
-# Analyze file types being modified
-echo "" >> intelligence-report.txt
-echo "=== FILE TYPE MODIFICATION PATTERNS ===" >> intelligence-report.txt
-git log --name-only --format='' | grep -v '^$' | grep '\.' | \
-    sed 's/.*\.//' | sort | uniq -c | sort -nr >> intelligence-report.txt
-
-# Large commits analysis (potential code quality issues)
-echo "" >> intelligence-report.txt
-echo "=== LARGE COMMITS ANALYSIS ===" >> intelligence-report.txt
-git log --oneline --shortstat | grep -A1 "files changed" | \
-    grep "files changed" | sort -k4 -nr | head -10 >> intelligence-report.txt</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">3</div>
-                                <div class="step-content">
-                                    <h4>Temporal Pattern Recognition</h4>
-                                    <pre><code># Development velocity analysis
-echo "" >> intelligence-report.txt
-echo "=== MONTHLY COMMIT VELOCITY ===" >> intelligence-report.txt
-git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c | tail -12 >> intelligence-report.txt
-
-# Work pattern analysis
-echo "" >> intelligence-report.txt
-echo "=== WORK PATTERNS BY DAY OF WEEK ===" >> intelligence-report.txt
-git log --format='%ad' --date=format:'%u-%A' | sort | uniq -c | sort -k2n >> intelligence-report.txt
-
-echo "" >> intelligence-report.txt
-echo "=== PEAK PRODUCTIVITY HOURS ===" >> intelligence-report.txt
-git log --format='%ad' --date=format:'%H' | sort | uniq -c | sort -k2n >> intelligence-report.txt</code></pre>
-                                </div>
-                            </div>
-
-                            <div class="step">
-                                <div class="step-number">4</div>
-                                <div class="step-content">
-                                    <h4>Security & Quality Intelligence</h4>
-                                    <pre><code># Security-related commits
-echo "" >> intelligence-report.txt
-echo "=== SECURITY-RELATED ACTIVITY ===" >> intelligence-report.txt
-git log --oneline --grep="security\|vulnerability\|CVE\|fix\|patch" --regexp-ignore-case >> intelligence-report.txt
-
-# Bug fix patterns
-echo "" >> intelligence-report.txt
-echo "=== BUG FIX PATTERNS ===" >> intelligence-report.txt
-git log --oneline --grep="fix\|bug\|error\|issue" --regexp-ignore-case | wc -l | \
-    awk '{print "Total bug fixes found: " $1}' >> intelligence-report.txt
-
-# Generate executive summary
-echo "" >> intelligence-report.txt
-echo "=== EXECUTIVE SUMMARY ===" >> intelligence-report.txt
-echo "Report generated on: $(date)" >> intelligence-report.txt
-echo "Total commits analyzed: $(git rev-list --count HEAD)" >> intelligence-report.txt
-echo "Repository age: $(git log --reverse --format='%ad' --date=short | head -1) to $(git log --format='%ad' --date=short | head -1)" >> intelligence-report.txt
-echo "Active contributors: $(git log --format='%aN' | sort | uniq | wc -l)" >> intelligence-report.txt
-
-# Display the complete intelligence report
-cat intelligence-report.txt</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+# Test each commit Git checks out
+# Mark as good or bad until Git finds the culprit
+git bisect reset  # When done</code></pre>
         </div>
 
         <div class="content-section">
-            <h2><i class="fas fa-toolbox"></i> Advanced Investigation Toolkit</h2>
+            <h2><i class="fas fa-toolbox"></i> Quick Reference</h2>
             
-            <p>Your complete arsenal of advanced Git log techniques for any investigation scenario. These are your go-to commands for professional repository forensics.</p>
-
-            <div class="toolkit-categories">
-                <div class="toolkit-card quick-reference">
-                    <div class="toolkit-header">
-                        <h3><i class="fas fa-tachometer-alt"></i> Quick Investigation Commands</h3>
-                    </div>
-                    <div class="command-grid">
-                        <div class="command-item">
-                            <h4>Find Recent Changes</h4>
-                            <code>git log --oneline -10 --graph --all</code>
-                        </div>
-                        <div class="command-item">
-                            <h4>Search All Commit Messages</h4>
-                            <code>git log --grep="keyword" --all --oneline</code>
-                        </div>
-                        <div class="command-item">
-                            <h4>Find Code Changes</h4>
-                            <code>git log -S "function_name" --oneline</code>
-                        </div>
-                        <div class="command-item">
-                            <h4>Author Activity</h4>
-                            <code>git log --author="name" --since="1 week ago"</code>
-                        </div>
-                        <div class="command-item">
-                            <h4>File History</h4>
-                            <code>git log --follow -- filename</code>
-                        </div>
-                        <div class="command-item">
-                            <h4>Branch Differences</h4>
-                            <code>git log main..feature --oneline</code>
-                        </div>
-                    </div>
+            <div class="command-grid">
+                <div class="ref-card">
+                    <h4>Search Messages</h4>
+                    <code>git log --grep="keyword"</code>
                 </div>
-
-                <div class="toolkit-card forensic-scripts">
-                    <div class="toolkit-header">
-                        <h3><i class="fas fa-code"></i> Forensic Analysis Scripts</h3>
-                    </div>
-                    <div class="script-examples">
-                        <h4>Repository Health Check</h4>
-                        <pre><code>#!/bin/bash
-# repo-health-check.sh
-echo "Repository Health Check Report"
-echo "=============================="
-echo "Total commits: $(git rev-list --count HEAD)"
-echo "Contributors: $(git log --format='%aN' | sort | uniq | wc -l)"
-echo "Branches: $(git branch -r | wc -l)"
-echo "Tags: $(git tag | wc -l)"
-echo "Repository size: $(du -sh .git | cut -f1)"
-echo "Last commit: $(git log -1 --format='%ad' --date=short)"
-echo "Most active file: $(git log --name-only --format='' | grep -v '^$' | sort | uniq -c | sort -nr | head -1)"</code></pre>
-                        
-                        <h4>Security Audit Scanner</h4>
-                        <pre><code>#!/bin/bash
-# security-audit.sh
-echo "Security Audit Report"
-echo "===================="
-git log --grep="password\|secret\|key\|token\|auth" --oneline --regexp-ignore-case
-echo ""
-echo "Potential credential commits:"
-git log -S "password" -S "secret" -S "api_key" --oneline --all
-echo ""
-echo "Large commits (potential data dumps):"
-git log --oneline --shortstat | awk '/files? changed/ { if ($1 > 50) print }' | head -10</code></pre>
-                        
-                        <h4>Performance Regression Scanner</h4>
-                        <pre><code>#!/bin/bash
-# performance-scanner.sh
-echo "Performance Analysis Report"
-echo "=========================="
-echo "Recent performance-related commits:"
-git log --grep="perf\|slow\|fast\|optimization\|speed" --oneline --since="3 months ago" --regexp-ignore-case
-echo ""
-echo "Large file modifications (potential performance impact):"
-git log --stat --since="1 month ago" | grep "|\s*[0-9]\{4,\}" | head -10</code></pre>
-                    </div>
+                <div class="ref-card">
+                    <h4>Find Code</h4>
+                    <code>git log -S "code"</code>
                 </div>
-
-                <div class="toolkit-card advanced-aliases">
-                    <div class="toolkit-header">
-                        <h3><i class="fas fa-rocket"></i> Professional Git Aliases</h3>
-                    </div>
-                    <div class="alias-setup">
-                        <h4>Set up your investigation aliases:</h4>
-                        <pre><code># Add these to your ~/.gitconfig or run as git config commands
-
-# Investigation aliases
-git config --global alias.investigate 'log --oneline --graph --decorate --all'
-git config --global alias.forensic 'log -p -S'
-git config --global alias.blame-file 'blame -w -M -C'
-git config --global alias.hunt 'log --grep'
-git config --global alias.timeline 'log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
-git config --global alias.authors 'log --format="%aN" | sort | uniq -c | sort -nr'
-git config --global alias.hotfiles 'log --name-only --format="" | grep -v "^$" | sort | uniq -c | sort -nr'
-git config --global alias.security 'log --grep="security\|vulnerability\|CVE\|password\|auth" --oneline --regexp-ignore-case'
-git config --global alias.stats 'log --stat --oneline'
-git config --global alias.who 'log --format="%aN <%ae>" | sort | uniq'
-
-# Usage examples after setup:
-# git investigate
-# git forensic "function_name"
-# git hunt "bug fix"
-# git timeline --since="1 week ago"
-# git authors
-# git security</code></pre>
-                    </div>
+                <div class="ref-card">
+                    <h4>Who Changed Line</h4>
+                    <code>git blame file</code>
+                </div>
+                <div class="ref-card">
+                    <h4>Hunt Bug</h4>
+                    <code>git bisect start</code>
+                </div>
+                <div class="ref-card">
+                    <h4>Top Contributors</h4>
+                    <code>git log --format='%aN' | sort | uniq -c | sort -nr</code>
+                </div>
+                <div class="ref-card">
+                    <h4>File History</h4>
+                    <code>git log --follow -- file</code>
                 </div>
             </div>
+
+            <h3><i class="fas fa-code"></i> Useful Aliases</h3>
+            <pre><code># Add to ~/.gitconfig
+[alias]
+    investigate = log --oneline --graph --all
+    hunt = log --grep
+    authors = log --format='%aN' | sort | uniq -c | sort -nr
+    hotfiles = log --name-only --format='' | grep -v '^$' | sort | uniq -c | sort -nr</code></pre>
         </div>
 
         <div class="mission-complete">
-            <div class="completion-message">
-                <h2><i class="fas fa-medal"></i> Investigation Complete, Commander!</h2>
-                <p>You have successfully mastered advanced Git history analysis and forensic investigation techniques. You're now qualified to conduct sophisticated repository investigations and extract critical intelligence from any codebase.</p>
-            </div>
+            <h2><i class="fas fa-trophy"></i> Mission Complete!</h2>
+            <p>You've mastered advanced Git history analysis and forensic techniques.</p>
             
-            <div class="key-takeaways">
-                <h3><i class="fas fa-key"></i> Advanced Detective Skills Acquired</h3>
-                <ul>
-                    <li>✅ Advanced Git log filtering for precision intelligence gathering</li>
-                    <li>✅ Forensic analysis techniques including blame and bisect investigations</li>
-                    <li>✅ Statistical analysis and pattern recognition in repository history</li>
-                    <li>✅ Professional formatting and visualization for clear reporting</li>
-                    <li>✅ Systematic approaches to solving complex repository mysteries</li>
-                </ul>
-            </div>
-
-            <div class="investigation-reference">
-                <h3><i class="fas fa-search"></i> Investigation Quick Reference</h3>
-                <div class="reference-grid">
-                    <div class="ref-card">
-                        <h4>Find Who Changed What</h4>
-                        <code>git blame filename</code>
-                    </div>
-                    <div class="ref-card">
-                        <h4>Hunt for Code Changes</h4>
-                        <code>git log -S "search_term"</code>
-                    </div>
-                    <div class="ref-card">
-                        <h4>Binary Bug Hunt</h4>
-                        <code>git bisect start</code>
-                    </div>
-                    <div class="ref-card">
-                        <h4>Search Commit Messages</h4>
-                        <code>git log --grep="pattern"</code>
-                    </div>
-                    <div class="ref-card">
-                        <h4>Author Analysis</h4>
-                        <code>git log --author="name"</code>
-                    </div>
-                    <div class="ref-card">
-                        <h4>File Evolution</h4>
-                        <code>git log --follow -- file</code>
-                    </div>
-                </div>
-            </div>
+            <h3><i class="fas fa-key"></i> Skills Acquired</h3>
+            <ul>
+                <li>✅ Advanced log filtering and search techniques</li>
+                <li>✅ Git blame for line-by-line investigation</li>
+                <li>✅ Git bisect for binary bug hunting</li>
+                <li>✅ Repository statistics and pattern analysis</li>
+                <li>✅ Custom formatting and reporting</li>
+            </ul>
 
             <div class="next-mission">
-                <h3><i class="fas fa-route"></i> Prepare for Next Mission</h3>
-                <p>Continue with the final mission of <strong>Phase 1: Advanced Git Workflows</strong> to master Git's internal reference system and reflog capabilities for advanced repository management.</p>
+                <p>Continue to <strong>Refs & Reflog Mastery</strong> to master Git's internal reference system.</p>
                 <div class="mission-nav-buttons">
-                    <a href="advanced-reset-recovery.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
+                    <a href="advanced-reset-recovery.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous</a>
                     <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
-                    <a href="refs-reflog-mastery.html" class="btn btn-primary"><i class="fas fa-link"></i> Next: Refs & Reflog Mastery</a>
+                    <a href="refs-reflog-mastery.html" class="btn btn-primary">Next: Refs & Reflog →</a>
                 </div>
             </div>
         </div>
