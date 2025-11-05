@@ -11,10 +11,10 @@ const ProgressTracker = {
         // Novice Path Missions
         'mission-briefing': { phases: 1, section: 'Pre-Launch', path: 'novice' },
         'git-basics': { phases: 10, section: 'Phase 1: Launch Sequence', path: 'novice' },
-        'branches': { phases: 9, section: 'Phase 2: Orbital Maneuvers', path: 'novice' },
-        'advanced': { phases: 9, section: 'Phase 3: Deep Space Operations', path: 'novice' },
+        'branches': { phases: 8, section: 'Phase 2: Orbital Maneuvers', path: 'novice' },
+        'advanced': { phases: 7, section: 'Phase 3: Deep Space Operations', path: 'novice' },
         'collaboration': { phases: 6, section: 'Phase 4: Multi-Crew Missions', path: 'novice' },
-        'beyond': { phases: 4, section: 'Phase 5: Beyond the Solar System', path: 'novice' },
+        'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System', path: 'novice' },
         
         // Advanced Path Missions
         'advanced-workflows': { phases: 5, section: 'Phase 1: Advanced Git Workflows', path: 'advanced' },
@@ -30,7 +30,7 @@ const ProgressTracker = {
         novice: {
             name: 'Cadet Training',
             missions: ['mission-briefing', 'git-basics', 'branches', 'advanced', 'collaboration', 'beyond'],
-            totalPhases: 39  // 1 + 10 + 9 + 9 + 6 + 4 = 39
+            totalPhases: 35  // 1 + 10 + 8 + 7 + 6 + 3 = 35
         },
         advanced: {
             name: 'Commander Operations',
@@ -410,13 +410,13 @@ const ProgressTracker = {
             this.completeChapter('git-basics', i);
         }
         
-        // Complete all branches phases (9 phases)
-        for (let i = 1; i <= 9; i++) {
+        // Complete all branches phases (8 phases)
+        for (let i = 1; i <= 8; i++) {
             this.completeChapter('branches', i);
         }
         
-        // Complete all advanced phases (9 phases)
-        for (let i = 1; i <= 9; i++) {
+        // Complete all advanced phases (7 phases)
+        for (let i = 1; i <= 7; i++) {
             this.completeChapter('advanced', i);
         }
         
@@ -425,14 +425,14 @@ const ProgressTracker = {
             this.completeChapter('collaboration', i);
         }
         
-        // Complete all beyond phases (4 phases)
-        for (let i = 1; i <= 4; i++) {
+        // Complete all beyond phases (3 phases)
+        for (let i = 1; i <= 3; i++) {
             this.completeChapter('beyond', i);
         }
         
         console.log('Novice completion check:', this.isNovicePathComplete());
         this.updateAllUI();
-        alert('Complete Cadet Training path finished! All 39 training phases completed.');
+        alert('Complete Cadet Training path finished! All 35 training phases completed.');
     }
 };
 
@@ -792,7 +792,7 @@ function runSystemTest() {
     const advancedPathData = ProgressTracker.paths.advanced;
     results.push(`✓ Novice path missions: ${novicePathData.missions.length} (expected: 6)`);
     results.push(`✓ Advanced path missions: ${advancedPathData.missions.length} (expected: 6)`);
-    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 39)`);
+    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 35)`);
     results.push(`✓ Advanced total phases: ${advancedPathData.totalPhases} (expected: 21)`);
     
     // Test 4: Function availability
