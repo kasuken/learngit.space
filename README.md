@@ -34,30 +34,41 @@
 
 ## 🗺️ Mission Structure
 
-This website transforms learning Git into an exciting space mission with **35 comprehensive training phases**:
+This website transforms learning Git into an exciting space mission with **comprehensive, ever-expanding training phases**. The journey is divided into themed phases, each with focused learning objectives and grouped chapters:
 
-### Mission Phases
+### Mission Phases (2025 Edition)
 
-1. **🌟 Pre-Launch: Mission Briefing** (1 phase, ~4 min)
-   - Your orientation as an astronaut
+1. **🌟 Pre-Launch: Mission Briefing**
+   - Orientation and introduction to the platform
 
-2. **▶ Phase 1: Launch Sequence** (10 phases, ~80 min)
-   - Git fundamentals and setup
-   - Terminal basics
-   - GitHub introduction
+2. **▶ Phase 1: Launch Sequence**
+   - Git fundamentals, installation, and setup
+   - Terminal basics and first commands
+   - GitHub introduction and account setup
 
-3. **🌌 Phase 2: Orbital Maneuvers** (8 phases, ~71 min)
+3. **🌌 Phase 2: Orbital Maneuvers**
    - Essential Git commands (add, commit, push, pull)
    - Version control workflows
-   - Branching basics
+   - Branching basics and navigation
 
-4. **🛸 Phase 3: Deep Space Operations** (7 phases, ~68 min)
+4. **🛸 Phase 3: Deep Space Operations**
    - Merging and conflict resolution
    - Advanced Git techniques (rebase, cherry-pick, stash)
-   - Git tags and version management
+   - Git tags, version management, and reflog
 
-5. **👥 Phase 4: Multi-Crew Missions** (6 phases, ~48 min)
-   - Forking and pull requests
+5. **👥 Phase 4: Multi-Crew Missions**
+   - Forking, pull requests, and collaboration
+   - Code review and team workflows
+
+6. **🚀 Advanced & Enterprise**
+   - Large repository management, Git LFS
+   - Performance, security, and compliance
+   - Automation (hooks, CI/CD, integrations)
+   - Leadership, mentoring, and open-source management
+
+7. **🆘 Emergency & Recovery**
+   - Advanced troubleshooting
+   - Disaster recovery and reset strategies
    - Collaboration workflows
    - Tools integration (VS Code, GitHub CLI)
 
@@ -67,6 +78,14 @@ This website transforms learning Git into an exciting space mission with **35 co
    - Command reference
 
 **Total Training Time**: ~5 hours of comprehensive Git education
+
+## 👨‍🚀 Contributors
+
+LearnGit.space is a community-driven project. Special thanks to all contributors!
+
+**Lead Maintainer:** [kasuken (Emanuele Bartolesi)](https://github.com/kasuken)
+
+See the full list of contributors and their profiles at [https://www.learngit.space/contributors.html](https://www.learngit.space/contributors.html).
 
 ## ▶ Getting Started
 
