@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository Custom Instructions: Teaching Copilot Your Git Culture - LearnGit.space</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../../js/progress-tracker.js"></script>
+</head>
+<body data-mission="copilot" data-phase="4">
+    <div class="stars" id="stars"></div>
+    
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch theme">
+            <span class="theme-icon"><i class="fas fa-crown"></i></span>
+            <span class="theme-label">Princess Pink</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <a href="../../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <div class="chapter-header">
+                <h1><i class="fas fa-scroll"></i> Repository Custom Instructions: Teaching Copilot Your Git Culture</h1>
+                <p class="chapter-subtitle">Embed team standards directly in the repo</p>
+                <div class="chapter-meta">
+                    <span class="chapter-number">Chapter 39</span>
+                    <span class="chapter-phase">Phase 6: Copilot in Command</span>
+                    <span class="reading-time"><i class="far fa-clock"></i> 15 min</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="chapter-content">
+            <section class="mission-briefing">
+                <h2><i class="fas fa-satellite"></i> Mission Briefing</h2>
+                <p>Every space mission operates according to specific protocols, safety guidelines, and communication standards. These aren't just suggestions—they're mission-critical rules that ensure consistency, safety, and success across all operations.</p>
+                
+                <p>Similarly, every development team has its own "Git culture"—specific conventions for commit messages, branch naming, pull request formats, and code review processes. The challenge is ensuring that these standards are consistently applied, especially when using AI assistance.</p>
+                
+                <p>GitHub Copilot can learn and follow your team's specific conventions when you provide clear, repository-specific instructions. This ensures that AI suggestions align with your team's established practices rather than generic conventions.</p>
+            </section>
+
+            <section class="learning-objectives">
+                <h2><i class="fas fa-bullseye"></i> Mission Objectives</h2>
+                <ul>
+                    <li>Create comprehensive `.github/copilot-instructions.md` files</li>
+                    <li>Define team-specific Git conventions and standards</li>
+                    <li>Validate Copilot adherence to custom instructions</li>
+                    <li>Establish repository-wide consistency for all contributors</li>
+                </ul>
+            </section>
+
+            <section class="hands-on-lab">
+                <h2><i class="fas fa-flask"></i> Hands-On Lab: Custom Copilot Instructions</h2>
+                
+                <div class="lab-step">
+                    <h3><i class="fas fa-file-alt"></i> Step 1: Creating the Instructions File</h3>
+                    <p>Let's create a comprehensive instruction file for your repository:</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Create: .github/copilot-instructions.md</span>
+                            <button class="copy-button" onclick="copyToClipboard(this)">
+                                <i class="fas fa-clipboard"></i>
+                            </button>
+                        </div>
+                        <pre><code># GitHub Copilot Instructions for [Your Project Name]
+
+## Git Workflow Standards
+
+### Commit Message Format
+- **MUST** follow Conventional Commits specification
+- **Format**: `type(scope): description`
+- **Types**: feat, fix, docs, style, refactor, test, chore
+- **Max length**: 50 characters for subject line
+- **Include ticket number**: Format as `[JIRA-123]` at the end
+
+**Example**: `feat(auth): add OAuth login [JIRA-456]`
+
+### Branch Naming Convention
+- **Feature branches**: `feature/JIRA-123-short-description`
+- **Bug fixes**: `fix/JIRA-456-bug-description`
+- **Hotfixes**: `hotfix/critical-issue-description`
+- **Releases**: `release/v1.2.3`
+
+### Pull Request Standards
+- **Title**: Must match commit message format
+- **Description**: Include:
+  - What changed and why
+  - Testing instructions
+  - Screenshots for UI changes
+  - Breaking change notices
+
+## Code Review Process
+- All PRs require at least 2 approvals
+- Include `@team/reviewers` for automatic assignment
+- Use `WIP:` prefix for work-in-progress PRs
+- Link related issues using "Closes #123" syntax
+
+## Release Management
+- Use semantic versioning (SemVer)
+- Tag releases with format `v1.2.3`
+- Generate changelog from commit messages
+- Include migration instructions for breaking changes</code></pre>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <h3><i class="fas fa-edit"></i> Step 2: Advanced Team-Specific Rules</h3>
+                    <p>Let's add more detailed conventions specific to your team's workflow:</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Advanced Instructions</span>
+                            <button class="copy-button" onclick="copyToClipboard(this)">
+                                <i class="fas fa-clipboard"></i>
+                            </button>
+                        </div>
+                        <pre><code>## Team-Specific Conventions
+
+### Commit Scope Guidelines
+- `api`: Backend API changes
+- `ui`: Frontend user interface
+- `db`: Database schema or migration
+- `auth`: Authentication/authorization
+- `config`: Configuration changes
+- `ci`: Continuous integration changes
+
+### Required Commit Message Elements
+1. Type and scope (mandatory)
+2. Brief description (mandatory)
+3. Body with detailed explanation (for complex changes)
+4. Footer with issue references (mandatory)
+
+### Forbidden Practices
+- ❌ Generic messages like "fix bug" or "update code"
+- ❌ Committing directly to main/master branch
+- ❌ Force pushing to shared branches
+- ❌ Large commits that mix multiple concerns
+
+### Preferred Practices
+- ✅ Small, atomic commits that do one thing well
+- ✅ Descriptive commit messages that explain the "why"
+- ✅ Regular rebasing to keep history clean
+- ✅ Squashing related commits before merging
+
+### Integration Guidelines
+- Always create PR from feature branch
+- Include automated tests for new features
+- Update documentation for API changes
+- Verify CI/CD pipeline passes before merging</code></pre>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <h3><i class="fas fa-robot"></i> Step 3: Copilot-Specific Guidelines</h3>
+                    <p>Add instructions specifically for AI-assisted development:</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>AI Assistance Guidelines</span>
+                            <button class="copy-button" onclick="copyToClipboard(this)">
+                                <i class="fas fa-clipboard"></i>
+                            </button>
+                        </div>
+                        <pre><code>## GitHub Copilot Usage Guidelines
+
+### When Generating Commit Messages
+- Always include appropriate conventional commit type
+- Reference the ticket number in format [JIRA-123]
+- Focus on business impact rather than technical details
+- Keep subject line under 50 characters
+- Add detailed body for non-trivial changes
+
+### When Suggesting Branch Names
+- Use kebab-case formatting
+- Include ticket number after prefix
+- Keep descriptions concise but meaningful
+- Follow team naming patterns
+
+### When Creating Pull Requests
+- Generate title from commit message
+- Include testing checklist in description
+- Add appropriate labels automatically
+- Reference related issues and dependencies
+
+### Quality Standards
+- All AI-generated content should be reviewed by human
+- Verify suggestions match team conventions
+- Customize generic suggestions to fit project context
+- Maintain consistency with existing codebase patterns
+
+### Examples of Good AI Usage
+```
+Prompt: "Generate commit message for authentication changes"
+Good Output: "feat(auth): implement OAuth2 integration [JIRA-123]"
+
+Prompt: "Create branch name for fixing mobile layout issues"
+Good Output: "fix/JIRA-456-mobile-layout-responsive"
+```</code></pre>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <h3><i class="fas fa-check-circle"></i> Step 4: Testing Custom Instructions</h3>
+                    <p>Let's verify that Copilot follows your custom instructions:</p>
+                    
+                    <div class="test-workflow">
+                        <h4>Testing Process:</h4>
+                        <ol>
+                            <li>Commit the `.github/copilot-instructions.md` file</li>
+                            <li>Wait a few minutes for Copilot to process the instructions</li>
+                            <li>Test with VS Code Copilot Chat:</li>
+                        </ol>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Test Prompts</span>
+                            </div>
+                            <pre><code>// Test commit message generation:
+"Generate a commit message for adding user profile functionality"
+
+// Expected: feat(ui): add user profile management [JIRA-XXX]
+
+// Test branch naming:
+"Suggest a branch name for fixing login validation errors"
+
+// Expected: fix/JIRA-XXX-login-validation-errors
+
+// Test PR description:
+"Create a pull request description for the user profile feature"
+
+// Should include testing checklist and follow your template</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="real-world-setup">
+                <h2><i class="fas fa-user-astronaut"></i> Mission Commander's Personal Setup</h2>
+                
+                <div class="commander-note">
+                    <h3><i class="fas fa-rocket"></i> From the Flight Deck</h3>
+                    <p>Vague mission logs like "fixed reactor malfunction" or "updated navigation protocols" create problems months later when you need to understand what actually happened. GitHub Copilot Chat can generate detailed, consistent commit messages, but only with proper configuration.</p>
+                    
+                    <p>Here's the command configuration I use across all spacecraft operations to ensure Copilot generates proper mission logs following Conventional Commits.</p>
+                </div>
+
+                <div class="why-it-matters">
+                    <h3><i class="fas fa-lightbulb"></i> Why Detailed Mission Logs Matter</h3>
+                    <p>After years of cryptic log entries, I finally understood the importance when I experienced:</p>
+                    <ul>
+                        <li><strong>Readable mission history:</strong> <code>git log --oneline</code> actually tells a story</li>
+                        <li><strong>Automated mission reports:</strong> Tools like semantic-release can generate summaries automatically</li>
+                        <li><strong>No more manual documentation:</strong> Your commit history IS your mission log</li>
+                        <li><strong>Efficient reviews:</strong> Team members immediately understand system changes</li>
+                    </ul>
+                </div>
+
+                <div class="lab-step">
+                    <h3><i class="fas fa-cogs"></i> Step 5: Personal VS Code Mission Control Setup</h3>
+                    <p>Configure your personal VS Code installation for consistent Copilot behavior:</p>
+                    
+                    <div class="setup-process">
+                        <h4>Quick Access Method:</h4>
+                        <p>Press <kbd>Ctrl+Shift+P</kbd> → Search for <strong>"Preferences: Open Settings (JSON)"</strong></p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Personal VS Code Configuration</span>
+                                <button class="copy-button" onclick="copyToClipboard(this)">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                            <pre><code>{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "text": "Use conventional commit format: type(scope): description" },
+    { "text": "Use imperative mood: 'Add feature' not 'Added feature'" },
+    { "text": "Keep subject line under 50 characters" },
+    { "text": "Use types: feat, fix, docs, style, refactor, perf, test, chore, ci" },
+    { "text": "Include scope when relevant (e.g., api, ui, auth)" },
+    { "text": "Reference issue numbers with # prefix when applicable" }
+  ]
+}</code></pre>
+                        </div>
+                        
+                        <div class="mission-note">
+                            <p><i class="fas fa-info-circle"></i> <strong>Important:</strong> Instruction order matters — Copilot processes these directives sequentially, so prioritize your most critical protocols first.</p>
+                        </div>
+                    </div>
+
+                    <div class="commit-types-reference">
+                        <h4><i class="fas fa-tags"></i> Mission Log Types Reference</h4>
+                        <div class="types-grid">
+                            <div class="commit-type">
+                                <code>feat</code>
+                                <p>New system capabilities<br><em>feat(auth): add biometric scanner integration</em></p>
+                            </div>
+                            <div class="commit-type">
+                                <code>fix</code>
+                                <p>System repairs<br><em>fix(nav): resolve null response in star chart endpoint</em></p>
+                            </div>
+                            <div class="commit-type">
+                                <code>docs</code>
+                                <p>Mission documentation<br><em>docs: update flight manual procedures</em></p>
+                            </div>
+                            <div class="commit-type">
+                                <code>style</code>
+                                <p>Format adjustments<br><em>style: standardize control panel layout</em></p>
+                            </div>
+                            <div class="commit-type">
+                                <code>refactor</code>
+                                <p>System restructuring<br><em>refactor(engine): extract thruster control logic</em></p>
+                            </div>
+                            <div class="commit-type">
+                                <code>perf</code>
+                                <p>Performance optimization<br><em>perf(scanner): optimize radar sweep algorithms</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <h3><i class="fas fa-users"></i> Step 6: Fleet-Wide Configuration</h3>
+                    <p>Ensure your entire crew follows the same protocols by adding configuration to your mission repository:</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Create: .vscode/settings.json (Team Configuration)</span>
+                            <button class="copy-button" onclick="copyToClipboard(this)">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                        <pre><code>{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "text": "Use conventional commit format: type(scope): description" },
+    { "text": "Use imperative mood: 'Add feature' not 'Added feature'" },
+    { "text": "Keep subject line under 50 characters" },
+    { "text": "Use types: feat, fix, docs, style, refactor, perf, test, chore, ci" },
+    { "text": "Include scope when relevant (e.g., api, ui, auth)" },
+    { "text": "Reference issue numbers with # prefix when applicable" }
+  ]
+}</code></pre>
+                    </div>
+                    
+                    <div class="pro-tip">
+                        <h4><i class="fas fa-rocket"></i> Mission Tip</h4>
+                        <p>Commit this configuration file to your repository. Now every crew member gets consistent AI-generated mission logs without any manual coordination required.</p>
+                    </div>
+                </div>
+
+                <div class="practical-workflow">
+                    <h3><i class="fas fa-clipboard-list"></i> Mission Log Workflow</h3>
+                    <p>Here's how the enhanced system works in practice:</p>
+                    
+                    <ol>
+                        <li>Stage your changes in the Source Control view (<kbd>Ctrl+Shift+G</kbd>)</li>
+                        <li>Type <code>/generate commit</code> in the commit message field</li>
+                        <li>Copilot generates a message based on your configured protocols</li>
+                        <li>Review the message, adjust if needed, then commit</li>
+                    </ol>
+                    
+                    <div class="example-output">
+                        <h4>Example Mission Log Generation:</h4>
+                        <div class="before-after">
+                            <div class="before">
+                                <h5>After changes to user authentication system:</h5>
+                                <div class="code-snippet">
+                                    <strong>Copilot generates:</strong><br>
+                                    <code>feat(auth): add user profile management endpoint</code><br><br>
+                                    <em>- Add GET /api/users/profile route<br>
+                                    - Include user preferences in response<br>
+                                    - Add authentication middleware</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lessons-learned">
+                    <h3><i class="fas fa-graduation-cap"></i> Mission Insights</h3>
+                    <p>After implementing this system across multiple space missions:</p>
+                    
+                    <ul>
+                        <li><strong>It's not perfect:</strong> Sometimes you need to adjust the generated message for mission context</li>
+                        <li><strong>Context is key:</strong> Better organized changes lead to better generated logs</li>
+                        <li><strong>Continuous improvement:</strong> Copilot appears to learn from your corrections over time</li>
+                        <li><strong>Team adoption:</strong> Once crew members see quality logs being generated, adoption spreads naturally</li>
+                    </ul>
+                    
+                    <div class="bottom-line">
+                        <p><strong>The Bottom Line:</strong> Detailed mission logs aren't just about following protocol — they actually make space operations easier. When you can quickly scan <code>git log</code> and understand what happened, when troubleshooting gives you meaningful context, and when your automated systems can parse your history properly, you'll wonder how you ever operated without this level of clarity.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="template-examples">
+                <h2><i class="fas fa-clipboard-list"></i> Complete Template Examples</h2>
+                
+                <div class="template-showcase">
+                    <h3>Startup Team Template</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Agile/Startup Instructions</span>
+                            <button class="copy-button" onclick="copyToClipboard(this)">
+                                <i class="fas fa-clipboard"></i>
+                            </button>
+                        </div>
+                        <pre><code># Copilot Instructions - Fast-Moving Startup
+
+## Quick Development Standards
+- Commit messages: `type: description (max 50 chars)`
+- Branch names: `feature/description` or `fix/description`
+- PRs: Must include "What/Why/Testing" sections
+- Focus on speed but maintain quality
+
+## AI Guidelines
+- Generate concise commit messages
+- Prioritize user impact in descriptions
+- Include basic testing instructions
+- Keep documentation lightweight but clear</code></pre>
+                    </div>
+                </div>
+
+                <div class="template-showcase">
+                    <h3>Enterprise Team Template</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Enterprise Instructions</span>
+                            <button class="copy-button" onclick="copyToClipboard(this)">
+                                <i class="fas fa-clipboard"></i>
+                            </button>
+                        </div>
+                        <pre><code># Copilot Instructions - Enterprise Development
+
+## Strict Compliance Standards
+- Commit format: `type(component): description [TICKET-123]`
+- All changes require security review checklist
+- Documentation updates mandatory for API changes
+- Compliance tags required: security, privacy, accessibility
+
+## AI Guidelines
+- Always include compliance considerations
+- Reference security implications
+- Generate comprehensive documentation
+- Include audit trail information</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="validation-checklist">
+                <h2><i class="fas fa-tasks"></i> Validation Checklist</h2>
+                
+                <div class="checklist">
+                    <h3>Verify Your Instructions Work:</h3>
+                    <ul class="task-list">
+                        <li><input type="checkbox"> Copilot generates commit messages in your format</li>
+                        <li><input type="checkbox"> Branch name suggestions follow your conventions</li>
+                        <li><input type="checkbox"> PR descriptions include required sections</li>
+                        <li><input type="checkbox"> All team members can see consistent suggestions</li>
+                        <li><input type="checkbox"> Instructions are versioned and documented</li>
+                        <li><input type="checkbox"> Regular updates maintain relevance</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mission-summary">
+                <h2><i class="fas fa-clipboard-check"></i> Mission Summary</h2>
+                <p>Excellent work, astronaut! You've successfully established a comprehensive set of custom instructions that will ensure consistent AI assistance across your entire development team. Your repository now has its own "cultural DNA" that Copilot will respect and follow.</p>
+                
+                <div class="key-achievements">
+                    <h3>Key Achievements:</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Created comprehensive repository-specific instructions</li>
+                        <li><i class="fas fa-check"></i> Defined team Git culture and conventions</li>
+                        <li><i class="fas fa-check"></i> Established AI guidance for consistent suggestions</li>
+                        <li><i class="fas fa-check"></i> Validated Copilot adherence to custom standards</li>
+                    </ul>
+                </div>
+
+                <div class="next-mission">
+                    <p><strong>Next Mission:</strong> In the next chapter, you'll learn how to create powerful automation scripts using the Copilot CLI to streamline repetitive Git operations.</p>
+                </div>
+            </section>
+        </main>
+
+        <div class="navigation">
+            <a href="copilot-branch-naming.html" class="nav-link">← Previous: Branch Naming Assistant</a>
+            <a href="../../index.html" class="nav-link">Return to Mission Control →</a>
+        </div>
+
+        <footer>
+            <p>Mission Control Training Program • Phase 39 of 34</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize progress tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize progress tracker first
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.init();
+                ProgressTracker.markChapterAsVisited('copilot-custom-instructions');
+            }
+            
+            // Initialize theme manager
+            if (typeof ThemeManager !== 'undefined') {
+                ThemeManager.init();
+            }
+            
+            // Create starfield
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        });
+
+        // Copy to clipboard functionality
+        function copyToClipboard(button) {
+            const codeBlock = button.closest('.code-block').querySelector('code');
+            const text = codeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-clipboard"></i>';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

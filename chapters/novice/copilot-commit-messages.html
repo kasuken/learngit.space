@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit Message Launch Sequence - LearnGit.space</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../../js/progress-tracker.js"></script>
+</head>
+<body data-mission="copilot" data-phase="2">
+    <div class="stars" id="stars"></div>
+    
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch theme">
+            <span class="theme-icon"><i class="fas fa-crown"></i></span>
+            <span class="theme-label">Princess Pink</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <a href="../../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <div class="chapter-header">
+                <h1><i class="fas fa-rocket"></i> Commit Message Launch Sequence</h1>
+                <p class="chapter-subtitle">Craft meaningful commit messages automatically</p>
+                <div class="chapter-meta">
+                    <span class="chapter-number">Chapter 37</span>
+                    <span class="chapter-phase">Phase 6: Copilot in Command</span>
+                    <span class="reading-time"><i class="far fa-clock"></i> 12 min</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="chapter-content">
+            <section class="mission-briefing">
+                <h2><i class="fas fa-satellite"></i> Mission Briefing</h2>
+                <p>Every spacecraft operation requires precise documentation in the mission log. In the same way, every code change needs a clear, descriptive commit message that tells the story of what changed and why.</p>
+                
+                <p>Poor commit messages are like incomplete mission logs—they leave future astronauts (including yourself) guessing about what happened during critical operations. But crafting good commit messages consistently can be time-consuming and mentally taxing.</p>
+                
+                <p>This is where your AI co-pilot shines! GitHub Copilot can analyze your staged changes and generate meaningful, professional commit messages that follow best practices and conventions.</p>
+            </section>
+
+            <section class="learning-objectives">
+                <h2><i class="fas fa-bullseye"></i> Mission Objectives</h2>
+                <ul>
+                    <li>Generate commit messages using VS Code Source Control Panel</li>
+                    <li>Use Copilot Chat for enhanced commit message creation</li>
+                    <li>Apply Conventional Commits formatting to AI-generated messages</li>
+                    <li>Customize commit messages to match team standards</li>
+                </ul>
+            </section>
+
+            <section class="hands-on-lab">
+                <h2><i class="fas fa-flask"></i> Hands-On Lab: AI-Powered Commit Messages</h2>
+                
+                <div class="lab-step">
+                    <h3><i class="fas fa-edit"></i> Step 1: VS Code Source Control Magic</h3>
+                    <p>Let's start with the most straightforward approach using the built-in VS Code feature:</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Source Control Panel Workflow</span>
+                        </div>
+                        <pre><code>1. Make some changes to your code
+2. Stage the changes (git add)
+3. Open Source Control panel (Ctrl+Shift+G)
+4. Look for the ✨ sparkle icon next to the commit message box
+5. Select the sparkle icon to generate a commit message
+6. Review and edit the suggestion if needed
+7. Commit your changes</code></pre>
+                    </div>
+
+                    <div class="mission-note">
+                        <p><i class="fas fa-lightbulb"></i> <strong>Pro Tip:</strong> The sparkle icon appears when you have staged changes that Copilot can analyze.</p>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <h3><i class="fas fa-comments"></i> Step 2: Enhanced Chat-Based Generation</h3>
+                    <p>For more detailed or customized commit messages, use Copilot Chat:</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Copilot Chat Commands</span>
+                            <button class="copy-button" onclick="copyToClipboard(this)">
+                                <i class="fas fa-clipboard"></i>
+                            </button>
+                        </div>
+                        <pre><code>// Open Copilot Chat (Ctrl+Shift+I) and try these prompts:
+
+"Summarize these changes for a commit message"
+
+"Create a commit message following Conventional Commits format"
+
+"Generate a detailed commit message that explains the WHY behind these changes"
+
+"Create a commit message for a feature that improves user authentication"</code></pre>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <h3><i class="fas fa-cogs"></i> Step 3: Conventional Commits Integration</h3>
+                    <p>Let's ensure our AI-generated messages follow the Conventional Commits specification:</p>
+                    
+                    <div class="conventional-commits-guide">
+                        <h4>Conventional Commits Format:</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Format Structure</span>
+                            </div>
+                            <pre><code>&lt;type&gt;[optional scope]: &lt;description&gt;
+
+[optional body]
+
+[optional footer(s)]</code></pre>
+                        </div>
+
+                        <h4>Common Types:</h4>
+                        <ul>
+                            <li><code>feat:</code> A new feature</li>
+                            <li><code>fix:</code> A bug fix</li>
+                            <li><code>docs:</code> Documentation changes</li>
+                            <li><code>style:</code> Code formatting, no logic changes</li>
+                            <li><code>refactor:</code> Code restructuring without changing functionality</li>
+                            <li><code>test:</code> Adding or updating tests</li>
+                            <li><code>chore:</code> Maintenance tasks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lab-step">
+                    <h3><i class="fas fa-magic"></i> Step 4: Custom Prompt Engineering</h3>
+                    <p>Train Copilot to generate messages that match your team's style:</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Advanced Chat Prompts</span>
+                            <button class="copy-button" onclick="copyToClipboard(this)">
+                                <i class="fas fa-clipboard-check"></i>
+                            </button>
+                        </div>
+                        <pre><code>// Context-aware prompts:
+"Generate a commit message in the style of: 
+- Start with conventional commit type
+- Maximum 50 characters for the subject
+- Include ticket number format JIRA-123
+- Focus on user impact rather than technical details"
+
+// For specific scenarios:
+"Create a commit message for a breaking change that updates the API"
+
+"Generate a commit message for a hotfix that resolves a critical security issue"</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="practical-examples">
+                <h2><i class="fas fa-code"></i> Practical Examples</h2>
+                
+                <div class="example-scenario">
+                    <h3>Scenario 1: Feature Addition</h3>
+                    <div class="before-after">
+                        <div class="before">
+                            <h4>Without Copilot:</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Basic commit message</span>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">
+                                        📋
+                                    </button>
+                                </div>
+                                <pre><code>updated login stuff</code></pre>
+                            </div>
+                        </div>
+                        <div class="after">
+                            <h4>With Copilot:</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>AI-enhanced commit message</span>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">
+                                        <i class="fas fa-clipboard"></i>
+                                    </button>
+                                </div>
+                                <pre><code>feat(auth): add OAuth integration for GitHub login
+
+Implements secure authentication flow using GitHub OAuth2.
+Users can now sign in with their GitHub accounts instead of
+creating new credentials.
+
+Closes #AUTH-142</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-scenario">
+                    <h3>Scenario 2: Bug Fix</h3>
+                    <div class="before-after">
+                        <div class="before">
+                            <h4>Manual Approach:</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Basic commit message</span>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">
+                                        <i class="fas fa-clipboard"></i>
+                                    </button>
+                                </div>
+                                <pre><code>fix bug</code></pre>
+                            </div>
+                        </div>
+                        <div class="after">
+                            <h4>Copilot Enhancement:</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>AI-enhanced commit message</span>
+                                    <button class="copy-button" onclick="copyToClipboard(this)">
+                                        <i class="fas fa-clipboard"></i>
+                                    </button>
+                                </div>
+                                <pre><code>fix(validation): resolve email format validation error
+
+Corrects regex pattern that was rejecting valid email addresses
+containing plus signs. Updates test cases to cover edge cases.
+
+Fixes #BUG-089</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="best-practices">
+                <h2><i class="fas fa-star"></i> Mission Control Best Practices</h2>
+                
+                <div class="practice-grid">
+                    <div class="practice-item">
+                        <h3><i class="fas fa-check-circle"></i> Do</h3>
+                        <ul>
+                            <li>Review and edit AI suggestions before committing</li>
+                            <li>Ensure the message accurately describes your changes</li>
+                            <li>Add context that AI might miss (ticket numbers, reasons)</li>
+                            <li>Maintain consistency with your team's commit style</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-item">
+                        <h3><i class="fas fa-times-circle"></i> Don't</h3>
+                        <ul>
+                            <li>Blindly accept every AI suggestion</li>
+                            <li>Forget to include breaking change indicators</li>
+                            <li>Let AI generate messages for complex multi-part commits</li>
+                            <li>Skip manual review for critical or sensitive changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mission-challenge">
+                <h2><i class="fas fa-trophy"></i> Mission Challenge</h2>
+                <div class="challenge-box">
+                    <h3>Your Task:</h3>
+                    <ol>
+                        <li>Create a simple HTML file in your repository</li>
+                        <li>Add some CSS styling to it</li>
+                        <li>Stage the changes</li>
+                        <li>Use Copilot to generate a commit message</li>
+                        <li>Refine the message to follow Conventional Commits format</li>
+                        <li>Commit with your enhanced message</li>
+                    </ol>
+                    
+                    <p><strong>Bonus:</strong> Try generating messages for different types of changes (feat, fix, docs, style) and compare the AI suggestions.</p>
+                </div>
+            </section>
+
+            <section class="mission-summary">
+                <h2><i class="fas fa-clipboard-check"></i> Mission Summary</h2>
+                <p>Excellent work, astronaut! You've learned to harness your AI co-pilot for one of the most important but often overlooked aspects of development: clear communication through commit messages.</p>
+                
+                <div class="key-achievements">
+                    <h3>Key Achievements:</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Mastered VS Code Source Control panel AI features</li>
+                        <li><i class="fas fa-check"></i> Learned advanced Copilot Chat techniques for commit messages</li>
+                        <li><i class="fas fa-check"></i> Applied Conventional Commits formatting to AI suggestions</li>
+                        <li><i class="fas fa-check"></i> Developed custom prompting strategies</li>
+                    </ul>
+                </div>
+
+                <div class="next-mission">
+                    <p><strong>Next Mission:</strong> In the next chapter, you'll learn how to use Copilot for intelligent branch naming and Git alias creation.</p>
+                </div>
+            </section>
+        </main>
+
+        <div class="navigation">
+            <a href="copilot-pre-flight-briefing.html" class="nav-link">← Previous: Copilot Pre-Flight Briefing</a>
+            <a href="copilot-branch-naming.html" class="nav-link">Next: Branch Naming Assistant →</a>
+        </div>
+
+        <footer>
+            <p>Mission Control Training Program • Phase 37 of 34</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize progress tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize progress tracker first
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.init();
+                ProgressTracker.markChapterAsVisited('copilot-commit-messages');
+            }
+            
+            // Initialize theme manager
+            if (typeof ThemeManager !== 'undefined') {
+                ThemeManager.init();
+            }
+            
+            // Create starfield
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        });
+
+        // Copy to clipboard functionality
+        function copyToClipboard(button) {
+            const codeBlock = button.closest('.code-block').querySelector('code');
+            const text = codeBlock.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-clipboard"></i>';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
