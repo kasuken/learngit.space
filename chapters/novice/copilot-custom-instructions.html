@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Instructions Calibration - LearnGit.space</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../../js/progress-tracker.js"></script>
+</head>
+<body data-mission="copilot" data-phase="3">
+    <div class="stars" id="stars"></div>
+    
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button class="theme-toggle" onclick="ThemeManager.toggleTheme()" aria-label="Switch theme">
+            <span class="theme-icon"><i class="fas fa-crown"></i></span>
+            <span class="theme-label">Princess Pink</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <a href="../../index.html" class="home-link">← Back to Mission Control</a>
+        <header>
+            <h1><i class="fas fa-scroll"></i> Custom Instructions Calibration</h1>
+            <p class="subtitle">Teaching Copilot Your Git Culture</p>
+        </header>
+
+        <div class="mission-brief">
+            <p><strong>Mission Phase 38</strong> • Difficulty: Advanced</p>
+        </div>
+
+        <article>
+            <h2>Mission Briefing</h2>
+            
+            <p>Every space mission operates according to specific protocols, safety guidelines, and communication standards. These aren't just suggestions—they're mission-critical rules that ensure consistency, safety, and success across all operations.</p>
+            
+            <p>Similarly, every development team has its own "Git culture"—specific conventions for commit messages, branch naming, pull request formats, and code review processes. The challenge is ensuring that these standards are consistently applied, especially when using AI assistance.</p>
+            
+            <p>GitHub Copilot can learn and follow your team's specific conventions when you provide clear, repository-specific instructions. This ensures that AI suggestions align with your team's established practices rather than generic conventions.</p>
+
+            <h2>Mission Objectives</h2>
+            <ul>
+                <li>Create comprehensive .github/copilot-instructions.md files</li>
+                <li>Define team-specific Git conventions and standards</li>
+                <li>Configure repository-level Copilot guidance</li>
+                <li>Test and validate custom instruction effectiveness</li>
+            </ul>
+
+            <h2>Step 1: Repository Custom Instructions</h2>
+            <p>Create a `.github/copilot-instructions.md` file in your repository root:</p>
+            
+            <div class="command-example">
+                <pre><code># Copilot Instructions for [Project Name]
+
+## Git Commit Conventions
+- Use conventional commits format: type(scope): description
+- Types: feat, fix, docs, style, refactor, test, chore
+- Always include ticket number: feat(auth): add OAuth login [PROJ-123]
+- Keep description under 72 characters
+- Use present tense: "add" not "added"
+
+## Branch Naming
+- Format: type/ticket-description
+- Types: feature, bugfix, hotfix, refactor
+- Use kebab-case: feature/user-authentication
+- Include ticket: feature/PROJ-123-user-auth
+
+## Pull Request Standards
+- Title: "[TICKET] Brief description"
+- Include: What, Why, Testing notes
+- Link related issues
+- Request specific reviewers for domain expertise
+
+## Code Review Guidelines
+- Focus on logic, performance, security
+- Suggest improvements, don't just approve
+- Test the changes locally when possible
+- Check for proper error handling</code></pre>
+            </div>
+
+            <h2>Step 2: Advanced Configuration Examples</h2>
+            <p>Comprehensive instruction templates for different team styles:</p>
+            
+            <div class="command-example">
+                <pre><code># Enterprise Team Instructions
+## Git Workflow
+- All work must happen in feature branches
+- Require 2 approvals before merge
+- Use squash merge for clean history
+- Delete branches after merge
+
+## Security Requirements
+- Never commit secrets or API keys
+- Use environment variables for configuration
+- Include security review for auth changes
+- Scan dependencies for vulnerabilities
+
+## Documentation Standards
+- Update README for new features
+- Include inline comments for complex logic
+- Maintain CHANGELOG.md
+- Document API changes in separate file</code></pre>
+            </div>
+
+            <h2>Step 3: Team-Specific Conventions</h2>
+            <p>Tailor instructions to your team's unique practices:</p>
+            
+            <div class="command-example">
+                <pre><code># Startup Team Instructions
+## Fast-Moving Development
+- Commit often, push daily
+- Use descriptive branch names
+- Quick code reviews (same day)
+- Prioritize shipping over perfection
+
+## Communication Style
+- Commit messages can be informal but clear
+- Use emojis in commit messages: ✨ feat: 🐛 fix: 📚 docs:
+- Tag team members in PR descriptions
+- Celebrate wins in commit messages
+
+## Technical Preferences
+- Prefer functional programming patterns
+- Use TypeScript for new JavaScript code
+- Write tests for critical paths
+- Deploy to staging automatically</code></pre>
+            </div>
+
+            <h2>Step 4: Language and Framework Specific</h2>
+            <p>Include technology-specific guidance for Copilot:</p>
+            
+            <div class="command-example">
+                <pre><code># Frontend React Project
+## React Conventions
+- Use functional components with hooks
+- Implement proper TypeScript types
+- Follow established file structure: components/hooks/utils
+- Use styled-components for styling
+
+## Git Conventions for Frontend
+- Include "frontend:" prefix for UI changes
+- Screenshot before/after in PR description
+- Test on multiple browsers
+- Check responsive design
+
+## Testing Requirements
+- Unit tests for custom hooks
+- Integration tests for user flows
+- Visual regression tests for UI changes
+- Accessibility testing with axe-core</code></pre>
+            </div>
+
+            <h2>Step 5: Validation and Testing</h2>
+            <p>Test your custom instructions to ensure they work effectively:</p>
+            
+            <div class="command-example">
+                <pre><code>// Test prompts to validate custom instructions:
+
+1. "Generate a commit message for adding user authentication"
+   Expected: Follows your commit format
+
+2. "Create a branch name for fixing login validation"
+   Expected: Uses your branch naming convention
+
+3. "Write a pull request template for this feature"
+   Expected: Includes your required sections
+
+4. "Suggest code review comments for this change"
+   Expected: Focuses on your team's priorities</code></pre>
+            </div>
+
+            <h2>Step 6: Iteration and Improvement</h2>
+            <p>Continuously refine your instructions based on team feedback:</p>
+            
+            <div class="command-example">
+                <pre><code># Version your instructions file:
+# v1.0 - Initial team conventions
+# v1.1 - Added security requirements  
+# v1.2 - Updated for new CI/CD pipeline
+# v2.0 - Major revision after team retro
+
+## Changelog
+- 2024-01-15: Added TypeScript requirements
+- 2024-01-10: Updated commit message format
+- 2024-01-05: Initial version created</code></pre>
+            </div>
+
+            <h2>Advanced Techniques</h2>
+            
+            <h3>Conditional Instructions</h3>
+            <div class="command-example">
+                <pre><code># Environment-Specific Rules
+## Production Changes
+- Require additional approval from DevOps team
+- Include rollback plan in PR description
+- Test in staging environment first
+- Schedule deployment during maintenance window
+
+## Hotfix Process
+- Create from main branch
+- Skip normal review process if critical
+- Deploy immediately after merge
+- Create post-mortem issue for analysis</code></pre>
+            </div>
+
+            <h3>Integration with Tools</h3>
+            <div class="command-example">
+                <pre><code># Tool Integration Instructions
+## Jira Integration
+- Include ticket number in all commits
+- Update ticket status when PR is merged
+- Link related tickets in PR description
+- Use Jira smart commits when possible
+
+## Slack Notifications
+- Mention @channel for breaking changes
+- Use thread replies for PR discussions
+- Post deployment notifications to #deploys
+- Share learning notes in #dev-tips</code></pre>
+            </div>
+
+            <h2>Common Patterns and Examples</h2>
+            
+            <h3>Commit Message Examples</h3>
+            
+            <h4>Before Custom Instructions:</h4>
+            <div class="command-example">
+                <pre><code>fix: bug fix
+update readme
+added new feature</code></pre>
+            </div>
+            
+            <h4>After Custom Instructions:</h4>
+            <div class="command-example">
+                <pre><code>fix(auth): resolve session timeout issue [AUTH-456]
+docs(readme): update installation instructions [DOC-123]
+feat(dashboard): add user analytics view [DASH-789]</code></pre>
+            </div>
+
+            <h2>Best Practices</h2>
+            
+            <h3>✅ Do:</h3>
+            <ul>
+                <li>Keep instructions clear and specific</li>
+                <li>Include examples for each convention</li>
+                <li>Update instructions as team practices evolve</li>
+                <li>Test instructions with real scenarios</li>
+                <li>Get team buy-in before implementing</li>
+            </ul>
+            
+            <h3>❌ Don't:</h3>
+            <ul>
+                <li>Make instructions too rigid or complex</li>
+                <li>Include personal preferences as team rules</li>
+                <li>Forget to document the reasoning behind rules</li>
+                <li>Create instructions that conflict with existing tools</li>
+                <li>Set unrealistic expectations for AI assistance</li>
+            </ul>
+
+            <h2>Mission Challenge</h2>
+            
+            <h3>Your Task:</h3>
+            <ol>
+                <li>Create a comprehensive `.github/copilot-instructions.md` file for your team</li>
+                <li>Include at least 5 different types of conventions (commits, branches, PRs, etc.)</li>
+                <li>Test the instructions with Copilot Chat using various prompts</li>
+                <li>Refine the instructions based on the AI responses</li>
+                <li>Share with your team and gather feedback for improvements</li>
+            </ol>
+
+            <h2>Mission Summary</h2>
+            <p>Outstanding work, Commander! You've successfully configured your AI co-pilot to understand and follow your team's unique Git culture. You can now:</p>
+            
+            <h3>Key Achievements:</h3>
+            <ul>
+                <li>Create repository-specific instructions for consistent AI assistance</li>
+                <li>Define and enforce team conventions automatically</li>
+                <li>Integrate Git practices with your development workflow</li>
+                <li>Continuously improve AI guidance based on team feedback</li>
+            </ul>
+
+            <p><strong>Next Mission:</strong> Now you're ready for the final chapter where you'll master intelligent branch naming and management!</p>
+        </article>
+
+        <div class="navigation">
+            <a href="copilot-commit-messages.html" class="nav-link">← Previous: Commit Message Launch Sequence</a>
+            <a href="copilot-branch-naming.html" class="nav-link">Next: Branch Naming Assistant →</a>
+        </div>
+
+        <footer>
+            <p>Mission Control Training Program • Phase 38 of 40</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize progress tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize progress tracker first
+            if (typeof ProgressTracker !== 'undefined') {
+                ProgressTracker.init();
+                ProgressTracker.markChapterAsVisited('copilot-custom-instructions');
+            }
+            
+            // Initialize theme manager
+            if (typeof ThemeManager !== 'undefined') {
+                ThemeManager.init();
+            }
+            
+            // Create starfield
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        });
+    </script>
+</body>
+</html>
