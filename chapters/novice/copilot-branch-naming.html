@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branch Naming & Fleet Deployment - LearnGit.space</title>
+    <title>Branch Naming Assistant - LearnGit.space</title>
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="../../js/progress-tracker.js"></script>
 </head>
-<body data-mission="copilot" data-phase="3">
+<body data-mission="copilot" data-phase="4">
     <div class="stars" id="stars"></div>
     
     <!-- Theme Selector -->
@@ -22,258 +22,229 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
-            <div class="chapter-header">
-                <h1><i class="fas fa-code-branch"></i> Branch Naming & Fleet Deployment</h1>
-                <p class="chapter-subtitle">Standardize branch names and create powerful aliases</p>
-                <div class="chapter-meta">
-                    <span class="chapter-number">Chapter 38</span>
-                    <span class="chapter-phase">Phase 6: Copilot in Command</span>
-                    <span class="reading-time"><i class="far fa-clock"></i> 10 min</span>
-                </div>
-            </div>
+            <h1><i class="fas fa-code-branch"></i> Branch Naming Assistant</h1>
+            <p class="subtitle">Intelligent Branch Management</p>
         </header>
 
-        <main class="chapter-content">
-            <section class="mission-briefing">
-                <h2><i class="fas fa-satellite"></i> Mission Briefing</h2>
-                <p>In space operations, every vessel in your fleet needs a clear, descriptive designation that immediately communicates its purpose and mission. The same principle applies to Git branches—they should have semantic names that tell the story of what's being developed.</p>
-                
-                <p>Creating consistent, meaningful branch names manually can be challenging, especially when working with complex feature requirements or bug descriptions. Your AI co-pilot can analyze issue descriptions, feature requirements, and code changes to suggest optimal branch names that follow your team's conventions.</p>
-                
-                <p>Additionally, we'll learn to create powerful Git aliases that make common operations as simple as single commands, boosting your efficiency in the command center.</p>
-            </section>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 39</strong> • Difficulty: Intermediate</p>
+        </div>
 
-            <section class="learning-objectives">
-                <h2><i class="fas fa-bullseye"></i> Mission Objectives</h2>
-                <ul>
-                    <li>Generate semantic branch names using Copilot Chat</li>
-                    <li>Integrate with GitLens for branch preview and validation</li>
-                    <li>Create custom Git aliases with Copilot assistance</li>
-                    <li>Establish consistent branch naming conventions</li>
-                </ul>
-            </section>
+        <article>
+            <h2>Mission Briefing</h2>
+            
+            <p>In space operations, every vessel in your fleet needs a clear, descriptive designation that immediately communicates its purpose and mission. The same principle applies to Git branches—they should have semantic names that tell the story of what's being developed.</p>
+            
+            <p>Creating consistent, meaningful branch names manually can be challenging, especially when working with complex feature requirements or bug descriptions. Your AI co-pilot can analyze issue descriptions, feature requirements, and code changes to suggest optimal branch names that follow your team's conventions.</p>
+            
+            <p>Additionally, we'll learn to create powerful Git aliases that make common operations as simple as single commands, boosting your efficiency in the command center.</p>
 
-            <section class="hands-on-lab">
-                <h2><i class="fas fa-flask"></i> Hands-On Lab: Intelligent Branch Management</h2>
-                
-                <div class="lab-step">
-                    <h3><i class="fas fa-brain"></i> Step 1: AI-Powered Branch Name Generation</h3>
-                    <p>Let's use Copilot Chat to generate semantic branch names from issue descriptions:</p>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Branch Naming Prompts</span>
-                            <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="fas fa-clipboard"></i>
-                            </button>
-                        </div>
-                        <pre><code>// Open Copilot Chat and try these prompts:
+            <h2>Mission Objectives</h2>
+            <ul>
+                <li>Generate semantic branch names using Copilot Chat</li>
+                <li>Integrate with GitLens for branch preview and validation</li>
+                <li>Create intelligent Git aliases for common workflows</li>
+                <li>Implement team-specific naming conventions</li>
+            </ul>
 
-"Suggest a branch name for this issue: 
-'Add user authentication with OAuth integration and remember me functionality'"
+            <h2>Step 1: Intelligent Branch Naming</h2>
+            <p>Let your AI co-pilot suggest branch names based on your work context:</p>
+            
+            <div class="command-example">
+                <pre><code>// Open Copilot Chat (Ctrl+Shift+I) and try these prompts:
 
-"Create a branch name following the pattern feature/JIRA-123-description for:
-'Fix responsive design issues on mobile devices'"
+"Create a branch name for adding user authentication with OAuth"
 
-"Generate branch names for these scenarios:
-1. Hotfix for critical security vulnerability
-2. Feature for adding dark mode theme
-3. Refactoring database connection logic"</code></pre>
-                    </div>
+"Suggest a branch name for fixing a memory leak in the image processor"
 
-                    <div class="branch-examples">
-                        <h4>Expected AI Suggestions:</h4>
-                        <ul>
-                            <li><code>feature/oauth-user-authentication</code></li>
-                            <li><code>fix/JIRA-456-mobile-responsive-design</code></li>
-                            <li><code>hotfix/security-vulnerability-patch</code></li>
-                            <li><code>feature/dark-mode-theme</code></li>
-                            <li><code>refactor/database-connection-logic</code></li>
-                        </ul>
-                    </div>
-                </div>
+"Generate a branch name for refactoring the database connection layer"
 
-                <div class="lab-step">
-                    <h3><i class="fas fa-eye"></i> Step 2: GitLens Integration for Branch Preview</h3>
-                    <p>Use GitLens to visualize and validate your branch strategy:</p>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>GitLens Workflow</span>
-                        </div>
-                        <pre><code>1. Install GitLens extension in VS Code
+"Create a hotfix branch name for fixing critical login validation bug"</code></pre>
+            </div>
+
+            <h2>Step 2: Convention-Based Naming</h2>
+            <p>Train Copilot to follow your team's branch naming conventions:</p>
+            
+            <div class="command-example">
+                <pre><code>// Context-aware prompts for team conventions:
+"Create a branch name using the format: type/ticket-description
+- Types: feature, bugfix, hotfix, refactor
+- Use kebab-case for descriptions
+- Include JIRA ticket: AUTH-123"
+
+"Generate a branch name for implementing user profiles following our convention:
+- Format: [username]/[type]/[short-description] 
+- Example: john/feature/user-profiles"</code></pre>
+            </div>
+
+            <h3>Common Branch Naming Patterns:</h3>
+            <ul>
+                <li><strong>feature/</strong> - New functionality</li>
+                <li><strong>bugfix/</strong> - Bug fixes</li>
+                <li><strong>hotfix/</strong> - Critical production fixes</li>
+                <li><strong>refactor/</strong> - Code restructuring</li>
+                <li><strong>docs/</strong> - Documentation updates</li>
+                <li><strong>test/</strong> - Test additions or fixes</li>
+            </ul>
+
+            <h2>Step 3: GitLens Integration</h2>
+            <p>Use Copilot with GitLens to preview and validate branch decisions:</p>
+            
+            <div class="command-example">
+                <pre><code>1. Install GitLens extension in VS Code
 2. Open Command Palette (Ctrl+Shift+P)
-3. Run "GitLens: Show Graph"
-4. Before creating a new branch, use Copilot Chat:
-   
-   "Analyze this Git graph and suggest the best branch point 
-   for a new feature that adds user profile management"
+3. Type "Git: Create Branch"
+4. Use Copilot Chat to generate branch name
+5. Preview branch in GitLens before creation
+6. Create branch with validated name</code></pre>
+            </div>
 
-5. Create the branch from the suggested commit
-6. Use GitLens to verify the branch structure</code></pre>
-                    </div>
-                </div>
+            <h2>Step 4: Powerful Git Aliases</h2>
+            <p>Create shortcuts for common Git operations using Copilot suggestions:</p>
+            
+            <div class="command-example">
+                <pre><code>// Ask Copilot to create useful Git aliases:
+"Create Git aliases for common workflows:
+- Quick commit with message
+- Push current branch to origin
+- Create and switch to new branch
+- Interactive rebase last 3 commits"</code></pre>
+            </div>
 
-                <div class="lab-step">
-                    <h3><i class="fas fa-terminal"></i> Step 3: Creating Powerful Git Aliases</h3>
-                    <p>Let Copilot help you create time-saving Git aliases:</p>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Alias Generation Chat</span>
-                            <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="fas fa-clipboard"></i>
-                            </button>
-                        </div>
-                        <pre><code>// Ask Copilot to create aliases for common operations:
-
-"Create Git aliases for these common operations:
-1. Create a new feature branch from main
-2. Quick commit with generated message
-3. Push current branch to origin
-4. Clean up merged branches
-5. Interactive rebase of last 3 commits
-6. Show pretty formatted log with graph"</code></pre>
-                    </div>
-
-                    <div class="generated-aliases">
-                        <h4>Copilot-Generated Aliases:</h4>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span>Add to ~/.gitconfig</span>
-                                <button class="copy-button" onclick="copyToClipboard(this)">
-                                    <i class="fas fa-clipboard"></i>
-                                </button>
-                            </div>
-                            <pre><code>[alias]
-    # Branch management
-    feat = "!f() { git checkout main && git pull && git checkout -b feature/$1; }; f"
-    fix = "!f() { git checkout main && git pull && git checkout -b fix/$1; }; f"
+            <h3>Example Aliases Generated by Copilot:</h3>
+            <div class="command-example">
+                <pre><code># Add these to your .gitconfig file:
+[alias]
+    # Quick commit
+    cm = commit -m
     
-    # Quick operations
-    qc = "!git add . && git commit -m"
-    pushup = "!git push -u origin $(git branch --show-current)"
+    # Quick add and commit
+    ac = !git add -A && git commit -m
     
-    # Cleanup
-    cleanup = "!git branch --merged main | grep -v main | xargs git branch -d"
+    # Create and switch to new branch
+    cb = checkout -b
     
-    # History and logging
-    lg = "log --graph --pretty=format:'%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %C(green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
-    hist = "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"</code></pre>
-                        </div>
-                    </div>
-                </div>
+    # Push current branch to origin
+    push-current = !git push -u origin $(git branch --show-current)
+    
+    # Interactive rebase
+    rb = rebase -i HEAD~3
+    
+    # Quick status
+    st = status --short
+    
+    # Pretty log
+    lg = log --oneline --graph --decorate</code></pre>
+            </div>
 
-                <div class="lab-step">
-                    <h3><i class="fas fa-cogs"></i> Step 4: Advanced Branch Workflow with Copilot</h3>
-                    <p>Create a complete workflow that combines AI suggestions with automation:</p>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Complete Workflow Script</span>
-                            <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="fas fa-clipboard"></i>
-                            </button>
-                        </div>
-                        <pre><code># Create a script: new-feature.sh
+            <h2>Step 5: Advanced Branch Management</h2>
+            <p>Use Copilot for complex branch operations:</p>
+            
+            <div class="command-example">
+                <pre><code>// Advanced branch management prompts:
+"Create a Git workflow for feature branches that:
+- Creates branch from main
+- Sets up tracking
+- Pushes to origin
+- Opens pull request template"
 
-#!/bin/bash
-echo "🤖 AI-Assisted Feature Branch Creation"
-echo "Issue description: $1"
+"Generate commands to clean up merged branches safely"
 
-# Use this in Copilot Chat:
-# "Generate a semantic branch name for: $1"
-# Then manually create the branch with the suggestion
+"Create an alias for interactive branch switching with fzf"</code></pre>
+            </div>
 
-# Example usage:
-# ./new-feature.sh "Add user dashboard with analytics widgets"</code></pre>
-                    </div>
-                </div>
-            </section>
+            <h2>Practical Examples</h2>
+            
+            <h3>Scenario 1: Feature Development</h3>
+            
+            <h4>Manual Approach:</h4>
+            <div class="command-example">
+                <pre><code>git checkout -b new-feature</code></pre>
+            </div>
+            
+            <h4>Copilot-Enhanced:</h4>
+            <div class="command-example">
+                <pre><code># Copilot suggestion based on context:
+git checkout -b feature/user-dashboard-analytics
 
-            <section class="branch-conventions">
-                <h2><i class="fas fa-sitemap"></i> Branch Naming Conventions</h2>
-                
-                <div class="convention-grid">
-                    <div class="convention-type">
-                        <h3><i class="fas fa-plus"></i> Feature Branches</h3>
-                        <ul>
-                            <li><code>feature/user-authentication</code></li>
-                            <li><code>feature/JIRA-123-payment-integration</code></li>
-                            <li><code>feat/dashboard-analytics</code></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="convention-type">
-                        <h3><i class="fas fa-bug"></i> Bug Fix Branches</h3>
-                        <ul>
-                            <li><code>fix/login-validation-error</code></li>
-                            <li><code>bugfix/BUG-456-memory-leak</code></li>
-                            <li><code>hotfix/critical-security-patch</code></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="convention-type">
-                        <h3><i class="fas fa-tools"></i> Maintenance Branches</h3>
-                        <ul>
-                            <li><code>refactor/database-queries</code></li>
-                            <li><code>chore/update-dependencies</code></li>
-                            <li><code>docs/api-documentation</code></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+# With alias (created by Copilot):
+git cb feature/user-dashboard-analytics</code></pre>
+            </div>
 
-            <section class="practical-exercise">
-                <h2><i class="fas fa-rocket"></i> Practical Exercise</h2>
-                
-                <div class="exercise-box">
-                    <h3>Mission Scenario:</h3>
-                    <p>You've received these three tasks from Mission Control:</p>
-                    
-                    <ol>
-                        <li><strong>Task 1:</strong> "Implement two-factor authentication for user accounts with SMS and email options"</li>
-                        <li><strong>Task 2:</strong> "Fix critical bug where user sessions expire immediately on mobile Safari"</li>
-                        <li><strong>Task 3:</strong> "Refactor the user service to use dependency injection pattern"</li>
-                    </ol>
-                    
-                    <h3>Your Mission:</h3>
-                    <ol>
-                        <li>Use Copilot Chat to generate appropriate branch names for each task</li>
-                        <li>Create Git aliases for common operations</li>
-                        <li>Set up one of the branches using your new aliases</li>
-                        <li>Test the workflow with a sample commit</li>
-                    </ol>
-                </div>
-            </section>
+            <h3>Scenario 2: Bug Fix</h3>
+            
+            <h4>Manual Approach:</h4>
+            <div class="command-example">
+                <pre><code>git checkout -b fix</code></pre>
+            </div>
+            
+            <h4>Copilot-Enhanced:</h4>
+            <div class="command-example">
+                <pre><code># Copilot suggestion:
+git checkout -b bugfix/AUTH-456-login-validation-error
 
-            <section class="mission-summary">
-                <h2><i class="fas fa-clipboard-check"></i> Mission Summary</h2>
-                <p>Outstanding work, astronaut! You've successfully established intelligent branch management systems with your AI co-pilot. Your development workflow is now enhanced with semantic naming and powerful automation.</p>
-                
-                <div class="key-achievements">
-                    <h3>Key Achievements:</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Mastered AI-powered branch name generation</li>
-                        <li><i class="fas fa-check"></i> Integrated GitLens for branch visualization</li>
-                        <li><i class="fas fa-check"></i> Created custom Git aliases with Copilot assistance</li>
-                        <li><i class="fas fa-check"></i> Established consistent naming conventions</li>
-                    </ul>
-                </div>
+# Full workflow alias (Copilot-generated):
+git start-bugfix "AUTH-456 login validation error"</code></pre>
+            </div>
 
-                <div class="next-mission">
-                    <p><strong>Next Mission:</strong> In the next chapter, you'll learn how to create repository-specific custom instructions that teach Copilot your team's specific Git culture and conventions.</p>
-                </div>
-            </section>
-        </main>
+            <h2>Team Integration Best Practices</h2>
+            
+            <h3>✅ Do:</h3>
+            <ul>
+                <li>Establish clear naming conventions before using AI suggestions</li>
+                <li>Include ticket numbers or issue references in branch names</li>
+                <li>Use descriptive keywords that explain the work being done</li>
+                <li>Test generated aliases in a safe environment first</li>
+            </ul>
+            
+            <h3>❌ Don't:</h3>
+            <ul>
+                <li>Use overly long or complex branch names</li>
+                <li>Include personal information or temporary identifiers</li>
+                <li>Create aliases that override important Git commands</li>
+                <li>Skip validation of AI-generated Git commands</li>
+            </ul>
+
+            <h2>Mission Challenge</h2>
+            
+            <h3>Your Task:</h3>
+            <ol>
+                <li>Use Copilot to create 3 different branch names for a user authentication feature</li>
+                <li>Generate 5 useful Git aliases for your workflow</li>
+                <li>Create a custom prompt template for your team's branch naming convention</li>
+                <li>Set up one advanced alias that combines multiple Git operations</li>
+            </ol>
+
+            <h2>Mission Summary</h2>
+            <p>Congratulations, Commander! You've mastered the art of intelligent branch management with your AI co-pilot. You can now:</p>
+            
+            <h3>Key Achievements:</h3>
+            <ul>
+                <li>Generate semantic, consistent branch names automatically</li>
+                <li>Create powerful Git aliases for enhanced productivity</li>
+                <li>Integrate branch management with GitLens for better visualization</li>
+                <li>Implement team-specific naming conventions with AI assistance</li>
+            </ul>
+
+            <h2>Final Mission Report</h2>
+            <p>Outstanding work, Commander! You've completed the entire Copilot Command Training Program. You've mastered:</p>
+            <ul>
+                <li>✅ AI-powered commit message generation</li>
+                <li>✅ Custom repository instructions and team conventions</li>
+                <li>✅ Intelligent branch naming and management</li>
+                <li>✅ Team-specific Git culture implementation</li>
+            </ul>
+
+            <p><strong>Status:</strong> Mission Complete. You're now qualified as a Git Commander with AI Co-pilot certification!</p>
+        </article>
 
         <div class="navigation">
-            <a href="copilot-commit-messages.html" class="nav-link">← Previous: Commit Message Launch Sequence</a>
-            <a href="copilot-custom-instructions.html" class="nav-link">Next: Custom Instructions Calibration →</a>
+            <a href="copilot-custom-instructions.html" class="nav-link">← Previous: Custom Instructions Calibration</a>
+            <a href="../../index.html" class="nav-link">Mission Complete: Return to Control →</a>
         </div>
 
         <footer>
-            <p>Mission Control Training Program • Phase 38 of 34</p>
+            <p>Mission Control Training Program • Final Phase: 39 of 40</p>
         </footer>
     </div>
 
@@ -303,18 +274,6 @@ echo "Issue description: $1"
                 starsContainer.appendChild(star);
             }
         });
-
-        // Copy to clipboard functionality
-        function copyToClipboard(button) {
-            const codeBlock = button.closest('.code-block').querySelector('code');
-            const text = codeBlock.textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                button.innerHTML = '<i class="fas fa-check"></i>';
-                setTimeout(() => {
-                    button.innerHTML = '<i class="fas fa-clipboard"></i>';
-                }, 2000);
-            });
-        }
     </script>
 </body>
 </html>

@@ -22,74 +22,89 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
-            <div class="chapter-header">
-                <h1><i class="fas fa-rocket"></i> Commit Message Launch Sequence</h1>
-                <p class="chapter-subtitle">Craft meaningful commit messages automatically</p>
-                <div class="chapter-meta">
-                    <span class="chapter-number">Chapter 37</span>
-                    <span class="chapter-phase">Phase 6: Copilot in Command</span>
-                    <span class="reading-time"><i class="far fa-clock"></i> 12 min</span>
-                </div>
-            </div>
+            <h1><i class="fas fa-rocket"></i> Commit Message Launch Sequence</h1>
+            <p class="subtitle">AI-Powered Message Generation</p>
         </header>
 
-        <main class="chapter-content">
-            <section class="mission-briefing">
-                <h2><i class="fas fa-satellite"></i> Mission Briefing</h2>
-                <p>Every spacecraft operation requires precise documentation in the mission log. In the same way, every code change needs a clear, descriptive commit message that tells the story of what changed and why.</p>
-                
-                <p>Poor commit messages are like incomplete mission logs—they leave future astronauts (including yourself) guessing about what happened during critical operations. But crafting good commit messages consistently can be time-consuming and mentally taxing.</p>
-                
-                <p>This is where your AI co-pilot shines! GitHub Copilot can analyze your staged changes and generate meaningful, professional commit messages that follow best practices and conventions.</p>
-            </section>
+        <div class="mission-brief">
+            <p><strong>Mission Phase 37</strong> • Difficulty: Intermediate</p>
+        </div>
 
-            <section class="learning-objectives">
-                <h2><i class="fas fa-bullseye"></i> Mission Objectives</h2>
-                <ul>
-                    <li>Generate commit messages using VS Code Source Control Panel</li>
-                    <li>Use Copilot Chat for enhanced commit message creation</li>
-                    <li>Apply Conventional Commits formatting to AI-generated messages</li>
-                    <li>Customize commit messages to match team standards</li>
-                </ul>
-            </section>
+        <article>
+            <h2>Mission Briefing</h2>
+            
+            <p>Every spacecraft operation requires precise documentation in the mission log. In the same way, every code change needs a clear, descriptive commit message that tells the story of what changed and why.</p>
+            
+            <p>Poor commit messages are like incomplete mission logs—they leave future astronauts (including yourself) guessing about what happened during critical operations. But crafting good commit messages consistently can be time-consuming and mentally taxing.</p>
+            
+            <p>This is where your AI co-pilot shines! GitHub Copilot can analyze your staged changes and generate meaningful, professional commit messages that follow best practices and conventions.</p>
 
-            <section class="hands-on-lab">
-                <h2><i class="fas fa-flask"></i> Hands-On Lab: AI-Powered Commit Messages</h2>
-                
-                <div class="lab-step">
-                    <h3><i class="fas fa-edit"></i> Step 1: VS Code Source Control Magic</h3>
-                    <p>Let's start with the most straightforward approach using the built-in VS Code feature:</p>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Source Control Panel Workflow</span>
-                        </div>
-                        <pre><code>1. Make some changes to your code
+            <h2>Mission Objectives</h2>
+            <ul>
+                <li>Generate commit messages using VS Code Source Control Panel</li>
+                <li>Use Copilot Chat for enhanced commit message creation</li>
+                <li>Apply Conventional Commits formatting to AI-generated messages</li>
+                <li>Customize commit messages to match team standards</li>
+            </ul>
+
+            <h2>Step 1: VS Code Source Control Magic</h2>
+            <p>Let's start with the most straightforward approach using the built-in VS Code feature:</p>
+            
+            <div class="command-example">
+                <pre><code>1. Make some changes to your code
 2. Stage the changes (git add)
 3. Open Source Control panel (Ctrl+Shift+G)
 4. Look for the ✨ sparkle icon next to the commit message box
 5. Select the sparkle icon to generate a commit message
 6. Review and edit the suggestion if needed
 7. Commit your changes</code></pre>
-                    </div>
+            </div>
 
-                    <div class="mission-note">
-                        <p><i class="fas fa-lightbulb"></i> <strong>Pro Tip:</strong> The sparkle icon appears when you have staged changes that Copilot can analyze.</p>
-                    </div>
-                </div>
+            <h2>Step 2: Configure VS Code for Automatic Generation</h2>
+            <p>Set up VS Code to automatically generate conventional commit messages using GitHub Copilot Chat:</p>
+            
+            <div class="command-example">
+                <pre><code>// Open VS Code Settings (Ctrl+Shift+P → "Preferences: Open Settings (JSON)")
+// Add this configuration to your settings.json:
 
-                <div class="lab-step">
-                    <h3><i class="fas fa-comments"></i> Step 2: Enhanced Chat-Based Generation</h3>
-                    <p>For more detailed or customized commit messages, use Copilot Chat:</p>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Copilot Chat Commands</span>
-                            <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="fas fa-clipboard"></i>
-                            </button>
-                        </div>
-                        <pre><code>// Open Copilot Chat (Ctrl+Shift+I) and try these prompts:
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "text": "Use conventional commit format: type(scope): description" },
+    { "text": "Use imperative mood: 'Add feature' not 'Added feature'" },
+    { "text": "Keep subject line under 50 characters" },
+    { "text": "Use types: feat, fix, docs, style, refactor, perf, test, chore, ci" },
+    { "text": "Include scope when relevant (e.g., api, ui, auth)" },
+    { "text": "Reference issue numbers with # prefix" }
+  ]
+}</code></pre>
+            </div>
+
+            <h3>How to Use Automatic Generation:</h3>
+            <div class="command-example">
+                <pre><code>1. Stage your changes in Source Control (Ctrl+Shift+G)
+2. Type "/generate commit" in the commit message field
+3. Copilot generates a message based on your configured rules
+4. Review the message, adjust if needed, commit</code></pre>
+            </div>
+
+            <h3>Understanding Commit Types:</h3>
+            <ul>
+                <li><strong>feat:</strong> New features (feat(auth): add OAuth2 login)</li>
+                <li><strong>fix:</strong> Bug fixes (fix(api): handle null response)</li>
+                <li><strong>docs:</strong> Documentation changes (docs: update API docs)</li>
+                <li><strong>style:</strong> Code formatting, no logic changes</li>
+                <li><strong>refactor:</strong> Code restructuring without new features</li>
+                <li><strong>perf:</strong> Performance improvements</li>
+                <li><strong>test:</strong> Adding/changing tests</li>
+                <li><strong>chore:</strong> Build system, dependencies</li>
+                <li><strong>ci:</strong> CI/CD changes</li>
+            </ul>
+
+            <h2>Step 3: Enhanced Chat-Based Generation</h2>
+            <p>For more detailed or customized commit messages, use Copilot Chat:</p>
+            
+            <div class="command-example">
+                <pre><code>// Open Copilot Chat (Ctrl+Shift+I) and try these prompts:
 
 "Summarize these changes for a commit message"
 
@@ -98,51 +113,36 @@
 "Generate a detailed commit message that explains the WHY behind these changes"
 
 "Create a commit message for a feature that improves user authentication"</code></pre>
-                    </div>
-                </div>
+            </div>
 
-                <div class="lab-step">
-                    <h3><i class="fas fa-cogs"></i> Step 3: Conventional Commits Integration</h3>
-                    <p>Let's ensure our AI-generated messages follow the Conventional Commits specification:</p>
-                    
-                    <div class="conventional-commits-guide">
-                        <h4>Conventional Commits Format:</h4>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span>Format Structure</span>
-                            </div>
-                            <pre><code>&lt;type&gt;[optional scope]: &lt;description&gt;
+            <h2>Step 4: Conventional Commits Integration</h2>
+            <p>Let's ensure our AI-generated messages follow the Conventional Commits specification:</p>
+            
+            <h3>Format Structure</h3>
+            <div class="command-example">
+                <pre><code>&lt;type&gt;[optional scope]: &lt;description&gt;
 
 [optional body]
 
 [optional footer(s)]</code></pre>
-                        </div>
+            </div>
 
-                        <h4>Common Types:</h4>
-                        <ul>
-                            <li><code>feat:</code> A new feature</li>
-                            <li><code>fix:</code> A bug fix</li>
-                            <li><code>docs:</code> Documentation changes</li>
-                            <li><code>style:</code> Code formatting, no logic changes</li>
-                            <li><code>refactor:</code> Code restructuring without changing functionality</li>
-                            <li><code>test:</code> Adding or updating tests</li>
-                            <li><code>chore:</code> Maintenance tasks</li>
-                        </ul>
-                    </div>
-                </div>
+            <h3>Common Types:</h3>
+            <ul>
+                <li><strong>feat:</strong> A new feature</li>
+                <li><strong>fix:</strong> A bug fix</li>
+                <li><strong>docs:</strong> Documentation changes</li>
+                <li><strong>style:</strong> Code formatting, no logic changes</li>
+                <li><strong>refactor:</strong> Code restructuring without changing functionality</li>
+                <li><strong>test:</strong> Adding or updating tests</li>
+                <li><strong>chore:</strong> Maintenance tasks</li>
+            </ul>
 
-                <div class="lab-step">
-                    <h3><i class="fas fa-magic"></i> Step 4: Custom Prompt Engineering</h3>
-                    <p>Train Copilot to generate messages that match your team's style:</p>
-                    
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Advanced Chat Prompts</span>
-                            <button class="copy-button" onclick="copyToClipboard(this)">
-                                <i class="fas fa-clipboard-check"></i>
-                            </button>
-                        </div>
-                        <pre><code>// Context-aware prompts:
+            <h2>Step 5: Custom Prompt Engineering</h2>
+            <p>Train Copilot to generate messages that match your team's style:</p>
+            
+            <div class="command-example">
+                <pre><code>// Context-aware prompts:
 "Generate a commit message in the style of: 
 - Start with conventional commit type
 - Maximum 50 characters for the subject
@@ -153,155 +153,133 @@
 "Create a commit message for a breaking change that updates the API"
 
 "Generate a commit message for a hotfix that resolves a critical security issue"</code></pre>
-                    </div>
-                </div>
-            </section>
+            </div>
 
-            <section class="practical-examples">
-                <h2><i class="fas fa-code"></i> Practical Examples</h2>
-                
-                <div class="example-scenario">
-                    <h3>Scenario 1: Feature Addition</h3>
-                    <div class="before-after">
-                        <div class="before">
-                            <h4>Without Copilot:</h4>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>Basic commit message</span>
-                                    <button class="copy-button" onclick="copyToClipboard(this)">
-                                        📋
-                                    </button>
-                                </div>
-                                <pre><code>updated login stuff</code></pre>
-                            </div>
-                        </div>
-                        <div class="after">
-                            <h4>With Copilot:</h4>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>AI-enhanced commit message</span>
-                                    <button class="copy-button" onclick="copyToClipboard(this)">
-                                        <i class="fas fa-clipboard"></i>
-                                    </button>
-                                </div>
-                                <pre><code>feat(auth): add OAuth integration for GitHub login
+            <h2>Practical Examples</h2>
+            
+            <h3>Scenario 1: Feature Addition</h3>
+            
+            <h4>Without Copilot:</h4>
+            <div class="command-example">
+                <pre><code>updated login stuff</code></pre>
+            </div>
+            
+            <h4>With Copilot:</h4>
+            <div class="command-example">
+                <pre><code>feat(auth): add OAuth integration for GitHub login
 
 Implements secure authentication flow using GitHub OAuth2.
 Users can now sign in with their GitHub accounts instead of
 creating new credentials.
 
 Closes #AUTH-142</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
-                <div class="example-scenario">
-                    <h3>Scenario 2: Bug Fix</h3>
-                    <div class="before-after">
-                        <div class="before">
-                            <h4>Manual Approach:</h4>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>Basic commit message</span>
-                                    <button class="copy-button" onclick="copyToClipboard(this)">
-                                        <i class="fas fa-clipboard"></i>
-                                    </button>
-                                </div>
-                                <pre><code>fix bug</code></pre>
-                            </div>
-                        </div>
-                        <div class="after">
-                            <h4>Copilot Enhancement:</h4>
-                            <div class="code-block">
-                                <div class="code-header">
-                                    <span>AI-enhanced commit message</span>
-                                    <button class="copy-button" onclick="copyToClipboard(this)">
-                                        <i class="fas fa-clipboard"></i>
-                                    </button>
-                                </div>
-                                <pre><code>fix(validation): resolve email format validation error
+            <h3>Scenario 2: Bug Fix</h3>
+            
+            <h4>Manual Approach:</h4>
+            <div class="command-example">
+                <pre><code>fix bug</code></pre>
+            </div>
+            
+            <h4>Copilot Enhancement:</h4>
+            <div class="command-example">
+                <pre><code>fix(validation): resolve email format validation error
 
 Corrects regex pattern that was rejecting valid email addresses
 containing plus signs. Updates test cases to cover edge cases.
 
 Fixes #BUG-089</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
 
-            <section class="best-practices">
-                <h2><i class="fas fa-star"></i> Mission Control Best Practices</h2>
-                
-                <div class="practice-grid">
-                    <div class="practice-item">
-                        <h3><i class="fas fa-check-circle"></i> Do</h3>
-                        <ul>
-                            <li>Review and edit AI suggestions before committing</li>
-                            <li>Ensure the message accurately describes your changes</li>
-                            <li>Add context that AI might miss (ticket numbers, reasons)</li>
-                            <li>Maintain consistency with your team's commit style</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="practice-item">
-                        <h3><i class="fas fa-times-circle"></i> Don't</h3>
-                        <ul>
-                            <li>Blindly accept every AI suggestion</li>
-                            <li>Forget to include breaking change indicators</li>
-                            <li>Let AI generate messages for complex multi-part commits</li>
-                            <li>Skip manual review for critical or sensitive changes</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <h2>Mission Control Best Practices</h2>
+            
+            <h3>✅ Do:</h3>
+            <ul>
+                <li>Review and edit AI suggestions before committing</li>
+                <li>Ensure the message accurately describes your changes</li>
+                <li>Add context that AI might miss (ticket numbers, reasons)</li>
+                <li>Maintain consistency with your team's commit style</li>
+            </ul>
+            
+            <h3>❌ Don't:</h3>
+            <ul>
+                <li>Blindly accept every AI suggestion</li>
+                <li>Forget to include breaking change indicators</li>
+                <li>Let AI generate messages for complex multi-part commits</li>
+                <li>Skip manual review for critical or sensitive changes</li>
+            </ul>
 
-            <section class="mission-challenge">
-                <h2><i class="fas fa-trophy"></i> Mission Challenge</h2>
-                <div class="challenge-box">
-                    <h3>Your Task:</h3>
-                    <ol>
-                        <li>Create a simple HTML file in your repository</li>
-                        <li>Add some CSS styling to it</li>
-                        <li>Stage the changes</li>
-                        <li>Use Copilot to generate a commit message</li>
-                        <li>Refine the message to follow Conventional Commits format</li>
-                        <li>Commit with your enhanced message</li>
-                    </ol>
-                    
-                    <p><strong>Bonus:</strong> Try generating messages for different types of changes (feat, fix, docs, style) and compare the AI suggestions.</p>
-                </div>
-            </section>
+            <h2>Team-Wide Configuration</h2>
+            <p>Share consistent commit message generation across your entire team by adding the configuration to your repository:</p>
+            
+            <div class="command-example">
+                <pre><code>// Create or update .vscode/settings.json in your repo root:
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "text": "Use conventional commit format: type(scope): description" },
+    { "text": "Use imperative mood: 'Add feature' not 'Added feature'" },
+    { "text": "Keep subject line under 50 characters" },
+    { "text": "Use types: feat, fix, docs, style, refactor, perf, test, chore, ci" },
+    { "text": "Include scope when relevant (e.g., api, ui, auth)" },
+    { "text": "Reference issue numbers with # prefix" },
+    { "text": "Use scopes: frontend, backend, database, config" },
+    { "text": "Append ticket numbers like PROJ-123" }
+  ]
+}
 
-            <section class="mission-summary">
-                <h2><i class="fas fa-clipboard-check"></i> Mission Summary</h2>
-                <p>Excellent work, astronaut! You've learned to harness your AI co-pilot for one of the most important but often overlooked aspects of development: clear communication through commit messages.</p>
-                
-                <div class="key-achievements">
-                    <h3>Key Achievements:</h3>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Mastered VS Code Source Control panel AI features</li>
-                        <li><i class="fas fa-check"></i> Learned advanced Copilot Chat techniques for commit messages</li>
-                        <li><i class="fas fa-check"></i> Applied Conventional Commits formatting to AI suggestions</li>
-                        <li><i class="fas fa-check"></i> Developed custom prompting strategies</li>
-                    </ul>
-                </div>
+// Commit this file so everyone gets consistent messages!</code></pre>
+            </div>
 
-                <div class="next-mission">
-                    <p><strong>Next Mission:</strong> In the next chapter, you'll learn how to use Copilot for intelligent branch naming and Git alias creation.</p>
-                </div>
-            </section>
-        </main>
+            <h3>Project-Specific Customization:</h3>
+            <div class="command-example">
+                <pre><code>// Example: E-commerce project settings
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "text": "Use conventional commit format: type(scope): description" },
+    { "text": "Scopes: cart, checkout, payment, product, user, admin, api" },
+    { "text": "Include Jira ticket: SHOP-123" },
+    { "text": "Mark breaking changes with BREAKING CHANGE footer" },
+    { "text": "Keep description under 50 characters" }
+  ]
+}</code></pre>
+            </div>
+
+            <h2>Mission Challenge</h2>
+            
+            <h3>Your Task:</h3>
+            <ol>
+                <li>Create a simple HTML file in your repository</li>
+                <li>Add some CSS styling to it</li>
+                <li>Stage the changes</li>
+                <li>Use Copilot to generate a commit message</li>
+                <li>Refine the message to follow Conventional Commits format</li>
+                <li>Commit with your enhanced message</li>
+            </ol>
+            
+            <p><strong>Bonus:</strong> Try generating messages for different types of changes (feat, fix, docs, style) and compare the AI suggestions.</p>
+
+            <h2>Mission Summary</h2>
+            <p>Excellent work, astronaut! You've learned to harness your AI co-pilot for one of the most important but often overlooked aspects of development: clear communication through commit messages.</p>
+            
+            <h3>Key Achievements:</h3>
+            <ul>
+                <li>Mastered VS Code Source Control panel AI features</li>
+                <li>Learned advanced Copilot Chat techniques for commit messages</li>
+                <li>Applied Conventional Commits formatting to AI suggestions</li>
+                <li>Developed custom prompting strategies</li>
+            </ul>
+
+            <p><strong>Next Mission:</strong> In the next chapter, you'll learn how to use Copilot for intelligent branch naming and Git alias creation.</p>
+        </article>
 
         <div class="navigation">
             <a href="copilot-pre-flight-briefing.html" class="nav-link">← Previous: Copilot Pre-Flight Briefing</a>
-            <a href="copilot-branch-naming.html" class="nav-link">Next: Branch Naming Assistant →</a>
+            <a href="copilot-custom-instructions.html" class="nav-link">Next: Custom Instructions Calibration →</a>
         </div>
 
         <footer>
-            <p>Mission Control Training Program • Phase 37 of 34</p>
+            <p>Mission Control Training Program • Phase 37 of 40</p>
         </footer>
     </div>
 
@@ -331,18 +309,6 @@ Fixes #BUG-089</code></pre>
                 starsContainer.appendChild(star);
             }
         });
-
-        // Copy to clipboard functionality
-        function copyToClipboard(button) {
-            const codeBlock = button.closest('.code-block').querySelector('code');
-            const text = codeBlock.textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                button.innerHTML = '<i class="fas fa-check"></i>';
-                setTimeout(() => {
-                    button.innerHTML = '<i class="fas fa-clipboard"></i>';
-                }, 2000);
-            });
-        }
     </script>
 </body>
 </html>
