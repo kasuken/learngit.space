@@ -1,0 +1,10 @@
+# robots.txt for learngit.space
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.learngit.space/sitemap.xml
+
+# Crawl delay (be nice to small servers)
+Crawl-delay: 1

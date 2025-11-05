@@ -1,6 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Timeline Adjustment - Mission Control</title><link rel="stylesheet" href="../../css/styles.css"><script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Git Rebase Tutorial - Rewriting Commit History</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Master git rebase for clean commit history. Learn interactive rebase, squashing commits, and maintaining linear project history.">
+    <meta name="keywords" content="git rebase, rebase commits, rewrite history, interactive rebase, squash commits, linear history, timeline adjustment">
+    <meta name="author" content="Emanuele Bartolesi">
+    <link rel="canonical" href="https://www.learngit.space/chapters/novice/timeline-adjustment.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Git Rebase Tutorial - Rewriting Commit History">
+    <meta property="og:description" content="Master git rebase for clean commit history. Learn interactive rebase, squashing commits, and maintaining linear project history.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/timeline-adjustment.html">
+    <meta property="og:site_name" content="LearnGit.space">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Git Rebase Tutorial - Rewriting Commit History">
+    <meta name="twitter:description" content="Master git rebase for clean commit history. Learn interactive rebase, squashing commits, and maintaining linear project history.">
+    <meta name="twitter:creator" content="@kasuken">
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow">
+<link rel="stylesheet" href="../../css/styles.css"><script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
+
+    <!-- Structured Data for Educational Content -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": "Git Rebase Tutorial - Rewriting Commit History",
+      "description": "Git Rebase",
+      "url": "https://www.learngit.space/chapters/novice/timeline-adjustment.html",
+      "learningResourceType": "Tutorial",
+      "educationalLevel": "Beginner",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": "student"
+      },
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "timeRequired": "PT7M",
+      "author": {
+        "@type": "Person",
+        "name": "Emanuele Bartolesi"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "LearnGit.space",
+        "url": "https://www.learngit.space/"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Git Version Control"
+      }
+    }
+    </script>
 </head>
 <body data-mission="advanced" data-phase="4">
     <div class="stars" id="stars"></div>
