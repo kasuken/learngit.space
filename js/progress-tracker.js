@@ -790,10 +790,10 @@ function runSystemTest() {
     // Test 3: Path definitions
     const novicePathData = ProgressTracker.paths.novice;
     const advancedPathData = ProgressTracker.paths.advanced;
-    results.push(`✓ Novice path missions: ${novicePathData.missions.length} (expected: 3)`);
-    results.push(`✓ Advanced path missions: ${advancedPathData.missions.length} (expected: 3)`);
-    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 19)`);
-    results.push(`✓ Advanced total phases: ${advancedPathData.totalPhases} (expected: 16)`);
+    results.push(`✓ Novice path missions: ${novicePathData.missions.length} (expected: 6)`);
+    results.push(`✓ Advanced path missions: ${advancedPathData.missions.length} (expected: 6)`);
+    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 35)`);
+    results.push(`✓ Advanced total phases: ${advancedPathData.totalPhases} (expected: 21)`);
     
     // Test 4: Function availability
     const functions = [
@@ -809,7 +809,7 @@ function runSystemTest() {
     // Test 5: Mission sections have correct data attributes
     const missionSections = document.querySelectorAll('.mission-section');
     const sectionCount = missionSections.length;
-    results.push(`✓ Mission sections found: ${sectionCount} (expected: 6)`);
+    results.push(`✓ Mission sections found: ${sectionCount} (expected: 12)`);
     
     let sectionsWithPath = 0;
     missionSections.forEach(section => {
