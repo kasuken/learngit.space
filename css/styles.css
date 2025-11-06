@@ -554,8 +554,8 @@ pre code {
 }
 
 .path-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin: 2rem 0;
 }
@@ -932,11 +932,6 @@ pre code {
 
 /* Responsive Design for Path Selection */
 @media (max-width: 768px) {
-    .path-options {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
     .path-card {
         padding: 1.5rem;
     }
