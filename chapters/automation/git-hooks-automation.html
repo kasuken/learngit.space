@@ -89,7 +89,7 @@
             <h2><i class="fas fa-rocket"></i> Mission Briefing</h2>
             <p>Commander, the most elite space operations are those that run themselves. Just as spacecraft have automated systems that monitor life support, navigation, and communication without constant human intervention, your Git repositories can have intelligent automation that ensures code quality, deploys applications, and maintains security standards automatically.</p>
             
-            <p>You'll master <strong>Git Hooks</strong> - powerful automation triggers that execute custom scripts whenever specific Git events occur. From preventing bad commits to automatically deploying applications, hooks are your pathway to building self-managing development environments that operate with military precision.</p>
+            <p>You'll master <strong>Git Hooks</strong> — powerful automation triggers that execute custom scripts whenever specific Git events occur. From preventing bad commits to automatically deploying applications, hooks are your pathway to building self-managing development environments that operate with military precision.</p>
 
             <div class="learning-objectives">
                 <h3><i class="fas fa-crosshairs"></i> Automation Objectives</h3>
@@ -123,7 +123,7 @@
                                 <li>Execute on your local machine only</li>
                                 <li>Can be bypassed with --no-verify</li>
                                 <li>Perfect for code quality checks</li>
-                                <li>Not automatically shared with team</li>
+                                <li>Not automatically shared with the team</li>
                             </ul>
                             <div class="hook-list">
                                 <div class="hook-item">
@@ -153,7 +153,7 @@
                         <div class="category-content">
                             <p><strong>Team-wide workflow enforcement</strong></p>
                             <ul>
-                                <li>Execute on Git server (GitHub, GitLab, etc.)</li>
+                                <li>Execute on Git servers that support hooks (self-hosted Git, GitLab, etc.)</li>
                                 <li>Cannot be bypassed by developers</li>
                                 <li>Enforce team-wide policies</li>
                                 <li>Trigger deployment pipelines</li>
@@ -248,7 +248,7 @@
                                 <p>Server-side validation & policy enforcement</p>
                                 <div class="hook-decision">
                                     <span class="pass">✅ Accept → Deploy</span>
-                                    <span class="fail">❌ Reject → Rollback</span>
+                                    <span class="fail">❌ Reject → Fix & Retry</span>
                                 </div>
                             </div>
                         </div>
@@ -351,6 +351,7 @@ git commit -m "test commit with debug code"
 # Should output: ❌ Debug statements found!
 
 # Clean up and try valid commit
+git reset HEAD test-debug.js
 rm test-debug.js
 echo 'const validCode = "production ready";' > clean-code.js
 git add clean-code.js
@@ -598,7 +599,7 @@ echo "✅ Critical files backed up to $BACKUP_DIR"</code></pre>
         <div class="content-section">
             <h2><i class="fas fa-server"></i> Server-Side Hook Engineering</h2>
             
-            <p>Server-side hooks execute on your Git server and enforce team-wide policies that cannot be bypassed. These are essential for maintaining consistency across your entire development organization.</p>
+            <p>Server-side hooks execute on Git servers that support them and enforce team-wide policies that cannot be bypassed. These are essential for maintaining consistency across your entire development organization.</p>
 
             <div class="server-hooks">
                 <div class="hook-section pre-receive">
@@ -1059,7 +1060,7 @@ if [[ ${description:0:1} =~ [A-Z] ]]; then
     echo "⚠️  Description should start with lowercase"
 fi
 
-if [[ $description =~ \.$]]; then
+if [[ $description =~ \.$ ]]; then
     echo "⚠️  Remove trailing period from description"
 fi
 
@@ -1260,14 +1261,14 @@ ls new-project/.git/hooks/</code></pre>
 # install-hooks.sh - Deploy hooks to existing repositories
 
 HOOKS_REPO="https://github.com/company/git-hooks.git"
-TEMP_DIR="/tmp/company-hooks"
+TEMP_DIR=".company-hooks-tmp"
 
 # Download latest hooks
-git clone $HOOKS_REPO $TEMP_DIR
+git clone $HOOKS_REPO "$TEMP_DIR"
 
 # Install to current repository
 if [ -d ".git" ]; then
-    cp $TEMP_DIR/hooks/* .git/hooks/
+    cp "$TEMP_DIR"/hooks/* .git/hooks/
     chmod +x .git/hooks/*
     echo "✅ Company hooks installed"
 else
@@ -1276,7 +1277,7 @@ else
 fi
 
 # Cleanup
-rm -rf $TEMP_DIR</code></pre>
+rm -rf "$TEMP_DIR"</code></pre>
                         </div>
 
                         <div class="method-card">
@@ -1478,7 +1479,7 @@ echo $? # after hook execution</code></pre>
                     </div>
                     <div class="ref-card">
                         <h4>Install Hook Template</h4>
-                        <code>git config init.templatedir</code>
+                        <code>git config --global init.templatedir ~/.git-templates</code>
                     </div>
                 </div>
             </div>
@@ -1487,9 +1488,9 @@ echo $? # after hook execution</code></pre>
                 <h3><i class="fas fa-route"></i> Prepare for Next Mission</h3>
                 <p>Your next commander operation will be <strong>GitHub Actions & CI/CD Pipeline Engineering</strong>, where you'll learn to create sophisticated continuous integration and deployment pipelines that work seamlessly with your Git hooks.</p>
                 <div class="mission-nav-buttons">
-                    <a href="../advanced/advanced-history-analysis.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
+                    <a href="../advanced/refs-reflog-mastery.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
                     <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
-                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                    <a href="github-actions-cicd.html" class="btn btn-primary">Next: GitHub Actions &amp; CI/CD <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

@@ -6,14 +6,14 @@
     <title>Advanced Git Log and History Analysis - Forensics and Debugging</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Master advanced git log techniques for code forensics. Learn to analyze history, find bugs, and understand code evolution.">
+    <meta name="description" content="Master advanced Git log techniques for code forensics. Learn to analyze history, find bugs, and understand code evolution.">
     <meta name="keywords" content="git log advanced, Git forensics, code history analysis, git blame, bisect, history debugging">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/advanced/advanced-history-analysis.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Advanced Git Log and History Analysis - Forensics and Debugging">
-    <meta property="og:description" content="Master advanced git log techniques for code forensics. Learn to analyze history, find bugs, and understand code evolution.">
+    <meta property="og:description" content="Master advanced Git log techniques for code forensics. Learn to analyze history, find bugs, and understand code evolution.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://www.learngit.space/advanced/advanced-history-analysis.html">
     <meta property="og:site_name" content="LearnGit.space">
@@ -21,7 +21,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Advanced Git Log and History Analysis - Forensics and Debugging">
-    <meta name="twitter:description" content="Master advanced git log techniques for code forensics. Learn to analyze history, find bugs, and understand code evolution.">
+    <meta name="twitter:description" content="Master advanced Git log techniques for code forensics. Learn to analyze history, find bugs, and understand code evolution.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
@@ -203,7 +203,7 @@ git log --format='"%h","%an","%ae","%ad","%s"' --date=iso > commits.csv</code></
         <div class="content-section">
             <h2><i class="fas fa-microscope"></i> Hands-On: Find a Bug with Bisect</h2>
             
-            <p>Practice using git bisect to hunt down a performance regression:</p>
+            <p>Practice using Git bisect to hunt down a performance regression:</p>
 
             <pre><code># Create test repository
 mkdir bug-hunt && cd bug-hunt && git init
@@ -245,11 +245,11 @@ git bisect reset  # When done</code></pre>
                     <code>git log -S "code"</code>
                 </div>
                 <div class="ref-card">
-                    <h4>Who Changed Line</h4>
+                    <h4>Who Changed a Line</h4>
                     <code>git blame file</code>
                 </div>
                 <div class="ref-card">
-                    <h4>Hunt Bug</h4>
+                    <h4>Hunt a Bug</h4>
                     <code>git bisect start</code>
                 </div>
                 <div class="ref-card">
@@ -267,8 +267,8 @@ git bisect reset  # When done</code></pre>
 [alias]
     investigate = log --oneline --graph --all
     hunt = log --grep
-    authors = log --format='%aN' | sort | uniq -c | sort -nr
-    hotfiles = log --name-only --format='' | grep -v '^$' | sort | uniq -c | sort -nr</code></pre>
+    authors = "!git log --format='%aN' | sort | uniq -c | sort -nr"
+    hotfiles = "!git log --name-only --format='' | grep -v '^$' | sort | uniq -c | sort -nr"</code></pre>
         </div>
 
         <div class="mission-complete">

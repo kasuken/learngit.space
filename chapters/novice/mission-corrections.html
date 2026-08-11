@@ -15,7 +15,7 @@
     <meta property="og:title" content="Undoing Changes in Git - Reset, Revert, and Restore">
     <meta property="og:description" content="Learn to undo changes in Git. Master git reset, git revert, and git restore to correct mistakes and manage repository state.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/mission-corrections.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/mission-corrections.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
@@ -27,7 +27,7 @@
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT9M",
+      "timeRequired": "PT2M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,17 +70,17 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-undo"></i> Mission Corrections</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 9 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 2 min read</div>
             <p class="subtitle">Undoing in Git</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 20</strong> • Difficulty: Intermediate</p>
+            <p><strong>Mission Phase 23</strong> • Difficulty: Intermediate</p>
         </div>
         <article>
             <h2>Time Travel and Course Corrections</h2>
-            <p>Mistakes happen. Git provides powerful tools to undo changes, from small typos to major disasters.</p>
+            <p>Mistakes happen. Git provides powerful tools to undo changes, from small typos to major course corrections.</p>
             <h2>Undoing Unstaged Changes</h2>
-            <p>Discard changes in working directory:</p>
+            <p>Discard changes in your working directory:</p>
             <div class="command-example">
                 <pre><code>git restore filename.txt
 # Or older Git:
@@ -92,56 +92,56 @@ git checkout -- filename.txt</code></pre>
 # Or:
 git reset HEAD filename.txt</code></pre>
             </div>
-            <h2>Amending Last Commit</h2>
+            <h2>Amending the Last Commit</h2>
             <div class="command-example">
                 <pre><code>git commit --amend</code></pre>
             </div>
-            <p>Adds staged changes to the previous commit. Can also change the message.</p>
+            <p>This adds staged changes to the previous commit and can also change the commit message.</p>
             <h2>Reverting a Commit</h2>
-            <p>Create new commit that undoes a previous one:</p>
+            <p>Create a new commit that undoes a previous one:</p>
             <div class="command-example">
                 <pre><code>git revert abc123</code></pre>
             </div>
-            <p>Safe for public history.</p>
+            <p>This is safe for public history because it does not rewrite existing commits.</p>
             <h2>Resetting</h2>
             <h3>Soft Reset</h3>
             <div class="command-example">
                 <pre><code>git reset --soft HEAD~1</code></pre>
             </div>
-            <p>Undoes commit, keeps changes staged.</p>
+            <p>Undoes the commit and keeps the changes staged.</p>
             <h3>Mixed Reset (Default)</h3>
             <div class="command-example">
                 <pre><code>git reset HEAD~1</code></pre>
             </div>
-            <p>Undoes commit, keeps changes unstaged.</p>
+            <p>Undoes the commit and keeps the changes unstaged.</p>
             <h3>Hard Reset (Dangerous!)</h3>
             <div class="command-example">
                 <pre><code>git reset --hard HEAD~1</code></pre>
             </div>
-            <p>Undoes commit and discards all changes. Cannot be undone!</p>
+            <p>Undoes the commit and discards tracked working-tree changes. Use with extreme caution.</p>
             <h2>Recovering Lost Commits</h2>
             <div class="command-example">
                 <pre><code>git reflog</code></pre>
             </div>
-            <p>Shows all HEAD movements. Can recover "lost" commits.</p>
+            <p>Shows all HEAD movements and can help recover "lost" commits.</p>
             <div class="mission-brief">
                 <h3><i class="fas fa-exclamation-triangle"></i> Safety Guidelines</h3>
                 <ul>
-                    <li>Never reset/rebase commits pushed to shared branches</li>
+                    <li>Never reset or rebase commits pushed to shared branches</li>
                     <li>Use <code>revert</code> for public history</li>
                     <li><code>--hard</code> is destructive—use cautiously</li>
                     <li>When in doubt, create a backup branch first</li>
                 </ul>
             </div>
-            <h2>Next: Boarding Other Vessels</h2>
-            <p>You can now fix mistakes. Next, learn to clone repositories—downloading complete projects from GitHub.</p>
+            <h2>Next: Timeline Rewriting</h2>
+            <p>You can now fix mistakes. Next, learn rebasing&mdash;an advanced but powerful technique for maintaining clean history.</p>
         </article>
         <div class="navigation">
-            <a href="timeline-convergence.html" class="nav-link">← Previous: Timeline Convergence</a>
-            <a href="boarding-vessels.html" class="nav-link">Next: Boarding Vessels →</a>
+            <a href="conflict-resolution.html" class="nav-link">← Previous: Conflict Resolution</a>
+            <a href="timeline-rewriting.html" class="nav-link">Next: Timeline Rewriting →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 20 of 34</p>
+            <p>Mission Control Training Program • Phase 23 of 41</p>
         </footer>
     </div>
     <script>

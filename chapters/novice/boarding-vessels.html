@@ -3,27 +3,27 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Git Clone - Copying Remote Repositories Locally</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn git clone to copy remote repositories to your machine. Clone GitHub projects and start working on existing codebases.">
+    <meta name="description" content="Learn the git clone command to copy remote repositories to your machine. Clone GitHub projects and start working on existing codebases.">
     <meta name="keywords" content="git clone, clone repository, copy Git repository, clone from GitHub, download repository, Git clone command">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/boarding-vessels.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Clone - Copying Remote Repositories Locally">
-    <meta property="og:description" content="Learn git clone to copy remote repositories to your machine. Clone GitHub projects and start working on existing codebases.">
+    <meta property="og:description" content="Learn the git clone command to copy remote repositories to your machine. Clone GitHub projects and start working on existing codebases.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/boarding-vessels.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/boarding-vessels.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Clone - Copying Remote Repositories Locally">
-    <meta name="twitter:description" content="Learn git clone to copy remote repositories to your machine. Clone GitHub projects and start working on existing codebases.">
+    <meta name="twitter:description" content="Learn the git clone command to copy remote repositories to your machine. Clone GitHub projects and start working on existing codebases.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
-<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
 
     <!-- Structured Data for Educational Content -->
@@ -42,7 +42,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT8M",
+      "timeRequired": "PT2M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -64,8 +64,8 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header><h1><i class="fas fa-ship"></i> Boarding Other Vessels</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 8 min read</div><p class="subtitle">Git Clone</p></header>
-        <div class="mission-brief"><p><strong>Mission Phase 21</strong> • Difficulty: Beginner</p></div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 2 min read</div><p class="subtitle">Git Clone</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 18</strong> • Difficulty: Beginner</p></div>
         <article>
             <h2>Downloading Complete Repositories</h2>
             <p>Cloning creates a complete local copy of a remote repository—all files, all history, all branches.</p>
@@ -73,20 +73,20 @@
             <div class="command-example"><pre><code>git clone https://github.com/username/repository.git</code></pre></div>
             <p>Or with SSH:</p>
             <div class="command-example"><pre><code>git clone git@github.com:username/repository.git</code></pre></div>
-            <h2>Clone into Specific Directory</h2>
+            <h2>Clone Into a Specific Directory</h2>
             <div class="command-example"><pre><code>git clone https://github.com/user/repo.git my-folder</code></pre></div>
             <h2>What Clone Does</h2>
             <ul>
-                <li>Creates directory with repository name</li>
+                <li>Creates a directory with the repository name</li>
                 <li>Initializes <code>.git</code> directory</li>
                 <li>Downloads all data</li>
                 <li>Checks out default branch</li>
                 <li>Sets up <code>origin</code> remote</li>
             </ul>
             <h2>Shallow Clone</h2>
-            <p>For large repos, clone only recent history:</p>
+            <p>For large repositories, clone only recent history:</p>
             <div class="command-example"><pre><code>git clone --depth 1 https://github.com/user/repo.git</code></pre></div>
-            <h2>Clone Specific Branch</h2>
+            <h2>Clone a Specific Branch</h2>
             <div class="command-example"><pre><code>git clone -b branch-name https://github.com/user/repo.git</code></pre></div>
             <h2>After Cloning</h2>
             <div class="command-example"><pre><code>cd repository
@@ -98,16 +98,16 @@ git remote -v   # Verify origin is set</code></pre></div>
                 <li>Create a feature branch</li>
                 <li>Make changes and commit</li>
                 <li>Push your branch</li>
-                <li>Create pull request on GitHub</li>
+                <li>Create a pull request on GitHub</li>
             </ol>
-            <h2>Next: Ship Replication</h2>
-            <p>Cloning gives you a copy. Next, learn forking—creating your own version of a project you can modify freely.</p>
+            <h2>Next: Parallel Timelines</h2>
+            <p>Cloning gives you a copy of a project. Next, explore Git's most powerful feature: branching!</p>
         </article>
         <div class="navigation">
-            <a href="mission-corrections.html" class="nav-link">← Previous: Mission Corrections</a>
-            <a href="ship-replication.html" class="nav-link">Next: Ship Replication →</a>
+            <a href="reviewing-logs.html" class="nav-link">← Previous: Reviewing Logs</a>
+            <a href="parallel-timelines.html" class="nav-link">Next: Parallel Timelines →</a>
         </div>
-        <footer><p>Mission Control Training Program • Phase 21 of 34</p></footer>
+        <footer><p>Mission Control Training Program • Phase 18 of 41</p></footer>
     </div>
     <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
 </body>

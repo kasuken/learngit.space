@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git Ignore - Using .gitignore to Exclude Files</title>
+    <title>.gitignore - Excluding Files from Git</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn to use .gitignore file to exclude files from Git tracking. Manage which files should and shouldn't be versioned in your repository.">
+    <meta name="description" content="Learn to use a .gitignore file to exclude files from Git tracking. Manage which files should and shouldn't be versioned in your repository.">
     <meta name="keywords" content=".gitignore, Git ignore files, exclude files Git, gitignore patterns, ignore files repository, Git file exclusion">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/cargo-manifest.html">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Git Ignore - Using .gitignore to Exclude Files">
-    <meta property="og:description" content="Learn to use .gitignore file to exclude files from Git tracking. Manage which files should and shouldn't be versioned in your repository.">
+    <meta property="og:title" content=".gitignore - Excluding Files from Git">
+    <meta property="og:description" content="Learn to use a .gitignore file to exclude files from Git tracking. Manage which files should and shouldn't be versioned in your repository.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/cargo-manifest.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/cargo-manifest.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Git Ignore - Using .gitignore to Exclude Files">
-    <meta name="twitter:description" content="Learn to use .gitignore file to exclude files from Git tracking. Manage which files should and shouldn't be versioned in your repository.">
+    <meta name="twitter:title" content=".gitignore - Excluding Files from Git">
+    <meta name="twitter:description" content="Learn to use a .gitignore file to exclude files from Git tracking. Manage which files should and shouldn't be versioned in your repository.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -36,7 +36,7 @@
     {
       "@context": "https://schema.org",
       "@type": "LearningResource",
-      "name": "Git Ignore - Using .gitignore to Exclude Files",
+      "name": ".gitignore - Excluding Files from Git",
       "description": "The .gitignore File",
       "url": "https://www.learngit.space/chapters/novice/cargo-manifest.html",
       "learningResourceType": "Tutorial",
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT7M",
+      "timeRequired": "PT5M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,16 +70,16 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-clipboard-list"></i> Cargo Manifest</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 7 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 5 min read</div>
             <p class="subtitle">The .gitignore File</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 14</strong> • Difficulty: Beginner</p>
+            <p><strong>Mission Phase 10</strong> • Difficulty: Beginner</p>
         </div>
         <article>
             <h2>Excluding Non-Essential Cargo</h2>
             <p>Not everything belongs in version control. Build artifacts, logs, secrets, and temporary files should stay out. The <code>.gitignore</code> file tells Git what to ignore.</p>
-            <h2>Creating .gitignore</h2>
+            <h2>Creating a .gitignore File</h2>
             <p>Create a file named <code>.gitignore</code> in your repository root:</p>
             <div class="command-example">
                 <pre><code>touch .gitignore</code></pre>
@@ -120,7 +120,7 @@ temp/</code></pre>
             <ul>
                 <li><code>#</code>: Comments</li>
                 <li><code>*</code>: Wildcard (matches any characters)</li>
-                <li><code>**</code>: Matches directories recursively</li>
+                <li><code>**</code>: Matches across directories recursively</li>
                 <li><code>!</code>: Negation (don't ignore this)</li>
                 <li><code>/</code>: Directory separator</li>
             </ul>
@@ -137,7 +137,7 @@ build/             # Ignore build directory
             <div class="command-example">
                 <pre><code>git config --global core.excludesfile ~/.gitignore_global</code></pre>
             </div>
-            <h2>When to Use</h2>
+            <h2>When to Use .gitignore</h2>
             <p>Ignore:</p>
             <ul>
                 <li>Generated files (build outputs)</li>
@@ -155,11 +155,11 @@ build/             # Ignore build directory
                 <li>Test files</li>
             </ul>
             <h2>Already Tracked Files</h2>
-            <p>If you add a file to .gitignore after tracking it:</p>
+            <p>If you add a file to .gitignore after Git is already tracking it:</p>
             <div class="command-example">
                 <pre><code>git rm --cached filename</code></pre>
             </div>
-            <p>This removes it from Git but keeps the local file.</p>
+            <p>This stops tracking it in Git but keeps the local file.</p>
             <h2>Checking Ignore Status</h2>
             <div class="command-example">
                 <pre><code>git status --ignored    # Show ignored files
@@ -167,17 +167,17 @@ git check-ignore -v filename  # Why is this ignored?</code></pre>
             </div>
             <div class="mission-brief">
                 <h3>Common Mistake: Committing Secrets</h3>
-                <p>Never commit API keys, passwords, or secrets. Add them to .gitignore before committing! If you accidentally commit secrets, they're in Git history forever—you must rotate the credentials.</p>
+                <p>Never commit API keys, passwords, or secrets. Add them to .gitignore before committing. If you accidentally commit secrets, they remain in Git history until it is rewritten—and you must rotate the credentials.</p>
             </div>
             <h2>Next: Secure Communications</h2>
-            <p>Your manifest is configured. Next, we'll set up SSH keys for secure, password-free communication with GitHub.</p>
+            <p>Your manifest is configured. Next, we'll set up SSH keys for secure communication with GitHub without repeatedly entering your account password.</p>
         </article>
         <div class="navigation">
-            <a href="reviewing-logs.html" class="nav-link">← Previous: Reviewing Logs</a>
+            <a href="systems-check.html" class="nav-link">← Previous: Systems Check</a>
             <a href="secure-communications.html" class="nav-link">Next: Secure Communications →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 14 of 34</p>
+            <p>Mission Control Training Program • Phase 10 of 41</p>
         </footer>
     </div>
     <script>

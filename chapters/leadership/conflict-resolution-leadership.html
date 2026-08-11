@@ -99,7 +99,7 @@
                     <li>Implement conflict detection and early intervention systems</li>
                     <li>Establish fair and transparent technical decision-making processes</li>
                     <li>Create psychological safety for healthy technical discussions</li>
-                    <li>Develop conflict prevention through improved collaboration patterns</li>
+                    <li>Prevent conflicts through improved collaboration patterns</li>
                 </ul>
             </div>
 
@@ -137,8 +137,8 @@
                             <div class="conflict-type">
                                 <h5>Content Conflicts</h5>
                                 <ul>
-                                    <li>Overlapping code changes in same files</li>
-                                    <li>Different implementations of same feature</li>
+                                    <li>Overlapping code changes in the same files</li>
+                                    <li>Different implementations of the same feature</li>
                                     <li>Conflicting API changes</li>
                                 </ul>
                             </div>
@@ -194,7 +194,7 @@
                                 <ul>
                                     <li>Accept one side completely</li>
                                     <li>Merge both approaches strategically</li>
-                                    <li>Create hybrid solution</li>
+                                    <li>Create a hybrid solution</li>
                                     <li>Redesign for better integration</li>
                                 </ul>
                             </div>
@@ -204,7 +204,7 @@
                             <div class="step-content">
                                 <h5>Document Decision</h5>
                                 <ul>
-                                    <li>Record reasoning for resolution approach</li>
+                                    <li>Record the reasoning for the resolution approach</li>
                                     <li>Document any compromises made</li>
                                     <li>Plan follow-up improvements</li>
                                 </ul>
@@ -827,7 +827,7 @@ We need a unified authentication strategy that works across all services and cli
 
 * [JWT Best Practices Guide](internal-wiki/jwt-guide)
 * [Security Team Auth Requirements](security-docs/auth-reqs)
-* [Implementation Spike Results](github.com/org/auth-spike)
+* [Implementation Spike Results](https://github.com/org/auth-spike)
 EOF</code></pre>
                         </li>
                         <li>Create decision facilitation framework:
@@ -1013,7 +1013,7 @@ EOF</code></pre>
 
             <div class="content-block">
                 <h3>Proactive Conflict Management</h3>
-                <p>The most effective conflict resolution is preventing conflicts from occurring in the first place. This requires creating systems and culture that encourage early collaboration, clear communication, and shared understanding of goals and constraints.</p>
+                <p>The most effective conflict resolution is preventing conflicts from occurring in the first place. This requires creating systems and a culture that encourage early collaboration, clear communication, and shared understanding of goals and constraints.</p>
 
                 <div class="prevention-strategies">
                     <div class="strategy-category">
@@ -1022,7 +1022,7 @@ EOF</code></pre>
                             <div class="indicator">
                                 <h5>Technical Indicators</h5>
                                 <ul>
-                                    <li>Increasing merge conflicts frequency</li>
+                                    <li>Increasing frequency of merge conflicts</li>
                                     <li>Divergent architectural patterns emerging</li>
                                     <li>Code review discussions getting heated</li>
                                     <li>Technical debt accumulation in overlapping areas</li>
@@ -1072,7 +1072,7 @@ EOF</code></pre>
                                 <h5>Shared Ownership Models</h5>
                                 <ul>
                                     <li>Cross-team code ownership for critical components</li>
-                                    <li>Rotating team members on shared projects</li>
+                                    <li>Rotating team members into shared projects</li>
                                     <li>Joint responsibility for integration points</li>
                                 </ul>
                             </div>
@@ -1181,14 +1181,14 @@ gh pr list --json number,title,reviews | \
 echo ""
 echo "🔗 CROSS-TEAM DEPENDENCY ANALYSIS"
 echo "Open issues labeled as cross-team blockers:"
-gh issue list --label "cross-team,blocker" --json number,title,assignees | \
+gh issue list --label "cross-team" --label "blocker" --json number,title,assignees | \
   jq -r '.[] | "Issue #\(.number): \(.title) (Assigned: \(.assignees[].login // "unassigned"))"'
 
 # Check communication patterns
 echo ""
 echo "💬 COMMUNICATION PATTERNS"
 echo "Recent architecture decisions (ADRs):"
-find docs/adr -name "*.md" -newer $(date -d '30 days ago' +%Y-%m-%d) | wc -l | \
+find docs/adr -name "*.md" -mtime -30 | wc -l | \
   xargs echo "New ADRs in last 30 days:"
 
 echo ""
@@ -1210,7 +1210,7 @@ if [ $LONG_PRS -gt 5 ]; then
     echo "🚨 MEDIUM: Many long-running PRs may indicate integration issues ($LONG_PRS PRs >7 days)"
 fi
 
-CROSS_TEAM_BLOCKERS=$(gh issue list --label "cross-team,blocker" --json number | jq 'length')
+CROSS_TEAM_BLOCKERS=$(gh issue list --label "cross-team" --label "blocker" --json number | jq 'length')
 if [ $CROSS_TEAM_BLOCKERS -gt 2 ]; then
     echo "🚨 MEDIUM: Multiple cross-team blockers may indicate coordination issues ($CROSS_TEAM_BLOCKERS blockers)"
 fi
@@ -1270,7 +1270,7 @@ cat > docs/collaboration-framework.md << 'EOF'
 ## Conflict Prevention Protocols
 
 ### Early Warning Triggers
-When any of these conditions occur, schedule immediate coordination session:
+When any of these conditions occur, schedule an immediate coordination session:
 - Merge conflicts increasing (>3 in one week between same teams)
 - PR review discussions exceeding 10 comments without resolution
 - Cross-team issues open >5 days without progress
@@ -1293,7 +1293,7 @@ When any of these conditions occur, schedule immediate coordination session:
 ## Psychological Safety Practices
 
 ### Meeting Facilitation Guidelines
-- Start with appreciation/wins from other teams
+- Start with appreciation and wins from other teams
 - Use "Yes, and..." instead of "No, but..." when building on ideas
 - Ask "What would need to be true for this to work?" instead of listing why it won't
 - End with clear next steps and owners
@@ -1306,7 +1306,7 @@ When any of these conditions occur, schedule immediate coordination session:
 
 ### Communication Guidelines
 - **Assume positive intent:** People want to do good work and help the project succeed
-- **Ask questions:** Instead of statements, ask questions to understand perspective
+- **Ask questions:** Use questions to understand each perspective before making statements
 - **Share context:** Explain not just what you want, but why it matters
 - **Acknowledge constraints:** Recognize that everyone has limitations and pressures
 

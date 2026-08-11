@@ -6,14 +6,14 @@
     <title>Git Mentoring and Training - Knowledge Transfer and Team Growth</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Build Git expertise in your team. Master mentoring techniques, training programs, and knowledge transfer strategies.">
+    <meta name="description" content="Build Git expertise across your team. Master mentoring techniques, training programs, and knowledge transfer strategies.">
     <meta name="keywords" content="Git training, mentoring, knowledge transfer, team training, Git education, skill development">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/leadership/mentoring-training.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Mentoring and Training - Knowledge Transfer and Team Growth">
-    <meta property="og:description" content="Build Git expertise in your team. Master mentoring techniques, training programs, and knowledge transfer strategies.">
+    <meta property="og:description" content="Build Git expertise across your team. Master mentoring techniques, training programs, and knowledge transfer strategies.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://www.learngit.space/leadership/mentoring-training.html">
     <meta property="og:site_name" content="LearnGit.space">
@@ -21,7 +21,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Mentoring and Training - Knowledge Transfer and Team Growth">
-    <meta name="twitter:description" content="Build Git expertise in your team. Master mentoring techniques, training programs, and knowledge transfer strategies.">
+    <meta name="twitter:description" content="Build Git expertise across your team. Master mentoring techniques, training programs, and knowledge transfer strategies.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
@@ -90,7 +90,7 @@
 
                 <div class="content-block">
                     <h3>Turning Tribal Knowledge Into Institutional Capability</h3>
-                    <p>Uncaptured expertise is <strong>single-point risk</strong>. High performing engineering organizations deliberately convert individual experience into <em>repeatable, discoverable, improvable</em> assets. Effective knowledge transfer systems minimize onboarding time, reduce defect recurrence, and accelerate decision velocity.</p>
+                    <p>Uncaptured expertise is <strong>a single-point risk</strong>. High-performing engineering organizations deliberately convert individual experience into <em>repeatable, discoverable, improvable</em> assets. Effective knowledge transfer systems minimize onboarding time, reduce defect recurrence, and accelerate decision velocity.</p>
 
                     <div class="knowledge-risks">
                         <h4><i class="fas fa-triangle-exclamation"></i> Knowledge Continuity Risks</h4>
@@ -114,10 +114,10 @@
                     <div class="asset-types">
                         <h4><i class="fas fa-folder-tree"></i> Core Knowledge Asset Types</h4>
                         <ul class="two-column">
-                            <li><strong>Playbooks:</strong> Stepwise response to recurring scenarios (e.g., revert strategy, release cut)</li>
+                            <li><strong>Playbooks:</strong> Step-by-step response to recurring scenarios (e.g., revert strategy, release cut)</li>
                             <li><strong>Runbooks:</strong> Time-critical operational checklists (incident, recovery)</li>
                             <li><strong>Patterns:</strong> Approved implementation archetypes (branching, API versioning)</li>
-                            <li><strong>Guides:</strong> Deep-dives with rationale (monorepo vs multi, refactor approach)</li>
+                            <li><strong>Guides:</strong> Deep-dives with rationale (monorepo vs. multi-repo, refactor approach)</li>
                             <li><strong>ADRs:</strong> Immutable decision context & trade-offs</li>
                             <li><strong>Labs:</strong> Hands-on capability accelerators with verification steps</li>
                         </ul>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="element">
                                 <h5><i class="fas fa-people-carry"></i> Ownership</h5>
-                                <p>Accountable steward per asset + rotating reviewer to avoid tunnel vision.</p>
+                                <p>Accountable steward for each asset, plus a rotating reviewer to avoid tunnel vision.</p>
                             </div>
                             <div class="element">
                                 <h5><i class="fas fa-chart-line"></i> Metrics</h5>
@@ -149,10 +149,10 @@
                         <h4><i class="fas fa-star"></i> Capture & Curation Principles</h4>
                         <ul>
                             <li><strong>Trigger-based capture:</strong> After incidents, major refactors, complex merges</li>
-                            <li><strong>Lightweight first:</strong> Rough outline now & refine during usage</li>
+                            <li><strong>Lightweight first:</strong> Capture a rough outline now; refine it during use</li>
                             <li><strong>Automate indexing:</strong> CI job rebuilds searchable catalog on merge</li>
-                            <li><strong>Sunset aggressively:</strong> Archive / warn on outdated patterns instead of letting them rot silently</li>
-                            <li><strong>Feedback loops:</strong> Every asset includes "improvement request" path</li>
+                            <li><strong>Sunset aggressively:</strong> Archive or warn on outdated patterns instead of letting them rot silently</li>
+                            <li><strong>Feedback loops:</strong> Every asset includes an "improvement request" path</li>
                         </ul>
                     </div>
 
@@ -165,7 +165,7 @@
                             <tbody>
                                 <tr><td>Onboarding ramp days</td><td>Speed to productivity</td><td>Automation + survey</td><td>&lt; 14 days to 1st substantive PR</td></tr>
                                 <tr><td>Playbook reuse count</td><td>Operational leverage</td><td>Scripted log scanning</td><td>Month-over-month upward trend</td></tr>
-                                <tr><td>Stale asset ratio</td><td>Knowledge freshness</td><td>Modified date scan</td><td>&lt; 10% > 120 days old (critical)</td></tr>
+                                <tr><td>Stale asset ratio</td><td>Knowledge freshness</td><td>Modified date scan</td><td>&lt; 10% &gt; 120 days old (critical)</td></tr>
                                 <tr><td>Shadow questions</td><td>Gaps in docs</td><td>Slack/issue tagging</td><td>Declining repetitive queries</td></tr>
                             </tbody>
                         </table>
@@ -205,7 +205,7 @@
     cat > docs/knowledge/playbooks/_TEMPLATE_PLAYBOOK.md << 'EOF'
     ---
     kind: playbook
-    title: <Concise action-driven title>
+    title: &lt;Concise action-driven title&gt;
     owner: team-handle
     last_review: YYYY-MM-DD
     slo: response-critical | high | standard
@@ -239,7 +239,7 @@
 
     # ADR template (lightweight)
     cat > docs/knowledge/adr/_TEMPLATE_ADR.md << 'EOF'
-    # ADR-NNN: <Title>
+    # ADR-NNN: &lt;Title&gt;
     Status: Proposed | Accepted | Deprecated | Superseded  
     Date: YYYY-MM-DD  
     Context: 1–3 paragraphs describing problem & constraints  
@@ -263,7 +263,7 @@
       find "$ROOT/$dir" -maxdepth 1 -type f -name '*.md' ! -name '_TEMPLATE*' \
         -exec awk 'NR==1 {gsub("# "," "); title=$0} NR==2 {print "- [" title "](" FILENAME ")"; exit}' FILENAME={} {} \; 2>/dev/null >> "$OUT"
       printf "\n" >> "$OUT"
-     done
+    done
     EOF
     chmod +x scripts/generate-knowledge-index.sh
     ./scripts/generate-knowledge-index.sh || echo "Index generation run (empty set)"</code></pre>
@@ -283,7 +283,7 @@
       if [ $AGE_DAYS -gt $THRESHOLD_DAYS ]; then
         echo "STALE: $file ($AGE_DAYS days)"  
       fi
-                <ul>
+      done
     EOF
     chmod +x scripts/check-stale-assets.sh
     ./scripts/check-stale-assets.sh || true</code></pre>
@@ -317,7 +317,7 @@
        ```
     3. Revert:
        ```
-       git revert <hotfix-commit> --no-edit
+       git revert &lt;hotfix-commit&gt; --no-edit
        git push origin main
        ```
     4. Trigger pipeline & watch metrics (link to dashboard).
@@ -363,7 +363,7 @@
             <div class="mission-stats">
                 <div class="stat-item"><i class="fas fa-clock"></i><span>Estimated Time: 8 minutes</span></div>
                 <div class="stat-item"><i class="fas fa-layer-group"></i><span>Complexity: Strategic</span></div>
-                <div class="stat-item"><i class="fas fa-flask"></i><span>Hands-on Labs: 4 (to be added)</span></div>
+                <div class="stat-item"><i class="fas fa-flask"></i><span>Hands-on Labs: 4</span></div>
             </div>
         </div>
 
@@ -423,8 +423,8 @@
                     <table>
                         <thead><tr><th>Metric</th><th>Definition</th><th>Collection</th><th>Healthy Target</th></tr></thead>
                         <tbody>
-                            <tr><td>TTFC</td><td>Time to First Commit</td><td>Git log + hire date</td><td>< 2 days</td></tr>
-                            <tr><td>TFRPR</td><td>Time to First Reviewed PR</td><td>PR events</td><td>< 5 days</td></tr>
+                            <tr><td>TTFC</td><td>Time to First Commit</td><td>Git log + hire date</td><td>&lt; 2 days</td></tr>
+                            <tr><td>TFRPR</td><td>Time to First Reviewed PR</td><td>PR events</td><td>&lt; 5 days</td></tr>
                             <tr><td>MQD</td><td>Merge Quality Delta (review cycles)</td><td>PR review count trend</td><td>Converges ≤ 1.3 average by Day 30</td></tr>
                             <tr><td>KCS</td><td>Knowledge Coverage Score</td><td>Checklist completion %</td><td>≥ 90% by Day 14</td></tr>
                             <tr><td>OFL</td><td>Onboarding Friction Log Items</td><td>Tagged issues / retro notes</td><td>Downward trend by Day 30</td></tr>
@@ -439,7 +439,7 @@
                         <li><strong>Progressive difficulty:</strong> Issue ladder: orientation → guided → independent → cross-team</li>
                         <li><strong>Automated validation:</strong> Scripts assert environment readiness & commit hygiene</li>
                         <li><strong>Just-in-time pairing:</strong> Pair strategically at cognitive load spikes</li>
-                        <li><strong>Feedback instrumentation:</strong> Anonymous friction capturing (short form)</li>
+                        <li><strong>Feedback instrumentation:</strong> Anonymous friction capture (short form)</li>
                     </ul>
                 </div>
 
@@ -524,7 +524,7 @@ EOF
                         <li>Curate first issues: apply <code>good-first-issue</code>, <code>onboarding-tier1</code> labels; ensure description includes reproduction + acceptance.</li>
                         <li>Retro template:
 <pre><code>cat > docs/onboarding/retro/30-day-retro.md << 'EOF'
-# 30 Day Retro
+# 30-Day Retro
 ## What accelerated learning?
 - 
 ## What caused friction?
@@ -566,7 +566,7 @@ EOF
                         <thead><tr><th>Tier</th><th>Focus</th><th>Core Modules</th><th>Assessment Signal</th><th>Promotion Criteria</th></tr></thead>
                         <tbody>
                             <tr><td>Foundations</td><td>Core commands & mental models</td><td>Commits, staging, branching, diff</td><td>Correct branch + clean PR</td><td>Completes Foundations lab set</td></tr>
-                            <tr><td>Operational</td><td>History rewriting & recovery</td><td>Rebase, squash, reflog, cherry-pick</td><td>Executes controlled history rewrite</td><td>Zero revision conflicts in review week</td></tr>
+                            <tr><td>Operational</td><td>History rewriting & recovery</td><td>Rebase, squash, reflog, cherry-pick</td><td>Executes controlled history rewrite</td><td>No revision conflicts during review week</td></tr>
                             <tr><td>Advanced</td><td>Strategic collaboration patterns</td><td>Subtrees, submodules, bisect, hooks</td><td>Resolves multi-branch conflict elegantly</td><td>Leads conflict resolution walkthrough</td></tr>
                             <tr><td>Leadership</td><td>Standards & systemic improvement</td><td>ADR linkage, automation design, auditing</td><td>Drives a tooling enhancement PR</td><td>Authors accepted process ADR</td></tr>
                         </tbody>
@@ -604,7 +604,7 @@ EOF
                             <tr><td>History Correction Incidents</td><td>Detect misuse of rewrite tools</td><td>Hook audit log</td><td>Downward trend post Operational tier</td></tr>
                             <tr><td>Conflict Resolution Time</td><td>Efficiency in merge complexity</td><td>Incident + PR timestamps</td><td>Median decreases after Advanced</td></tr>
                             <tr><td>Review Cycle Count</td><td>Quality of initial PR submission</td><td>PR metadata</td><td>≤1.5 cycles avg after Foundations</td></tr>
-                            <tr><td>Recovery Success Rate</td><td>Resiliency skill adoption</td><td>Lab assessment script</td><td>>95% successful exercises</td></tr>
+                            <tr><td>Recovery Success Rate</td><td>Resiliency skill adoption</td><td>Lab assessment script</td><td>&gt; 95% successful exercises</td></tr>
                             <tr><td>Curriculum Coverage</td><td>Adoption breadth</td><td>Module completion registry</td><td>≥80% team at Operational in 90 days</td></tr>
                         </tbody>
                     </table>
@@ -651,14 +651,14 @@ Brief explanation of purpose & when to apply.
 ## Exercise Steps
 1. Start from seeded repo state
 2. Perform interactive rebase to squash commits 2–4
-3. Preserve commit messages clarity
+3. Preserve commit-message clarity
 
 ## Common Pitfalls
 - Losing changes due to abort confusion
 - Squashing already reviewed commits
 
 ## Reflection Prompt
-What changed in your understanding of rewrite vs amend?
+What changed in your understanding of rewrite vs. amend?
 EOF
 </code></pre>
                         </li>
@@ -740,7 +740,7 @@ EOF
             </div>
             <div class="content-block">
                 <h3>Scaling Capability Through Structured Mentorship</h3>
-                <p>Organic mentorship produces inconsistent growth and uneven knowledge distribution. A designed mentorship system accelerates capability compounding, increases retention, and reduces leadership bottlenecks by distributing coaching capacity.</p>
+                <p>Organic mentorship produces inconsistent growth and uneven knowledge distribution. A designed mentorship system accelerates compounding capability growth, increases retention, and reduces leadership bottlenecks by distributing coaching capacity.</p>
 
                 <div class="mentorship-models">
                     <h4><i class="fas fa-network-wired"></i> Mentorship Structures</h4>
@@ -784,7 +784,7 @@ EOF
                         <thead><tr><th>Metric</th><th>Purpose</th><th>Collection</th><th>Healthy Signal</th></tr></thead>
                         <tbody>
                             <tr><td>Mentor Capacity Utilization</td><td>Balance load</td><td>Registry count</td><td>70–85% utilization</td></tr>
-                            <tr><td>Goal Completion Rate</td><td>Program effectiveness</td><td>Growth log aggregation</td><td>> 75% per cycle</td></tr>
+                            <tr><td>Goal Completion Rate</td><td>Program effectiveness</td><td>Growth log aggregation</td><td>&gt; 75% per cycle</td></tr>
                             <tr><td>Retention Delta</td><td>Impact on attrition</td><td>HR comparative</td><td>Lower attrition in mentored cohort</td></tr>
                             <tr><td>Feedback Quality Score</td><td>Mentor effectiveness</td><td>Post-session survey</td><td>Avg ≥ 4.2 / 5</td></tr>
                             <tr><td>Skill Advancement Velocity</td><td>Acceleration of tier progression</td><td>Competency matrix diffs</td><td>Tier uplift within planned window</td></tr>
@@ -795,10 +795,10 @@ EOF
                 <div class="risk-mitigation">
                     <h4><i class="fas fa-shield-alt"></i> Risk Mitigation</h4>
                     <ul>
-                        <li><strong>Burnout Prevention:</strong> Cap sessions & rotate load quarterly</li>
+                        <li><strong>Burnout Prevention:</strong> Cap sessions and rotate mentor load quarterly</li>
                         <li><strong>Stagnation Guard:</strong> Auto-escalate if growth log static 30 days</li>
-                        <li><strong>Dependency Risk:</strong> Encourage multi-source learning (circles + guild)</li>
-                        <li><strong>Bias Reduction:</strong> Blind match by goals before preference input</li>
+                        <li><strong>Dependency Risk:</strong> Encourage multi-source learning (circles and guilds)</li>
+                        <li><strong>Bias Reduction:</strong> Match blindly by goals before considering preferences</li>
                         <li><strong>Program Drift:</strong> Quarterly retrospective with metric review</li>
                     </ul>
                 </div>
@@ -818,8 +818,8 @@ tree docs/mentorship || find docs/mentorship -maxdepth 2 -type d
                         <li>Create mentor profile template:
 <pre><code>cat > docs/mentorship/profiles/_TEMPLATE_PROFILE.md << 'EOF'
 ---
-name: <Full Name>
-role: <Role Title>
+name: &lt;Full Name&gt;
+role: &lt;Role Title&gt;
 time_allocation_hours: 2
 expertise_domains: [git-history, automation, architecture]
 current_mentees: []
@@ -841,14 +841,14 @@ EOF
                         </li>
                         <li>Growth log template:
 <pre><code>cat > docs/mentorship/logs/_TEMPLATE_GROWTH_LOG.md << 'EOF'
-# Growth Log: <Mentee Name>
+# Growth Log: &lt;Mentee Name&gt;
 ## Goals
 - [ ] Goal 1 (target date)
 - [ ] Goal 2 (target date)
 ## Sessions
 | Date | Focus | Outcome | Follow-up |
 |------|-------|---------|-----------|
-| YYYY-MM-DD | Rebase recovery | Practiced fixup squash | Repeat scenario w/o notes |
+| YYYY-MM-DD | Rebase recovery | Practiced fixup squash | Repeat scenario without notes |
 ## Artifacts Referenced
 - refs-reflog-mastery lab
 ## Reflection
@@ -941,7 +941,8 @@ EOF
                 <p>You have completed all <strong>Phase 4: Leadership & Team Coordination</strong> missions. Your next frontier will involve advanced GitHub integrations and systemic automation enhancements. Mark this phase complete to reflect mastery across team enablement and capability scaling.</p>
                 <div class="nav-buttons">
                     <a href="conflict-resolution-leadership.html" class="btn-secondary"><i class="fas fa-arrow-left"></i> Previous: Conflict Resolution Leadership</a>
-                    <a href="../../index.html" class="btn-primary"><i class="fas fa-home"></i> Return to Mission Control</a>
+                    <a href="../../index.html" class="btn-secondary"><i class="fas fa-home"></i> Return to Mission Control</a>
+                    <a href="../github-advanced/github-api-automation.html" class="btn-primary">Next: GitHub API &amp; Automation <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

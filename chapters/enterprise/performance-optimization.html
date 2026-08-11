@@ -89,7 +89,7 @@
             <h2><i class="fas fa-tachometer-alt"></i> Mission Briefing</h2>
             <p>Commander, optimizing Git performance for enterprise environments is like fine-tuning a spacecraft's propulsion systems for maximum efficiency across interstellar distances. Just as space missions require precise fuel management, optimal trajectory calculations, and continuous system monitoring to maintain peak performance, your Git repositories need sophisticated optimization strategies that scale across thousands of developers, terabytes of data, and complex distributed workflows.</p>
             
-            <p>You'll master <strong>Enterprise Performance Engineering</strong> and <strong>Repository Optimization</strong> - the advanced techniques that enable organizations to maintain blazing-fast Git operations, minimize resource consumption, and scale seamlessly from small teams to global development armies. From garbage collection tuning to distributed caching strategies, you'll build expertise in maximizing Git performance at any scale.</p>
+            <p>You'll master <strong>Enterprise Performance Engineering</strong> and <strong>Repository Optimization</strong> - the advanced techniques that enable organizations to maintain blazing-fast Git operations, minimize resource consumption, and scale seamlessly from small teams to global development fleets. From garbage collection tuning to distributed caching strategies, you'll build expertise in maximizing Git performance at any scale.</p>
 
             <div class="learning-objectives">
                 <h3><i class="fas fa-crosshairs"></i> Performance Engineering Objectives</h3>
@@ -491,19 +491,19 @@ check_repo_health "${1:-$(pwd)}"</code></pre>
                         <div class="metric-list">
                             <div class="metric-item">
                                 <span class="metric-name">Clone Time</span>
-                                <span class="metric-target">< 2 minutes for repos under 1GB</span>
+                                <span class="metric-target">&lt; 2 minutes for repos under 1 GB</span>
                             </div>
                             <div class="metric-item">
                                 <span class="metric-name">Fetch Duration</span>
-                                <span class="metric-target">< 30 seconds for typical updates</span>
+                                <span class="metric-target">&lt; 30 seconds for typical updates</span>
                             </div>
                             <div class="metric-item">
                                 <span class="metric-name">Push Time</span>
-                                <span class="metric-target">< 10 seconds for normal commits</span>
+                                <span class="metric-target">&lt; 10 seconds for normal commits</span>
                             </div>
                             <div class="metric-item">
                                 <span class="metric-name">Status Check</span>
-                                <span class="metric-target">< 1 second for working directory scan</span>
+                                <span class="metric-target">&lt; 1 second for working directory scans</span>
                             </div>
                         </div>
                     </div>
@@ -513,11 +513,11 @@ check_repo_health "${1:-$(pwd)}"</code></pre>
                         <div class="metric-list">
                             <div class="metric-item">
                                 <span class="metric-name">Memory Usage</span>
-                                <span class="metric-target">< 2GB peak during operations</span>
+                                <span class="metric-target">&lt; 2 GB peak during operations</span>
                             </div>
                             <div class="metric-item">
                                 <span class="metric-name">Disk I/O</span>
-                                <span class="metric-target">< 100MB/s sustained throughput</span>
+                                <span class="metric-target">&ge; 100 MB/s sustained throughput</span>
                             </div>
                             <div class="metric-item">
                                 <span class="metric-name">Network Bandwidth</span>
@@ -525,7 +525,7 @@ check_repo_health "${1:-$(pwd)}"</code></pre>
                             </div>
                             <div class="metric-item">
                                 <span class="metric-name">CPU Utilization</span>
-                                <span class="metric-target">< 80% during normal operations</span>
+                                <span class="metric-target">&lt; 80% during normal operations</span>
                             </div>
                         </div>
                     </div>
@@ -973,7 +973,7 @@ check_performance_alerts "$@"</code></pre>
                 </div>
             </div>
 
-            <p>Enterprise Git performance depends heavily on optimal configuration. Advanced tuning can dramatically improve operation speed, reduce resource consumption, and enhance developer experience across diverse network and hardware environments.</p>
+            <p>Enterprise Git performance depends heavily on optimal configuration. Advanced tuning can dramatically improve operation speed, reduce resource consumption, and enhance the developer experience across diverse network and hardware environments.</p>
 
             <!-- Core Performance Configuration -->
             <div class="core-performance-config">
@@ -1072,7 +1072,7 @@ git config --global gc.autoPackLimit 50        # Auto GC after 50 pack files
 # Merge and Rebase Memory
 git config --global merge.renameLimit 7000     # Rename detection limit
 git config --global diff.renameLimit 7000      # Diff rename limit
-git config --global merge.ours.driver true    # Optimize merge strategy
+git config --global merge.renames true        # Enable rename detection in merges
 
 # Buffer Sizes
 git config --global core.deltaBaseCacheLimit 96m  # Delta base cache
@@ -1174,8 +1174,8 @@ git config --global transfer.fsckobjects true
 git config --global fetch.fsckobjects false  # Skip for speed
 
 # Disable interactive features
-git config --global core.editor true
-git config --global merge.tool false
+git config --global core.editor ":"
+git config --global sequence.editor ":"
 
 echo "CI/CD profile configured successfully!"</code></pre>
                                 </div>
@@ -1391,7 +1391,7 @@ benchmark_git_operations</code></pre>
                                     <ul>
                                         <li>LFS object caching</li>
                                         <li>Pack file distribution</li>
-                                        <li>Intelligent pre-loading</li>
+                                        <li>Intelligent preloading</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1537,9 +1537,9 @@ benchmark_git_operations</code></pre>
                 
                 <div class="caching-strategies">
                     <div class="strategy-card predictive">
-                        <h4><i class="fas fa-crystal-ball"></i> Predictive Pre-loading</h4>
+                        <h4><i class="fas fa-crystal-ball"></i> Predictive Preloading</h4>
                         <div class="strategy-content">
-                            <p>Analyze access patterns to pre-load frequently accessed objects</p>
+                            <p>Analyze access patterns to preload frequently accessed objects</p>
                             
                             <div class="code-example">
                                 <h5>Predictive Cache Script</h5>
@@ -1551,7 +1551,7 @@ benchmark_git_operations</code></pre>
                                     <pre><code class="language-python">#!/usr/bin/env python3
 """
 Predictive Git Object Caching System
-Analyzes access patterns and pre-loads frequently accessed objects
+Analyzes access patterns and preloads frequently accessed objects
 """
 
 import json
@@ -1649,7 +1649,7 @@ class GitCachePredictor:
                 # Request object from Git server to populate cache
                 response = requests.get(f"{cache_endpoint}/{repo}/objects/{object_id}")
                 if response.status_code == 200:
-                    print(f"Pre-loaded object {object_id} for {repo}")
+                    print(f"Preloaded object {object_id} for {repo}")
                     
                     # Update cache statistics
                     cache_key = f"{self.cache_stats_key}:{repo}:{object_id}"
@@ -1660,7 +1660,7 @@ class GitCachePredictor:
                     self.redis_client.expire(cache_key, 24 * 3600)
                     
             except Exception as e:
-                print(f"Failed to pre-load {object_id}: {e}")
+                print(f"Failed to preload {object_id}: {e}")
 
 # Usage example
 predictor = GitCachePredictor()
@@ -1697,7 +1697,7 @@ predictor.pre_load_objects("myproject", predictions, "https://cache.git.company.
                     <div class="strategy-card regional">
                         <h4><i class="fas fa-map-marked-alt"></i> Geographic Optimization</h4>
                         <div class="strategy-content">
-                            <p>Route requests to optimal cache locations based on user geography</p>
+                            <p>Route requests to optimal cache locations based on each user's geography</p>
                             
                             <div class="routing-table">
                                 <h5>Cache Routing Table</h5>
@@ -1748,20 +1748,20 @@ predictor.pre_load_objects("myproject", predictions, "https://cache.git.company.
                         <div class="metric-group hit-rates">
                             <h5><i class="fas fa-bullseye"></i> Hit Rate Metrics</h5>
                             <ul>
-                                <li><strong>Overall Hit Rate:</strong> > 85% target</li>
-                                <li><strong>Pack File Hit Rate:</strong> > 95% target</li>
-                                <li><strong>Object Hit Rate:</strong> > 80% target</li>
-                                <li><strong>Reference Hit Rate:</strong> > 70% target</li>
+                                <li><strong>Overall Hit Rate:</strong> &gt; 85% target</li>
+                                <li><strong>Pack File Hit Rate:</strong> &gt; 95% target</li>
+                                <li><strong>Object Hit Rate:</strong> &gt; 80% target</li>
+                                <li><strong>Reference Hit Rate:</strong> &gt; 70% target</li>
                             </ul>
                         </div>
                         
                         <div class="metric-group performance">
                             <h5><i class="fas fa-stopwatch"></i> Performance Metrics</h5>
                             <ul>
-                                <li><strong>Cache Response Time:</strong> < 10ms average</li>
-                                <li><strong>Origin Fallback Time:</strong> < 500ms</li>
-                                <li><strong>Bandwidth Savings:</strong> > 60% reduction</li>
-                                <li><strong>Error Rate:</strong> < 0.1% of requests</li>
+                                <li><strong>Cache Response Time:</strong> &lt; 10 ms average</li>
+                                <li><strong>Origin Fallback Time:</strong> &lt; 500 ms</li>
+                                <li><strong>Bandwidth Savings:</strong> &gt; 60% reduction</li>
+                                <li><strong>Error Rate:</strong> &lt; 0.1% of requests</li>
                             </ul>
                         </div>
                     </div>
@@ -1862,7 +1862,7 @@ RELEASE_VERSION=${1:-""}
 CURRENT_BRANCH=$(git branch --show-current)
 
 if [ -z "$RELEASE_VERSION" ]; then
-    echo "Usage: $0 <version>"
+    echo "Usage: $0 &lt;version&gt;"
     echo "Example: $0 v2.1.0"
     exit 1
 fi
@@ -2305,8 +2305,8 @@ case "${1:-}" in
         echo "Usage: $0 {switch|feature|complete} [args...]"
         echo ""
         echo "Commands:"
-        echo "  switch <branch>     - Smart branch switching with auto-stash"
-        echo "  feature <name>      - Create new feature branch"
+        echo "  switch &lt;branch&gt;     - Smart branch switching with auto-stash"
+        echo "  feature &lt;name&gt;      - Create new feature branch"
         echo "  complete           - Complete feature and prepare for PR"
         ;;
 esac</code></pre>
@@ -2321,7 +2321,7 @@ esac</code></pre>
                 <h2><i class="fas fa-trophy"></i> Mission Status: COMPLETE</h2>
                 <p>Outstanding achievement, Commander! You have successfully mastered enterprise-level Git performance optimization. Your expertise in repository maintenance, distributed caching, advanced configuration tuning, and workflow optimization will enable you to maintain peak Git performance across massive development environments.</p>
                 
-                <p>You've completed <strong>Phase 3: Enterprise-Level Project Management</strong> - the most advanced tier of Git training. Your skills now encompass the full spectrum of enterprise Git operations, from large repository management to security compliance and performance optimization.</p>
+                <p>You've completed <strong>Phase 3: Enterprise-Level Project Management</strong> — the most advanced tier of Git training. Your skills now encompass the full spectrum of enterprise Git operations, from large repository management to security compliance and performance optimization.</p>
 
                 <div class="achievement-summary">
                     <h3><i class="fas fa-medal"></i> Commander Achievement Summary</h3>
@@ -2347,7 +2347,8 @@ esac</code></pre>
                 
                 <div class="mission-nav-buttons">
                     <a href="security-compliance.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
-                    <a href="../../index.html" class="btn btn-primary"><i class="fas fa-home"></i> Return to Mission Control</a>
+                    <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Return to Mission Control</a>
+                    <a href="../leadership/advanced-code-review.html" class="btn btn-primary">Next: Advanced Code Review <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

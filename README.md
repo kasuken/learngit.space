@@ -34,9 +34,9 @@
 
 ## 🗺️ Mission Structure
 
-This website transforms learning Git into an exciting space mission with **comprehensive, ever-expanding training phases**. The journey is divided into themed phases, each with focused learning objectives and grouped chapters:
+This website transforms learning Git into an exciting space mission across two learning paths: **Cadet Training** (novice) and **Commander Operations** (advanced). Each path is divided into themed phases with focused learning objectives and grouped chapters.
 
-### Mission Phases (2025 Edition)
+### Cadet Training (Novice Path — 41 chapters, ~4 hours)
 
 1. **🌟 Pre-Launch: Mission Briefing**
    - Orientation and introduction to the platform
@@ -44,40 +44,50 @@ This website transforms learning Git into an exciting space mission with **compr
 2. **▶ Phase 1: Launch Sequence**
    - Git fundamentals, installation, and setup
    - Terminal basics and first commands
-   - GitHub introduction and account setup
+   - GitHub introduction, .gitignore, and SSH keys
 
 3. **🌌 Phase 2: Orbital Maneuvers**
-   - Essential Git commands (add, commit, push, pull)
-   - Version control workflows
-   - Branching basics and navigation
+   - Essential Git commands (add, commit, push, pull, diff, log, clone)
+   - Branching basics and modern navigation (git switch)
 
 4. **🛸 Phase 3: Deep Space Operations**
    - Merging and conflict resolution
    - Advanced Git techniques (rebase, cherry-pick, stash)
-   - Git tags, version management, and reflog
+   - Undoing mistakes and Git tags
 
 5. **👥 Phase 4: Multi-Crew Missions**
-   - Forking, pull requests, and collaboration
-   - Code review and team workflows
+   - Forking, pull requests, and collaboration workflows
+   - VS Code integration, GitHub CLI, and Git aliases
 
-6. **🚀 Advanced & Enterprise**
-   - Large repository management, Git LFS
-   - Performance, security, and compliance
-   - Automation (hooks, CI/CD, integrations)
-   - Leadership, mentoring, and open-source management
-
-7. **🆘 Emergency & Recovery**
-   - Advanced troubleshooting
-   - Disaster recovery and reset strategies
-   - Collaboration workflows
-   - Tools integration (VS Code, GitHub CLI)
-
-6. **🌠 Phase 5: Beyond the Solar System** (3 phases, ~13 min)
+6. **🌠 Phase 5: Beyond the Solar System**
    - Markdown and documentation
-   - Profile creation
-   - Command reference
+   - GitHub profile creation
+   - Quick command reference
 
-**Total Training Time**: ~5 hours of comprehensive Git education
+7. **🤖 Phase 6: Copilot in Command**
+   - AI-powered commit messages, custom instructions, and branch naming
+
+### Commander Operations (Advanced Path — 21 chapters, ~6.4 hours)
+
+1. **🚀 Advanced Git Workflows & Strategies**
+   - Strategic merge vs rebase, branching strategies, reset & recovery, history analysis, refs & reflog
+
+2. **🤖 Automation & CI/CD Integration**
+   - Git hooks, GitHub Actions, and enterprise tool integration
+
+3. **🏢 Enterprise-Level Project Management**
+   - Large repository management, Git LFS, security & compliance, performance optimization
+
+4. **👔 Leadership & Team Coordination**
+   - Code review, collaboration patterns, conflict resolution leadership, mentoring
+
+5. **🛡️ Advanced GitHub Features**
+   - GitHub API & automation, project management, open source leadership
+
+6. **🆘 Emergency Operations & Recovery**
+   - Disaster recovery and advanced troubleshooting
+
+**Total Training Time**: ~10 hours of comprehensive Git education across both paths
 
 ## 👨‍🚀 Contributors
 
@@ -150,15 +160,20 @@ Learning Git through **space exploration metaphors**:
 ```
 learngit.space/
 ├── index.html                  # Homepage (Mission Control)
+├── contributors.html           # Community contributors
 ├── css/
 │   └── styles.css             # Complete styling with progress tracker UI
 ├── js/
-│   └── progress-tracker.js    # Progress tracking system
-└── chapters/                   # 35 mission phases
-    ├── launch-preparation.html
-    ├── the-navigation-system.html
-    ├── ... (33 more chapters)
-    └── command-reference.html
+│   ├── progress-tracker.js    # Progress tracking system
+│   └── analytics.js           # Analytics
+└── chapters/
+    ├── novice/                 # Cadet Training (41 chapters)
+    ├── advanced/               # Advanced Git workflows
+    ├── automation/             # Hooks, CI/CD, tool integration
+    ├── enterprise/             # Large repos, LFS, security, performance
+    ├── leadership/             # Code review, collaboration, mentoring
+    ├── github-advanced/        # GitHub API, projects, open source
+    └── emergency/              # Disaster recovery & troubleshooting
 ```
 
 ## 📝 Content Features
@@ -218,7 +233,7 @@ This educational resource is provided freely for learning purposes.
 ## 🌟 Why LearnGit.space?
 
 - **Engaging**: Learn through exciting space mission narratives
-- **Comprehensive**: 35 phases covering beginner to advanced topics
+- **Comprehensive**: 62 chapters covering beginner to advanced topics
 - **Interactive**: Built-in progress tracking keeps you motivated
 - **Beautiful**: Stunning space-themed design with animations
 - **Practical**: Real-world examples and workflows
@@ -234,7 +249,7 @@ Open `index.html` and begin your transformation from cadet to space commander!
 
 ---
 
-*LearnGit.space • Your Journey Through Version Control Space • 2024*
+*LearnGit.space • Your Journey Through Version Control Space • 2026*
 
 ---
 

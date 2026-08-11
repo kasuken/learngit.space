@@ -11,7 +11,7 @@ const ProgressTracker = {
         // Novice Path Missions
         'mission-briefing': { phases: 1, section: 'Pre-Launch', path: 'novice' },
         'git-basics': { phases: 10, section: 'Phase 1: Launch Sequence', path: 'novice' },
-        'branches': { phases: 8, section: 'Phase 2: Orbital Maneuvers', path: 'novice' },
+        'branches': { phases: 9, section: 'Phase 2: Orbital Maneuvers', path: 'novice' },
         'advanced': { phases: 7, section: 'Phase 3: Deep Space Operations', path: 'novice' },
         'collaboration': { phases: 6, section: 'Phase 4: Multi-Crew Missions', path: 'novice' },
         'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System', path: 'novice' },
@@ -31,7 +31,7 @@ const ProgressTracker = {
         novice: {
             name: 'Cadet Training',
             missions: ['mission-briefing', 'git-basics', 'branches', 'advanced', 'collaboration', 'beyond', 'copilot'],
-            totalPhases: 40  // 1 + 10 + 8 + 7 + 6 + 3 + 5 = 40
+            totalPhases: 41  // 1 + 10 + 9 + 7 + 6 + 3 + 5 = 41
         },
         advanced: {
             name: 'Commander Operations',

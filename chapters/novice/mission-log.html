@@ -6,28 +6,28 @@
     <title>Git Commit - Recording Changes in Repository History</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn git commit to save changes permanently. Master commit messages, best practices, and how to record meaningful snapshots of your work.">
+    <meta name="description" content="Learn the git commit command to save changes. Master commit messages, best practices, and how to record meaningful snapshots of your work.">
     <meta name="keywords" content="git commit, commit changes, Git commit message, save changes Git, Git snapshot, commit best practices">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/mission-log.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Commit - Recording Changes in Repository History">
-    <meta property="og:description" content="Learn git commit to save changes permanently. Master commit messages, best practices, and how to record meaningful snapshots of your work.">
+    <meta property="og:description" content="Learn the git commit command to save changes. Master commit messages, best practices, and how to record meaningful snapshots of your work.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/mission-log.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/mission-log.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Commit - Recording Changes in Repository History">
-    <meta name="twitter:description" content="Learn git commit to save changes permanently. Master commit messages, best practices, and how to record meaningful snapshots of your work.">
+    <meta name="twitter:description" content="Learn the git commit command to save changes. Master commit messages, best practices, and how to record meaningful snapshots of your work.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT10M",
+      "timeRequired": "PT7M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,15 +70,15 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-edit"></i> Recording in the Mission Log</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 10 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 7 min read</div>
             <p class="subtitle">Git Commit</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 11</strong> • Difficulty: Beginner</p>
+            <p><strong>Mission Phase 13</strong> • Difficulty: Beginner</p>
         </div>
         <article>
             <h2>Creating a Permanent Record</h2>
-            <p>A commit is a snapshot of your project at a specific moment—like a photograph of all your spacecraft systems. Once created, commits are permanent records in your mission history.</p>
+            <p>A commit is a snapshot of your project at a specific moment—like a photograph of all your spacecraft systems. Once created, commits become durable records in your mission history.</p>
             <h2>Making Your First Commit</h2>
             <p>After staging files with <code>git add</code>, commit them:</p>
             <div class="command-example">
@@ -104,7 +104,7 @@ WIP</code></pre>
                 <li><strong>Use present tense:</strong> "Add feature" not "Added feature"</li>
                 <li><strong>Be specific:</strong> "Fix login timeout error" not "Fix bug"</li>
                 <li><strong>Keep first line under 50 characters:</strong> It's the commit title</li>
-                <li><strong>Add details if needed:</strong> After first line, add empty line then explanation</li>
+                <li><strong>Add details if needed:</strong> After the first line, add an empty line, then an explanation</li>
                 <li><strong>Explain why, not just what:</strong> The diff shows what changed; explain why</li>
             </ul>
             <h2>Multi-line Commit Messages</h2>
@@ -112,7 +112,7 @@ WIP</code></pre>
             <div class="command-example">
                 <pre><code>git commit</code></pre>
             </div>
-            <p>This opens your editor. Write:  </p>
+            <p>This opens your editor. Write:</p>
             <pre><code>Add real-time telemetry monitoring
 
 Implements WebSocket connection to mission control for live data.
@@ -142,7 +142,7 @@ during connection loss. Resolves issue #47.</code></pre>
             <div class="command-example">
                 <pre><code>git commit -am "Update navigation algorithms"</code></pre>
             </div>
-            <p>The <code>-a</code> flag auto-stages modified files. Careful: won't add new files!</p>
+            <p>The <code>-a</code> flag auto-stages modified files. Be careful: it won't add new files!</p>
             <h2>Amending the Last Commit</h2>
             <p>Forgot something? Fix the most recent commit:</p>
             <div class="command-example">
@@ -159,12 +159,12 @@ git commit --amend</code></pre>
                 <li><strong>Timestamp:</strong> When the commit was created</li>
                 <li><strong>Commit message:</strong> Your description</li>
                 <li><strong>Parent commit(s):</strong> Link to previous commit(s)</li>
-                <li><strong>SHA-1 hash:</strong> Unique identifier for this commit</li>
+                <li><strong>Object hash:</strong> Unique identifier for this commit (SHA-1 by default)</li>
             </ul>
             <h2>Commit Hash</h2>
             <p>Every commit gets a unique hash like:</p>
             <pre><code>a3f5e2b8c1d9f7e6a4b2c8d3e5f7a9b1c3d5e7f9</code></pre>
-            <p>This identifies the commit forever. You can reference commits by their hash (or the first 7 characters).</p>
+            <p>This uniquely identifies the commit in your repository. You can reference commits by their hash (or usually the first 7 characters).</p>
             <div class="mission-brief">
                 <h3>Practice: Your First Real Commit</h3>
                 <ol>
@@ -192,17 +192,17 @@ git commit --amend</code></pre>
                 <li>Reach a stable state</li>
             </ul>
             <p>Some developers commit hourly. Others commit after each small task. Find your rhythm.</p>
-            <h2>Commits are Permanent</h2>
-            <p>Commits are (nearly) permanent. Even if you "delete" them, they often remain in Git's database. This is good—it means you can't accidentally lose work.</p>
-            <h2>Next: Examining Changes</h2>
-            <p>You can now create snapshots of your work. Next, we'll learn to examine differences between commits, helping you understand exactly what changed and when.</p>
+            <h2>Commits Are Durable</h2>
+            <p>Commits are durable. Even if you "delete" them, they often remain in Git's database. This is good—it means you can't accidentally lose work.</p>
+            <h2>Next: Transmission Uplink</h2>
+            <p>You can now create snapshots of your work. Next, we'll push those commits to GitHub so the rest of your crew can see them.</p>
         </article>
         <div class="navigation">
             <a href="staging-bay.html" class="nav-link">← Previous: The Staging Bay</a>
-            <a href="scanning-changes.html" class="nav-link">Next: Scanning Changes →</a>
+            <a href="transmission-uplink.html" class="nav-link">Next: Transmission Uplink →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 11 of 34</p>
+            <p>Mission Control Training Program • Phase 13 of 41</p>
         </footer>
     </div>
     <script>

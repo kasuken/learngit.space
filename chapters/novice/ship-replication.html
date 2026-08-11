@@ -3,27 +3,27 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GitHub Fork - Creating Your Own Copy of Repositories</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn to fork repositories on GitHub. Create independent copies, contribute to open source, and manage forked projects.">
+    <meta name="description" content="Learn to fork repositories on GitHub, create independent copies, contribute to open source, and manage forked projects.">
     <meta name="keywords" content="GitHub fork, fork repository, forking workflow, open source contribution, Git fork">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/ship-replication.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="GitHub Fork - Creating Your Own Copy of Repositories">
-    <meta property="og:description" content="Learn to fork repositories on GitHub. Create independent copies, contribute to open source, and manage forked projects.">
+    <meta property="og:description" content="Learn to fork repositories on GitHub, create independent copies, contribute to open source, and manage forked projects.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/ship-replication.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/ship-replication.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="GitHub Fork - Creating Your Own Copy of Repositories">
-    <meta name="twitter:description" content="Learn to fork repositories on GitHub. Create independent copies, contribute to open source, and manage forked projects.">
+    <meta name="twitter:description" content="Learn to fork repositories on GitHub, create independent copies, contribute to open source, and manage forked projects.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
-<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
 
     <!-- Structured Data for Educational Content -->
@@ -42,7 +42,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT2M",
+      "timeRequired": "PT4M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -64,8 +64,8 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header><h1><i class="fas fa-code-branch"></i> Ship Replication</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 2 min read</div><p class="subtitle">Forking Repositories</p></header>
-        <div class="mission-brief"><p><strong>Mission Phase 22</strong> • Difficulty: Beginner</p></div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 4 min read</div><p class="subtitle">Forking Repositories</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 28</strong> • Difficulty: Beginner</p></div>
         <article>
             <h2>Creating Your Own Version</h2>
             <p>Forking creates a personal copy of someone else's repository under your GitHub account. You can modify it freely without affecting the original.</p>
@@ -85,12 +85,12 @@
             </ol>
             <h2>Fork vs Clone</h2>
             <ul>
-                <li><strong>Fork:</strong> Creates copy on GitHub under your account</li>
-                <li><strong>Clone:</strong> Downloads repository to your computer</li>
+                <li><strong>Fork:</strong> Creates a copy on GitHub under your account</li>
+                <li><strong>Clone:</strong> Downloads the repository to your computer</li>
             </ul>
-            <p>Typically: Fork on GitHub, then clone your fork locally.</p>
+            <p>Typical mission plan: fork on GitHub, then clone your fork locally.</p>
             <h2>Workflow: Fork → Clone → Contribute</h2>
-            <div class="command-example"><pre><code># 1. Fork on GitHub (use web interface)
+            <div class="command-example"><pre><code># 1. Fork on GitHub (use the web interface)
 
 # 2. Clone your fork
 git clone git@github.com:yourname/repository.git
@@ -99,7 +99,7 @@ cd repository
 # 3. Add upstream remote (original repo)
 git remote add upstream git@github.com:original/repository.git
 
-# 4. Create feature branch
+# 4. Create a feature branch
 git switch -c my-improvement
 
 # 5. Make changes and commit
@@ -110,11 +110,11 @@ git commit -m "Add amazing feature"
 git push origin my-improvement
 
 # 7. Create pull request on GitHub</code></pre></div>
-            <h2>Keeping Fork Updated</h2>
+            <h2>Keeping Your Fork Updated</h2>
             <div class="command-example"><pre><code># Fetch from original repository
 git fetch upstream
 
-# Merge into your main
+# Merge into your main branch
 git switch main
 git merge upstream/main
 
@@ -123,13 +123,13 @@ git push origin main</code></pre></div>
             <h2>Pull Requests</h2>
             <p>After pushing to your fork, create a pull request to propose changes to the original repository. Maintainers review and may merge your contribution.</p>
             <h2>Next: Crew Coordination</h2>
-            <p>You can now fork and contribute. Next, learn team workflows for effective collaboration.</p>
+            <p>You can now fork and contribute. Next, learn team workflows for smoother crew collaboration.</p>
         </article>
         <div class="navigation">
-            <a href="boarding-vessels.html" class="nav-link">← Previous: Boarding Vessels</a>
+            <a href="marker-beacons.html" class="nav-link">← Previous: Marker Beacons</a>
             <a href="crew-coordination.html" class="nav-link">Next: Crew Coordination →</a>
         </div>
-        <footer><p>Mission Control Training Program • Phase 22 of 34</p></footer>
+        <footer><p>Mission Control Training Program • Phase 28 of 41</p></footer>
     </div>
     <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
 </body>

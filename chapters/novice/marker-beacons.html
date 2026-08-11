@@ -15,7 +15,7 @@
     <meta property="og:title" content="Git Tags - Marking Important Points in History">
     <meta property="og:description" content="Learn git tag to mark releases and milestones. Create annotated tags, version releases, and bookmark important commits.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/marker-beacons.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/marker-beacons.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
@@ -27,7 +27,7 @@
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT10M",
+      "timeRequired": "PT5M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -66,53 +66,59 @@
 </head>
 <body data-mission="advanced" data-phase="7">
     <div class="stars" id="stars"></div>
-    
     <div class="container">
-        <header>
-            <div class="progress-breadcrumb">
-                <a href="../../index.html" class="breadcrumb-link">← Mission Control</a>
-            </div>
-            <div class="reading-time"><i class="fas fa-clock"></i> Estimated reading time: 8 min</div>
-            <h1>Marker Beacons</h1>
-            <p class="chapter-subtitle">Git Tags</p>
-        </header>
+        <a href="../../index.html" class="home-link">← Back to Mission Control</a>
+        <header><h1><i class="fas fa-map-pin"></i> Marker Beacons</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 5 min read</div><p class="subtitle">Git Tags</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 27</strong> • Difficulty: Beginner</p></div>
+        <article>
+            <h2>Marking Important Moments</h2>
+            <p>Tags are marker beacons in your history. While branches move as you commit, a tag stays fixed on one commit until you deliberately move or delete it—perfect for marking releases like <code>v1.0.0</code> or other milestones.</p>
+            <h2>Two Kinds of Tags</h2>
+            <ul>
+                <li><strong>Lightweight tags:</strong> A simple name pointing at a commit</li>
+                <li><strong>Annotated tags:</strong> Full objects with the tagger's name, date, and a message—recommended for releases</li>
+            </ul>
+            <h2>Creating Tags</h2>
+            <div class="command-example"><pre><code># Lightweight tag
+git tag v1.0.0
 
-        <main>
-            <section>
-                <h2>Mission Objective</h2>
-                <p>This chapter covers <strong>Git Tags</strong> - an essential skill for navigating complex Git scenarios.</p>
-            </section>
-
-            <section>
-                <h2>Content Coming Soon</h2>
-                <p>This training module is currently under development. Check back soon for comprehensive coverage of this topic.</p>
-            </section>
-        </main>
-
-        <footer>
-            <nav class="chapter-nav">
-                <a href="../../index.html" class="nav-button">← Back to Mission Control</a>
-                <a href="../../index.html" class="nav-button">Next Phase →</a>
-            </nav>
-            <p>&copy; 2024 LearnGit.space - Your Journey Through Version Control</p>
-        </footer>
+# Annotated tag (recommended)
+git tag -a v1.0.0 -m "First stable release"</code></pre></div>
+            <h2>Tagging a Past Commit</h2>
+            <div class="command-example"><pre><code>git tag -a v0.9.0 abc123 -m "Beta release"</code></pre></div>
+            <p>Forgot to tag a release? Tag any commit in your history by its hash.</p>
+            <h2>Listing and Inspecting Tags</h2>
+            <div class="command-example"><pre><code>git tag                 # List all tags
+git tag -l "v1.*"       # Filter with a pattern
+git show v1.0.0         # See the tagged commit and message</code></pre></div>
+            <h2>Pushing Tags</h2>
+            <p>Tags are <strong>not</strong> pushed automatically with <code>git push</code>:</p>
+            <div class="command-example"><pre><code>git push origin v1.0.0    # Push one tag
+git push origin --tags    # Push all tags</code></pre></div>
+            <h2>Deleting Tags</h2>
+            <div class="command-example"><pre><code>git tag -d v1.0.0                  # Delete locally
+git push origin --delete v1.0.0   # Delete on the remote</code></pre></div>
+            <h2>Checking Out a Tag</h2>
+            <div class="command-example"><pre><code>git switch --detach v1.0.0</code></pre></div>
+            <p>This puts you in a detached HEAD state—great for inspecting a release. To make changes from a tag, create a branch: <code>git switch -c hotfix-1.0.1 v1.0.0</code>.</p>
+            <h2>Semantic Versioning</h2>
+            <p>Most projects tag releases using <a href="https://semver.org" target="_blank" rel="noopener noreferrer">semantic versioning</a>: <code>vMAJOR.MINOR.PATCH</code></p>
+            <ul>
+                <li><strong>MAJOR:</strong> Breaking changes (v2.0.0)</li>
+                <li><strong>MINOR:</strong> New features, backward compatible (v1.1.0)</li>
+                <li><strong>PATCH:</strong> Bug fixes (v1.0.1)</li>
+            </ul>
+            <p>On GitHub, tags power the <strong>Releases</strong> feature—each release is built on a tag, with release notes and downloadable assets.</p>
+            <h2>Next: Ship Replication</h2>
+            <p>Deep space operations complete! You can merge, resolve conflicts, rebase, cherry-pick, stash, and tag. Next phase: multi-crew missions, starting with forking repositories.</p>
+        </article>
+        <div class="navigation">
+            <a href="temporal-storage.html" class="nav-link">← Previous: Temporal Storage</a>
+            <a href="ship-replication.html" class="nav-link">Next: Ship Replication →</a>
+        </div>
+        <footer><p>Mission Control Training Program • Phase 27 of 41</p></footer>
     </div>
-
-    <script>
-        // Create stars
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 200; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            if (Math.random() > 0.95) {
-                star.style.animation = 'shoot 2s linear infinite';
-                star.style.animationDelay = Math.random() * 5 + 's';
-            }
-            starsContainer.appendChild(star);
-        }
-    </script>
+    <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
 </body>
 </html>

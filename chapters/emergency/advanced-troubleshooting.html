@@ -86,7 +86,7 @@
             <div class="learning-objectives">
                 <h3><i class="fas fa-crosshairs"></i> Troubleshooting Objectives</h3>
                 <ul>
-                    <li>Diagnose complex merge conflicts and resolution strategies</li>
+                    <li>Diagnose complex merge conflicts and choose resolution strategies</li>
                     <li>Debug performance issues and optimize large repositories</li>
                     <li>Resolve network and remote synchronization problems</li>
                     <li>Handle advanced workflow conflicts and edge cases</li>
@@ -110,27 +110,32 @@
                             <div class="quick-fix">
                                 <div class="problem">Images, docs, or binaries in conflict</div>
                                 <div class="solution">
-<pre><code># Choose version explicitly
+<pre><code># Choose current branch version explicitly
 git checkout --ours path/to/binary-file
+git add path/to/binary-file
+
+# Or choose incoming branch version
 git checkout --theirs path/to/binary-file
+git add path/to/binary-file
 
 # Manual selection with attributes
 echo "*.pdf merge=ours" >> .gitattributes
+git config merge.ours.driver true
 git add .gitattributes</code></pre>
                                 </div>
                             </div>
                         </div>
 
                         <div class="scenario-card">
-                            <h4>⚡ Recursive Merge Hell</h4>
+                            <h4>⚡ Recursive Merge Problems</h4>
                             <div class="quick-fix">
                                 <div class="problem">Deep conflicts across multiple branches</div>
                                 <div class="solution">
-<pre><code># Reset and use 3-way merge
+<pre><code># Abort and retry with the patience diff algorithm
 git merge --abort
-git merge --strategy=recursive --strategy-option=patience
+git merge -X patience branch-name
 
-# Alternative: octopus merge for multiple branches
+# Alternative: octopus merge when branches do not conflict
 git merge branch1 branch2 branch3</code></pre>
                                 </div>
                             </div>
@@ -229,15 +234,15 @@ git rev-list --objects --all | \
                             <div class="strategy">
                                 <strong>🗜️ Repository Cleanup</strong>
 <pre><code># Aggressive optimization
+git reflog expire --expire=now --all
 git gc --aggressive --prune=now
-git repack -ad
-git reflog expire --expire=now --all</code></pre>
+git repack -ad</code></pre>
                             </div>
                             <div class="strategy">
                                 <strong>📁 Large File Management</strong>
 <pre><code># Remove large files from history
-git filter-branch --tree-filter 'rm -f large-file.zip' HEAD
-git push --force
+git filter-repo --path large-file.zip --invert-paths
+git push --force-with-lease
 
 # Use Git LFS for future large files
 git lfs track "*.zip"</code></pre>
@@ -259,9 +264,9 @@ git lfs track "*.zip"</code></pre>
                     <div class="common-fixes">
                         <div class="fix-card">
                             <h4>🌐 Connection Timeouts</h4>
-<pre><code># Increase timeouts
-git config --global http.postBuffer 524288000
-git config --global http.timeout 600
+<pre><code># Increase low-speed timeout tolerance
+git config --global http.lowSpeedLimit 1000
+git config --global http.lowSpeedTime 600
 
 # Use SSH instead of HTTPS
 git remote set-url origin git@github.com:user/repo.git</code></pre>
@@ -269,9 +274,8 @@ git remote set-url origin git@github.com:user/repo.git</code></pre>
 
                         <div class="fix-card">
                             <h4>🔐 Authentication Failures</h4>
-<pre><code># Clear credential cache
-git credential-manager-core erase
-echo "url=https://github.com" | git credential fill
+<pre><code># Clear cached GitHub credentials
+printf "protocol=https\nhost=github.com\n\n" | git credential reject
 
 # Test SSH connection
 ssh -T git@github.com</code></pre>
@@ -384,7 +388,7 @@ emergency_diagnosis</code></pre>
                 <div class="section-header">
                     <div class="section-number">05</div>
                     <h2><i class="fas fa-certificate"></i> Troubleshooting Mastery</h2>
-                    <p>Advanced Git debugging skills acquired - Ready for any complex issue</p>
+                    <p>Advanced Git debugging skills acquired — ready for any complex issue</p>
                 </div>
 
                 <div class="mastery-grid">
@@ -426,7 +430,7 @@ emergency_diagnosis</code></pre>
                 </div>
 
                 <div class="phase-completion">
-                    <h3>🎉 Phase 6 Complete - Emergency Operations Mastery!</h3>
+                    <h3>🎉 Phase 6 Complete — Emergency Operations Mastery!</h3>
                     <div class="completion-summary">
                         <div class="phase-chapter">
                             <i class="fas fa-life-ring"></i>
