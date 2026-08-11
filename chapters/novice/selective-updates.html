@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT5M",
+      "timeRequired": "PT6M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -69,7 +69,7 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header><h1><i class="fas fa-hand-pointer"></i> Selective Updates</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 5 min read</div><p class="subtitle">Cherry Picking</p></header>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div><p class="subtitle">Cherry Picking</p></header>
         <div class="mission-brief"><p><strong>Mission Phase 25</strong> • Difficulty: Intermediate</p></div>
         <article>
             <h2>Picking Individual Commits</h2>
@@ -112,6 +112,12 @@ git cherry-pick --edit abc123    # Edit the commit message before committing</co
                 <h3><i class="fas fa-exclamation-triangle"></i> Duplicate Commits Ahead</h3>
                 <p>Cherry-picking creates a copy of a commit, not a link to it. If you later merge the original branch, the same change may appear twice in your history. Prefer merging or rebasing for routine integration—reserve cherry-pick for targeted, surgical updates.</p>
             </div>
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Cherry-pick single, self-contained commits—if a fix spans several commits, consider a range instead</li>
+                <li>Always check <code>git log -p</code> on the source commit first, so you know exactly what you're bringing over</li>
+                <li>After a cherry-pick lands on a release branch, note it in your changelog so the next merge doesn't cause confusion</li>
+            </ul>
             <h2>Next: Temporal Storage</h2>
             <p>You can now transplant individual commits between timelines. Next, learn <code>git stash</code>—a place to safely park unfinished work while you switch contexts.</p>
         </article>

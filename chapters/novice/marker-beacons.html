@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT5M",
+      "timeRequired": "PT7M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -69,7 +69,7 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header><h1><i class="fas fa-map-pin"></i> Marker Beacons</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 5 min read</div><p class="subtitle">Git Tags</p></header>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 7 min read</div><p class="subtitle">Git Tags</p></header>
         <div class="mission-brief"><p><strong>Mission Phase 27</strong> • Difficulty: Beginner</p></div>
         <article>
             <h2>Marking Important Moments</h2>
@@ -110,6 +110,12 @@ git push origin --delete v1.0.0   # Delete on the remote</code></pre></div>
                 <li><strong>PATCH:</strong> Bug fixes (v1.0.1)</li>
             </ul>
             <p>On GitHub, tags power the <strong>Releases</strong> feature—each release is built on a tag, with release notes and downloadable assets.</p>
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Always prefer annotated tags for releases—lightweight tags carry no author, date, or message</li>
+                <li>Tag from a clean, tested commit on your main branch, never from a branch you might rebase later</li>
+                <li>Adopt semantic versioning early; retrofitting a numbering scheme onto an existing project is painful</li>
+            </ul>
             <h2>Next: Ship Replication</h2>
             <p>Deep space operations complete! You can merge, resolve conflicts, rebase, cherry-pick, stash, and tag. Next phase: multi-crew missions, starting with forking repositories.</p>
         </article>

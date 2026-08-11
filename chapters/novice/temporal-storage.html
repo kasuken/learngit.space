@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT6M",
+      "timeRequired": "PT8M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -69,7 +69,7 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header><h1><i class="fas fa-box"></i> Temporal Storage</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div><p class="subtitle">Git Stash</p></header>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 8 min read</div><p class="subtitle">Git Stash</p></header>
         <div class="mission-brief"><p><strong>Mission Phase 26</strong> • Difficulty: Intermediate</p></div>
         <article>
             <h2>Temporarily Storing Changes</h2>
@@ -119,6 +119,15 @@ git switch main
 # Return to your feature exactly where you left off
 git switch feature-branch
 git stash pop</code></pre></div>
+            <h2>Stashing to a New Branch</h2>
+            <div class="command-example"><pre><code>git stash branch new-feature stash@{0}</code></pre></div>
+            <p>If applying a stash would conflict with your current branch, this creates a fresh branch from the commit where you stashed, then applies the changes there—conflict-free.</p>
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Always add a message so old stashes are identifiable weeks later</li>
+                <li>Don't let stashes pile up—review <code>git stash list</code> regularly and drop what you no longer need</li>
+                <li>Stash is not a backup: it lives only in your local repository and is never pushed to a remote</li>
+            </ul>
             <h2>Next: Marker Beacons</h2>
             <p>Your work-in-progress is safe in temporal storage. Next, learn <code>git tag</code>—placing permanent marker beacons on important moments like releases.</p>
         </article>

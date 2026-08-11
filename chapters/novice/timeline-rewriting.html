@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT7M",
+      "timeRequired": "PT8M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -69,7 +69,7 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header><h1><i class="fas fa-sync-alt"></i> Timeline Rewriting</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 7 min read</div><p class="subtitle">Git Rebase</p></header>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 8 min read</div><p class="subtitle">Git Rebase</p></header>
         <div class="mission-brief"><p><strong>Mission Phase 24</strong> • Difficulty: Advanced</p></div>
         <article>
             <h2>Rewriting History</h2>
@@ -132,6 +132,11 @@ squash ghi789 Fix another typo</code></pre>
                 <li>You want to preserve the full context of how work happened</li>
                 <li>Your team prefers explicit merge commits</li>
             </ul>
+            <h2>Handy Rebase Options</h2>
+            <div class="command-example"><pre><code>git rebase --onto main old-base feature   # Replay onto a different base
+git rebase --autostash main               # Stash, rebase, then restore local changes
+git pull --rebase                          # Rebase instead of merge when pulling</code></pre></div>
+            <p><code>--autostash</code> is a small quality-of-life win: no more manual <code>git stash</code> before every rebase.</p>
             <h2>Next: Selective Updates</h2>
             <p>Rebase replays whole branches, but sometimes you only need one commit. Next, learn <code>git cherry-pick</code>—applying individual commits wherever you need them.</p>
         </article>

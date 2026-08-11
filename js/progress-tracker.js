@@ -486,8 +486,10 @@ function showPathSwitchConfirmation(fromPath, toPath) {
 }
 
 function selectAdvancedPath() {
-    // Advanced path is coming soon
-    alert('Commander Operations Coming Soon!\n\nNew advanced missions are currently in development at Mission Control. Stay tuned for exciting new content that will take your Git skills to the next level!');
+    // Legacy handler retained for compatibility; Commander Operations is fully available.
+    // Index.html now calls selectPath('advanced') directly.
+    ProgressTracker.setSelectedPath('advanced');
+    showMissionControl('advanced');
 }
 
 function showAdvancedConfirmationModal() {
@@ -719,13 +721,13 @@ function updatePathInterface() {
         advancedCard.classList.add('path-selected');
     }
     
-    // Advanced path configuration (only if elements exist)
+    // Advanced path configuration (only if legacy lock elements exist)
     if (advancedLock) {
-        advancedLock.style.display = 'flex';
+        advancedLock.style.display = 'none';
     }
     if (advancedButton) {
-        advancedButton.disabled = true;
-        advancedButton.textContent = 'Coming Soon - New Missions in Development';
+        advancedButton.disabled = false;
+        advancedButton.textContent = 'Begin Commander Operations';
     }
 }
 
@@ -791,9 +793,9 @@ function runSystemTest() {
     // Test 3: Path definitions
     const novicePathData = ProgressTracker.paths.novice;
     const advancedPathData = ProgressTracker.paths.advanced;
-    results.push(`✓ Novice path missions: ${novicePathData.missions.length} (expected: 6)`);
+    results.push(`✓ Novice path missions: ${novicePathData.missions.length} (expected: 7)`);
     results.push(`✓ Advanced path missions: ${advancedPathData.missions.length} (expected: 6)`);
-    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 35)`);
+    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 41)`);
     results.push(`✓ Advanced total phases: ${advancedPathData.totalPhases} (expected: 21)`);
     
     // Test 4: Function availability

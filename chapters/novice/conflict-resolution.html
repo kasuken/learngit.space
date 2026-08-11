@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT5M",
+      "timeRequired": "PT6M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -69,7 +69,7 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header><h1><i class="fas fa-exclamation-triangle"></i> Conflict Resolution</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 5 min read</div><p class="subtitle">Merge Conflicts</p></header>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div><p class="subtitle">Merge Conflicts</p></header>
         <div class="mission-brief"><p><strong>Mission Phase 22</strong> • Difficulty: Intermediate</p></div>
         <article>
             <h2>When Timelines Collide</h2>
@@ -125,6 +125,12 @@ git commit</code></pre></div>
                 <li>Keep branches short-lived and merge often</li>
                 <li>Split work so crew members touch different files</li>
                 <li>Communicate with your crew about who is editing what</li>
+            </ul>
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Leaving stray markers:</strong> Forgetting to delete <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> or <code>=======</code> breaks the build silently—always re-read the file before committing.</li>
+                <li><strong>Resolving blind:</strong> Picking a side without understanding what the other branch was trying to do. When in doubt, ask the author or check <code>git log -p</code> on both sides.</li>
+                <li><strong>Force-pushing over an unfinished merge:</strong> If you're unsure, run <code>git merge --abort</code> and start again rather than guessing.</li>
             </ul>
             <h2>Next: Mission Corrections</h2>
             <p>You can now resolve timeline collisions with confidence. Next, learn how to undo mistakes in Git with resets, reverts, and amended commits.</p>
