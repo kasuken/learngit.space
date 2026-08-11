@@ -6,28 +6,28 @@
     <title>Git Add - Staging Files for Commit</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Master git add command to stage changes. Learn about the staging area, how to add files, and prepare commits in Git.">
+    <meta name="description" content="Master the git add command to stage changes. Learn about the staging area, how to add files, and prepare commits in Git.">
     <meta name="keywords" content="git add, staging area, stage files Git, Git index, add files to Git, prepare commit">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/staging-bay.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Add - Staging Files for Commit">
-    <meta property="og:description" content="Master git add command to stage changes. Learn about the staging area, how to add files, and prepare commits in Git.">
+    <meta property="og:description" content="Master the git add command to stage changes. Learn about the staging area, how to add files, and prepare commits in Git.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/staging-bay.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/staging-bay.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Add - Staging Files for Commit">
-    <meta name="twitter:description" content="Master git add command to stage changes. Learn about the staging area, how to add files, and prepare commits in Git.">
+    <meta name="twitter:description" content="Master the git add command to stage changes. Learn about the staging area, how to add files, and prepare commits in Git.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT12M",
+      "timeRequired": "PT5M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,11 +70,11 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-bullseye"></i> The Staging Bay</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 12 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 5 min read</div>
             <p class="subtitle">Git Add</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 10</strong> • Difficulty: Beginner</p>
+            <p><strong>Mission Phase 12</strong> • Difficulty: Beginner</p>
         </div>
         <article>
             <h2>Preparing for Launch</h2>
@@ -120,13 +120,13 @@ git add src/*.py   # All Python files in src/</code></pre>
             </div>
             <p>This shows each change and asks if you want to stage it. Perfect for staging parts of files.</p>
             <h2>Unstaging Files</h2>
-            <p>Made a mistake? Unstage with:</p>
-            <div class="command-example">
-                <pre><code>git reset HEAD filename.txt</code></pre>
-            </div>
-            <p>Or in newer Git versions:</p>
+            <p>Made a mistake? Use the modern unstage command:</p>
             <div class="command-example">
                 <pre><code>git restore --staged filename.txt</code></pre>
+            </div>
+            <p>Older tutorials may show this after your first commit:</p>
+            <div class="command-example">
+                <pre><code>git reset HEAD filename.txt</code></pre>
             </div>
             <h2>Viewing Staged Changes</h2>
             <p>See what's staged:</p>
@@ -162,7 +162,7 @@ git add src/*.py   # All Python files in src/</code></pre>
             </div>
             <h2>Common Mistakes</h2>
             <h3>Forgetting to Add</h3>
-            <p>You change files but forget <code>git add</code>. Your commit will be empty or incomplete!</p>
+            <p>You change files but forget <code>git add</code>. Your commit may be incomplete, or Git may stop because nothing is staged!</p>
             <h3>Adding Too Much</h3>
             <p>Using <code>git add .</code> without checking can stage unwanted files (logs, build files, secrets).</p>
             <h3>Not Reviewing</h3>
@@ -171,11 +171,11 @@ git add src/*.py   # All Python files in src/</code></pre>
             <p>Your staging bay is loaded. Files are ready for launch. Time to make your first commit and create a permanent snapshot in the mission logs.</p>
         </article>
         <div class="navigation">
-            <a href="systems-check.html" class="nav-link">← Previous: Systems Check</a>
+            <a href="secure-communications.html" class="nav-link">← Previous: Secure Communications</a>
             <a href="mission-log.html" class="nav-link">Next: Mission Log →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 10 of 34</p>
+            <p>Mission Control Training Program • Phase 12 of 41</p>
         </footer>
     </div>
     <script>

@@ -15,7 +15,7 @@
     <meta property="og:title" content="Git Configuration - Setting Up User Name, Email, and Preferences">
     <meta property="og:description" content="Configure Git with your identity and preferences. Learn git config commands to set up username, email, default editor, and other essential settings.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/configuring-systems.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/configuring-systems.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
@@ -27,7 +27,7 @@
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT20M",
+      "timeRequired": "PT6M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -72,7 +72,7 @@
         
         <header>
             <h1><i class="fas fa-wrench"></i> Configuring Your Ship's Systems</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 20 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div>
             <p class="subtitle">Git Configuration</p>
         </header>
 
@@ -125,11 +125,11 @@
                 <li><strong>Local:</strong> Applies to a specific repository (no flag, or <code>--local</code>)</li>
             </ul>
             
-            <p>Most of the time, you'll use <code>--global</code>. Local settings override global, which override system.</p>
+            <p>Most of the time, you'll use <code>--global</code>. Local settings override global settings, which override system settings.</p>
 
             <h2>Configuring Your Default Editor</h2>
             
-            <p>Git sometimes opens a text editor (like for commit messages). Set your preferred editor:</p>
+            <p>Git sometimes opens a text editor for tasks such as writing commit messages. Set your preferred editor:</p>
             
             <p><strong>VS Code:</strong></p>
             <div class="command-example">
@@ -199,7 +199,7 @@ git config user.email</code></pre>
 
             <h3>Pull Behavior</h3>
             
-            <p>Configure how Git handles pulls:</p>
+            <p>Configure Git to merge instead of rebase when pulling:</p>
             
             <div class="command-example">
                 <pre><code>git config --global pull.rebase false</code></pre>
@@ -240,7 +240,7 @@ git config --global color.ui auto</code></pre>
 
             <h2>Changing Configuration Later</h2>
             
-            <p>You can change any setting anytime by running the config command again:</p>
+            <p>You can change any setting at any time by running the config command again:</p>
             
             <div class="command-example">
                 <pre><code>git config --global user.email "newemail@example.com"</code></pre>
@@ -259,7 +259,7 @@ git config --global color.ui auto</code></pre>
             <p>Every commit you make includes your name and email. This allows:</p>
             
             <ul>
-                <li>Team members to know who wrote code</li>
+                <li>Team members to know who wrote which code</li>
                 <li>Future you to remember what you were thinking</li>
                 <li>Project maintainers to contact contributors</li>
                 <li>GitHub to link commits to your profile</li>
@@ -282,7 +282,7 @@ git config --global color.ui auto</code></pre>
         </div>
 
         <footer>
-            <p>Mission Control Training Program • Phase 6 of 34</p>
+            <p>Mission Control Training Program • Phase 6 of 41</p>
         </footer>
     </div>
 

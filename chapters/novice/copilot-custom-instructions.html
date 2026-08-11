@@ -68,7 +68,7 @@
         </header>
 
         <div class="mission-brief">
-            <p><strong>Mission Phase 38</strong> • Difficulty: Advanced</p>
+            <p><strong>Mission Phase 39</strong> • Difficulty: Advanced</p>
         </div>
 
         <article>
@@ -78,34 +78,34 @@
             
             <p>Similarly, every development team has its own "Git culture"—specific conventions for commit messages, branch naming, pull request formats, and code review processes. The challenge is ensuring that these standards are consistently applied, especially when using AI assistance.</p>
             
-            <p>GitHub Copilot can learn and follow your team's specific conventions when you provide clear, repository-specific instructions. This ensures that AI suggestions align with your team's established practices rather than generic conventions.</p>
+            <p>GitHub Copilot can follow your team's specific conventions when you provide clear, repository-specific instructions. This ensures that AI suggestions align with your team's established practices rather than generic conventions.</p>
 
             <h2>Mission Objectives</h2>
             <ul>
-                <li>Create comprehensive .github/copilot-instructions.md files</li>
+                <li>Create a comprehensive .github/copilot-instructions.md file</li>
                 <li>Define team-specific Git conventions and standards</li>
                 <li>Configure repository-level Copilot guidance</li>
                 <li>Test and validate custom instruction effectiveness</li>
             </ul>
 
             <h2>Step 1: Repository Custom Instructions</h2>
-            <p>Create a `.github/copilot-instructions.md` file in your repository root:</p>
+            <p>Create a .github/copilot-instructions.md file in your repository root:</p>
             
             <div class="command-example">
                 <pre><code># Copilot Instructions for [Project Name]
 
 ## Git Commit Conventions
-- Use conventional commits format: type(scope): description
+- Use Conventional Commits format: type(scope): description
 - Types: feat, fix, docs, style, refactor, test, chore
-- Always include ticket number: feat(auth): add OAuth login [PROJ-123]
-- Keep description under 72 characters
-- Use present tense: "add" not "added"
+- Always include a ticket number: feat(auth): add OAuth login [PROJ-123]
+- Keep the subject under 72 characters
+- Use imperative mood: "add" not "added"
 
 ## Branch Naming
 - Format: type/ticket-description
 - Types: feature, bugfix, hotfix, refactor
 - Use kebab-case: feature/user-authentication
-- Include ticket: feature/PROJ-123-user-auth
+- Include the ticket: feature/PROJ-123-user-auth
 
 ## Pull Request Standards
 - Title: "[TICKET] Brief description"
@@ -121,27 +121,27 @@
             </div>
 
             <h2>Step 2: Advanced Configuration Examples</h2>
-            <p>Comprehensive instruction templates for different team styles:</p>
+            <p>Use comprehensive instruction templates for different team styles:</p>
             
             <div class="command-example">
                 <pre><code># Enterprise Team Instructions
 ## Git Workflow
 - All work must happen in feature branches
-- Require 2 approvals before merge
+- Require two approvals before merge
 - Use squash merge for clean history
 - Delete branches after merge
 
 ## Security Requirements
 - Never commit secrets or API keys
 - Use environment variables for configuration
-- Include security review for auth changes
+- Include a security review for auth changes
 - Scan dependencies for vulnerabilities
 
 ## Documentation Standards
 - Update README for new features
 - Include inline comments for complex logic
 - Maintain CHANGELOG.md
-- Document API changes in separate file</code></pre>
+- Document API changes in a separate file</code></pre>
             </div>
 
             <h2>Step 3: Team-Specific Conventions</h2>
@@ -168,7 +168,7 @@
 - Deploy to staging automatically</code></pre>
             </div>
 
-            <h2>Step 4: Language and Framework Specific</h2>
+            <h2>Step 4: Language- and Framework-Specific Guidance</h2>
             <p>Include technology-specific guidance for Copilot:</p>
             
             <div class="command-example">
@@ -181,7 +181,7 @@
 
 ## Git Conventions for Frontend
 - Include "frontend:" prefix for UI changes
-- Screenshot before/after in PR description
+- Include before/after screenshots in PR description
 - Test on multiple browsers
 - Check responsive design
 
@@ -217,7 +217,7 @@
             <div class="command-example">
                 <pre><code># Version your instructions file:
 # v1.0 - Initial team conventions
-# v1.1 - Added security requirements  
+# v1.1 - Added security requirements
 # v1.2 - Updated for new CI/CD pipeline
 # v2.0 - Major revision after team retro
 
@@ -303,10 +303,10 @@ feat(dashboard): add user analytics view [DASH-789]</code></pre>
             
             <h3>Your Task:</h3>
             <ol>
-                <li>Create a comprehensive `.github/copilot-instructions.md` file for your team</li>
-                <li>Include at least 5 different types of conventions (commits, branches, PRs, etc.)</li>
+                <li>Create a comprehensive .github/copilot-instructions.md file for your team</li>
+                <li>Include at least five different types of conventions (commits, branches, PRs, etc.)</li>
                 <li>Test the instructions with Copilot Chat using various prompts</li>
-                <li>Refine the instructions based on the AI responses</li>
+                <li>Refine the instructions based on the AI's responses</li>
                 <li>Share with your team and gather feedback for improvements</li>
             </ol>
 
@@ -316,7 +316,7 @@ feat(dashboard): add user analytics view [DASH-789]</code></pre>
             <h3>Key Achievements:</h3>
             <ul>
                 <li>Create repository-specific instructions for consistent AI assistance</li>
-                <li>Define and enforce team conventions automatically</li>
+                <li>Define team conventions and reinforce them through AI guidance</li>
                 <li>Integrate Git practices with your development workflow</li>
                 <li>Continuously improve AI guidance based on team feedback</li>
             </ul>
@@ -330,7 +330,7 @@ feat(dashboard): add user analytics view [DASH-789]</code></pre>
         </div>
 
         <footer>
-            <p>Mission Control Training Program • Phase 38 of 40</p>
+            <p>Mission Control Training Program • Phase 39 of 41</p>
         </footer>
     </div>
 

@@ -6,28 +6,28 @@
     <title>Git Diff - Viewing Changes and Differences in Code</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Master git diff to compare changes in your code. View differences between commits, branches, and working directory modifications.">
+    <meta name="description" content="Master the git diff command to compare changes in your code. View differences between commits, branches, and working directory modifications.">
     <meta name="keywords" content="git diff, view changes, compare commits, code differences, Git comparison, diff command">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/scanning-changes.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Diff - Viewing Changes and Differences in Code">
-    <meta property="og:description" content="Master git diff to compare changes in your code. View differences between commits, branches, and working directory modifications.">
+    <meta property="og:description" content="Master the git diff command to compare changes in your code. View differences between commits, branches, and working directory modifications.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/scanning-changes.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/scanning-changes.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Diff - Viewing Changes and Differences in Code">
-    <meta name="twitter:description" content="Master git diff to compare changes in your code. View differences between commits, branches, and working directory modifications.">
+    <meta name="twitter:description" content="Master the git diff command to compare changes in your code. View differences between commits, branches, and working directory modifications.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT8M",
+      "timeRequired": "PT3M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,15 +70,15 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-search"></i> Scanning for Changes</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 8 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 3 min read</div>
             <p class="subtitle">Git Diff</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 12</strong> • Difficulty: Beginner</p>
+            <p><strong>Mission Phase 16</strong> • Difficulty: Beginner</p>
         </div>
         <article>
             <h2>Detecting System Modifications</h2>
-            <p>The <code>git diff</code> command is your scanner—it shows exactly what changed between different states of your files. Essential for reviewing work before committing.</p>
+            <p>The <code>git diff</code> command is your scanner—it shows exactly what changed between different states of your files. It is essential for reviewing work before committing.</p>
             <h2>Basic Diff Usage</h2>
             <p>See unstaged changes:</p>
             <div class="command-example">
@@ -89,7 +89,7 @@
             <div class="command-example">
                 <pre><code>git diff --staged</code></pre>
             </div>
-            <p>Shows what's in the staging area vs. last commit.</p>
+            <p>Shows what's in the staging area compared with the last commit.</p>
             <h2>Reading Diff Output</h2>
             <pre><code>diff --git a/navigation.js b/navigation.js
 index 3a8f2c1..7b9d4e2 100644
@@ -104,7 +104,7 @@ index 3a8f2c1..7b9d4e2 100644
                 <li><code>---</code> and <code>+++</code>: Old and new file versions</li>
                 <li><code>-</code> lines: Removed (shown in red)</li>
                 <li><code>+</code> lines: Added (shown in green)</li>
-                <li><code>@@ -10,7 +10,7 @@</code>: Line numbers context</li>
+                <li><code>@@ -10,7 +10,7 @@</code>: Line-number context</li>
             </ul>
             <h2>Compare Specific Files</h2>
             <div class="command-example">
@@ -136,11 +136,11 @@ git diff HEAD~2 HEAD    # Compare 2 commits ago to now</code></pre>
             <p>You can now see what changed. Next, we'll explore <code>git log</code> to review your complete mission history.</p>
         </article>
         <div class="navigation">
-            <a href="mission-log.html" class="nav-link">← Previous: Mission Log</a>
+            <a href="receiving-updates.html" class="nav-link">← Previous: Receiving Updates</a>
             <a href="reviewing-logs.html" class="nav-link">Next: Reviewing Logs →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 12 of 34</p>
+            <p>Mission Control Training Program • Phase 16 of 41</p>
         </footer>
     </div>
     <script>

@@ -130,7 +130,7 @@
         <div class="content-section">
             <h2><i class="fas fa-undo"></i> Reset Operations</h2>
             
-            <h3>Soft Reset (SAFE)</h3>
+            <h3>Soft Reset (Safe)</h3>
             <p>Undo commits but keep all changes staged:</p>
             <pre><code># Undo last commit, keep changes staged
 git reset --soft HEAD~1
@@ -148,7 +148,7 @@ git reset HEAD filename
 
 # Use case: Split commits, reorganize staging area</code></pre>
 
-            <h3>Hard Reset (DESTRUCTIVE - USE WITH CAUTION!)</h3>
+            <h3>Hard Reset (Destructive — Use With Caution!)</h3>
             <p>⚠️ Destroys all uncommitted changes!</p>
             <pre><code># ALWAYS create backup first!
 git branch emergency-backup
@@ -176,7 +176,7 @@ git checkout -- filename
 git checkout HEAD~3 -- filename
 
 # Checkout vs Reset:
-# - Checkout: Switch branches, restore files (doesn't rewrite history)
+# - Checkout: Switch branches, restore files (does not rewrite history)
 # - Reset: Undo commits, move branch pointer (rewrites history)</code></pre>
         </div>
 
@@ -231,7 +231,7 @@ git revert range-of-commits</code></pre>
                 </div>
 
                 <div class="revert-advantages">
-                    <h3><i class="fas fa-star"></i> Why Revert for Production Environments</h3>
+                    <h3><i class="fas fa-star"></i> Why Use Revert in Production Environments</h3>
                     <div class="advantages-grid">
                         <div class="advantage-item">
                             <i class="fas fa-history"></i>
@@ -241,7 +241,7 @@ git revert range-of-commits</code></pre>
                         <div class="advantage-item">
                             <i class="fas fa-users"></i>
                             <h4>Team Safe</h4>
-                            <p>Safe for shared repositories - doesn't rewrite history that others depend on</p>
+                            <p>Safe for shared repositories — it does not rewrite history that others depend on</p>
                         </div>
                         <div class="advantage-item">
                             <i class="fas fa-redo"></i>
@@ -295,7 +295,7 @@ git log --oneline</code></pre>
                     <code>git checkout HEAD -- file</code>
                 </div>
                 <div class="ref-card">
-                    <h4>Nuclear Reset (DESTRUCTIVE!)</h4>
+                    <h4>Nuclear Reset (Destructive!)</h4>
                     <code>git reset --hard HEAD~1</code>
                 </div>
                 <div class="ref-card">

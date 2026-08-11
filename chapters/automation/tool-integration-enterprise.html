@@ -89,7 +89,7 @@
             <h2><i class="fas fa-satellite"></i> Mission Briefing</h2>
             <p>Commander, the most advanced space missions require sophisticated integration of multiple autonomous systems working in perfect harmony. Just as the International Space Station coordinates life support, navigation, communication, and scientific instruments through integrated control systems, your enterprise development environments need seamless integration of CI/CD tools, containerization platforms, cloud infrastructure, and monitoring solutions.</p>
             
-            <p>You'll master <strong>Enterprise Tool Integration</strong> and <strong>Multi-Cloud Automation</strong> - the advanced orchestration skills that transform individual tools into comprehensive automation ecosystems. From Jenkins pipeline orchestration to Docker containerization, from multi-cloud deployments to comprehensive observability, you'll build enterprise-grade automation that operates with military precision across complex infrastructure landscapes.</p>
+            <p>You'll master <strong>Enterprise Tool Integration</strong> and <strong>Multi-Cloud Automation</strong> — the advanced orchestration skills that transform individual tools into comprehensive automation ecosystems. From Jenkins pipeline orchestration to Docker containerization, from multi-cloud deployments to comprehensive observability, you'll build enterprise-grade automation that operates with military precision across complex infrastructure landscapes.</p>
 
             <div class="learning-objectives">
                 <h3><i class="fas fa-crosshairs"></i> Enterprise Integration Objectives</h3>
@@ -412,7 +412,7 @@
                 </div>
             </div>
 
-            <p>Jenkins is the backbone of enterprise CI/CD, providing robust pipeline automation, extensive plugin ecosystem, and enterprise-grade features for complex deployment workflows.</p>
+            <p>Jenkins is the backbone of enterprise CI/CD, providing robust pipeline automation, an extensive plugin ecosystem, and enterprise-grade features for complex deployment workflows.</p>
 
             <!-- Jenkins Architecture -->
             <div class="jenkins-architecture">
@@ -422,7 +422,7 @@
                     <div class="jenkins-components">
                         <div class="component-card master">
                             <div class="component-header">
-                                <h4><i class="fas fa-server"></i> Jenkins Master</h4>
+                                <h4><i class="fas fa-server"></i> Jenkins Controller</h4>
                                 <span class="component-badge orchestrator">Orchestrator</span>
                             </div>
                             <div class="component-content">
@@ -466,14 +466,14 @@ docker pull jenkins/jenkins:lts
 
 # Run Jenkins container
 docker run -d \\
-  --name jenkins-master \\
+  --name jenkins-controller \\
   -p 8080:8080 \\
   -p 50000:50000 \\
   -v jenkins_home:/var/jenkins_home \\
   jenkins/jenkins:lts
 
 # Get initial admin password
-docker exec jenkins-master cat /var/jenkins_home/secrets/initialAdminPassword</code></pre>
+docker exec jenkins-controller cat /var/jenkins_home/secrets/initialAdminPassword</code></pre>
                         </div>
                         
                         <div class="setup-card kubernetes">
@@ -482,7 +482,7 @@ docker exec jenkins-master cat /var/jenkins_home/secrets/initialAdminPassword</c
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jenkins-master
+  name: jenkins-controller
 spec:
   replicas: 1
   selector:
@@ -555,7 +555,7 @@ spec:
         
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci --only=production'
+                sh 'npm ci'
                 sh 'npm audit --audit-level moderate'
             }
         }
@@ -949,7 +949,7 @@ pipeline {
 FROM node:16-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+RUN npm ci && npm cache clean --force
 
 # Copy source and build
 COPY . .
@@ -969,7 +969,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
 
 # Security and optimization
-RUN npm prune --production && \
+RUN npm prune --omit=dev && \
     npm cache clean --force
 
 USER nextjs
@@ -1552,7 +1552,7 @@ jobs:
                 </div>
             </div>
 
-            <p>Master multi-cloud deployment strategies with infrastructure as code, automated scaling, and Git-driven deployment workflows across AWS, Azure, and Google Cloud Platform.</p>
+            <p>Master multi-cloud deployment strategies with infrastructure as code, automated scaling, and Git-driven deployment workflows across AWS, Azure, and Google Cloud.</p>
 
             <!-- Cloud Architecture Overview -->
             <div class="cloud-architecture">
@@ -1619,7 +1619,7 @@ jobs:
                         <div class="platform-card gcp">
                             <div class="platform-header">
                                 <i class="fab fa-google"></i>
-                                <h4>Google Cloud Platform</h4>
+                                <h4>Google Cloud</h4>
                                 <span class="platform-badge innovation">AI/ML Leader</span>
                             </div>
                             <div class="platform-content">
@@ -1707,13 +1707,13 @@ module "aws_eks" {
                 <div class="gitops-strategies">
                     <div class="gitops-card argocd">
                         <div class="gitops-header">
-                            <h4><i class="fas fa-sync-alt"></i> ArgoCD Multi-Cluster</h4>
+                            <h4><i class="fas fa-sync-alt"></i> Argo CD Multi-Cluster</h4>
                         </div>
                         <div class="gitops-content">
                             <p>Declarative GitOps continuous delivery for Kubernetes across multiple clouds.</p>
                             
                             <div class="argocd-config">
-                                <h5>ArgoCD Application Configuration</h5>
+                                <h5>Argo CD Application Configuration</h5>
                                 <pre><code class="language-yaml"># argocd/applications/multi-cloud-app.yml
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -1847,7 +1847,7 @@ functions:
                                         <span class="tool-item prometheus">Prometheus</span>
                                         <span class="tool-item grafana">Grafana</span>
                                         <span class="tool-item cloudwatch">CloudWatch</span>
-                                        <span class="tool-item datadog">DataDog</span>
+                                        <span class="tool-item datadog">Datadog</span>
                                     </div>
                                 </div>
                                 <div class="pillar-examples">
@@ -2398,7 +2398,7 @@ module.exports = { PipelineTracer };</code></pre>
                     </div>
                     
                     <div class="alertmanager-config">
-                        <h4>AlertManager Configuration</h4>
+                        <h4>Alertmanager Configuration</h4>
                         <pre><code class="language-yaml"># alertmanager/alertmanager.yml
 global:
   smtp_smarthost: 'smtp.gmail.com:587'
@@ -2552,7 +2552,7 @@ inhibit_rules:
                             </div>
                             <div class="objective-item">
                                 <i class="fas fa-cloud"></i>
-                                <h4>Multi-Cloud Deploy</h4>
+                                <h4>Multi-Cloud Deployment</h4>
                                 <p>AWS, Azure, and GCP deployment strategies</p>
                             </div>
                             <div class="objective-item">
@@ -2586,7 +2586,7 @@ inhibit_rules:
                         <div class="arch-layer cicd">
                             <div class="layer-title">CI/CD Orchestration</div>
                             <div class="layer-components">
-                                <div class="component">Jenkins Master</div>
+                                <div class="component">Jenkins Controller</div>
                                 <div class="component">Build Agents</div>
                                 <div class="component">Pipeline as Code</div>
                             </div>
@@ -2727,14 +2727,14 @@ git commit -m "feat: initialize enterprise e-commerce platform
                             
                             <div class="code-block">
                                 <div class="code-header">
-                                    <span class="code-title">Jenkins Master Configuration</span>
+                                    <span class="code-title">Jenkins Controller Configuration</span>
                                     <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
                                 </div>
                                 <pre><code class="language-yaml"># infrastructure/jenkins/docker-compose.yml
 version: '3.8'
 
 services:
-  jenkins-master:
+  jenkins-controller:
     image: jenkins/jenkins:lts
     ports:
       - "8080:8080"
@@ -2746,7 +2746,7 @@ services:
     environment:
       - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
       - JENKINS_ADMIN_ID=admin
-      - JENKINS_ADMIN_PASSWORD=enterprise_password_123
+      - JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD:?set admin password}
     networks:
       - jenkins-network
   
@@ -2763,7 +2763,7 @@ services:
   jenkins-agent-k8s:
     image: jenkins/inbound-agent:latest
     environment:
-      - JENKINS_URL=http://jenkins-master:8080
+      - JENKINS_URL=http://jenkins-controller:8080
       - JENKINS_SECRET=agent-secret-key
       - JENKINS_AGENT_NAME=k8s-agent
       - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
@@ -2801,7 +2801,7 @@ azure-credentials:latest
 google-kubernetes-engine:latest
 
 # Install plugins automatically
-docker exec jenkins-master jenkins-plugin-cli --plugins-from-file /usr/share/jenkins/ref/plugins.txt</code></pre>
+docker exec jenkins-controller jenkins-plugin-cli --plugins-from-file /usr/share/jenkins/ref/plugins.txt</code></pre>
                             </div>
                         </div>
                     </div>
@@ -2949,7 +2949,7 @@ output "cluster_endpoints" {
 FROM node:18-alpine AS dependencies
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+RUN npm ci && npm cache clean --force
 
 FROM node:18-alpine AS build
 WORKDIR /app
@@ -3653,10 +3653,10 @@ def deployToProduction(Map config) {
                 <div class="next-steps">
                     <h4>🚀 Next Steps in Your Journey</h4>
                     <ul>
-                        <li><strong>Phase 3: Enterprise Management</strong> - Scale for large organizations and complex project structures</li>
-                        <li><strong>Advanced GitOps</strong> - Implement declarative infrastructure and application management</li>
-                        <li><strong>Compliance Automation</strong> - Automated security and regulatory compliance workflows</li>
-                        <li><strong>Performance Optimization</strong> - Advanced repository and pipeline optimization techniques</li>
+                        <li><strong>Phase 3: Enterprise Management</strong> — Scale for large organizations and complex project structures</li>
+                        <li><strong>Advanced GitOps</strong> — Implement declarative infrastructure and application management</li>
+                        <li><strong>Compliance Automation</strong> — Automate security and regulatory compliance workflows</li>
+                        <li><strong>Performance Optimization</strong> — Apply advanced repository and pipeline optimization techniques</li>
                     </ul>
                 </div>
             </div>
@@ -3672,7 +3672,7 @@ def deployToProduction(Map config) {
                 <div class="mission-nav-buttons">
                     <a href="github-actions-cicd.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
                     <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
-                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                    <a href="../enterprise/large-repository-management.html" class="btn btn-primary">Next: Large Repository Management <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

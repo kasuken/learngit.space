@@ -326,7 +326,7 @@ git flow hotfix finish critical-nav-bug
                 <div class="principles-grid">
                     <div class="principle-card">
                         <div class="principle-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h4>Main Branch is Sacred</h4>
+                        <h4>Main Branch Is Sacred</h4>
                         <p>The main branch is always deployable. Every commit represents a potential production deployment. Protect it at all costs.</p>
                     </div>
 
@@ -339,13 +339,13 @@ git flow hotfix finish critical-nav-bug
                     <div class="principle-card">
                         <div class="principle-icon"><i class="fas fa-eye"></i></div>
                         <h4>Pull Request Reviews</h4>
-                        <p>Every change goes through peer review via pull requests. No direct commits to main branch.</p>
+                        <p>Every change goes through peer review via pull requests. No direct commits to the main branch.</p>
                     </div>
 
                     <div class="principle-card">
                         <div class="principle-icon"><i class="fas fa-rocket"></i></div>
                         <h4>Deploy Immediately</h4>
-                        <p>Once merged to main, deploy immediately. Fast feedback loops and quick iteration.</p>
+                        <p>Once changes are merged to main, deploy immediately for fast feedback loops and quick iteration.</p>
                     </div>
                 </div>
             </div>
@@ -390,7 +390,7 @@ gh pr create --title "Add User Authentication System" \
   --body "Implements secure login with JWT tokens
   
   - Login/logout functionality
-  - Password encryption
+  - Password hashing
   - Session management
   - Unit tests included"</code></pre>
                         </div>
@@ -524,6 +524,7 @@ git init
 echo "# Interstellar Navigation System" > README.md
 git add README.md
 git commit -m "Initial fleet deployment"
+git remote add origin &lt;repository-url&gt;
 
 # Create develop branch
 git checkout -b develop
@@ -535,10 +536,10 @@ git push -u origin develop</code></pre>
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h4>Install GitFlow (Optional Tool)</h4>
-                        <pre><code># Windows (using chocolatey)
+                        <pre><code># Windows (using Chocolatey)
 choco install gitflow-avh
 
-# macOS (using homebrew)  
+# macOS (using Homebrew)
 brew install git-flow-avh
 
 # Ubuntu/Debian
@@ -568,6 +569,7 @@ git push -u origin feature/warp-drive-upgrade</code></pre>
                     <div class="step-content">
                         <h4>Develop Feature</h4>
                         <pre><code># Create feature files
+mkdir -p src tests
 echo "class WarpDrive {}" > src/warp-drive.js
 echo "# Warp Drive Tests" > tests/warp-drive.test.js
 
@@ -692,9 +694,12 @@ git push origin main develop --tags</code></pre>
                 <pre><code># Using GitHub CLI to set up branch protection
 gh api repos/:owner/:repo/branches/main/protection \
   --method PUT \
-  --field required_status_checks='{"strict":true,"contexts":["ci/test","ci/build"]}' \
+  --field required_status_checks[strict]=true \
+  --field required_status_checks[contexts][]=ci/test \
+  --field required_status_checks[contexts][]=ci/build \
   --field enforce_admins=true \
-  --field required_pull_request_reviews='{"required_approving_review_count":2,"dismiss_stale_reviews":true}' \
+  --field required_pull_request_reviews[required_approving_review_count]=2 \
+  --field required_pull_request_reviews[dismiss_stale_reviews]=true \
   --field restrictions=null</code></pre>
             </div>
         </div>
@@ -764,7 +769,7 @@ gh api repos/:owner/:repo/branches/main/protection \
                 <div class="mission-nav-buttons">
                     <a href="advanced-merging-rebasing.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
                     <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
-                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                    <a href="advanced-reset-recovery.html" class="btn btn-primary">Next: Reset &amp; Recovery <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

@@ -6,28 +6,28 @@
     <title>Git Pull - Downloading and Merging Remote Changes</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn git pull to fetch and merge remote changes. Keep your local repository synchronized with remote updates from team members.">
+    <meta name="description" content="Learn the git pull command to fetch and merge remote changes. Keep your local repository synchronized with remote updates from team members.">
     <meta name="keywords" content="git pull, fetch changes, pull from GitHub, sync repository, download updates, Git remote changes">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/receiving-updates.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Pull - Downloading and Merging Remote Changes">
-    <meta property="og:description" content="Learn git pull to fetch and merge remote changes. Keep your local repository synchronized with remote updates from team members.">
+    <meta property="og:description" content="Learn the git pull command to fetch and merge remote changes. Keep your local repository synchronized with remote updates from team members.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/receiving-updates.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/receiving-updates.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Pull - Downloading and Merging Remote Changes">
-    <meta name="twitter:description" content="Learn git pull to fetch and merge remote changes. Keep your local repository synchronized with remote updates from team members.">
+    <meta name="twitter:description" content="Learn the git pull command to fetch and merge remote changes. Keep your local repository synchronized with remote updates from team members.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT9M",
+      "timeRequired": "PT4M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,11 +70,11 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-inbox"></i> Receiving Updates</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 9 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 4 min read</div>
             <p class="subtitle">Git Pull</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 17</strong> • Difficulty: Beginner</p>
+            <p><strong>Mission Phase 15</strong> • Difficulty: Beginner</p>
         </div>
         <article>
             <h2>Downloading from Mission Control</h2>
@@ -83,15 +83,15 @@
             <div class="command-example">
                 <pre><code>git pull</code></pre>
             </div>
-            <p>This downloads new commits and merges them into your current branch.</p>
+            <p>By default, this downloads new commits and merges them into your current branch.</p>
             <h2>What Pull Actually Does</h2>
-            <p><code>git pull</code> is actually two commands:</p>
+            <p><code>git pull</code> is essentially two steps by default:</p>
             <ol>
                 <li><code>git fetch</code>: Downloads new commits</li>
-                <li><code>git merge</code>: Merges them into your branch</li>
+                <li><code>git merge</code>: Merges them into your branch (unless you've configured pull to rebase)</li>
             </ol>
             <p>You can run these separately for more control.</p>
-            <h2>Fetch vs Pull</h2>
+            <h2>Fetch vs. Pull</h2>
             <h3>Fetch (Safe)</h3>
             <div class="command-example">
                 <pre><code>git fetch</code></pre>
@@ -101,7 +101,7 @@
             <div class="command-example">
                 <pre><code>git pull</code></pre>
             </div>
-            <p>Downloads and merges in one step. Faster but less control.</p>
+            <p>Downloads and integrates changes in one step. Faster but less control.</p>
             <h2>Specifying Remote and Branch</h2>
             <div class="command-example">
                 <pre><code>git pull origin main</code></pre>
@@ -110,7 +110,7 @@
             <div class="command-example">
                 <pre><code>git pull --rebase</code></pre>
             </div>
-            <p>Instead of merging, rebases your commits on top of the pulled changes. Creates cleaner history.</p>
+            <p>Instead of merging, rebases your commits on top of the pulled changes, creating cleaner history.</p>
             <h2>Handling Conflicts</h2>
             <p>If you and a teammate edited the same lines, Git can't auto-merge:</p>
             <pre><code>Auto-merging navigation.js
@@ -138,10 +138,10 @@ git commit</code></pre>
                 <h3>Workflow Tip</h3>
                 <p>Many developers follow this pattern:</p>
                 <ol>
-                    <li>Start day: <code>git pull</code></li>
+                    <li>Start the day: <code>git pull</code></li>
                     <li>Work on code</li>
                     <li>Commit changes</li>
-                    <li>Before push: <code>git pull</code></li>
+                    <li>Before pushing: <code>git pull</code></li>
                     <li>Resolve any conflicts</li>
                     <li><code>git push</code></li>
                 </ol>
@@ -152,15 +152,15 @@ git commit</code></pre>
                 <pre><code>git log HEAD..origin/main    # See new commits
 git diff HEAD origin/main     # See changes</code></pre>
             </div>
-            <h2>Next: Parallel Timelines</h2>
-            <p>You can now synchronize with teammates. Next, we'll explore Git's most powerful feature: branching!</p>
+            <h2>Next: Scanning for Changes</h2>
+            <p>You can now synchronize with teammates. Next, we'll learn to examine differences between versions with <code>git diff</code>.</p>
         </article>
         <div class="navigation">
             <a href="transmission-uplink.html" class="nav-link">← Previous: Transmission Uplink</a>
-            <a href="parallel-timelines.html" class="nav-link">Next: Parallel Timelines →</a>
+            <a href="scanning-changes.html" class="nav-link">Next: Scanning for Changes →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 17 of 34</p>
+            <p>Mission Control Training Program • Phase 15 of 41</p>
         </footer>
     </div>
     <script>

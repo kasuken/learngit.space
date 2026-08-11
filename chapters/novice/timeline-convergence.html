@@ -6,28 +6,28 @@
     <title>Git Merge - Combining Branches and Integrating Changes</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn git merge to combine branches. Master merge strategies, fast-forward merges, and integrate feature branches into main.">
+    <meta name="description" content="Learn the git merge command to combine branches. Master merge strategies, fast-forward merges, and integrate feature branches into main.">
     <meta name="keywords" content="git merge, merge branches, combine branches, Git integration, merge strategy, branch merging">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/timeline-convergence.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Merge - Combining Branches and Integrating Changes">
-    <meta property="og:description" content="Learn git merge to combine branches. Master merge strategies, fast-forward merges, and integrate feature branches into main.">
+    <meta property="og:description" content="Learn the git merge command to combine branches. Master merge strategies, fast-forward merges, and integrate feature branches into main.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/timeline-convergence.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/timeline-convergence.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Merge - Combining Branches and Integrating Changes">
-    <meta name="twitter:description" content="Learn git merge to combine branches. Master merge strategies, fast-forward merges, and integrate feature branches into main.">
+    <meta name="twitter:description" content="Learn the git merge command to combine branches. Master merge strategies, fast-forward merges, and integrate feature branches into main.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT8M",
+      "timeRequired": "PT6M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,11 +70,11 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-exchange-alt"></i> Timeline Convergence</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 8 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div>
             <p class="subtitle">Git Merge</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 19</strong> • Difficulty: Intermediate</p>
+            <p><strong>Mission Phase 21</strong> • Difficulty: Intermediate</p>
         </div>
         <article>
             <h2>Combining Parallel Universes</h2>
@@ -91,14 +91,14 @@ git merge feature-branch</code></pre>
             <h2>Types of Merges</h2>
             <h3>Fast-Forward Merge</h3>
             <p>When no commits were made to <code>main</code> while you worked on your feature, Git simply moves the pointer forward:</p>
-            <pre><code>Updating a1b2c3d..e4f5g6h
+            <pre><code>Updating a1b2c3d..e4f5a6b
 Fast-forward
  navigation.js | 25 +++++++++++++++++++++++++
  1 file changed, 25 insertions(+)</code></pre>
             <p>No merge commit is created—just a clean, linear history.</p>
             <h3>Three-Way Merge</h3>
             <p>When both branches have new commits, Git creates a merge commit:</p>
-            <pre><code>Merge made by the 'recursive' strategy.
+            <pre><code>Merge made by the 'ort' strategy.
  sensors.js | 15 +++++++++++++++
  1 file changed, 15 insertions(+)</code></pre>
             <p>This merge commit has two parents—one from each branch.</p>
@@ -130,7 +130,7 @@ git commit</code></pre>
             <div class="command-example">
                 <pre><code>git merge --abort</code></pre>
             </div>
-            <p>Returns to pre-merge state.</p>
+            <p>Returns you to the pre-merge state.</p>
             <h2>Merge Strategies</h2>
             <h3>No Fast-Forward</h3>
             <p>Always create a merge commit:</p>
@@ -144,7 +144,7 @@ git commit</code></pre>
                 <pre><code>git merge --squash feature-branch
 git commit -m "Add complete sensor system"</code></pre>
             </div>
-            <p>Creates cleaner history but loses individual commit details.</p>
+            <p>Creates cleaner history but condenses individual commit details.</p>
             <h2>Viewing Merge Status</h2>
             <p>See what's merged:</p>
             <div class="command-example">
@@ -160,7 +160,7 @@ git branch --no-merged     # Branches not yet merged</code></pre>
             <h2>Best Practices</h2>
             <ul>
                 <li>Merge frequently to avoid large conflicts</li>
-                <li>Pull main into your feature branch regularly</li>
+                <li>Merge or rebase main into your feature branch regularly</li>
                 <li>Test after merging before pushing</li>
                 <li>Use meaningful merge commit messages</li>
                 <li>Consider squash merging for messy feature branches</li>
@@ -189,22 +189,22 @@ git push
 git branch -d feature-sensors
 git push origin --delete feature-sensors</code></pre>
             </div>
-            <h2>Merge vs Rebase</h2>
+            <h2>Merge vs. Rebase</h2>
             <p>Two ways to integrate changes:</p>
             <ul>
                 <li><strong>Merge:</strong> Preserves complete history, creates merge commits</li>
                 <li><strong>Rebase:</strong> Creates linear history, rewrites commits (covered in Phase 29)</li>
             </ul>
             <p>Both have their place. Merge is safer for beginners.</p>
-            <h2>Next: Mission Corrections</h2>
-            <p>You can now merge timelines. Next, learn to undo mistakes—because everyone makes them!</p>
+            <h2>Next: Conflict Resolution</h2>
+            <p>You can now merge timelines. But what happens when they collide? Next, learn to resolve merge conflicts with confidence.</p>
         </article>
         <div class="navigation">
-            <a href="parallel-timelines.html" class="nav-link">← Previous: Parallel Timelines</a>
-            <a href="mission-corrections.html" class="nav-link">Next: Mission Corrections →</a>
+            <a href="vessel-switching.html" class="nav-link">← Previous: Vessel Switching</a>
+            <a href="conflict-resolution.html" class="nav-link">Next: Conflict Resolution →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 19 of 34</p>
+            <p>Mission Control Training Program • Phase 21 of 41</p>
         </footer>
     </div>
     <script>

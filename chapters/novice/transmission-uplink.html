@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git Push - Uploading Changes to Remote Repository</title>
+    <title>Git Push - Uploading Changes to a Remote Repository</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Master git push to upload commits to remote repositories. Learn to push branches, sync with GitHub, and share your work.">
+    <meta name="description" content="Master the git push command to upload commits to remote repositories. Learn to push branches, sync with GitHub, and share your work.">
     <meta name="keywords" content="git push, push to GitHub, upload changes Git, remote push, sync repository, Git remote">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/transmission-uplink.html">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Git Push - Uploading Changes to Remote Repository">
-    <meta property="og:description" content="Master git push to upload commits to remote repositories. Learn to push branches, sync with GitHub, and share your work.">
+    <meta property="og:title" content="Git Push - Uploading Changes to a Remote Repository">
+    <meta property="og:description" content="Master the git push command to upload commits to remote repositories. Learn to push branches, sync with GitHub, and share your work.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/transmission-uplink.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/transmission-uplink.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Git Push - Uploading Changes to Remote Repository">
-    <meta name="twitter:description" content="Master git push to upload commits to remote repositories. Learn to push branches, sync with GitHub, and share your work.">
+    <meta name="twitter:title" content="Git Push - Uploading Changes to a Remote Repository">
+    <meta name="twitter:description" content="Master the git push command to upload commits to remote repositories. Learn to push branches, sync with GitHub, and share your work.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -36,7 +36,7 @@
     {
       "@context": "https://schema.org",
       "@type": "LearningResource",
-      "name": "Git Push - Uploading Changes to Remote Repository",
+      "name": "Git Push - Uploading Changes to a Remote Repository",
       "description": "Git Push",
       "url": "https://www.learngit.space/chapters/novice/transmission-uplink.html",
       "learningResourceType": "Tutorial",
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT11M",
+      "timeRequired": "PT4M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,11 +70,11 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-satellite-dish"></i> Transmission Uplink</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 11 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 4 min read</div>
             <p class="subtitle">Git Push</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 16</strong> • Difficulty: Beginner</p>
+            <p><strong>Mission Phase 14</strong> • Difficulty: Beginner</p>
         </div>
         <article>
             <h2>Uploading to Mission Control</h2>
@@ -87,31 +87,31 @@
                 <li>Don't initialize with README (you already have one locally)</li>
                 <li>Click "Create repository"</li>
             </ol>
-            <h2>Connecting Local to Remote</h2>
+            <h2>Connecting Local and Remote</h2>
             <p>Add the remote repository:</p>
             <div class="command-example">
                 <pre><code>git remote add origin git@github.com:username/my-first-mission.git</code></pre>
             </div>
             <p>Replace <code>username</code> with your GitHub username.</p>
             <p><code>origin</code> is the conventional name for your main remote repository.</p>
-            <h2>Verifying Remote</h2>
+            <h2>Verifying the Remote</h2>
             <div class="command-example">
                 <pre><code>git remote -v</code></pre>
             </div>
-            <p>Should show your GitHub URL for both fetch and push.</p>
+            <p>This should show your GitHub URL for both fetch and push.</p>
             <h2>Your First Push</h2>
             <div class="command-example">
                 <pre><code>git push -u origin main</code></pre>
             </div>
-            <p>The <code>-u</code> flag sets upstream tracking, so future pushes can just be <code>git push</code>.</p>
+            <p>The <code>-u</code> flag sets upstream tracking, so future pushes can use <code>git push</code>.</p>
             <h2>Understanding Push</h2>
-            <p>Push uploads:</p>
+            <p>Push sends or updates:</p>
             <ul>
                 <li>All new commits</li>
                 <li>Referenced objects</li>
-                <li>Updates remote branch pointers</li>
+                <li>Remote branch pointer updates</li>
             </ul>
-            <p>It doesn't upload: <li>Ignored files</li>
+            <p>It leaves these out: <li>Ignored files</li>
                 <li>Uncommitted changes</li>
                 <li>Untracked files</li>
             </ul>
@@ -129,7 +129,7 @@
             <div class="command-example">
                 <pre><code>git push --force</code></pre>
             </div>
-            <p><strong>Warning:</strong> Overwrites remote history. Only use when absolutely necessary and you're sure no one else is using the branch!</p>
+            <p><strong>Warning:</strong> Can overwrite remote history. Only use when absolutely necessary and you're sure no one else is using the branch!</p>
             <h2>Common Push Errors</h2>
             <h3>"Updates were rejected"</h3>
             <p>Someone pushed changes before you. Pull first, then push:</p>
@@ -159,11 +159,11 @@ git push</code></pre>
             <p>You can now send your work to GitHub. Next, we'll learn to pull changes from GitHub—receiving updates from teammates and other devices.</p>
         </article>
         <div class="navigation">
-            <a href="secure-communications.html" class="nav-link">← Previous: Secure Communications</a>
+            <a href="mission-log.html" class="nav-link">← Previous: Mission Log</a>
             <a href="receiving-updates.html" class="nav-link">Next: Receiving Updates →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 16 of 34</p>
+            <p>Mission Control Training Program • Phase 14 of 41</p>
         </footer>
     </div>
     <script>

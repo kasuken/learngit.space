@@ -6,28 +6,28 @@
     <title>Git Terminal Commands - Command Line Basics for Git</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Master essential terminal commands for Git. Learn command line navigation, file operations, and how to communicate with Git through the terminal.">
+    <meta name="description" content="Master essential terminal commands for Git. Learn command-line navigation, file operations, and how to communicate with Git through the terminal.">
     <meta name="keywords" content="Git command line, terminal commands, Git bash, command prompt Git, Git CLI, terminal basics">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/terminal-commands.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Terminal Commands - Command Line Basics for Git">
-    <meta property="og:description" content="Master essential terminal commands for Git. Learn command line navigation, file operations, and how to communicate with Git through the terminal.">
+    <meta property="og:description" content="Master essential terminal commands for Git. Learn command-line navigation, file operations, and how to communicate with Git through the terminal.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/terminal-commands.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/terminal-commands.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Terminal Commands - Command Line Basics for Git">
-    <meta name="twitter:description" content="Master essential terminal commands for Git. Learn command line navigation, file operations, and how to communicate with Git through the terminal.">
+    <meta name="twitter:description" content="Master essential terminal commands for Git. Learn command-line navigation, file operations, and how to communicate with Git through the terminal.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT13M",
+      "timeRequired": "PT9M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -72,7 +72,7 @@
         
         <header>
             <h1><i class="fas fa-laptop"></i> Terminal Commands</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 13 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 9 min read</div>
             <p class="subtitle">Communicating with Your Ship</p>
         </header>
 
@@ -156,7 +156,7 @@ rm -r directory/     # Remove directory and contents
 rm -rf directory/    # Force remove (very dangerous!)</code></pre>
             </div>
             
-            <p><strong>Windows Command Prompt:</strong> Use <code>del</code> for files, <code>rmdir</code> for directories.</p>
+            <p><strong>Windows Command Prompt:</strong> Use <code>del</code> for files and <code>rmdir</code> for directories.</p>
 
             <h3>Copy Files (<code>cp</code>)</h3>
             
@@ -180,7 +180,7 @@ mv file.txt other-dir/        # Move file</code></pre>
 
             <h3>Display File (<code>cat</code>)</h3>
             
-            <p>Show entire file contents:</p>
+            <p>Show the entire file contents:</p>
             
             <div class="command-example">
                 <pre><code>cat file.txt</code></pre>
@@ -216,7 +216,7 @@ mv file.txt other-dir/        # Move file</code></pre>
 cls          # Windows Command Prompt</code></pre>
             </div>
 
-            <h2>Paths: Absolute vs Relative</h2>
+            <h2>Paths: Absolute vs. Relative</h2>
 
             <h3>Absolute Path</h3>
             <p>Starts from the root directory:</p>
@@ -237,7 +237,7 @@ cls          # Windows Command Prompt</code></pre>
             <p>Use pipes (<code>|</code>) to chain commands:</p>
             
             <div class="command-example">
-                <pre><code>ls -la | grep ".txt"     # List all .txt files
+                <pre><code>ls -la | grep "\.txt"    # List all .txt files
 cat file.txt | wc -l     # Count lines in file</code></pre>
             </div>
 
@@ -268,7 +268,7 @@ echo "New log entry" &gt;&gt; log.txt  # Append to file</code></pre>
             
             <ul>
                 <li><strong>Stuck in a command?</strong> Press <code>Ctrl+C</code> to cancel</li>
-                <li><strong>Terminal frozen?</strong> Press <code>Ctrl+Z</code> to suspend, or close and reopen</li>
+                <li><strong>Command running unexpectedly?</strong> Press <code>Ctrl+Z</code> to suspend it, or close and reopen the terminal</li>
                 <li><strong>Made a mistake?</strong> Most terminal commands can't be undone—be careful with <code>rm</code>!</li>
             </ul>
 
@@ -313,7 +313,7 @@ echo "New log entry" &gt;&gt; log.txt  # Append to file</code></pre>
                 </tbody>
             </table>
             
-            <p><strong>Recommendation:</strong> Windows users should use Git Bash or PowerShell for Unix-like commands.</p>
+            <p><strong>Recommendation:</strong> Windows users should use Git Bash for Unix-like commands, or PowerShell for a modern Windows shell.</p>
 
             <h2>Ready for Configuration</h2>
             
@@ -332,7 +332,7 @@ echo "New log entry" &gt;&gt; log.txt  # Append to file</code></pre>
         </div>
 
         <footer>
-            <p>Mission Control Training Program • Phase 5 of 34</p>
+            <p>Mission Control Training Program • Phase 5 of 41</p>
         </footer>
     </div>
 

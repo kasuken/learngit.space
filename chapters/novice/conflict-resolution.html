@@ -15,7 +15,7 @@
     <meta property="og:title" content="Git Merge Conflicts - Resolving Code Conflicts">
     <meta property="og:description" content="Master merge conflict resolution in Git. Learn to identify, understand, and resolve conflicts when merging branches.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/conflict-resolution.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/conflict-resolution.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
@@ -27,7 +27,7 @@
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT10M",
+      "timeRequired": "PT6M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -66,53 +66,81 @@
 </head>
 <body data-mission="advanced" data-phase="2">
     <div class="stars" id="stars"></div>
-    
     <div class="container">
-        <header>
-            <div class="progress-breadcrumb">
-                <a href="../../index.html" class="breadcrumb-link">← Mission Control</a>
-            </div>
-            <div class="reading-time"><i class="fas fa-clock"></i> Estimated reading time: 15 min</div>
-            <h1>Conflict Resolution</h1>
-            <p class="chapter-subtitle">Merge Conflicts</p>
-        </header>
-
-        <main>
-            <section>
-                <h2>Mission Objective</h2>
-                <p>This chapter covers <strong>Merge Conflicts</strong> - an essential skill for navigating complex Git scenarios.</p>
-            </section>
-
-            <section>
-                <h2>Content Coming Soon</h2>
-                <p>This training module is currently under development. Check back soon for comprehensive coverage of this topic.</p>
-            </section>
-        </main>
-
-        <footer>
-            <nav class="chapter-nav">
-                <a href="../../index.html" class="nav-button">← Back to Mission Control</a>
-                <a href="../../index.html" class="nav-button">Next Phase →</a>
-            </nav>
-            <p>&copy; 2024 LearnGit.space - Your Journey Through Version Control</p>
-        </footer>
+        <a href="../../index.html" class="home-link">← Back to Mission Control</a>
+        <header><h1><i class="fas fa-exclamation-triangle"></i> Conflict Resolution</h1>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div><p class="subtitle">Merge Conflicts</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 22</strong> • Difficulty: Intermediate</p></div>
+        <article>
+            <h2>When Timelines Collide</h2>
+            <p>Sometimes two branches change the same lines of the same file. When you try to merge them, Git can't decide which version to keep, so it stops and asks you to choose. That pause is a <strong>merge conflict</strong>—a timeline collision that needs a human navigator.</p>
+            <p>Conflicts are normal. They aren't errors, and they don't mean anyone did something wrong. They simply mean two crew members edited the same code, and Git needs you to choose the final version.</p>
+            <h2>When Conflicts Happen</h2>
+            <ul>
+                <li>Two branches edit the same lines of a file</li>
+                <li>One branch deletes a file that another branch modified</li>
+                <li>Both branches add a file with the same name but different contents</li>
+            </ul>
+            <p>If the changes touch different lines or different files, Git merges them automatically—no conflict at all.</p>
+            <h2>Spotting a Conflict</h2>
+            <div class="command-example"><pre><code>git merge feature-branch</code></pre></div>
+            <p>When a conflict occurs, Git reports it clearly:</p>
+            <pre><code>Auto-merging navigation.js
+CONFLICT (content): Merge conflict in navigation.js
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+            <p>Run <code>git status</code> to list every conflicted file under <strong>"Unmerged paths"</strong>.</p>
+            <h2>Reading Conflict Markers</h2>
+            <p>Git marks the conflicting region in the file:</p>
+            <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+const speed = 'warp 9';
+=======
+const speed = 'impulse power';
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch</code></pre>
+            <ul>
+                <li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code>: your current branch's version</li>
+                <li><code>=======</code>: the divider between the two versions</li>
+                <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch</code>: the incoming branch's version</li>
+            </ul>
+            <h2>Resolving Step by Step</h2>
+            <ol>
+                <li>Open each conflicted file</li>
+                <li>Decide what the final code should be—keep one side, the other, or combine both</li>
+                <li>Delete all conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>)</li>
+                <li>Stage the resolved file: <code>git add navigation.js</code></li>
+                <li>Complete the merge: <code>git commit</code></li>
+            </ol>
+            <div class="command-example"><pre><code># After editing the file
+git add navigation.js
+git commit</code></pre></div>
+            <p>Git pre-fills a merge commit message—you can accept it as-is.</p>
+            <h2>Aborting a Merge</h2>
+            <p>Not ready to resolve right now? Back out safely:</p>
+            <div class="command-example"><pre><code>git merge --abort</code></pre></div>
+            <p>This returns your branch to the state it was in before the merge started.</p>
+            <h2>Using Visual Tools</h2>
+            <p>Editors like VS Code highlight conflicts and offer one-click <em>Accept Current Change</em>, <em>Accept Incoming Change</em>, or <em>Accept Both</em> buttons. For complex conflicts, a visual diff makes the decision much easier.</p>
+            <h2>Preventing Conflicts</h2>
+            <ul>
+                <li>Pull the latest changes before starting new work</li>
+                <li>Keep branches short-lived and merge often</li>
+                <li>Split work so crew members touch different files</li>
+                <li>Communicate with your crew about who is editing what</li>
+            </ul>
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Leaving stray markers:</strong> Forgetting to delete <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> or <code>=======</code> breaks the build silently—always re-read the file before committing.</li>
+                <li><strong>Resolving blind:</strong> Picking a side without understanding what the other branch was trying to do. When in doubt, ask the author or check <code>git log -p</code> on both sides.</li>
+                <li><strong>Force-pushing over an unfinished merge:</strong> If you're unsure, run <code>git merge --abort</code> and start again rather than guessing.</li>
+            </ul>
+            <h2>Next: Mission Corrections</h2>
+            <p>You can now resolve timeline collisions with confidence. Next, learn how to undo mistakes in Git with resets, reverts, and amended commits.</p>
+        </article>
+        <div class="navigation">
+            <a href="timeline-convergence.html" class="nav-link">← Previous: Timeline Convergence</a>
+            <a href="mission-corrections.html" class="nav-link">Next: Mission Corrections →</a>
+        </div>
+        <footer><p>Mission Control Training Program • Phase 22 of 41</p></footer>
     </div>
-
-    <script>
-        // Create stars
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 200; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            if (Math.random() > 0.95) {
-                star.style.animation = 'shoot 2s linear infinite';
-                star.style.animationDelay = Math.random() * 5 + 's';
-            }
-            starsContainer.appendChild(star);
-        }
-    </script>
+    <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
 </body>
 </html>

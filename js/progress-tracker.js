@@ -11,7 +11,7 @@ const ProgressTracker = {
         // Novice Path Missions
         'mission-briefing': { phases: 1, section: 'Pre-Launch', path: 'novice' },
         'git-basics': { phases: 10, section: 'Phase 1: Launch Sequence', path: 'novice' },
-        'branches': { phases: 8, section: 'Phase 2: Orbital Maneuvers', path: 'novice' },
+        'branches': { phases: 9, section: 'Phase 2: Orbital Maneuvers', path: 'novice' },
         'advanced': { phases: 7, section: 'Phase 3: Deep Space Operations', path: 'novice' },
         'collaboration': { phases: 6, section: 'Phase 4: Multi-Crew Missions', path: 'novice' },
         'beyond': { phases: 3, section: 'Phase 5: Beyond the Solar System', path: 'novice' },
@@ -31,7 +31,7 @@ const ProgressTracker = {
         novice: {
             name: 'Cadet Training',
             missions: ['mission-briefing', 'git-basics', 'branches', 'advanced', 'collaboration', 'beyond', 'copilot'],
-            totalPhases: 40  // 1 + 10 + 8 + 7 + 6 + 3 + 5 = 40
+            totalPhases: 41  // 1 + 10 + 9 + 7 + 6 + 3 + 5 = 41
         },
         advanced: {
             name: 'Commander Operations',
@@ -486,8 +486,10 @@ function showPathSwitchConfirmation(fromPath, toPath) {
 }
 
 function selectAdvancedPath() {
-    // Advanced path is coming soon
-    alert('Commander Operations Coming Soon!\n\nNew advanced missions are currently in development at Mission Control. Stay tuned for exciting new content that will take your Git skills to the next level!');
+    // Legacy handler retained for compatibility; Commander Operations is fully available.
+    // Index.html now calls selectPath('advanced') directly.
+    ProgressTracker.setSelectedPath('advanced');
+    showMissionControl('advanced');
 }
 
 function showAdvancedConfirmationModal() {
@@ -719,13 +721,13 @@ function updatePathInterface() {
         advancedCard.classList.add('path-selected');
     }
     
-    // Advanced path configuration (only if elements exist)
+    // Advanced path configuration (only if legacy lock elements exist)
     if (advancedLock) {
-        advancedLock.style.display = 'flex';
+        advancedLock.style.display = 'none';
     }
     if (advancedButton) {
-        advancedButton.disabled = true;
-        advancedButton.textContent = 'Coming Soon - New Missions in Development';
+        advancedButton.disabled = false;
+        advancedButton.textContent = 'Begin Commander Operations';
     }
 }
 
@@ -791,9 +793,9 @@ function runSystemTest() {
     // Test 3: Path definitions
     const novicePathData = ProgressTracker.paths.novice;
     const advancedPathData = ProgressTracker.paths.advanced;
-    results.push(`✓ Novice path missions: ${novicePathData.missions.length} (expected: 6)`);
+    results.push(`✓ Novice path missions: ${novicePathData.missions.length} (expected: 7)`);
     results.push(`✓ Advanced path missions: ${advancedPathData.missions.length} (expected: 6)`);
-    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 35)`);
+    results.push(`✓ Novice total phases: ${novicePathData.totalPhases} (expected: 41)`);
     results.push(`✓ Advanced total phases: ${advancedPathData.totalPhases} (expected: 21)`);
     
     // Test 4: Function availability

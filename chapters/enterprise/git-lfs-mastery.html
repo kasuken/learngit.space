@@ -353,15 +353,15 @@ git lfs version</code></pre>
                                 <span class="code-title">Repository LFS Setup</span>
                                 <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
                             </div>
-                            <pre><code class="language-bash"># Initialize LFS in existing repository
+                            <pre><code class="language-bash"># Install LFS hooks and filters for the current user
 git lfs install
 
-# Initialize LFS globally for all repositories
+# Install LFS hooks and filters system-wide for all users (admin)
 git lfs install --system
 
-# Initialize LFS in new repository
+# Initialize a new repository and enable LFS locally
 git init
-git lfs install
+git lfs install --local
 
 # Verify LFS is properly configured
 git lfs env</code></pre>
@@ -381,7 +381,7 @@ git lfs track "*.mp4"
 git lfs track "*.psd"
 git lfs track "*.pkl"
 
-# Track files by size (all files over 50MB)
+# Track lockable binary file patterns
 git lfs track --lockable "*.bin"
 
 # Track specific file or directory
@@ -441,8 +441,8 @@ git config lfs.fetchrecentcommitsdays 3
 git lfs fetch --recent
 git lfs fetch origin main
 
-# Configure LFS cache
-git config lfs.tlscachesize 128m
+# Configure LFS network timeouts
+git config lfs.tlstimeout 30
 git config lfs.activitytimeout 30
 git config lfs.dialtimeout 30</code></pre>
                         </div>
@@ -604,8 +604,8 @@ git clone https://github.com/company/project.git
 GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/company/project.git
 
 # Clone with selective LFS download
-git lfs install --local
-git clone https://github.com/company/project.git
+GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/company/project.git
+cd project
 git lfs pull --include="*.jpg,*.png" --exclude="videos/*"</code></pre>
                     </div>
                 </div>
@@ -722,7 +722,7 @@ git commit -m "feat: add product demo video"</code></pre>
                     <div class="strategy-section">
                         <h4><i class="fas fa-cloud-upload-alt"></i> Upload Optimization</h4>
                         <ul>
-                            <li><strong>Batch Uploads:</strong> Group multiple file uploads in single operations</li>
+                            <li><strong>Batch Uploads:</strong> Group multiple file uploads in a single operation</li>
                             <li><strong>Compression:</strong> Use compressed file formats when possible</li>
                             <li><strong>Resume Support:</strong> Leverage LFS resume capabilities for large uploads</li>
                             <li><strong>Network Configuration:</strong> Optimize timeout and retry settings</li>
@@ -752,7 +752,7 @@ git commit -m "feat: add product demo video"</code></pre>
                     <div class="migration-approach retroactive">
                         <h4><i class="fas fa-history"></i> Retroactive Migration</h4>
                         <div class="approach-content">
-                            <p><strong>Rewrites Git history</strong> to move large files to LFS throughout entire repository history.</p>
+                            <p><strong>Rewrites Git history</strong> to move large files to LFS throughout the entire repository history.</p>
                             
                             <div class="pros-cons">
                                 <div class="pros">
@@ -949,7 +949,7 @@ echo "- Consider retroactive migration for major version" >> LFS_MIGRATION.md</c
                     <div class="practice-item">
                         <i class="fas fa-test-tube"></i>
                         <h4>Test Migration</h4>
-                        <p>Practice migration on repository copy to identify issues and timing.</p>
+                        <p>Practice migration on a repository copy to identify issues and timing.</p>
                     </div>
                     <div class="practice-item">
                         <i class="fas fa-chart-line"></i>
@@ -980,7 +980,7 @@ echo "- Consider retroactive migration for major version" >> LFS_MIGRATION.md</c
                     <div class="solution-card github-enterprise">
                         <h4><i class="fab fa-github"></i> GitHub Enterprise</h4>
                         <div class="solution-content">
-                            <p><strong>Hosted Solution:</strong> Fully managed LFS with GitHub Enterprise Cloud/Server</p>
+                            <p><strong>Hosted Solution:</strong> Fully managed LFS with GitHub Enterprise Cloud or Server</p>
                             
                             <div class="features">
                                 <h5>Features</h5>
@@ -1119,7 +1119,7 @@ echo "https://token:${LFS_TOKEN}@lfs.company.com" >> ~/.git-credentials</code></
                             <li><strong>Repository Permissions:</strong> Team-based access control</li>
                             <li><strong>File-Level Security:</strong> Selective file access</li>
                             <li><strong>Audit Logging:</strong> Complete access trail</li>
-                            <li><strong>Compliance:</strong> SOC2, GDPR, HIPAA support</li>
+                            <li><strong>Compliance:</strong> SOC 2, GDPR, HIPAA support</li>
                         </ul>
                     </div>
                 </div>
@@ -1262,7 +1262,7 @@ git lfs env</code></pre>
                 <h2><i class="fas fa-trophy"></i> Mission Status: COMPLETE</h2>
                 <p>Exceptional work, Commander! You have successfully mastered Git LFS and large file management strategies for enterprise environments. Your expertise in LFS setup, migration strategies, and enterprise deployment will enable you to efficiently manage massive binary assets while maintaining optimal repository performance.</p>
                 
-                <p>Your next commander operation will be <strong>Security & Compliance</strong>, where you'll learn to implement signed commits, GPG keys, and audit trails for enterprise security requirements.</p>
+                <p>Your next commander-level operation will be <strong>Security & Compliance</strong>, where you'll learn to implement signed commits, GPG keys, and audit trails for enterprise security requirements.</p>
                 
                 <div class="mission-nav-buttons">
                     <a href="large-repository-management.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>

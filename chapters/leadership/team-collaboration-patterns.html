@@ -144,8 +144,8 @@ feature/team-c   ●───●   ●───●</code></pre>
                         </div>
                         <ul>
                             <li>Teams work on isolated feature branches</li>
-                            <li>Regular integration into develop branch</li>
-                            <li>Controlled releases from main branch</li>
+                            <li>Regular integration into the develop branch</li>
+                            <li>Controlled releases from the main branch</li>
                             <li>Suitable for teams with different release cycles</li>
                         </ul>
                     </div>
@@ -278,6 +278,7 @@ git add backend-auth.py
 git commit -m "feat(backend): add authentication service scaffold"
 
 git checkout -b feature/devops-ci develop
+mkdir -p .github/workflows
 echo "CI/CD pipeline configuration" > .github/workflows/ci.yml
 git add .github/workflows/ci.yml
 git commit -m "feat(devops): add CI/CD pipeline configuration"</code></pre>
@@ -287,7 +288,7 @@ git commit -m "feat(devops): add CI/CD pipeline configuration"</code></pre>
 # Frontend team completes their feature
 git checkout feature/frontend-dashboard
 echo "export const Dashboard = () => {
-  return <div>Dashboard Component</div>;
+  return &lt;div&gt;Dashboard Component&lt;/div&gt;;
 };" > frontend-dashboard.js
 git add frontend-dashboard.js
 git commit -m "feat(frontend): implement basic dashboard component"
@@ -483,7 +484,7 @@ chmod +x notify-teams.sh</code></pre>
                         </li>
                         <li>Test communication protocols:
                             <pre><code># Test the communication system
-git checkout feature/backend-api-changes
+git checkout -b feature/backend-api-changes
 echo "Breaking API changes example" > api-changes.md
 git add api-changes.md
 
@@ -574,9 +575,9 @@ git commit
                                 <tbody>
                                     <tr>
                                         <td>Backend API</td>
-                                        <td>REST endpoints, Data models</td>
+                                        <td>REST endpoints, data models</td>
                                         <td>Database, Auth service</td>
-                                        <td>API contracts, Versioning</td>
+                                        <td>API contracts, versioning</td>
                                     </tr>
                                     <tr>
                                         <td>Frontend</td>
@@ -628,7 +629,7 @@ git commit
             <div class="lab-exercise">
                 <h4><i class="fas fa-flask"></i> Lab 3: Coordination Workflow Implementation</h4>
                 <div class="lab-content">
-                    <p><strong>Scenario:</strong> Implement feature integration pipeline with dependency management</p>
+                    <p><strong>Scenario:</strong> Implement a feature integration pipeline with dependency management</p>
                     <ol>
                         <li>Set up integration testing workflow:
                             <pre><code># Create integration testing configuration
@@ -891,7 +892,7 @@ cat > .github/workflows/daily-handoff.yml << 'EOF'
 name: Daily Team Handoff
 on:
   schedule:
-    # Run at end of each major timezone workday
+    # Run at the end of each major region's workday
     - cron: '0 17 * * 1-5'  # 5 PM UTC (US East end of day)
     - cron: '0 9 * * 1-5'   # 9 AM UTC (Europe end of day)
     - cron: '0 1 * * 1-5'   # 1 AM UTC (Asia end of day)
@@ -1021,9 +1022,9 @@ cat > ASYNC_REVIEW_GUIDE.md << 'EOF'
 
 ### Communication Guidelines
 - **Be Explicit:** Assume no shared context
-- **Provide Examples:** Show don't just tell
+- **Provide Examples:** Show, don't just tell
 - **Record Explanations:** Use video for complex feedback
-- **Ask Questions:** Don't assume - ask for clarification
+- **Ask Questions:** Don't assume—ask for clarification
 
 ### Sample Review Comments
 ```

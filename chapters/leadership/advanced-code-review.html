@@ -82,12 +82,12 @@
                 <i class="fas fa-exclamation-triangle"></i>
                 <div>
                     <strong>Mission Critical: Quality Assurance Protocol</strong>
-                    <p>You are now responsible for ensuring code quality across multiple teams and projects. The decisions you make in review processes will impact entire mission success and team productivity.</p>
+                    <p>You are now responsible for ensuring code quality across multiple teams and projects. The decisions you make in review processes will impact overall mission success and team productivity.</p>
                 </div>
             </div>
 
             <h2><i class="fas fa-shield-alt"></i> Mission Briefing</h2>
-            <p>Commander, in large-scale space missions, no critical system component goes into production without rigorous inspection and approval from multiple expert engineers. In software development, <strong>code review</strong> serves this same vital function - ensuring quality, knowledge sharing, and maintaining mission standards across your development fleet.</p>
+            <p>Commander, in large-scale space missions, no critical system component goes into production without rigorous inspection and approval from multiple expert engineers. In software development, <strong>code review</strong> serves this same vital function - ensuring quality, sharing knowledge, and maintaining mission standards across your development fleet.</p>
             
             <p>As a commander, you're not just reviewing code - you're designing review processes that scale across teams, implementing quality gates that prevent defects from reaching production, and fostering a culture of continuous improvement. This requires mastering both technical review techniques and leadership strategies for effective team collaboration.</p>
 
@@ -128,7 +128,7 @@
 
             <div class="content-block">
                 <h3>Strategic Review Framework</h3>
-                <p>Enterprise code review goes beyond finding bugs - it's a systematic approach to maintaining code quality, sharing knowledge, and ensuring consistency across large development teams. A well-designed review strategy balances thoroughness with velocity.</p>
+                <p>Enterprise code review goes beyond finding bugs — it is a systematic approach to maintaining code quality, sharing knowledge, and ensuring consistency across large development teams. A well-designed review strategy balances thoroughness with velocity.</p>
 
                 <div class="framework-diagram">
                     <h4>Enterprise Review Pyramid</h4>
@@ -167,7 +167,7 @@
                 <div class="lab-content">
                     <p><strong>Scenario:</strong> Design a review strategy for a 50-person development team</p>
                     <ol>
-                        <li>Create a repository to practice with:
+                        <li>Create a practice repository:
                             <pre><code>mkdir review-strategy-demo
 cd review-strategy-demo
 git init
@@ -196,7 +196,7 @@ git remote add origin [your-repo-url]</code></pre>
 
 ## Review Timeline
 - Reviews should be completed within 24 hours
-- Urgent fixes can bypass some checks with post-review
+- Urgent fixes can bypass some checks with follow-up review
 - Architecture reviews scheduled weekly
 " > REVIEW_STRATEGY.md
 
@@ -338,7 +338,7 @@ jobs:
       - name: Check commit messages
         run: |
           # Validate commit message format
-          git log --pretty=format:"%s" ${{ github.event.pull_request.base.sha }}..${{ github.sha }} | \
+          git log --pretty=format:"%s" ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | \
           grep -E "^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .+" || \
           (echo "Invalid commit message format" && exit 1)
           
@@ -400,7 +400,7 @@ git push origin test-quality-gates</code></pre>
                         <ul>
                             <li><strong>Comment:</strong> General feedback without approval</li>
                             <li><strong>Approve:</strong> Explicit approval to merge</li>
-                            <li><strong>Request Changes:</strong> Block merge until issues addressed</li>
+                            <li><strong>Request Changes:</strong> Block merge until issues are addressed</li>
                         </ul>
                     </div>
                     <div class="feature-card">
@@ -456,7 +456,7 @@ README.md @tech-writers</code></pre>
                 <div class="advanced-techniques">
                     <h4>Advanced Review Techniques</h4>
                     <ul>
-                        <li><strong>Suggested Changes:</strong> Provide exact code fixes reviewees can apply with one click</li>
+                        <li><strong>Suggested Changes:</strong> Provide exact code fixes authors can apply with one click</li>
                         <li><strong>Review Templates:</strong> Standardize review checklists and feedback structure</li>
                         <li><strong>Cross-Repository Reviews:</strong> Reference related changes across multiple repos</li>
                         <li><strong>Review Analytics:</strong> Track review velocity and quality metrics</li>
@@ -492,8 +492,8 @@ EOF</code></pre>
 Brief description of changes and motivation
 
 ## Type of Change
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Bug fix (non-breaking change that fixes an issue)
+- [ ] New feature (non-breaking change that adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] Documentation update
 
@@ -577,7 +577,7 @@ git push origin advanced-review-demo
                         <h4><i class="fas fa-balance-scale"></i> Balance & Pragmatism</h4>
                         <ul>
                             <li>Right-size reviews to change significance</li>
-                            <li>Distinguish between must-fix and nice-to-have</li>
+                            <li>Distinguish between must-fix and nice-to-have suggestions</li>
                             <li>Consider time constraints and priorities</li>
                             <li>Allow different but valid approaches</li>
                         </ul>
@@ -638,7 +638,7 @@ We believe code reviews are collaborative learning experiences that improve both
 - [ ] Code is readable and well-structured
 - [ ] Tests cover new functionality
 - [ ] Documentation is updated
-- [ ] Security considerations addressed
+- [ ] Security considerations are addressed
 - [ ] Performance implications considered
 - [ ] Error handling is appropriate
 

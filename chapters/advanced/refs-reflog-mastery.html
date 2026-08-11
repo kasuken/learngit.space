@@ -87,7 +87,7 @@
             </div>
 
             <h2><i class="fas fa-satellite-dish"></i> Mission Briefing</h2>
-            <p>Commander, every spacecraft needs a sophisticated navigation system to track its position, trajectory, and maintain logs of all movements for emergency recovery. In Git, this navigation system consists of <strong>references (refs)</strong> and the <strong>reference log (reflog)</strong> - the internal mechanisms that track every commit, branch, and state change in your repository.</p>
+            <p>Commander, every spacecraft needs a sophisticated navigation system to track its position and trajectory and maintain logs of all movements for emergency recovery. In Git, this navigation system consists of <strong>references (refs)</strong> and the <strong>reference log (reflog)</strong> — the internal mechanisms that track every commit, branch, and state change in your repository.</p>
             
             <p>While cadets use Git through simple commands, commanders understand the underlying reference system. This knowledge enables advanced operations like recovering "lost" commits, understanding Git's internal structure, and performing sophisticated repository maintenance that would be impossible without deep systems knowledge.</p>
 
@@ -96,7 +96,7 @@
                 <ul>
                     <li>Master Git's reference system: branches, tags, HEAD, and symbolic refs</li>
                     <li>Understand the .git directory structure and object database</li>
-                    <li>Utilize reflog for commit recovery and history tracking</li>
+                    <li>Use reflog for commit recovery and history tracking</li>
                     <li>Perform advanced ref management and repository maintenance</li>
                     <li>Recover from catastrophic repository states using ref knowledge</li>
                     <li>Implement custom reference workflows for enterprise scenarios</li>
@@ -128,7 +128,7 @@
 
             <div class="content-block">
                 <h3>Understanding Git References</h3>
-                <p>In the spacecraft analogy, references are like navigation beacons that point to specific coordinates (commits) in your mission history. Every branch name, tag, and HEAD pointer is a reference stored as a simple file containing a SHA-1 hash.</p>
+                <p>In the spacecraft analogy, references are like navigation beacons that point to specific coordinates (commits) in your mission history. Every branch name, tag, and HEAD pointer is a reference stored as a simple file containing an object hash.</p>
 
                 <div class="code-example">
                     <div class="code-header">
@@ -150,7 +150,7 @@ git show-ref | grep remotes</code></pre>
 
                 <div class="info-box commander">
                     <h4><i class="fas fa-info-circle"></i> Commander Insight</h4>
-                    <p>References are stored in <code>.git/refs/</code> as plain text files. Each file contains a single SHA-1 hash pointing to a commit object. This simple system enables Git's powerful branching and history management.</p>
+                    <p>References are stored in <code>.git/refs/</code> as plain text files. Each file contains a single object hash pointing to a commit object. This simple system enables Git's powerful branching and history management.</p>
                 </div>
             </div>
 
@@ -195,7 +195,7 @@ git symbolic-ref HEAD</code></pre>
 
             <div class="content-block">
                 <h3>The HEAD Reference</h3>
-                <p>HEAD is Git's most important reference - it's your current position in the repository timeline. Think of it as your spacecraft's current coordinates that determine what you see in your working directory.</p>
+                <p>HEAD is Git's most important reference — it is your current position in the repository timeline. Think of it as your spacecraft's current coordinates that determine what you see in your working directory.</p>
 
                 <div class="comparison-table">
                     <table>
@@ -216,7 +216,7 @@ git symbolic-ref HEAD</code></pre>
                             </tr>
                             <tr>
                                 <td>Detached</td>
-                                <td>commit SHA-1</td>
+                                <td>commit hash</td>
                                 <td>Not on any branch</td>
                                 <td>Specific commit content</td>
                             </tr>
@@ -262,7 +262,7 @@ git checkout HEAD~2
 git status</code></pre>
                         </li>
                         <li>Examine what changed:
-                            <pre><code>cat .git/HEAD  # Should be a SHA-1 now
+                            <pre><code>cat .git/HEAD  # Should be a commit hash now
 git branch     # Shows detached state</code></pre>
                         </li>
                         <li>Return to your branch:
@@ -286,11 +286,11 @@ cat .git/HEAD  # Should be ref: refs/heads/main</code></pre>
 
             <div class="content-block">
                 <h3>Understanding Reflog</h3>
-                <p>The reflog (reference log) is Git's flight recorder - it tracks every movement of references, especially HEAD. Unlike the commit history which can be rewritten, reflog maintains a complete log of where your references have pointed, making it invaluable for recovery operations.</p>
+                <p>The reflog (reference log) is Git's flight recorder — it tracks every movement of references, especially HEAD. Unlike commit history, which can be rewritten, the reflog maintains a complete log of where your references have pointed, making it invaluable for recovery operations.</p>
 
                 <div class="warning-box">
                     <h4><i class="fas fa-exclamation-triangle"></i> Critical Knowledge</h4>
-                    <p>Reflog is local only - it doesn't get pushed or pulled. It's your personal navigation history, typically kept for 90 days by default.</p>
+                    <p>The reflog is local-only — it does not get pushed or pulled. It is your personal navigation history, typically kept for 90 days by default.</p>
                 </div>
 
                 <div class="code-example">
@@ -469,12 +469,12 @@ git update-ref -d refs/heads/old-branch
 git symbolic-ref HEAD refs/heads/main
 
 # Expire reflog entries
-git reflog expire --expire=30.days --all
+git reflog expire --expire=30.days.ago --all
 
 # Prune unreachable reflog entries
-git reflog expire --expire-unreachable=7.days --all
+git reflog expire --expire-unreachable=7.days.ago --all
 
-# Force reflog expiration
+# Prune unreachable objects after expiration
 git gc --prune=now</code></pre>
                 </div>
 
@@ -483,7 +483,7 @@ git gc --prune=now</code></pre>
                     <ul>
                         <li>Always use <code>git update-ref</code> instead of direct file manipulation</li>
                         <li>Configure reflog retention based on your recovery requirements</li>
-                        <li>Regular <code>git gc</code> maintains optimal repository performance</li>
+                        <li>Run <code>git gc</code> regularly to maintain optimal repository performance</li>
                         <li>Monitor reflog size in large repositories with frequent operations</li>
                         <li>Document custom reference workflows for team consistency</li>
                     </ul>
@@ -500,7 +500,7 @@ git gc --prune=now</code></pre>
 git reflog --date=iso | head -5</code></pre>
                         </li>
                         <li>Clean up old reflog entries (be careful in real repos):
-                            <pre><code>git reflog expire --expire=1.day --all
+                            <pre><code>git reflog expire --expire=1.day.ago --all
 git reflog | wc -l  # Should be fewer entries</code></pre>
                         </li>
                         <li>Verify repository integrity:

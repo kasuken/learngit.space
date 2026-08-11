@@ -6,28 +6,28 @@
     <title>Git Status - Checking Repository Status and Changes</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Master git status command to monitor your repository. Learn to check file states, track modifications, and understand working directory status.">
+    <meta name="description" content="Master the git status command to monitor your repository. Learn to check file states, track modifications, and understand working directory status.">
     <meta name="keywords" content="git status, check Git changes, repository status, Git file states, working directory, Git tracking">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/systems-check.html">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Git Status - Checking Repository Status and Changes">
-    <meta property="og:description" content="Master git status command to monitor your repository. Learn to check file states, track modifications, and understand working directory status.">
+    <meta property="og:description" content="Master the git status command to monitor your repository. Learn to check file states, track modifications, and understand working directory status.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/systems-check.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/systems-check.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Git Status - Checking Repository Status and Changes">
-    <meta name="twitter:description" content="Master git status command to monitor your repository. Learn to check file states, track modifications, and understand working directory status.">
+    <meta name="twitter:description" content="Master the git status command to monitor your repository. Learn to check file states, track modifications, and understand working directory status.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT7M",
+      "timeRequired": "PT6M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,7 +70,7 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-chart-bar"></i> Systems Check</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 7 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div>
             <p class="subtitle">Git Status</p>
         </header>
         <div class="mission-brief">
@@ -89,7 +89,7 @@
                 <li>Which files have changed</li>
                 <li>Which files are staged for commit</li>
                 <li>Which files are untracked</li>
-                <li>How your local branch compares to remote</li>
+                <li>How your local branch compares to its remote branch</li>
             </ul>
             <h2>Understanding the Output</h2>
             <p>When you run <code>git status</code> in a new repository with one file, you might see:</p>
@@ -135,7 +135,7 @@ Changes to be committed:
             </div>
             <p>Output looks like:</p>
             <pre><code>A  README.md
-M  script.js
+ M script.js
 ?? new-file.txt</code></pre>
             <p>Codes:</p>
             <ul>
@@ -145,7 +145,7 @@ M  script.js
                 <li><code>D</code>: Deleted</li>
                 <li><code>R</code>: Renamed</li>
             </ul>
-            <h2>Why Status is Essential</h2>
+            <h2>Why Status Is Essential</h2>
             <p>Run <code>git status</code> often. It's your mission control readout, showing exactly what's happening. Before committing, pushing, or pulling, check status first.</p>
             <div class="mission-brief">
                 <p><strong>Pro Tip:</strong> Many developers run <code>git status</code> dozens of times per day. It's muscle memory. There's no such thing as checking status too often.</p>
@@ -175,15 +175,15 @@ nothing to commit, working tree clean</code></pre>
                 </ol>
                 <p>Watch how status changes as you modify your project.</p>
             </div>
-            <h2>Next: The Staging Area</h2>
-            <p>Now you can check your system status. Next, we'll learn about the staging area—the launch pad where you prepare files for commit.</p>
+            <h2>Next: Cargo Manifest</h2>
+            <p>Now you can check your repository status. Next, we'll learn about <code>.gitignore</code>&mdash;telling Git which files it should never track.</p>
         </article>
         <div class="navigation">
             <a href="initiating-launch.html" class="nav-link">← Previous: Initiating Launch</a>
-            <a href="staging-bay.html" class="nav-link">Next: The Staging Bay →</a>
+            <a href="cargo-manifest.html" class="nav-link">Next: Cargo Manifest →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 9 of 34</p>
+            <p>Mission Control Training Program • Phase 9 of 41</p>
         </footer>
     </div>
     <script>

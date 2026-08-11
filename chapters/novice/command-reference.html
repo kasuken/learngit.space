@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Git Command Reference - Quick Guide to All Git Commands</title>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Git Command Reference - Quick Guide to Essential Git Commands</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Comprehensive Git command reference. Quick lookup for all essential Git commands with examples and usage.">
+    <meta name="description" content="Comprehensive Git command reference. Quickly look up essential Git commands with examples and usage.">
     <meta name="keywords" content="Git commands, Git reference, Git cheat sheet, command guide, Git documentation">
     <meta name="author" content="Emanuele Bartolesi">
     <link rel="canonical" href="https://www.learngit.space/chapters/novice/command-reference.html">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Git Command Reference - Quick Guide to All Git Commands">
-    <meta property="og:description" content="Comprehensive Git command reference. Quick lookup for all essential Git commands with examples and usage.">
+    <meta property="og:title" content="Git Command Reference - Quick Guide to Essential Git Commands">
+    <meta property="og:description" content="Comprehensive Git command reference. Quickly look up essential Git commands with examples and usage.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/command-reference.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/command-reference.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Git Command Reference - Quick Guide to All Git Commands">
-    <meta name="twitter:description" content="Comprehensive Git command reference. Quick lookup for all essential Git commands with examples and usage.">
+    <meta name="twitter:title" content="Git Command Reference - Quick Guide to Essential Git Commands">
+    <meta name="twitter:description" content="Comprehensive Git command reference. Quickly look up essential Git commands with examples and usage.">
     <meta name="twitter:creator" content="@kasuken">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
-<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>    <script src="../../js/analytics.js"></script>
 
     <!-- Structured Data for Educational Content -->
@@ -31,7 +31,7 @@
     {
       "@context": "https://schema.org",
       "@type": "LearningResource",
-      "name": "Git Command Reference - Quick Guide to All Git Commands",
+      "name": "Git Command Reference - Quick Guide to Essential Git Commands",
       "description": "Git Commands Cheat Sheet",
       "url": "https://www.learngit.space/chapters/novice/command-reference.html",
       "learningResourceType": "Tutorial",
@@ -42,7 +42,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT3M",
+      "timeRequired": "PT7M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -64,8 +64,8 @@
     <div class="container">
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header><h1><i class="fas fa-book"></i> Quick Command Reference</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 3 min read</div><p class="subtitle">Git Commands Cheat Sheet</p></header>
-        <div class="mission-brief"><p><strong>Mission Phase 33</strong> • Reference Material</p></div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 7 min read</div><p class="subtitle">Git Commands Cheat Sheet</p></header>
+        <div class="mission-brief"><p><strong>Mission Phase 36</strong> • Reference Material</p></div>
         <article>
             <h2>Essential Commands</h2>
             <h3>Setup & Configuration</h3>
@@ -103,10 +103,10 @@ git commit --amend            # Amend last commit
 git revert &lt;commit&gt;           # Revert commit
 git reset --soft HEAD~1       # Undo commit, keep changes staged
 git reset HEAD~1              # Undo commit, unstage changes
-git reset --hard HEAD~1       # Undo commit, discard changes</code></pre>
+git reset --hard HEAD~1       # Undo commit, discard tracked changes</code></pre>
             <h3>Stashing</h3>
             <pre><code>git stash
-git stash save "message"
+git stash push -m "message"
 git stash list
 git stash apply
 git stash pop
@@ -192,13 +192,13 @@ git push origin main</code></pre>
                 </ul>
             </div>
             <h2>Next: Mission Complete</h2>
-            <p>You now have a complete command reference. Bookmark this page! Next, we'll wrap up your training and discuss your journey ahead.</p>
+            <p>You now have a practical command reference. Bookmark this page! Next, we'll wrap up your training and chart your journey ahead.</p>
         </article>
         <div class="navigation">
             <a href="astronaut-profile.html" class="nav-link">← Previous: Astronaut Profile</a>
-            <a href="mission-complete.html" class="nav-link">Next: Mission Complete →</a>
+            <a href="copilot-pre-flight-briefing.html" class="nav-link">Next: Pre-Flight Briefing →</a>
         </div>
-        <footer><p>Mission Control Training Program • Phase 33 of 34</p></footer>
+        <footer><p>Mission Control Training Program • Phase 36 of 41</p></footer>
     </div>
     <script>const starsContainer = document.getElementById('stars');for (let i = 0; i < 100; i++) {const star = document.createElement('div');star.className = 'star';star.style.left = Math.random() * 100 + '%';star.style.top = Math.random() * 100 + '%';star.style.animationDelay = Math.random() * 3 + 's';starsContainer.appendChild(star);}</script>
 </body>

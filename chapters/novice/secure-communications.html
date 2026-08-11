@@ -15,7 +15,7 @@
     <meta property="og:title" content="SSH Keys for Git - Secure GitHub Authentication Setup">
     <meta property="og:description" content="Set up SSH keys for secure Git authentication. Learn to generate SSH keys, add them to GitHub, and connect repositories securely.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.learngit.space/novice/secure-communications.html">
+    <meta property="og:url" content="https://www.learngit.space/chapters/novice/secure-communications.html">
     <meta property="og:site_name" content="LearnGit.space">
     
     <!-- Twitter Card Meta Tags -->
@@ -27,7 +27,7 @@
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="../../css/styles.css">
     <script src="../../js/progress-tracker.js"></script>
     <script src="../../js/analytics.js"></script>
 
@@ -47,7 +47,7 @@
       },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "timeRequired": "PT6M",
+      "timeRequired": "PT4M",
       "author": {
         "@type": "Person",
         "name": "Emanuele Bartolesi"
@@ -70,43 +70,43 @@
         <a href="../../index.html" class="home-link">← Back to Mission Control</a>
         <header>
             <h1><i class="fas fa-lock"></i> Secure Communications</h1>
-            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 6 min read</div>
+            <div class="reading-time-badge"><i class="fas fa-book-open"></i> 4 min read</div>
             <p class="subtitle">SSH Keys</p>
         </header>
         <div class="mission-brief">
-            <p><strong>Mission Phase 15</strong> • Difficulty: Intermediate</p>
+            <p><strong>Mission Phase 11</strong> • Difficulty: Intermediate</p>
         </div>
         <article>
             <h2>Encrypted Transmissions</h2>
-            <p>SSH keys provide secure, password-free authentication between your spacecraft and mission control. They use public-key cryptography—industry standard security.</p>
+            <p>SSH keys provide secure authentication between your spacecraft and mission control without requiring your GitHub account password. They use public-key cryptography, an industry-standard security model.</p>
             <h2>Why SSH Keys?</h2>
             <ul>
                 <li>More secure than passwords</li>
                 <li>No typing passwords repeatedly</li>
-                <li>Required for many Git operations</li>
-                <li>Can't be brute-forced</li>
+                <li>Convenient for Git operations with remotes</li>
+                <li>Resistant to brute-force attacks</li>
             </ul>
             <h2>Checking for Existing Keys</h2>
             <div class="command-example">
                 <pre><code>ls -la ~/.ssh</code></pre>
             </div>
             <p>Look for files like <code>id_rsa.pub</code> or <code>id_ed25519.pub</code>. If they exist, you already have keys!</p>
-            <h2>Generating New SSH Key</h2>
+            <h2>Generating a New SSH Key</h2>
             <div class="command-example">
                 <pre><code>ssh-keygen -t ed25519 -C "your.email@example.com"</code></pre>
             </div>
-            <p>Press Enter to accept default file location. Enter a passphrase (recommended but optional).</p>
+            <p>Press Enter to accept the default file location. Enter a passphrase (recommended but optional).</p>
             <p>This creates two files:</p>
             <ul>
                 <li><code>id_ed25519</code>: Private key (keep secret!)</li>
                 <li><code>id_ed25519.pub</code>: Public key (share with GitHub)</li>
             </ul>
-            <h2>Starting SSH Agent</h2>
+            <h2>Starting the SSH Agent</h2>
             <div class="command-example">
                 <pre><code>eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519</code></pre>
             </div>
-            <h2>Adding Key to GitHub</h2>
+            <h2>Adding the Key to GitHub</h2>
             <ol>
                 <li>Copy your public key:</li>
             </ol>
@@ -120,31 +120,31 @@ ssh-add ~/.ssh/id_ed25519</code></pre>
                 <li>Give it a title (e.g., "Personal Laptop")</li>
                 <li>Click "Add SSH key"</li>
             </ol>
-            <h2>Testing Connection</h2>
+            <h2>Testing the Connection</h2>
             <div class="command-example">
                 <pre><code>ssh -T git@github.com</code></pre>
             </div>
             <p>You should see: "Hi username! You've successfully authenticated..."</p>
-            <h2>HTTPS vs SSH</h2>
+            <h2>HTTPS vs. SSH</h2>
             <p>Two ways to connect to GitHub:</p>
             <ul>
-                <li><strong>HTTPS:</strong> <code>https://github.com/user/repo.git</code> (requires password/token)</li>
+                <li><strong>HTTPS:</strong> <code>https://github.com/user/repo.git</code> (uses browser sign-in, a credential manager, or a token)</li>
                 <li><strong>SSH:</strong> <code>git@github.com:user/repo.git</code> (uses SSH keys)</li>
             </ul>
-            <p>SSH is more convenient for frequent pushing/pulling.</p>
+            <p>SSH is often more convenient for frequent pushing and pulling.</p>
             <div class="mission-brief">
                 <h3>Security Note</h3>
                 <p>Never share your private key (<code>id_ed25519</code>). Only share the public key (<code>id_ed25519.pub</code>). The private key is like your password—keep it secret!</p>
             </div>
-            <h2>Next: Transmitting to Space</h2>
-            <p>Your secure communications channel is established. Now let's push your code to GitHub!</p>
+            <h2>Next: The Staging Bay</h2>
+            <p>Your secure communications channel is established. Next, head to the staging bay and learn <code>git add</code>&mdash;preparing files for commit.</p>
         </article>
         <div class="navigation">
             <a href="cargo-manifest.html" class="nav-link">← Previous: Cargo Manifest</a>
-            <a href="transmission-uplink.html" class="nav-link">Next: Transmission Uplink →</a>
+            <a href="staging-bay.html" class="nav-link">Next: The Staging Bay →</a>
         </div>
         <footer>
-            <p>Mission Control Training Program • Phase 15 of 34</p>
+            <p>Mission Control Training Program • Phase 11 of 41</p>
         </footer>
     </div>
     <script>

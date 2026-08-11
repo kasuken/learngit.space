@@ -82,14 +82,14 @@
                 <i class="fas fa-satellite"></i>
                 <div>
                     <strong>CI/CD Mission Protocol</strong>
-                    <p>You are entering advanced pipeline engineering where you'll create self-managing deployment systems that automatically test, build, and deploy your applications across multiple environments with zero human intervention.</p>
+                    <p>You are entering advanced pipeline engineering where you'll create self-managing deployment systems that automatically test, build, and deploy your applications across multiple environments with minimal manual intervention.</p>
                 </div>
             </div>
 
             <h2><i class="fas fa-rocket"></i> Mission Briefing</h2>
             <p>Commander, the most sophisticated space missions are those that operate autonomously across vast distances. Just as spacecraft deploy automated systems for navigation, life support, and communication, your development projects need intelligent pipelines that automatically validate code quality, run comprehensive tests, and deploy applications to production environments without manual intervention.</p>
             
-            <p>You'll master <strong>GitHub Actions</strong> and <strong>CI/CD Pipeline Engineering</strong> - the mission control systems that transform your repositories into fully automated development and deployment platforms. From simple workflow automation to complex multi-environment deployment strategies, you'll build pipelines that ensure every code change is thoroughly validated before reaching users.</p>
+            <p>You'll master <strong>GitHub Actions</strong> and <strong>CI/CD Pipeline Engineering</strong> — the mission control systems that transform your repositories into fully automated development and deployment platforms. From simple workflow automation to complex multi-environment deployment strategies, you'll build pipelines that ensure every code change is thoroughly validated before reaching users.</p>
 
             <div class="learning-objectives">
                 <h3><i class="fas fa-crosshairs"></i> Pipeline Engineering Objectives</h3>
@@ -208,7 +208,7 @@
                                     <li>Located in <code>.github/workflows/</code></li>
                                     <li>Triggered by events (push, PR, schedule)</li>
                                     <li>Contains one or more jobs</li>
-                                    <li>Can run in parallel or sequential</li>
+                                    <li>Can run in parallel or sequentially</li>
                                 </ul>
                                 <div class="component-example">
                                     <strong>Example:</strong> <code>ci.yml</code>, <code>deploy.yml</code>, <code>release.yml</code>
@@ -262,7 +262,7 @@
                             <div class="component-content">
                                 <p><strong>Definition:</strong> Reusable units of code for common tasks</p>
                                 <ul>
-                                    <li>Pre-built by GitHub community</li>
+                                    <li>Pre-built by the GitHub community</li>
                                     <li>Custom actions you create</li>
                                     <li>JavaScript, Docker, or composite</li>
                                     <li>Published on GitHub Marketplace</li>
@@ -280,7 +280,7 @@
         <div class="content-section">
             <h2><i class="fas fa-file-code"></i> Workflow Engineering Fundamentals</h2>
             
-            <p>Master the art of creating sophisticated GitHub Actions workflows that automate every aspect of your development lifecycle. From basic CI to complex multi-environment deployments.</p>
+            <p>Master the art of creating sophisticated GitHub Actions workflows that automate every aspect of your development lifecycle, from basic CI to complex multi-environment deployments.</p>
 
             <div class="workflow-fundamentals">
                 <div class="workflow-section basic-workflow">
@@ -353,7 +353,7 @@ jobs:
       
       # Step 6: Upload test results
       - name: 📊 Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           file: ./coverage/lcov.info
           flags: unittests
@@ -454,7 +454,7 @@ jobs:
       
       - name: Upload Coverage
         if: matrix.upload-coverage
-        uses: codecov/codecov-action@v3</code></pre>
+        uses: codecov/codecov-action@v4</code></pre>
                                 </div>
 
                                 <div class="pattern-card reusable-workflow">
@@ -557,7 +557,7 @@ jobs:
         run: echo "version=$(date +%Y%m%d)-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-${{ steps.version.outputs.version }}
           path: |
@@ -571,7 +571,7 @@ jobs:
     
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-${{ needs.build.outputs.version }}
       
@@ -619,21 +619,21 @@ jobs:
       
       # Security scanning with CodeQL
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: javascript, python
       
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
       
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
       
       # Dependency vulnerability scanning
       - name: Run npm audit
         run: |
           npm audit --audit-level=critical
-          npm audit --audit-level=high --dry-run
+          npm audit --audit-level=high
       
       # License compliance check
       - name: License compliance
@@ -677,7 +677,7 @@ jobs:
   container-security:
     name: 🐳 Container Security Scan
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.modified, 'Dockerfile')
+    if: github.event_name == 'push' && contains(join(github.event.head_commit.modified, ','), 'Dockerfile')
     
     steps:
       - uses: actions/checkout@v4
@@ -693,7 +693,7 @@ jobs:
           output: 'trivy-results.sarif'
       
       - name: Upload Trivy scan results
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
 
@@ -813,7 +813,7 @@ jobs:
   uses: sigstore/cosign-installer@v3
 
 - name: Upload signed artifact
-  uses: actions/upload-artifact@v3
+  uses: actions/upload-artifact@v4
   with:
     name: signed-build
     path: |
@@ -1073,7 +1073,7 @@ jobs:
           fi
       
       - name: 📤 Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-results-${{ steps.version.outputs.version }}
@@ -1091,12 +1091,12 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: 🔍 Run CodeQL Analysis
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: javascript
       
-      - uses: github/codeql-action/autobuild@v2
-      - uses: github/codeql-action/analyze@v2
+      - uses: github/codeql-action/autobuild@v3
+      - uses: github/codeql-action/analyze@v3
       
       - name: 🔐 Check for secrets
         run: |
@@ -1124,7 +1124,7 @@ jobs:
           cache: 'npm'
       
       - name: 📦 Install dependencies
-        run: npm ci --production
+        run: npm ci --omit=dev
       
       - name: 🏗️ Create production build
         run: |
@@ -1145,7 +1145,7 @@ jobs:
           EOF
       
       - name: 📤 Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: production-build-${{ needs.quality-gate.outputs.version }}
           path: dist/
@@ -1161,7 +1161,7 @@ jobs:
     
     steps:
       - name: 📥 Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: production-build-${{ needs.quality-gate.outputs.version }}
           path: ./build
@@ -1209,7 +1209,7 @@ jobs:
     
     steps:
       - name: 📥 Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: production-build-${{ needs.quality-gate.outputs.version }}
           path: ./build
@@ -1271,7 +1271,7 @@ jobs:
           ## Rollback Information
           Previous version can be restored using:
           \`\`\`bash
-          # Emergency rollback command
+          # Emergency rollback command; redeploy the previous artifact if needed
           git revert ${{ github.sha }}
           \`\`\`
           EOF
@@ -1280,7 +1280,7 @@ jobs:
           cat deployment-summary.md
       
       - name: 📤 Upload deployment report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: deployment-report-${{ needs.quality-gate.outputs.version }}
           path: deployment-summary.md
@@ -1434,7 +1434,7 @@ echo "   - Monitoring and team notifications"</code></pre>
                 <div class="mission-nav-buttons">
                     <a href="git-hooks-automation.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>
                     <a href="../../index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Mission Control</a>
-                    <button class="btn btn-primary" disabled><i class="fas fa-rocket"></i> Next Mission (Coming Soon)</button>
+                    <a href="tool-integration-enterprise.html" class="btn btn-primary">Next: Tool Integration <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

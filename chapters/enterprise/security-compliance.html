@@ -99,7 +99,7 @@
                     <li>Design comprehensive audit trails and compliance reporting systems</li>
                     <li>Configure enterprise security policies and enforcement mechanisms</li>
                     <li>Implement automated security scanning and vulnerability management</li>
-                    <li>Establish compliance frameworks for SOC2, PCI-DSS, HIPAA, and other standards</li>
+                    <li>Establish compliance frameworks for SOC 2, PCI DSS, HIPAA, and other standards</li>
                 </ul>
             </div>
 
@@ -143,7 +143,7 @@
                         <div class="step-icon"><i class="fas fa-user-shield"></i></div>
                         <div class="step-content">
                             <h4>Developer Identity</h4>
-                            <p>GPG key pair uniquely identifies developer with cryptographic proof</p>
+                            <p>A GPG key pair uniquely identifies a developer with cryptographic proof</p>
                         </div>
                     </div>
                     
@@ -153,7 +153,7 @@
                         <div class="step-icon"><i class="fas fa-pen-fancy"></i></div>
                         <div class="step-content">
                             <h4>Commit Signing</h4>
-                            <p>Private key creates digital signature for commit content and metadata</p>
+                            <p>The private key creates a digital signature for commit content and metadata</p>
                         </div>
                     </div>
                     
@@ -163,7 +163,7 @@
                         <div class="step-icon"><i class="fas fa-check-circle"></i></div>
                         <div class="step-content">
                             <h4>Verification</h4>
-                            <p>Public key verifies signature authenticity and detects tampering</p>
+                            <p>The public key verifies signature authenticity and detects tampering</p>
                         </div>
                     </div>
                     
@@ -173,7 +173,7 @@
                         <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
                         <div class="step-content">
                             <h4>Trust & Audit</h4>
-                            <p>Verified commits provide non-repudiable audit trail for compliance</p>
+                            <p>Verified commits provide a non-repudiable audit trail for compliance</p>
                         </div>
                     </div>
                 </div>
@@ -231,7 +231,7 @@ gpg --list-secret-keys --keyid-format=long
 # Example output:
 # sec   rsa4096/ABC123DEF456 2025-01-01 [SC] [expires: 2027-01-01]
 #       1234567890ABCDEF1234567890ABCDEF12345678
-# uid                 [ultimate] John Doe (Enterprise Development Key 2025) <john.doe@company.com>
+# uid                 [ultimate] John Doe (Enterprise Development Key 2025) &lt;john.doe@company.com&gt;
 # ssb   rsa4096/456DEF789ABC 2025-01-01 [E] [expires: 2027-01-01]
 
 # Configure Git to use GPG key (use the Key ID: ABC123DEF456)
@@ -265,7 +265,7 @@ git log --show-signature -1
 
 # Expected output shows:
 # gpg: Signature made [date] using RSA key ID ABC123DEF456
-# gpg: Good signature from "John Doe (Enterprise Development Key 2025) <john.doe@company.com>"
+# gpg: Good signature from "John Doe (Enterprise Development Key 2025) &lt;john.doe@company.com&gt;"
 
 # Create signed tag
 git tag -s v1.0.0-security-test -m "Security test tag with GPG signature"
@@ -285,7 +285,7 @@ git tag -v v1.0.0-security-test</code></pre>
                     <div class="strategy-card">
                         <h4><i class="fas fa-server"></i> Centralized Key Server</h4>
                         <div class="strategy-content">
-                            <p>Deploy internal GPG key server for enterprise key distribution and management</p>
+                            <p>Deploy an internal GPG key server for enterprise key distribution and management</p>
                             
                             <div class="code-example">
                                 <pre><code class="language-bash"># Configure internal key server
@@ -303,7 +303,7 @@ gpg --keyserver keyserver.company.com --search-keys john.doe@company.com</code><
                     <div class="strategy-card">
                         <h4><i class="fas fa-certificate"></i> Web of Trust</h4>
                         <div class="strategy-content">
-                            <p>Establish trust relationships between team members through key signing</p>
+                            <p>Establish trust relationships among team members through key signing</p>
                             
                             <div class="code-example">
                                 <pre><code class="language-bash"># Sign colleague's key after verification
@@ -536,9 +536,9 @@ for tag in $(git tag -l); do
     echo ""
 done
 
-# Verify tag during checkout
-git checkout v2.1.0
-git verify-tag HEAD</code></pre>
+# Verify tag before checkout
+git verify-tag v2.1.0
+git checkout v2.1.0</code></pre>
                         </div>
                     </div>
                 </div>
@@ -570,8 +570,8 @@ while read oldrev newrev refname; do
     # Check if pushing to protected branch
     if [[ $refname == "refs/heads/main" ]]; then
         # Verify all commits are signed
-        git rev-list $oldrev..$newrev | while read commit; do
-            if ! git verify-commit $commit > /dev/null 2>&1; then
+        for commit in $(git rev-list "$oldrev..$newrev"); do
+            if ! git verify-commit "$commit" > /dev/null 2>&1; then
                 echo "Error: Commit $commit is not signed"
                 exit 1
             fi
@@ -1123,7 +1123,7 @@ license-checker --onlyAllow 'MIT;Apache-2.0;BSD-3-Clause;ISC' --summary</code></
                             <li><strong>Mean Time to Detection (MTTD):</strong> Average time to identify vulnerabilities</li>
                             <li><strong>Coverage Rate:</strong> Percentage of code under security scanning</li>
                             <li><strong>False Positive Rate:</strong> Accuracy of security scanning tools</li>
-                            <li><strong>Vulnerability Density:</strong> Vulnerabilities per lines of code</li>
+                            <li><strong>Vulnerability Density:</strong> Vulnerabilities per line of code</li>
                         </ul>
                     </div>
                     
@@ -1155,7 +1155,7 @@ license-checker --onlyAllow 'MIT;Apache-2.0;BSD-3-Clause;ISC' --summary</code></
                 <h2><i class="fas fa-trophy"></i> Mission Status: COMPLETE</h2>
                 <p>Outstanding achievement, Commander! You have successfully mastered enterprise security and compliance for version control systems. Your expertise in GPG signing, audit trails, vulnerability management, and compliance frameworks will enable you to implement robust security measures that meet the most stringent enterprise and regulatory requirements.</p>
                 
-                <p>Your next commander operation will be <strong>Performance Optimization</strong>, where you'll learn to maintain and optimize repository performance for large-scale enterprise environments.</p>
+                <p>Your next commander-level operation will be <strong>Performance Optimization</strong>, where you'll learn to maintain and optimize repository performance for large-scale enterprise environments.</p>
                 
                 <div class="mission-nav-buttons">
                     <a href="git-lfs-mastery.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Mission</a>

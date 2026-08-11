@@ -149,7 +149,7 @@
                                 <div class="diagnostic-commands">
                                     <div class="command-example">
                                         <code>git gc --aggressive --prune=now</code>
-                                        <span class="command-desc">Aggressive cleanup test</span>
+                                        <span class="command-desc">Aggressive cleanup after backup</span>
                                     </div>
                                     <div class="command-example">
                                         <code>git log --oneline --all | wc -l</code>
@@ -366,7 +366,9 @@ for pack in pack-*.idx; do
 done
 
 # Extract objects from corrupted packs
-git unpack-objects < pack-*.pack
+for packfile in pack-*.pack; do
+  git unpack-objects < "$packfile"
+done
 
 # Remove corrupted packs
 rm pack-*.pack pack-*.idx
@@ -632,7 +634,7 @@ done</code></pre>
                                     <strong>Scheduled Repository Verification</strong>
                                     <div class="code-block">
 <pre><code># Cron job for daily verification (add to crontab)
-0 2 * * * cd /path/to/repo && git fsck --full > /tmp/git-fsck.log 2>&1
+0 2 * * * cd /path/to/repo && mkdir -p logs && git fsck --full > logs/git-fsck.log 2>&1
 
 # Weekly comprehensive backup
 0 0 * * 0 cd /path/to/repo && git bundle create backup-$(date +%Y%m%d).bundle --all</code></pre>
@@ -728,7 +730,7 @@ check_repository_health</code></pre>
                                 </div>
                                 <div class="action-item">
                                     <strong>Work Stoppage</strong>
-                                    <p>All team members stop pushing/pulling until recovery complete</p>
+                                    <p>All team members stop pushing and pulling until recovery is complete</p>
                                     <code>git config --global push.default nothing</code>
                                 </div>
                             </div>
@@ -778,7 +780,7 @@ done</code></pre>
                                         <ul>
                                             <li>Overall incident coordination</li>
                                             <li>Communication with stakeholders</li>
-                                            <li>Decision making authority</li>
+                                            <li>Decision-making authority</li>
                                             <li>Recovery progress tracking</li>
                                         </ul>
                                     </div>
@@ -786,7 +788,7 @@ done</code></pre>
                                         <h5>🔧 Technical Lead</h5>
                                         <ul>
                                             <li>Execute recovery procedures</li>
-                                            <li>Technical decision making</li>
+                                            <li>Technical decision-making</li>
                                             <li>Tool and script development</li>
                                             <li>Risk assessment</li>
                                         </ul>
@@ -926,7 +928,7 @@ main "$@"</code></pre>
                 <div class="section-header">
                     <div class="section-number">05</div>
                     <h2><i class="fas fa-medal"></i> Emergency Response Mastery</h2>
-                    <p>Critical disaster recovery skills acquired - Ready for any Git emergency</p>
+                    <p>Critical disaster recovery skills acquired — ready for any Git emergency</p>
                 </div>
 
                 <div class="emergency-readiness">
@@ -998,9 +1000,9 @@ main "$@"</code></pre>
                         <a href="../../index.html" class="btn btn-primary">
                             <i class="fas fa-home"></i> Return to Mission Control
                         </a>
-                        <button class="btn btn-secondary" disabled>
-                            <i class="fas fa-tools"></i> Phase 6.2 Coming Soon
-                        </button>
+                        <a href="advanced-troubleshooting.html" class="btn btn-secondary">
+                            <i class="fas fa-tools"></i> Next: Advanced Troubleshooting
+                        </a>
                     </div>
                 </div>
             </div>
